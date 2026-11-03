@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Secrets (Flask secret keys, Hugging Face tokens)
+.env
+*.env
+
+# Engine outputs
+runs/
+
+# Flask teammate's folders (adjust to their names)
+uploads/
+instance/
+*.db
+*.sqlite3
+
+# Big biology files: never commit these
+*.ckpt
+*.pt
+*.pth
+*.fa
+*.fasta
+*.fa.gz
+*.2bit
+*.bw
+*.bigwig
+*.bam
+*.vcf.gz
+
+# Editor / OS junk
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

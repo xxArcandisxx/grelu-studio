@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saturation Mutagenesis · gReLU Studio</title>
+<link rel="stylesheet" href="/static/studio.css">
+<header class="top"><a class="brand" href="/">gReLU Studio</a><span>Regulatory genomics</span></header>
+<main>
+{% include 'analysis_nav.html' %}
+{% include 'variant_nav.html' %}
+<div class="intro"><h1>Saturation Mutagenesis</h1><p>Run a live scan of eight positions at a curated human transcription-start region using the local Genentech GM12878 DNase model.</p></div>
+<div class="layout">
+<aside class="panel"><h2>Reference locus</h2>
+<form method="post" id="scan-form">
+<label for="locus">Human reference (hg38)</label>
+<select id="locus" name="locus">{% for key, locus in loci.items() %}<option value="{{ key }}"{% if selected == key %} selected{% endif %}>{{ locus.label }}</option>{% endfor %}</select>
+<div class="actions"><button id="scan-button" type="submit"{% if not available %} disabled{% endif %}>Run live scan</button></div>
+<p id="scan-status" role="status" aria-live="polite"></p><p class="model-help">The server evaluates 24 substitutions. CPU inference can take a minute or more.</p>
+{% if not available %}<p class="notice">The pinned GM12878 DNase checkpoint must be available locally.</p>{% endif %}
+{% if error %}<p role="alert" id="status">{{ error }}</p>{% endif %}
+</form></aside>
+<section class="panel results" id="scan-results"><h2>Results</h2>
+{% if result %}
+<p class="notice">{{ loci[selected].label }} · {{ result.assembly }} · {{ result.track }}</p>
+<p>Alternate score minus reference score. Blue shows a decrease, orange shows an increase. Darker cells show a larger absolute difference.</p>
+<div class="table-scroll"><table><thead><tr><th scope="col">Position (1-based)</th><th scope="col">Reference</th>{% for base in bases %}<th scope="col">{{ base }}</th>{% endfor %}</tr></thead>
+<tbody>{% for row in result.positions %}<tr><th scope="row">{{ result.chromosome }}:{{ row.position }}</th><td>{{ row.reference }}</td>
+{% for base in bases %}{% if base in row.deltas %}{% set delta = row.deltas[base] %}<td style="background-color:hsl({{ 205 if delta < 0 else 30 }}, 72%, {{ 98 - ((delta|abs / scale) * 34 if scale else 0) }}%)">{{ "%+.4g"|format(delta) }}</td>{% else %}<td>—</td>{% endif %}{% endfor %}
+</tr>{% endfor %}</tbody></table></div>
+<h3>Prediction diagnostics</h3><ul><li>Reference score {{ "%.5g"|format(result.reference_score) }}.</li>
+<li>{{ result.positions|length }} positions, {{ (result.positions|length) * 3 }} substitutions, {{ result.runtime_s }} seconds.</li>
+<li>Scores estimate model response at this reference locus. Experimental validation requires measured data.</li></ul>
+<div class="actions"><button id="download-record" type="button">Download JSON</button></div>
+<script type="application/json" id="run-record">{{ result|tojson }}</script>
+{% else %}<div class="empty"><strong>No scan yet</strong></div>{% endif %}
+</section></div></main><script defer src="/static/analysis.js"></script><script defer src="/static/saturation.js"></script></html>

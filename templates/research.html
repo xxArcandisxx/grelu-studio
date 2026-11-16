@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · gReLU Studio</title><link rel="stylesheet" href="/static/studio.css">
+<header class="top"><a class="brand" href="/">gReLU Studio</a><span>Regulatory genomics</span></header>
+<main>
+{% include 'analysis_nav.html' %}
+<div class="intro"><h1>{{ title }}</h1><p>{{ description }}</p></div>
+<div class="layout"><aside class="panel"><h2>Inputs</h2>
+<form method="post" enctype="multipart/form-data">
+{% if mode == 'benchmark' %}
+<label for="kind">Evaluation type</label><select id="kind" name="kind">
+<option value="regression"{% if kind == 'regression' %} selected{% endif %}>Regression</option>
+<option value="binary"{% if kind == 'binary' %} selected{% endif %}>Binary classification</option></select>
+{% endif %}
+<div class="field"><label for="text">{{ 'BED' if mode == 'bed' else 'CSV' }} data</label></div>
+<textarea id="text" name="text" spellcheck="false">{{ sample }}</textarea>
+<div class="field"><label for="file">Or upload a file</label><input id="file" name="file" type="file" accept="{{ '.bed,.txt' if mode == 'bed' else '.csv,.txt' }}"></div>
+<div class="actions"><button type="submit">Run analysis</button><button class="quiet" name="example" value="1">Run example</button></div>
+{% if error %}<p id="status" role="alert">{{ error }}</p>{% endif %}
+</form></aside>
+<section class="panel results"><h2>Results</h2>
+{% if result %}
+{% for name, headings, rows in tables %}
+<div class="table-scroll"><table><caption>{{ name }}</caption><thead><tr>{% for heading in headings %}<th scope="col">{{ heading }}</th>{% endfor %}</tr></thead>
+<tbody>{% for row in rows %}<tr>{% for value in row %}<td>{% if value is none %}Unavailable{% elif value is float %}{{ "%.5g"|format(value) }}{% else %}{{ value }}{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+{% endfor %}
+{% if mode == 'benchmark' %}<p>These metrics describe the supplied samples. Use held-out samples to estimate generalization.</p>{% endif %}
+{% if mode == 'bed' %}<p>This checks BED syntax and interval ordering. Chromosome lengths are outside this check.</p>{% endif %}
+<div class="actions"><button id="download-record" type="button">Download JSON</button></div>
+<script id="run-record" type="application/json">{{ result|tojson }}</script><script defer src="/static/analysis.js"></script>
+{% else %}<div class="empty"><strong>No analysis yet</strong></div>{% endif %}
+</section></div></main></html>

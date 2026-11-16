@@ -1,0 +1,5 @@
+# Synthetic intervals for testing file structure
+chr7	100	150	valid_one
+chr12	200	250	valid_two
+chr7	500	450	backwards
+chr12	-10	40	negative_start

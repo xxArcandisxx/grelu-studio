@@ -1,0 +1,5 @@
+<nav class="secondary" aria-label="Research utilities">
+{% for key, label in [('benchmark', 'Benchmark Evaluation'), ('tracks', 'Track Analysis'), ('bed', 'BED Validation')] %}
+<a href="/research/{{ key }}"{% if mode == key %} aria-current="page"{% endif %}>{{ label }}</a>
+{% endfor %}
+</nav>

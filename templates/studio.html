@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Variant Effect Prediction · gReLU Studio</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='studio.css') }}">
+<script defer src="{{ url_for('static', filename='studio.js') }}"></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><span aria-hidden="true">g</span> gReLU Studio</a><span>Regulatory genomics</span></header>
+<main>
+{% include 'analysis_nav.html' %}
+{% include 'variant_nav.html' %}
+<div class="intro"><h1>Predicted regulatory effects</h1><p>Compare the predicted signal for a reference window and a single-base alternate.</p></div>
+<div class="layout">
+<aside class="panel">
+<h2>Analysis inputs</h2>
+<form id="compare">
+{% include 'model_select.html' %}
+<div class="field"><label for="reference">Reference sequence</label><label class="upload">Upload FASTA<input id="reference-file" type="file" accept=".fa,.fasta,.fna,.txt"></label></div>
+<textarea id="reference" placeholder="Paste DNA or one FASTA record" required spellcheck="false"></textarea>
+<div class="field"><label for="alternate">Alternate sequence</label><label class="upload">Upload FASTA<input id="alternate-file" type="file" accept=".fa,.fasta,.fna,.txt"></label></div>
+<textarea id="alternate" placeholder="Paste the matching alternate" required spellcheck="false"></textarea>
+<div class="actions"><button type="submit" id="run">Run comparison</button><button type="button" id="example" class="quiet">Load example</button></div>
+<p id="status" role="status"></p>
+</form>
+</aside>
+<section class="panel results" aria-labelledby="results-title">
+<div class="result-header"><h2 id="results-title">Results</h2><button id="download" type="button" class="quiet" hidden>Download JSON</button></div>
+<div id="empty" class="empty"><strong>No run yet</strong><p>Load the example or enter a sequence pair to view the selected track and score difference.</p></div>
+<div id="output" hidden>
+<p id="model-note" class="notice"></p>
+<div class="field"><label for="track">Output track</label><select id="track"></select></div>
+<div class="metrics"><div>Reference<strong id="ref-score"></strong></div><div>Alternate<strong id="alt-score"></strong></div><div>Alternate − reference<strong id="delta"></strong></div></div>
+<h3>Predicted signal by output bin</h3>
+<div class="legend"><span>Reference</span><span>Alternate</span></div>
+<svg id="plot" viewBox="0 0 600 210" role="img" aria-label="Reference and alternate predicted signal"></svg>
+<p id="context"></p>
+<h3>Prediction diagnostics</h3>
+<div class="table-scroll"><table><thead><tr><th scope="col">Statistic</th><th scope="col">Reference</th><th scope="col">Alternate</th></tr></thead><tbody id="diagnostics"></tbody></table></div>
+<ul id="evidence"></ul>
+</div>
+</section></div>
+</main></body></html>
+

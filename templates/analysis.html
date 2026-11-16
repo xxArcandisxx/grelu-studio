@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} · gReLU Studio</title>
+<link rel="stylesheet" href="/static/studio.css">
+<header class="top"><a class="brand" href="/">gReLU Studio</a><span>Regulatory genomics</span></header>
+<main>
+{% include 'analysis_nav.html' %}
+{% if variant_help %}{% include 'variant_nav.html' %}{% endif %}
+<div class="intro"><h1>{{ title }}</h1>{% if variant_help %}<p>{{ variant_help }} Use full-length windows from the selected model assembly.</p>{% endif %}</div>
+<div class="layout"><aside class="panel"><h2>Inputs</h2>
+<form method="post" enctype="multipart/form-data">
+{% include 'model_select.html' %}
+{% if mode != 'models' %}
+<div class="field"><label for="fasta">DNA or FASTA</label></div><textarea id="fasta" name="fasta" placeholder="Paste DNA or up to 12 FASTA records">{{ fasta }}</textarea>
+<div class="field"><label for="file">Or upload FASTA</label><input id="file" name="file" type="file" accept=".fa,.fasta,.fna,.txt"></div>
+{% endif %}
+{% if mode == 'predict' %}<div class="field"><label for="shuffle">Compare with five shuffled inputs</label><input type="checkbox" id="shuffle" name="shuffle"{% if shuffle %} checked{% endif %}></div>{% endif %}
+<div class="actions"><button>Run analysis</button>{% if mode != 'models' and not variant_help %}<button class="quiet" name="example" value="1">Run synthetic example</button>{% endif %}</div>
+{% if error %}<p id="status" role="alert">{{ error }}</p>{% endif %}
+</form></aside>
+<section class="panel results"><h2>Results</h2>
+{% if result %}
+<p class="notice">{% if selected in choices.zoo %}Selected {{ selected }} · {% endif %}{{ 'Checked against' if mode == 'qc' else 'Model used' }} {{ result.actual_model }}</p>
+{% if mode == 'prioritize' %}<p>Ranked by absolute predicted score change within each output track.</p>{% endif %}
+{% if columns %}
+<div style="overflow-x:auto"><table cellpadding="8"><thead><tr>{% for heading in columns %}<th scope="col">{{ heading }}</th>{% endfor %}</tr></thead>
+<tbody>{% for row in rows %}<tr>{% for value in row %}<td>{{ value }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+{% endif %}
+{% if result.evidence or result.warnings %}<h3>Prediction diagnostics</h3><ul>{% for item in result.evidence %}<li>{{ item.name }} — {{ item.message }}</li>{% endfor %}{% for message in result.warnings %}<li>{{ message }}</li>{% endfor %}</ul>{% endif %}
+<div class="actions"><button type="button" id="download-record">Download JSON</button></div>
+<script type="application/json" id="run-record">{{ result|tojson }}</script>
+<script defer src="/static/analysis.js"></script>
+{% else %}<div class="empty"><strong>No run yet</strong></div>{% endif %}
+</section></div></main></html>

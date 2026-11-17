@@ -25,7 +25,7 @@
 <div style="overflow-x:auto"><table cellpadding="8"><thead><tr>{% for heading in columns %}<th scope="col">{{ heading }}</th>{% endfor %}</tr></thead>
 <tbody>{% for row in rows %}<tr>{% for value in row %}<td>{{ value }}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
 {% endif %}
-{% if result.evidence or result.warnings %}<h3>Prediction diagnostics</h3><ul>{% for item in result.evidence %}<li>{{ item.name }} — {{ item.message }}</li>{% endfor %}{% for message in result.warnings %}<li>{{ message }}</li>{% endfor %}</ul>{% endif %}
+{% if result.evidence or result.warnings %}<details><summary>Prediction diagnostics and model notes</summary><ul>{% for item in result.evidence %}<li>{{ item.name }} — {{ item.message }}</li>{% endfor %}{% for message in result.warnings %}<li>{{ message }}</li>{% endfor %}</ul></details>{% endif %}
 <div class="actions"><button type="button" id="download-record">Download JSON</button></div>
 <script type="application/json" id="run-record">{{ result|tojson }}</script>
 <script defer src="/static/analysis.js"></script>

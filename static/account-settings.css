@@ -1,0 +1,39 @@
+body[data-workflow="account"] .intro::before { content: "YOUR ACCOUNT / PERSONAL SETTINGS"; }
+.settings-layout { display: grid; grid-template-columns: 265px minmax(0, 1fr); gap: 24px; align-items: start; }
+.profile-overview { text-align: center; padding: 30px 20px; }
+.avatar.profile-avatar { width: 82px; height: 82px; border-radius: 25px; font-size: 30px; border: 1px solid #d0dfb9; background: linear-gradient(145deg, #eef5dc, #d4e7b5); }
+.profile-overview > .profile-avatar { margin: 0 auto 19px; }
+.profile-overview h2 { border: 0; padding: 0; font-size: 21px; line-height: 1.4; overflow-wrap: anywhere; }
+.profile-overview h2::before { display: none; }
+.profile-email { font-size: 12px; color: var(--muted); overflow-wrap: anywhere; margin: 7px 0 17px; }
+.profile-overview .result-badge { display: inline-block; }
+.settings-nav { display: grid; gap: 7px; border-block: 1px solid var(--border); padding: 18px 0; margin: 25px 0; text-align: left; }
+.settings-nav a { display: flex; gap: 10px; align-items: center; padding: 11px 10px; border-radius: 8px; font-size: 12px; color: #44603c; text-decoration: none; }
+.settings-nav a:hover { background: #edf3e2; }
+.settings-nav a > span:first-child { font-size: 17px; width: 20px; text-align: center; }
+.settings-nav a > span:last-child { margin-left: auto; opacity: .5; }
+.profile-overview > .button, .profile-overview form button { width: 100%; font-size: 11px; }
+.profile-overview form { margin-top: 10px; }
+.settings-sections { display: grid; gap: 20px; min-width: 0; }
+.settings-section { scroll-margin-top: 90px; }
+.settings-heading { display: flex; gap: 13px; align-items: start; padding-bottom: 20px; border-bottom: 1px solid #e6ecdf; }
+.settings-number { display: grid; place-items: center; flex: 0 0 33px; height: 33px; background: #edf3e2; border: 1px solid #d8e5c8; border-radius: 10px; font-size: 10px; color: #648047; }
+.settings-heading h2 { font-size: 16px; margin-bottom: 5px; }
+.settings-heading p { font-size: 12px; color: var(--muted); }
+.settings-section form > label { display: block; margin-top: 18px; }
+.settings-section form > label:first-of-type { margin-top: 0; }
+.settings-section .actions { margin-top: 20px; }
+.settings-section .actions button:first-child { flex: 0 1 auto; }
+.picture-picker { display: flex; align-items: center; gap: 20px; }
+.picture-picker > div:last-child { min-width: 0; }
+.picture-picker input { display: block; margin-top: 9px; max-width: 100%; }
+.picture-picker .profile-avatar { width: 72px; height: 72px; font-size: 27px; border-radius: 22px; }
+.profile-picture-preview { display: block; width: 72px; height: 72px; object-fit: cover; border-radius: 22px; flex-shrink: 0; border: 1px solid #d0dfb9; }
+.picture-picker #current-picture { flex-shrink: 0; }
+.picture-picker .model-help { margin-bottom: 0; font-size: 10px; }
+.remove-picture-form { margin-top: 12px; }
+.remove-picture-form button { min-height: 34px; padding: 7px 12px; font-size: 11px; }
+.settings-success, .form-error { margin-bottom: 20px; }
+@media (max-width: 1200px) { .settings-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 18px; } .profile-overview { padding: 25px 16px; } }
+@media (max-width: 1000px) { .settings-layout { grid-template-columns: minmax(0, 1fr); } .profile-overview { text-align: left; } .profile-overview > .profile-avatar { margin: 0 0 16px; } .settings-nav { grid-template-columns: 1fr 1fr; } .profile-overview > .button, .profile-overview form button { width: auto; } }
+@media (max-width: 420px) { .settings-nav { grid-template-columns: 1fr; } .picture-picker { align-items: start; gap: 12px; } .picture-picker .profile-avatar, .profile-picture-preview { width: 56px; height: 56px; border-radius: 17px; } .settings-section .form-grid { grid-template-columns: 1fr; } }

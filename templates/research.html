@@ -1,34 +1,63 @@
 {% extends "base.html" %}
 {% block title %}{{ title }}{% endblock %}
+{% block head %}{% if mode == 'dataset' %}<link rel="stylesheet" href="{{ url_for('static', filename='dataset-overview.css') }}">{% endif %}{% endblock %}
 {% block content %}
 {% include 'research_nav.html' %}
 
 <div class="intro"><h1>{{ title }}</h1><p>{{ description }}</p></div>
-<div class="layout"><aside class="panel"><h2>Inputs</h2>
+<div class="layout{% if mode == 'dataset' %} dataset-layout{% endif %}"><aside class="panel{% if mode == 'dataset' %} dataset-input-panel{% endif %}"><h2>Inputs</h2>
 <form method="post" enctype="multipart/form-data">
+{% if mode == 'dataset' %}
+<div class="dataset-input-grid">
+<div class="dataset-source">
+<label for="kind">Input format</label><select id="kind" name="kind"><option value="fasta"{% if kind == 'fasta' %} selected{% endif %}>FASTA or plain DNA</option><option value="csv"{% if kind == 'csv' %} selected{% endif %}>Labeled CSV · sequence,label</option></select>
+{% include 'example_controls.html' %}
+<div class="field"><label for="file">Or upload a file</label></div><input id="file" name="file" type="file" accept=".fa,.fasta,.fna,.csv,.txt">
+<p class="model-help">Up to 5,000 sequences and 200,000 total bases. Numeric CSV labels must be finite. No model is loaded.</p>
+</div>
+<div class="dataset-editor"><label for="text">Dataset</label><textarea id="text" name="text" spellcheck="false" rows="7" placeholder="Paste FASTA, DNA, or sequence,label CSV">{{ sample }}</textarea></div>
+</div>
+{% else %}
 {% if mode == 'benchmark' %}
 <label for="kind">Evaluation type</label><select id="kind" name="kind">
 <option value="regression"{% if kind == 'regression' %} selected{% endif %}>Regression</option>
 <option value="binary"{% if kind == 'binary' %} selected{% endif %}>Binary classification</option></select>
 {% endif %}
 {% include 'example_controls.html' %}
-<div class="field"><label for="text">{{ 'BED' if mode == 'bed' else 'CSV' }} data</label></div>
+<div class="field"><label for="text">CSV data</label></div>
 <textarea id="text" name="text" spellcheck="false">{{ sample }}</textarea>
-<div class="field"><label for="file">Or upload a file</label><input id="file" name="file" type="file" accept="{{ '.bed,.txt' if mode == 'bed' else '.csv,.txt' }}"></div>
+<div class="field"><label for="file">Or upload a file</label><input id="file" name="file" type="file" accept=".csv,.txt"></div>
+{% endif %}
 <div class="actions"><button type="submit">Run analysis</button></div>
 {% if error %}<p id="status" role="alert">{{ error }}</p>{% endif %}
 </form></aside>
 <section class="panel results"><h2>Results</h2>
 {% if result %}
 {% include "saved_run_link.html" %}
+{% if mode == 'dataset' %}
+<div class="metrics dataset-metrics">{% for label,value in result.metrics.items() %}<div>{{ label }}<strong>{{ '{:,}'.format(value) }}</strong></div>{% endfor %}</div>
+<div class="dataset-notes">{% for note in result.warnings %}<p class="notice">{{ note }}</p>{% endfor %}</div>
+<div class="dataset-distributions">{% for chart in result.distributions %}<section class="dataset-distribution"><h3>{{ chart.title }}</h3><p class="model-help">Count of sequences in each range.</p>{% for bin in chart.bins %}<div class="distribution-row"><span class="distribution-label">{{ bin.label }}</span><span class="distribution-track" aria-hidden="true"><span style="width:{{ '%.4f'|format(bin.width) }}%"></span></span><strong>{{ bin.count }}</strong></div>{% else %}<p class="model-help">Unavailable: all sequences contain only unknown bases.</p>{% endfor %}</section>{% endfor %}</div>
+<p class="model-help">GC excludes N bases. Mean record GC gives each sequence equal weight; pooled GC weights all known bases together. These are descriptive checks, not evidence of predictive quality.</p>
+{% endif %}
+{% if mode == 'dataset' %}<div class="dataset-tables">{% endif %}
 {% for name, headings, rows in tables %}
+{% if mode == 'dataset' and loop.first %}
+<section class="dataset-summary"><h3>{{ name }}</h3><dl class="dataset-stat-grid">{% for label,value in rows if label not in ['Records', 'Total Bases', 'Unique Sequences', 'Duplicate Records'] %}<div><dt>{{ label }}</dt><dd>{% if value is none %}Unavailable{% elif value is float %}{{ '%.5g'|format(value) }}{% else %}{{ value }}{% endif %}</dd></div>{% endfor %}</dl></section>
+{% elif mode == 'dataset' and name == 'Base composition' %}
+<section class="dataset-composition"><h3>{{ name }}</h3><dl>{% for base,count in rows %}<div><dt>{{ base }}</dt><dd>{{ '{:,}'.format(count) }} <span>bases</span></dd></div>{% endfor %}</dl></section>
+{% else %}
+{% if mode == 'dataset' %}<section class="dataset-table{% if headings|length > 2 %} dataset-records{% elif result.labels and not result.labels.binary %} dataset-wide{% endif %}">{% endif %}
 <div class="table-scroll"><table><caption>{{ name }}</caption><thead><tr>{% for heading in headings %}<th scope="col">{{ heading }}</th>{% endfor %}</tr></thead>
 <tbody>{% for row in rows %}<tr>{% for value in row %}<td>{% if value is none %}Unavailable{% elif value is float %}{{ "%.5g"|format(value) }}{% else %}{{ value }}{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>
+{% if mode == 'dataset' %}</section>{% endif %}
+{% endif %}
 {% endfor %}
+{% if mode == 'dataset' %}</div>{% endif %}
 {% if mode == 'benchmark' %}<p>These metrics describe the supplied samples. Use held-out samples to estimate generalization.</p>{% endif %}
-{% if mode == 'bed' %}<p>This checks BED syntax and interval ordering. Chromosome lengths are outside this check.</p>{% endif %}
+{% if mode == 'dataset' and result.records|length > 200 %}<p class="model-help">Showing the first 200 records. JSON contains the complete overview.</p>{% endif %}
 <div class="actions"><button id="download-record" type="button">Download JSON</button></div>
 <script id="run-record" type="application/json">{{ result|tojson }}</script><script defer src="/static/analysis.js"></script>
-{% else %}<div class="empty"><strong>Make sense of your data</strong><p>Upload your {{ "BED intervals" if mode == "bed" else "CSV data" }} or run the example to see summaries and downloadable results.</p></div>{% endif %}
+{% else %}<div class="empty"><strong>{{ 'Get to know your dataset' if mode == 'dataset' else 'Make sense of your data' }}</strong><p>{{ 'Load an example or upload DNA / labeled sequences to inspect composition, duplicates, and label balance before model development.' if mode == 'dataset' else 'Upload your CSV data or load an example to see summaries and downloadable results.' }}</p></div>{% endif %}
 </section></div>{% endblock %}
 {% block scripts %}{% endblock %}

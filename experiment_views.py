@@ -3,7 +3,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 from flask import Blueprint, abort, current_app, jsonify, make_response, redirect, render_template, request
 
-from experiment_store import delete_experiment, experiment, list_experiments
+from experiment_store import REPEAT_PATHS, delete_experiment, experiment, list_experiments
 from report_builder import build_report
 
 experiments = Blueprint('experiments',__name__)
@@ -42,7 +42,7 @@ def detail(experiment_id):
     from studio_web import model_choices
     saved = owned(experiment_id)
     response = make_response(render_template('experiment.html',title=saved['title'],mode='experiments',
-        saved=saved,report=build_report(saved),choices=model_choices()))
+        saved=saved,report=build_report(saved),choices=model_choices(),can_repeat=saved.get('path') in REPEAT_PATHS))
     response.headers['Cache-Control']='no-store'
     return response
 

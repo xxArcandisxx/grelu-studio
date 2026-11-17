@@ -261,11 +261,23 @@
       }
     },
     {
-      "id": "bed-validation",
+      "id": "dataset-fasta",
       "kind": "research",
-      "route": "/research/bed",
+      "route": "/research/dataset",
+      "input_format": "fasta",
+      "expected_records": 4,
       "files": {
-        "file": "test-inputs/11_BED_Validation_two_valid_two_invalid.bed"
+        "file": "test-inputs/new-workflows/dataset-overview.txt"
+      }
+    },
+    {
+      "id": "dataset-csv",
+      "kind": "research",
+      "route": "/research/dataset",
+      "input_format": "csv",
+      "expected_records": 40,
+      "files": {
+        "file": "test-inputs/new-workflows/training-gc-regression.csv"
       }
     },
     {

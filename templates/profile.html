@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% from 'avatar.html' import user_avatar %}
+{% set title = 'Account settings' %}
+{% set mode = 'account' %}
+{% block title %}Account settings{% endblock %}
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='account-settings.css') }}">{% endblock %}
+{% block content %}
+<div class="intro"><h1>Make yourself at home.</h1><p>Manage your profile, sign-in details, and the way you appear in the studio.</p></div>
+{% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
+{% for message in messages %}<p class="notice settings-success" role="status">✓ {{ message }}</p>{% endfor %}
+
+<div class="settings-layout">
+<aside class="panel profile-overview">
+{{ user_avatar(current_user, large=true) }}
+<h2>{{ current_user.name }}</h2>
+<p class="profile-email">{{ current_user.email }}</p>
+<span class="result-badge">Active account</span>
+<nav class="settings-nav" aria-label="Account settings">
+<a href="#profile-picture"><span aria-hidden="true">◉</span> Profile picture <span aria-hidden="true">↗</span></a>
+<a href="#profile-name"><span aria-hidden="true">✎</span> Display name <span aria-hidden="true">↗</span></a>
+<a href="#profile-email"><span aria-hidden="true">✉</span> Email address <span aria-hidden="true">↗</span></a>
+<a href="#profile-password"><span aria-hidden="true">⌘</span> Password <span aria-hidden="true">↗</span></a>
+</nav>
+<a class="button quiet" href="/variants">Back to the workbench →</a>
+<form method="post" action="{{ url_for('accounts.account', page='logout') }}">
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<button class="quiet" type="submit">Sign out</button>
+</form>
+</aside>
+
+<div class="settings-sections">
+<section class="panel settings-section" id="profile-picture" aria-labelledby="picture-title">
+<div class="settings-heading"><span class="settings-number" aria-hidden="true">01</span><div><h2 id="picture-title">Profile picture</h2><p>Add a personal touch to your workspace.</p></div></div>
+<form method="post" enctype="multipart/form-data" class="picture-form">
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<input type="hidden" name="action" value="picture">
+<div class="picture-picker"><div id="current-picture">{{ user_avatar(current_user, large=true) }}</div><img id="picture-preview" class="profile-picture-preview" alt="New profile picture preview" hidden><div><label for="picture">Choose an image</label><input type="file" id="picture" name="picture" accept="image/png,image/jpeg,image/webp" required><p class="model-help" id="picture-help">PNG, JPEG, or WebP · up to 400 KB. Saved as a square profile picture.</p></div></div>
+<div class="actions"><button type="submit">Save picture</button></div>
+</form>
+{% if current_user.has_avatar %}<form method="post" class="remove-picture-form"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit" name="action" value="remove-picture" class="quiet">Remove picture</button></form>{% endif %}
+</section>
+
+<section class="panel settings-section" id="profile-name" aria-labelledby="name-title">
+<div class="settings-heading"><span class="settings-number" aria-hidden="true">02</span><div><h2 id="name-title">Display name</h2><p>The name shown throughout the studio.</p></div></div>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="action" value="name">
+<label for="profile-name-input">Full name</label><input id="profile-name-input" name="name" autocomplete="name" maxlength="80" required value="{{ request.form.get('name', current_user.name) if action == 'name' else current_user.name }}">
+<div class="actions"><button type="submit">Save name</button></div></form>
+</section>
+
+<section class="panel settings-section" id="profile-email" aria-labelledby="email-title">
+<div class="settings-heading"><span class="settings-number" aria-hidden="true">03</span><div><h2 id="email-title">Email address</h2><p>Update the address you use to sign in.</p></div></div>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="action" value="email">
+<label for="new-email">Email address</label><input type="email" id="new-email" name="email" autocomplete="email" maxlength="254" required value="{{ request.form.get('email', current_user.email) if action == 'email' else current_user.email }}">
+<label for="email-password">Current password</label><input type="password" id="email-password" name="current_password" autocomplete="current-password" maxlength="256" required>
+<p class="model-help">Your new email becomes your sign-in address when saved.</p>
+<div class="actions"><button type="submit">Update email</button></div></form>
+</section>
+
+<section class="panel settings-section" id="profile-password" aria-labelledby="password-title">
+<div class="settings-heading"><span class="settings-number" aria-hidden="true">04</span><div><h2 id="password-title">Password</h2><p>Keep your account protected with a strong password.</p></div></div>
+<form method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="action" value="password">
+<input type="hidden" name="username" value="{{ current_user.email }}" autocomplete="username">
+<label for="current-password">Current password</label><input type="password" id="current-password" name="current_password" autocomplete="current-password" maxlength="256" required>
+<div class="form-grid"><div><label for="new-password">New password</label><input type="password" id="new-password" name="new_password" autocomplete="new-password" minlength="10" maxlength="256" required></div><div><label for="confirm-password">Confirm new password</label><input type="password" id="confirm-password" name="confirm_password" autocomplete="new-password" minlength="10" maxlength="256" required></div></div>
+<p class="model-help">Use 10–256 characters. Saving signs out your other sessions; this one stays signed in.</p>
+<div class="actions"><button type="submit">Update password</button></div></form>
+</section>
+</div></div>
+{% endblock %}
+{% block scripts %}<script defer src="{{ url_for('static', filename='account-settings.js') }}"></script>{% endblock %}

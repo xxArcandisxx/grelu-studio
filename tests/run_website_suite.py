@@ -270,13 +270,16 @@ class WebsiteSuite:
     def case_research(self,case):
         self.goto(case['route'])
         if case.get('evaluation'):self.fill('kind',case['evaluation'])
+        if case.get('input_format'):self.fill('kind',case['input_format'])
         for control,path in case['files'].items():self.upload(control,path)
         self.native_submit('Run analysis')
         data=self.capture(case['id'])
         if case['id']=='benchmark-regression':assert data['metrics']['MAE']==1 and data['metrics']['RMSE']==1
         elif case['id']=='benchmark-binary':assert data['metrics']['AUROC']==1
         elif case['id']=='track-analysis':assert data['pearson'][0][1]>0.99 and data['pearson'][0][2]<-.99
-        else:assert data['total']==4 and data['valid']==2 and len(data['issues'])==2
+        elif data.get('analysis')=='dataset':
+            assert data['summary']['records']==case['expected_records']
+            assert sum(data['base_counts'].values())==data['summary']['total_bases']
 
     def case_motifs(self,case):
         self.goto(case['route']);self.fill('patterns',(ROOT/case['patterns']).read_text())

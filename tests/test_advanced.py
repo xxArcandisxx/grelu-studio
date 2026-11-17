@@ -72,7 +72,7 @@ class AdvancedTests(unittest.TestCase):
         self.assertEqual(self.client.get('/api/model-info?model=Genentech/borzoi-model').status_code, 400)
         response = self.post('design', text='ACGT')
         self.assertEqual(response.status_code, 400)
-        self.assertIn('quick-demo-200bp', response.text)
+        self.assertIn('Load example', response.text)
 
     def test_design_history_reconstructs_output_and_objective(self):
         response = self.post('design', example='1', target='0', off_target='1', iterations='5', candidates='12', edit_start='81', edit_end='120')
@@ -173,8 +173,8 @@ class AdvancedTests(unittest.TestCase):
             response = self.client.post('/predict', data={'model': 'human', 'fasta': example_sequence(200)})
             self.assertEqual(response.status_code, 400)
             self.assertIn('2,114 bases', response.text)
-            self.assertIn('Choose Demo CNN', response.text)
-            self.assertIn('trained-model-2114bp', response.text)
+            self.assertIn('Load example', response.text)
+            self.assertIn('choose a model that accepts your sequence length', response.text)
 
     def test_bad_inputs_do_not_reach_workflow_execution(self):
         valid = variant_example(200)

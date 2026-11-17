@@ -42,9 +42,9 @@ class ExampleLoadingTests(unittest.TestCase):
         self.assertEqual(response.status_code,200,response.text)
         return response.json
 
-    def test_every_tool_has_non_submitting_load_and_download_controls(self):
+    def test_every_tool_has_non_submitting_load_control_without_download_option(self):
         paths={workflow:'/'+workflow for workflow in WORKFLOWS}
-        paths.update(benchmark='/research/benchmark',tracks='/research/tracks',bed='/research/bed')
+        paths.update(benchmark='/research/benchmark',tracks='/research/tracks',dataset='/research/dataset')
         for workflow,path in sorted(paths.items()):
             with self.subTest(workflow=workflow):
                 response=self.client.get(path)
@@ -53,7 +53,8 @@ class ExampleLoadingTests(unittest.TestCase):
                 self.assertTrue(parser.buttons)
                 self.assertTrue(all(button.get('type')=='button' for button in parser.buttons))
                 self.assertTrue(all(button['data-load-example']==workflow for button in parser.buttons))
-                self.assertIn('data-download-example',response.text)
+                self.assertNotIn('data-download-example',response.text)
+                self.assertNotIn('Download example files',response.text)
                 self.assertNotIn('name="example"',response.text)
                 self.assertIn('/static/examples.js',response.text)
                 fields=self.example(workflow)['fields']

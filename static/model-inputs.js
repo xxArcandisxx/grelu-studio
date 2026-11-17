@@ -4,7 +4,6 @@
   if (!model) return;
   const form = model.form;
   const areas = [...form.querySelectorAll('textarea')];
-  const hint = document.getElementById('model-input-hint');
   const help = document.getElementById('model-help');
   let feedback = document.getElementById('input-validation');
   if (!feedback && areas.length) {
@@ -31,11 +30,6 @@
     const expected = Number(option?.dataset.length);
     if (!expected) return;
     help.textContent = `${option.dataset.label} · requires ${expected.toLocaleString()} bases per record.`;
-    hint.textContent = model.value === 'demo'
-      ? 'Use quick-demo-200bp files. Random weights demonstrate the workflow only.'
-      : expected === 2114
-        ? 'Use trained-model-2114bp files. Quick-demo files are 200 bases and will not fit this model.'
-        : 'Use aligned full-length windows for the model’s training assembly.';
     const notices = [];
     let invalid = false;
     for (const area of areas) {
@@ -50,8 +44,7 @@
       const isQc = location.pathname === '/qc';
       if (mismatches.length) {
         invalid = true;
-        const correction = expected === 200 ? 'Use quick-demo-200bp files.' : expected === 2114
-          ? 'Choose Demo CNN for 200 bp files, or use trained-model-2114bp.' : 'Use a full-length model window.';
+        const correction = 'Select Load example for matching inputs, or choose a model that accepts your sequence length.';
         const message = `${summary}. Expected ${allowShort ? 'up to ' : ''}${expected.toLocaleString()} bp per record. ${correction}`;
         notices.push(message);
         if (!isQc) area.setCustomValidity(message);

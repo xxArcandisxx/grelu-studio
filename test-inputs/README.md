@@ -20,6 +20,19 @@ kit are synthetic. Score values depend on the model.
 | 08 | Model Inspector | See **08_Model_Inspector_no_upload.md**. Select a model and check the input size and tracks. |
 | 09 | Research Utilities ? Benchmark Evaluation | Use **09a** with **Regression** and expect MAE 1, RMSE 1, and both correlations 1. Use **09b** with **Binary classification** and expect AUROC 1 and average precision 1. |
 | 10 | Research Utilities ? Track Analysis | Upload **10**. Expect correlation +1 between A and B, and ?1 between A and C. |
-| 11 | Research Utilities ? BED Validation | Upload **11**. Expect two valid records and two issues on lines 4 and 5. |
 
 Use **Download JSON** on any completed result to check the export.
+
+The former BED-validation fixture (11) is retained for future genome-aware input
+work. BED Validation has been removed from the current website and active
+acceptance manifest; it is not part of the current demonstration.
+
+## Dataset overview
+
+- FASTA/DNA: `new-workflows/dataset-overview.txt` — four records, 30 bases,
+  three unique sequences, one extra duplicate record, six N bases.
+- Labeled CSV: `new-workflows/training-gc-regression.csv` — 40 records with
+  synthetic GC-fraction labels.
+
+Choose the matching Input format on `/research/dataset`, then upload the file
+or select Load example. This tool runs descriptive checks without loading a model.

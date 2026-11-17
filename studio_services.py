@@ -7,10 +7,7 @@ def length_error(expected, records=None):
     detail = ''
     if records:
         detail = ' Received ' + ', '.join(f"{row['id']}: {len(row['sequence']):,} bp" for row in records[:4]) + '.'
-    suggestion = (' Choose Demo CNN for quick-demo-200bp files.'
-                  if expected != 200 else ' Use files from quick-demo-200bp for Demo CNN.')
-    if expected == 2114:
-        suggestion += ' For this model, use trained-model-2114bp files.'
+    suggestion = ' Select Load example for matching inputs, or choose a model that accepts your sequence length.'
     return f'Each record must be {expected:,} bases for the selected model.' + detail + suggestion
 
 

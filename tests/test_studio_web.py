@@ -32,12 +32,24 @@ class StudioTests(unittest.TestCase):
 
     def test_routes_and_navigation(self):
         for path in ('/', '/predict', '/qc', '/models', '/allele-specific', '/prioritize', '/multi-allelic',
-                     '/saturation', '/research/benchmark', '/research/tracks', '/research/bed',
+                     '/saturation', '/research/benchmark', '/research/tracks',
                      '/account/login', '/account/register', '/account/activate', '/account/forgot', '/account/reset'):
             with self.subTest(path=path):
                 response = self.client.get(path)
                 self.assertEqual(response.status_code, 200)
                 self.assertIn('Skip to content', response.text)
+
+    def test_bed_validation_is_future_scope(self):
+        self.assertEqual(self.client.get('/research/bed').status_code, 404)
+        self.assertEqual(self.client.post('/research/bed', data={'text': 'chr1\t0\t10'}).status_code, 404)
+        self.assertEqual(self.client.get('/api/examples/bed').status_code, 404)
+        self.assertEqual(self.client.get('/api/examples/bed/download').status_code, 404)
+        for mode in ('benchmark', 'tracks'):
+            page = self.client.get('/research/' + mode)
+            self.assertEqual(page.status_code, 200)
+            self.assertNotIn('/research/bed', page.text)
+            self.assertNotIn('BED Validation', page.text)
+            self.assertEqual(self.client.post('/research/' + mode, data={'example': '1'}).status_code, 200)
 
     def test_full_account_lifecycle(self):
         activation = self.register()
@@ -74,7 +86,7 @@ class StudioTests(unittest.TestCase):
         self.assertNotIn('Open activation link', self.post('forgot', email='lab@example.org').text)
 
     def test_existing_workflows(self):
-        for mode in ('benchmark', 'tracks', 'bed'):
+        for mode in ('benchmark', 'tracks'):
             with self.subTest(mode=mode):
                 response = self.client.post('/research/' + mode, data={'example': '1'})
                 self.assertEqual(response.status_code, 200)

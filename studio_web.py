@@ -21,6 +21,18 @@ from research_views import research
 from workbench import workbench
 
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+
+@app.url_defaults
+def version_static_assets(endpoint, values):
+    """Use a new asset URL after a stylesheet changes in the local checkout."""
+    if endpoint == 'static' and 'filename' in values:
+        asset = Path(app.static_folder) / values['filename']
+        if asset.is_file():
+            values.setdefault('v', str(asset.stat().st_mtime_ns))
+
+
 init_accounts(app)
 app.register_blueprint(workbench)
 app.register_blueprint(curated_scan)
@@ -78,11 +90,11 @@ def model_choices():
     sync_models()
     active = "human" if "human" in MODELS else "demo"
     return {
-        "local": {key: "Demo CNN · random weights" if key == "demo"
+        "local": {key: "Compact CNN · 200 bp" if key == "demo"
                   else info["model_id"] for key, info in PROVENANCE.items()},
         "zoo": ZOO_MODELS,
         "lengths": {key: info["seq_len"] for key, info in MODELS.items()},
-        "actual_label": PROVENANCE[active]["model_id"] if active != "demo" else "Demo CNN",
+        "actual_label": PROVENANCE[active]["model_id"] if active != "demo" else "Compact CNN",
         "actual_length": MODELS[active]["seq_len"],
     }
 
@@ -151,7 +163,7 @@ def compare():
         if model != "demo" and expected and len(ref) != expected:
             raise ValueError(f"Enter the model's full {expected:,}-base model window.")
         if model == "demo" and len(ref) > expected:
-            raise ValueError(f"The demo accepts windows up to {expected} bases.")
+            raise ValueError(f"The compact CNN accepts windows up to {expected} bases.")
     except ValueError as exc:
         return jsonify(error=str(exc)), 400
 

@@ -91,7 +91,7 @@ This project favors short inputs, small datasets, restricted mutation windows, l
 - Provide one browser workspace for selected analysis workflows.
 - Validate inputs before expensive computation where possible.
 - Show model identity and required input length.
-- Supply editable, downloadable examples across scientific tools.
+- Supply editable example inputs across scientific tools.
 - Run supported model computations and small-scale optimizer updates.
 - Explain scoring conventions and output limitations.
 - Preserve inputs, parameters, results, and available provenance.
@@ -206,19 +206,21 @@ The example service supports **22 scientific/configuration workflow names**. Thi
 |---|---|---|
 | Motifs — `/motifs` | Exact matches on both strands; exploratory canonical k-mer enrichment | Up to 32 patterns of 3–50 bases, 12 records, 50,000 total bases; not advanced motif discovery |
 | PWM Scanning — `/pwm-scan` | Supported JASPAR/MEME matrices, both-strand log-odds scanning, coordinates, JSON/CSV | 32 matrices, widths 3–50, 50,000 bases, 10,000 hits; relative threshold is not a p-value |
+| Dataset Overview — `/research/dataset` | FASTA/DNA or labeled CSV summaries, length/GC/label distributions, duplicate/unknown-base checks, saved reports | Up to 5,000 records and 200,000 bases; descriptive statistics without model loading |
 | Benchmark — `/research/benchmark` | Regression/binary metrics for supplied observed/predicted values | 3–5,000 rows; does not generate predictions or prove held-out evaluation |
 | Track Analysis — `/research/tracks` | Summary statistics and Pearson matrix | 2–16 unique numeric columns, 3–5,000 matched rows; no BigWig viewer |
-| BED Validation — `/research/bed` | Interval syntax/coordinate checks with valid rows and issues | At most 5,000 rows; no chromosome-length/reference-assembly checking |
+
+**Scope update:** BED Validation has been removed from the current website, navigation, and example service. Its future replacement should validate genomic intervals, extract model-sized DNA windows from a selected reference assembly, and pass those sequences into prediction. It is listed in the roadmap rather than as a standalone current tool.
 
 ### 5.5 Workspace features
 
 | Function | Behavior |
 |---|---|
-| Examples | Load editable inputs/settings without starting computation; download single files or ZIPs |
+| Examples | Load editable inputs/settings directly into the form without starting computation |
 | Experiment history — `/experiments` | Save successful runs, search/filter, reopen, rerun with edits, delete snapshots |
 | Exports | JSON throughout; CSV, FASTA, checkpoints, and plots where appropriate |
 | Standalone reports | Embedded HTML report and complete numerical record; browser printing for PDF |
-| Accounts — `/account` | Local registration, activation, login, recovery/reset, logout |
+| Accounts — `/account` | Local registration, activation, login, recovery/reset, logout, and editable profile settings |
 | Shared interface | Navigation, model requirements, feedback, forms, and results; complete mobile acceptance remains pending |
 
 ## 6. Models and relationship to gReLU
@@ -466,7 +468,17 @@ Simulation makes equal-length replacements, preserves untouched bases, and compa
 
 Model Comparison can require exact lengths or explicitly center-crop/N-pad each model's input, recording transformed sequences and offsets. Raw `B − A` differences are descriptive when task scales differ. Pearson requires at least three nonconstant observations; using the same model twice provides a reproducibility check with a warning rather than independent agreement evidence.
 
-### 8.11 Evaluation metrics
+### 8.11 Dataset Overview
+
+Dataset Overview accepts FASTA/plain DNA or CSV with exactly `sequence,label` columns. It summarizes counts, total bases, minimum/maximum/mean/median lengths, A/C/G/T/N composition, repeated sequences, and repeated FASTA identifiers. It accepts varying lengths and duplicates so they can be inspected before training, rather than immediately rejecting them as the trainer does.
+
+Per-sequence GC excludes N. Mean record GC gives equal weight to every sequence with known bases; pooled GC gives equal weight to every known base. All-N sequences have unavailable GC, not zero GC. The interface shows counted distributions and notes about variable lengths, duplicates, and unknowns.
+
+Labeled CSV additionally reports numeric label statistics and a distribution. If every label is 0 or 1, it shows both class counts. Identical sequences with differing labels and constant targets are flagged for review. These checks do not establish biological validity or predictive quality.
+
+Limits are 5,000 records, 200,000 total bases, and 550 KB of input text, also subject to the web request limit. Labels must be finite with magnitude at most 1,000,000. The page displays at most 200 record details; JSON preserves all summaries. Successful runs are saved, exportable, and repeatable. No model is loaded and no training job starts.
+
+### 8.12 Evaluation metrics
 
 | Metric | Meaning | Important boundary |
 |---|---|---|
@@ -560,7 +572,7 @@ A research evaluation needs a suitable real dataset, train/validation/test separ
 
 ### 10.1 General conventions
 
-- Use the format required by the selected tool: DNA text, FASTA, CSV, BED, or a supported motif matrix.
+- Use the format required by the selected tool: DNA text, FASTA, CSV, or a supported motif matrix. BED input is reserved for future genome-aware workflows.
 - Length means bases per record after parsing, not file size or total bases across records.
 - Most model pages require exact windows; QC deliberately accepts mismatches.
 - The request-size ceiling is **600,000 bytes**, including multipart overhead. This can be reached before a workflow's theoretical record limit.
@@ -599,7 +611,6 @@ This is not VCF upload or coordinate-to-genome-context extraction.
 | Benchmark | `observed,predicted` numeric values |
 | Binary benchmark | Labels 0/1; probabilities in [0,1] |
 | Track analysis | Unique numeric column names and matched observations |
-| BED | Tab-separated contig, start, end, supported optional fields |
 | Exact motifs | One `motif_name:ACGT...` per line |
 | PWM scan | Supported labeled JASPAR counts or minimal MEME DNA probabilities |
 
@@ -610,11 +621,11 @@ This is not VCF upload or coordinate-to-genome-context extraction.
 | Batch `pos` | One-based in supplied sequence |
 | User-selected regions | One-based inclusive |
 | Motif/PWM hits | One-based inclusive sequence coordinates |
-| BED | Zero-based start, end exclusive |
+| BED (future scope) | Zero-based start, end exclusive |
 | Curated genomic output | Genomic one-based coordinates from bundled locus metadata |
 | Internal Python indices | Generally zero-based |
 
-For example, BED `chr1 100 110` spans ten bases, equivalent to one-based inclusive 101–110. Coordinate errors can change interpretation even when syntax is valid.
+For the proposed BED integration, `chr1 100 110` spans ten bases, equivalent to one-based inclusive 101–110. Coordinate errors can change interpretation even when syntax is valid.
 
 ### 10.6 Example controls
 
@@ -622,9 +633,9 @@ Select the model **before** loading a model-dependent example.
 
 **Load example** fills editable inputs and starter settings. It does not submit a form, load weights, create predictions, or start a job. Existing file-upload selections are cleared so stale files cannot override loaded text. Select Run/Start separately after review.
 
-**Download example files** saves a matching single file or ZIP. Inspector, curated scanning, and Model Zoo supply configuration presets/JSON rather than invented uploads or checkpoint weights. A Model Zoo preset does not install a model.
+Inspector, curated scanning, and Model Zoo load configuration presets rather than DNA uploads or checkpoint weights. A Model Zoo preset does not install a model. Example-file download buttons are not shown in the interface.
 
-QC and BED examples intentionally include problems. Showing short/unknown sequences or invalid intervals can be the expected result of a successful validation demonstration.
+QC examples intentionally include problems. Showing short or unknown-base-containing sequences can be the expected result of a successful validation demonstration.
 
 ### 10.7 Bundled fixtures
 
@@ -638,7 +649,7 @@ QC and BED examples intentionally include problems. Showing short/unknown sequen
 | [Acceptance inputs](test-inputs/website-suite/) | Settings, negative fixtures, synthetic account fixtures |
 | [Demonstration guide](DEMO_GUIDE.md) | Complementary walkthrough |
 
-The model-sized FASTA folders contain reference/alternate files, paired haplotypes, prioritization candidates, multi-allelic records, three-record predictions, and QC samples. Shared fixtures cover regression, binary metrics, tracks, and BED.
+The model-sized FASTA folders contain reference/alternate files, paired haplotypes, prioritization candidates, multi-allelic records, three-record predictions, and QC samples. Shared active fixtures cover regression, binary metrics, and tracks. The older BED fixture is retained only as reference material for future development.
 
 Sequences are synthetic unless explicitly identified as curated genomic context. A synthetic 2,114-base input is not automatically a valid hg38 locus.
 
@@ -801,6 +812,10 @@ Use browser **Print / Save as PDF** for PDF. There is no server-side PDF service
 
 Local registration, activation, login, recovery/reset, and logout are implemented. Inactive-account recovery can issue replacement activation links. Tokens expire after one hour, are single-use, and are stored as hashes. Passwords are hashed with Werkzeug; reset invalidates existing sign-ins through session-version handling.
 
+Signed-in users can open Account settings to change their display name, upload/remove a profile picture, update their email, and change their password. Pictures accept still PNG/JPEG/WebP files up to 400 KB and four megapixels, are normalized to 256 × 256 PNG without original metadata, and appear in the account page, sidebar, and header. Images are stored with the local account database and served only to their owner. Older account databases receive an additive migration without replacing existing users.
+
+Email and password updates require the current password. They invalidate other sessions and existing recovery tokens while retaining the current signed-in session. The local prototype updates email immediately after password confirmation; it does not verify ownership of the new address through email delivery. Production email-change verification remains future work.
+
 Account forms use CSRF. Signed sessions use HTTP-only/SameSite settings and optional HTTPS secure cookies. These controls do not constitute a full production identity system.
 
 **No email provider is integrated.** Local preview displays activation/reset links. `GRELU_ACCOUNT_LOCAL_PREVIEW=0` hides them but sends no email. Analysis remains available to guests.
@@ -830,7 +845,7 @@ GRELU-Studio/
 ├── variant_views.py       # Shared variant presentation
 ├── advanced_views.py      # Design, batch, mutagenesis, attribution
 ├── exploration_views.py   # PWM, simulation, comparison
-├── research_views.py      # Benchmark, tracks, BED
+├── research_views.py      # Dataset overview, benchmark, numerical tracks
 ├── curated_scan.py        # Fixed genomic-locus scan
 ├── curated_loci.json      # Bundled genomic context
 ├── lab_views.py           # Training, fine-tuning, motifs, Zoo, jobs
@@ -901,12 +916,15 @@ Preserve actual model identity and input transformations. Do not silently substi
 The existing record is **partial acceptance coverage**, not complete all-features certification:
 
 - **25 earlier automated regression checks passed**, covering account behavior, workflow consistency, training/checkpoint reuse, motifs, history, and reports.
+- **Six Dataset Overview checks passed**, covering statistics, input limits, both example formats, file uploads, history/reports, and no model execution. These are lightweight integration/numerical checks, not browser acceptance.
 - **Seven targeted example-loading checks passed** after the shared example controls were added. These did not execute inference, training, or a browser.
 - **36 of 42 planned file-based website acceptance scenarios passed** using real Chromium, real HTTP, uploaded fixtures, and actual computation, with zero failures among completed scenarios. The run was interrupted before completion.
 - **One additional pretrained fine-tuning scenario passed separately** through a low-memory HTTP integration run. This brings distinct verified scenarios to **37 of 42**, using mixed layers rather than 37 browser scenarios.
 - Pending acceptance scenarios are accounts, cached Model Zoo registration, history/reports, mobile navigation, and negative-input flows. Some underlying behaviors have regression coverage, but these complete acceptance flows remain unverified.
 
 The earlier 25 checks and seven example checks were not all rerun together after the latest UI edits. They must not be presented as a newly completed one-shot full-suite result.
+
+The counts above describe the historical acceptance run before BED Validation was retired. The current active manifest contains 43 scenarios after removing that case and adding FASTA/CSV Dataset Overview cases; the revised full manifest has not been rerun. Older saved BED results remain readable, but cannot be rerun through the website.
 
 ### 15.3 Completed browser coverage
 
@@ -931,6 +949,8 @@ Whole-site testing stopped after reported VS Code/WSL instability during resourc
 | File | Purpose |
 |---|---|
 | `tests/test_studio_web.py` | Routes, accounts, existing workflows |
+| `tests/test_dataset_overview.py` | Hand-calculated statistics, distribution counts, malformed data, resource limits, saved reports, and no model/job execution |
+| `tests/test_account_settings.py` | Profile edits, image validation/privacy, credential checks, session revocation, and existing-database migration |
 | `tests/test_advanced.py` | Design, batch/scan consistency, gradients, shuffles, validation |
 | `tests/test_lab.py` | Training/fine-tuning round trip and motif behavior |
 | `tests/test_exploration.py` | PWM calculations, simulation, comparison, history, safe reports |
@@ -971,7 +991,7 @@ Choose scope according to memory. Browser dependencies need separate setup and m
 
 Website model workloads currently run on CPU. Lower-level device-selection helpers do not mean that the web forms provide a working GPU path. Installing a GPU alone will not move jobs to CUDA; that requires application integration.
 
-QC, BED, and small numerical/motif utilities avoid loading a prediction model. Inference, gradients, scans, design, and training have different resource requirements.
+QC and small numerical/motif utilities avoid loading a prediction model. Inference, gradients, scans, design, and training have different resource requirements.
 
 ### 16.2 Cost drivers
 
@@ -1046,7 +1066,7 @@ These are proposed extensions, not current functionality. Stages express useful 
 | 2. Scientific evaluation | Real datasets, independent tests, chromosome-aware splits, baselines | Separate software success from predictive quality | Reproducible held-out benchmark |
 | 3. Durable execution | Separate queue/workers, cancellation, timeouts, supported resume | Prevent web restarts losing active work | Restart/failure/recovery and ownership tests |
 | 4. GPU integration | Explicit devices, CUDA workers, batching, precision/memory controls | Larger supported workloads | Measured memory/runtime on verified configurations |
-| 5. Genome-aware inputs | Assembly selection, FASTA context extraction, BED/VCF, indel policies | Less manual sequence preparation | Coordinate/allele/contig/boundary checks |
+| 5. Genome-aware inputs | BED validation, assembly selection, reference-genome sequence extraction, BED/VCF-to-prediction workflows, indel policies | Less manual sequence preparation | Coordinate/allele/contig/boundary checks |
 | 6. Advanced development | Classification, multi-task targets, transfer heads, freezing, schedules, augmentation, suitable LoRA | More realistic adaptation | Baselines and checkpoint compatibility |
 | 7. Interpretation | Integrated Gradients, justified references, perturbation comparisons, uncertainty | Complementary explanations | Numerical checks and sanity diagnostics |
 | 8. Motif analysis | Stronger enrichment, database annotation, specialized discovery such as TF-MoDISco | Beyond exact hits and simple counts | Controlled benchmarks and known-motif recovery |
@@ -1150,7 +1170,7 @@ Use actual screenshots and results. Label random-weight demo output, synthetic d
 | Functional | Analyze sequences | Routes and computational handlers |
 | Functional | Develop a small model | Bounded training/fine-tuning |
 | Functional | Retain results | Snapshots and exports |
-| Functional | Help prepare inputs | Load/download examples |
+| Functional | Help prepare inputs | Load example inputs into forms |
 | Usability | Clear navigation and feedback | Shared workspace, workflow errors |
 | Reproducibility | Preserve input/settings/identity | JSON, seeds, provenance/hashes where available |
 | Resource management | Bound CPU work | Record/window/candidate limits, shared lock |

@@ -10,7 +10,7 @@ from flask import current_app, session
 REPEAT_PATHS = {'/variants', '/predict', '/qc', '/models', '/allele-specific', '/prioritize',
     '/multi-allelic', '/saturation', '/design', '/batch-variants', '/mutagenesis', '/attribution',
     '/motifs', '/training', '/fine-tuning', '/pwm-scan', '/motif-simulation', '/model-comparison',
-    '/research/benchmark', '/research/tracks', '/research/bed'}
+    '/research/benchmark', '/research/tracks', '/research/dataset'}
 
 
 def database():

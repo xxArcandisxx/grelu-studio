@@ -32,8 +32,8 @@ catalog entry is not an installed model and cannot be selected for inference.
    positions **51–150**. Show signed contributions and the top-position table.
    Enable the randomized-weight check for a diagnostic correlation. Export CSV
    or JSON to inspect contributions across the full input sequence.
-6. **Research tools**: run built-in benchmark, track, and BED examples. Show the
-   downloadable results and validation messages.
+6. **Research tools**: run benchmark and track examples. Show the
+   downloadable numerical summaries.
 7. **Accounts**: demonstrate registration, local activation, and sign-in if needed.
    Activation/recovery links are local previews; email delivery is not configured.
 
@@ -85,7 +85,7 @@ Working pages cover sequence prediction, QC, model inspection, aligned variant
 comparison, allele-specific regulation, prioritization, multi-allelic comparison,
 curated scanning (with its checkpoint), uploaded-sequence scanning, sequence
 design, gradient attribution, batch SNV analysis, benchmark evaluation, track
-analysis, BED validation, and local account flows.
+analysis and local account flows.
 
 This is a focused workbench, not a complete implementation of the gReLU library.
 Training and fine-tuning pages now support bounded CPU regression experiments.
@@ -157,5 +157,25 @@ smoke command is `.venv/bin/python tests/smoke_trained.py --fine-tuning`.
 
 Use **Load example** on any analysis page to populate its form, including Model
 training and Fine-tuning. Review the data and settings, then select the Run/Start
-button. Loading never starts a calculation. **Download example files** saves the
-same input files; multi-file examples arrive in a ZIP archive.
+button. Loading never starts a calculation. Example inputs are loaded directly
+into the form; there is no example-file download button.
+
+
+## Future scope: genomic interval inputs
+
+BED Validation is no longer exposed as a standalone page. A future BED workflow
+should validate intervals, extract DNA from a selected reference genome, and feed
+model-sized sequences into prediction. Present this as future scope.
+
+
+## Dataset Overview
+
+Open Research → Dataset overview (`/research/dataset`). Choose FASTA / DNA and
+Load example, then Run analysis. The bundled example contains four records,
+30 total bases, one duplicate beyond its first occurrence, and six unknown N
+bases. Show the length/GC distributions and the input-quality notes.
+
+Switch Input format to Labeled CSV and load a new example. This uses the
+40-record synthetic GC-regression dataset, showing label statistics and a label
+distribution. Binary 0/1 datasets additionally show class balance. Overview
+performs no inference or training; it prepares users to review data first.

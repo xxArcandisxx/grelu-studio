@@ -1,23 +1,23 @@
-"""Evaluation and interval checks for researcher-supplied tabular data."""
+"""Evaluation and numerical summaries for researcher-supplied CSV data."""
 import csv
 import io
-import re
 
 from flask import Blueprint, abort, make_response, render_template, request
 import numpy as np
 
 from core.stats import auroc, expected_calibration_error, pearson, spearman
+from core.dataset import dataset_overview
 
 research = Blueprint("research", __name__)
 PAGES = {
     "benchmark": ("Benchmark Evaluation", "Compare prediction scores against measured values. Upload CSV with observed and predicted columns."),
     "tracks": ("Track Analysis", "Compare numerical tracks across matched rows. Upload a CSV with two to sixteen numeric columns."),
-    "bed": ("BED Validation", "Check the syntax and interval ordering of a tab-separated BED file. Coordinates are zero-based and end-exclusive."),
+    "dataset": ("Dataset Overview", "Understand your sequences before analysis: inspect lengths, GC content, duplicates, unknown bases, and numeric labels."),
 }
 EXAMPLES = {
     "benchmark": "observed,predicted\n0,0.15\n1,0.8\n0,0.3\n1,0.7",
     "tracks": "track_a,track_b,track_c\n1,3,9\n2,6,7\n3,9,4\n4,12,1",
-    "bed": "chr7\t5530500\t5530610\tACTB\nchr12\t6534450\t6534540\tGAPDH",
+    "dataset": ">region_a\nACGTACGT\n>region_b\nGGCCGGCCNN\n>region_a_repeat\nACGTACGT\n>unknown_region\nNNNN\n",
 }
 
 
@@ -91,63 +91,31 @@ def track_analysis(text):
     ]
 
 
-def bed_validation(text):
-    valid = 0
-    invalid = []
-    total = 0
-    for line_no, line in enumerate(text.splitlines(), 1):
-        if not line.strip() or line.startswith(("#", "track ", "browser ")):
-            continue
-        total += 1
-        if total > 5000:
-            raise ValueError("Use at most 5,000 BED records.")
-        columns = line.split("\t")
-        if len(columns) < 3:
-            problem = "Expected at least three tab-separated columns."
-        elif not re.fullmatch(r"[A-Za-z0-9_.-]+", columns[0]):
-            problem = "Invalid chromosome or contig name."
-        elif not all(re.fullmatch(r"[0-9]{1,10}", value) for value in columns[1:3]):
-            problem = "Start and end must be nonnegative integers."
-        elif int(columns[1]) >= int(columns[2]):
-            problem = "End must be greater than start."
-        elif len(columns) >= 6 and columns[5] not in {"+", "-", "."}:
-            problem = "Strand must be +, -, or ."
-        else:
-            valid += 1
-            continue
-        invalid.append({"line": line_no, "issue": problem})
-    if not total:
-        raise ValueError("Provide at least one BED interval.")
-    sections = [("Validation summary", ["Metric", "Records"],
-                 [("Total", total), ("Valid", valid), ("Invalid", len(invalid))])]
-    if invalid:
-        sections.append(("Records to fix", ["Line", "Issue"], [(r["line"], r["issue"]) for r in invalid]))
-    return {"total": total, "valid": valid, "issues": invalid}, sections
-
-
 @research.route("/research/<mode>", methods=["GET", "POST"])
 def run(mode):
     if mode not in PAGES:
         abort(404)
     title, description = PAGES[mode]
     sample = request.form.get("text", "")
-    kind = request.form.get("kind", "regression")
+    kind = request.form.get("kind", "fasta" if mode == "dataset" else "regression")
     result, tables, error, status = None, [], None, 200
     if request.method == "POST":
         try:
             upload = request.files.get("file")
             if "example" in request.form:
                 sample = EXAMPLES[mode]
+                if mode == "dataset":
+                    kind = "fasta"
             elif upload and upload.filename:
                 sample = upload.read().decode("utf-8-sig")
             if mode == "benchmark":
                 result, tables = benchmark(sample, kind)
-            elif mode == "tracks":
-                result, tables = track_analysis(sample)
+            elif mode == "dataset":
+                result, tables = dataset_overview(sample, kind)
             else:
-                result, tables = bed_validation(sample)
+                result, tables = track_analysis(sample)
             result["analysis"] = mode
-        except (ValueError, csv.Error) as exc:
+        except (ValueError, csv.Error, UnicodeError) as exc:
             error, status = str(exc), 400
     if result is not None:
         from experiment_store import save_experiment

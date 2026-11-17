@@ -12,7 +12,7 @@ examples = Blueprint('examples', __name__)
 ROOT = Path(__file__).resolve().parent
 WORKFLOWS = {'variants','predict','qc','models','allele-specific','prioritize','multi-allelic',
     'design','batch-variants','mutagenesis','attribution','training','fine-tuning','motifs',
-    'pwm-scan','motif-simulation','model-comparison','benchmark','tracks','bed','saturation','model-zoo'}
+    'pwm-scan','motif-simulation','model-comparison','benchmark','tracks','dataset','saturation','model-zoo'}
 
 
 def _integer(raw, label, low, high):
@@ -48,7 +48,22 @@ def build_example(workflow, query):
         abort(404)
     fields, files = {}, []
     message = 'Example inputs loaded. Review the settings, then select Run when ready.'
-    if workflow in {'benchmark','tracks','bed'}:
+    if workflow == 'dataset':
+        kind = query.get('kind', 'fasta')
+        if kind not in {'fasta', 'csv'}:
+            raise ValueError('Choose FASTA / DNA or labeled CSV.')
+        if kind == 'csv':
+            from lab_compute import training_example
+            text = _fixture('new-workflows/training-gc-regression.csv', lambda:training_example(200))
+            name = 'training-gc-regression.csv'
+        else:
+            from research_views import EXAMPLES
+            text = _fixture('new-workflows/dataset-overview.txt', lambda:EXAMPLES['dataset'])
+            name = 'dataset-overview.fasta'
+        fields = {'text':text, 'kind':kind}
+        files = [_file(name, text, 'text/csv' if kind == 'csv' else 'text/plain')]
+        message = 'Dataset example loaded. Select Run analysis to calculate its overview.'
+    elif workflow in {'benchmark','tracks'}:
         from research_views import EXAMPLES
         kind = query.get('kind','regression')
         if workflow == 'benchmark':
@@ -58,12 +73,10 @@ def build_example(workflow, query):
             text = _fixture(name,lambda:EXAMPLES['benchmark'])
             fields['kind'] = kind
         else:
-            name = '10_Track_Analysis_three_numeric_tracks.csv' if workflow=='tracks' else '11_BED_Validation_two_valid_two_invalid.bed'
+            name = '10_Track_Analysis_three_numeric_tracks.csv'
             text = _fixture(name,lambda:EXAMPLES[workflow])
         fields['text'] = text
-        files = [_file(name,text,'text/csv' if workflow!='bed' else 'text/plain')]
-        if workflow=='bed':
-            message = 'BED example loaded, including two intervals to fix. Select Run analysis to validate it.'
+        files = [_file(name,text,'text/csv')]
     elif workflow=='motifs':
         text = _fixture('new-workflows/motif-regions.txt',lambda:_fasta([('region_A',_sequence(60)+'TATAAAGATATATAAA'+_sequence(60))]))
         patterns = _fixture('website-suite/motif-patterns.txt',lambda:'Motif_A:TATAAA\nMotif_B:GATA\n')

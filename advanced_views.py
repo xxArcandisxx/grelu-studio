@@ -166,7 +166,7 @@ def run(mode):
                 shuffles = integer(values['shuffles'], 'Background shuffles', 0, 100)
                 budget = 256 if model == 'demo' else 48
                 if len(records) * (4 + 2 * shuffles) > budget:
-                    raise ValueError(f'This CPU run allows {budget} sequence evaluations. Reduce the number of variants or shuffles, or choose Demo CNN.')
+                    raise ValueError(f'This CPU run allows {budget} sequence evaluations. Reduce the number of variants or shuffles, or choose the compact CNN.')
                 with inference_lock, TemporaryDirectory(prefix='grelu-batch-') as path:
                     csv_path = Path(path) / 'variants.csv'
                     with csv_path.open('w', newline='') as stream:

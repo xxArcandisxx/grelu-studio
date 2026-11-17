@@ -116,7 +116,7 @@ form.addEventListener("submit", async (event) => {
       element("comparison-report").href = "/experiments/" + data.saved_run_id + "/report.html";
     }
     element("track").replaceChildren(...data.model.tasks.map((name) => new Option(name, name)));
-    const actual = data.demo ? "Demo CNN · random weights" : data.model.provenance.model_id;
+    const actual = data.demo ? "Compact CNN · 200 bp" : data.model.provenance.model_id;
     element("model-note").textContent = (data.model.catalog_selection ? "Selected " + data.selected_model + " · " : "") +
       "Model used " + actual;
     element("context").textContent = "Position " + data.inputs.position + " · " +

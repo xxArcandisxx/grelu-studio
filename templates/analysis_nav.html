@@ -1,7 +1,9 @@
 <nav class="primary" aria-label="Analysis workflows">
-{% for key, label in [('variants', 'Variant Effect Prediction'), ('predict', 'Sequence Prediction'), ('qc', 'Sequence QC'), ('models', 'Model Inspector')] %}
-<a href="/{{ key }}"{% if key == mode or (key == 'variants' and (variant_help or mode == 'saturation')) %} aria-current="page"{% endif %}>{{ label }}</a>
+{% for key, icon, label in [('variants', '⌘', 'Variant effects'), ('predict', '≋', 'Sequence prediction'), ('qc', '✓', 'Sequence QC'), ('models', '▧', 'Model inspector')] %}
+<a href="/{{ key }}"{% if key == mode|default('') or (key == 'variants' and (variant_help|default(false) or mode|default('') == 'saturation')) %} aria-current="page"{% endif %}><span class="nav-icon" aria-hidden="true">{{ icon }}</span>{{ label }}<span class="nav-arrow">↗</span></a>
 {% endfor %}
-<a href="/research/benchmark"{% if mode in ('benchmark', 'tracks', 'bed') %} aria-current="page"{% endif %}>Research Utilities</a>
+<span class="nav-label">RESEARCH</span>
+{% for key, icon, label in [('benchmark', '◷', 'Benchmark evaluation'), ('tracks', '▥', 'Track analysis'), ('bed', '▤', 'BED validation')] %}
+<a href="/research/{{ key }}"{% if mode|default('') == key %} aria-current="page"{% endif %}><span class="nav-icon" aria-hidden="true">{{ icon }}</span>{{ label }}<span class="nav-arrow">↗</span></a>
+{% endfor %}
 </nav>
-{% if mode in ('benchmark', 'tracks', 'bed') %}{% include 'research_nav.html' %}{% endif %}

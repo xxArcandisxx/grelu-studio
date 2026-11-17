@@ -48,6 +48,7 @@ element("example").addEventListener("click", async () => {
     element("alternate").value = example.alternate;
     generation += 1;
     clearResult();
+    for (const name of ["reference", "alternate"]) element(name).dispatchEvent(new Event("input"));
     element("status").textContent = "Synthetic example loaded. Run the comparison to see the tracks.";
   } catch (error) {
     element("status").textContent = error.message;

@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ title }} · gReLU Studio</title>
-<link rel="stylesheet" href="/static/studio.css">
-<header class="top"><a class="brand" href="/">gReLU Studio</a><span>Regulatory genomics</span></header>
-<main>
-{% include 'analysis_nav.html' %}
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
 {% if variant_help %}{% include 'variant_nav.html' %}{% endif %}
-<div class="intro"><h1>{{ title }}</h1>{% if variant_help %}<p>{{ variant_help }} Use full-length windows from the selected model assembly.</p>{% endif %}</div>
+<div class="intro"><h1>{{ title }}</h1>{% if variant_help %}<p>{{ variant_help }} Use full-length windows from the selected model assembly.</p>{% else %}<p>{{ {"predict": "Explore predicted regulatory signal across single sequences or a FASTA batch.", "qc": "Check sequence composition and model compatibility before you run.", "models": "Understand the model behind your next discovery."}.get(mode, "") }}</p>{% endif %}</div>
 <div class="layout"><aside class="panel"><h2>Inputs</h2>
 <form method="post" enctype="multipart/form-data">
 {% include 'model_select.html' %}
@@ -15,7 +12,7 @@
 <div class="field"><label for="file">Or upload FASTA</label><input id="file" name="file" type="file" accept=".fa,.fasta,.fna,.txt"></div>
 {% endif %}
 {% if mode == 'predict' %}<div class="field"><label for="shuffle">Compare with five shuffled inputs</label><input type="checkbox" id="shuffle" name="shuffle"{% if shuffle %} checked{% endif %}></div>{% endif %}
-<div class="actions"><button>Run analysis</button>{% if mode != 'models' and not variant_help %}<button class="quiet" name="example" value="1">Run synthetic example</button>{% endif %}</div>
+<div class="actions"><button>Run analysis</button>{% if mode != 'models' %}<button class="quiet" name="example" value="1">Run synthetic example</button>{% endif %}</div>
 {% if error %}<p id="status" role="alert">{{ error }}</p>{% endif %}
 </form></aside>
 <section class="panel results"><h2>Results</h2>
@@ -30,5 +27,6 @@
 <div class="actions"><button type="button" id="download-record">Download JSON</button></div>
 <script type="application/json" id="run-record">{{ result|tojson }}</script>
 <script defer src="/static/analysis.js"></script>
-{% else %}<div class="empty"><strong>No run yet</strong></div>{% endif %}
-</section></div></main></html>
+{% else %}<div class="empty"><strong>Ready when you are</strong><p>Choose a model and run an analysis to explore your results. {{ 'Inspect the model to see its metadata.' if mode == 'models' else 'You can start with a synthetic example.' }}</p></div>{% endif %}
+</section></div>{% endblock %}
+{% block scripts %}{% endblock %}

@@ -10,11 +10,13 @@ from threading import Lock
 
 from flask import Flask, jsonify, render_template, request
 
+from account_views import init_accounts
 from curated_scan import curated_scan
 from research_views import research
 from workbench import workbench
 
 app = Flask(__name__)
+init_accounts(app)
 app.register_blueprint(workbench)
 app.register_blueprint(curated_scan)
 app.register_blueprint(research)

@@ -20,8 +20,21 @@ Set GRELU_HUMAN_CHECKPOINT to an administrator-vetted local checkpoint for a hum
 
 The plotted series are model predictions across output bins, optionally averaged into up to 100 displayed bins. The score difference is alternate minus reference, with scores averaged across all model output bins.
 
-The browser currently exposes single-substitution regulatory comparison. Other navigation entries describe planned workflows.
+The browser includes single-substitution comparison, allele-specific regulation, variant prioritization, multi-allelic comparison, and curated saturation scanning. Each workflow has a dedicated page; saturation scanning requires the pinned local GM12878 checkpoint. Model Zoo entries are catalog selections and use the configured local backend, as explained beside the selector.
 
 Use Sequence Prediction for one sequence or up to 12 FASTA records, Sequence QC for length and composition checks, and Model Inspector for model metadata. Each completed analysis includes a JSON download.
 
 Research Utilities accepts tabular data for regression or binary evaluation, numerical track summaries and correlations, and basic BED coordinate validation. These pages analyze the provided files without loading a model. Results can be downloaded as JSON.
+
+
+## Research workspace and local accounts
+
+The responsive workspace includes navigation to every analysis tool, example inputs, result tables, and JSON exports. Run `bash run_studio.sh` and open http://localhost:5000.
+
+Optional researcher accounts start at `/account/register`. Create an account, open the **Local development preview** activation link, confirm activation, and sign in. `/account/forgot` creates a replacement activation link for inactive accounts or a password reset link for active accounts. Links expire after one hour and are single-use. Password resets invalidate existing sign-ins. Analysis tools also remain accessible to guests.
+
+Accounts are stored in the ignored `instance/accounts.sqlite3` database. Passwords are hashed; account forms use CSRF tokens. The ignored `instance/session.key` persists the local session signing key. Set `GRELU_SECRET_KEY` to supply your own stable key and `GRELU_HTTPS=1` when serving over HTTPS.
+
+These account flows are a local development feature: there is no email provider integration. Recovery and activation links are displayed in the browser by default (`GRELU_ACCOUNT_LOCAL_PREVIEW=1`). Do not expose this preview mode on a public server. Setting `GRELU_ACCOUNT_LOCAL_PREVIEW=0` hides links; email delivery must be implemented before using account registration/recovery in a public deployment. Keep the lab's access-control proxy for deployed research data.
+
+Run regression checks with `.venv/bin/python -m unittest discover -s tests -v`.

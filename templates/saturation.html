@@ -1,10 +1,7 @@
-<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saturation Mutagenesis · gReLU Studio</title>
-<link rel="stylesheet" href="/static/studio.css">
-<header class="top"><a class="brand" href="/">gReLU Studio</a><span>Regulatory genomics</span></header>
-<main>
-{% include 'analysis_nav.html' %}
+{% extends "base.html" %}
+{% block title %}Saturation Mutagenesis{% endblock %}
+{% block content %}
+
 {% include 'variant_nav.html' %}
 <div class="intro"><h1>Saturation Mutagenesis</h1><p>Run a live scan of eight positions at a curated human transcription-start region using the local Genentech GM12878 DNase model.</p></div>
 <div class="layout">
@@ -30,5 +27,6 @@
 <li>Scores estimate model response at this reference locus. Experimental validation requires measured data.</li></ul>
 <div class="actions"><button id="download-record" type="button">Download JSON</button></div>
 <script type="application/json" id="run-record">{{ result|tojson }}</script>
-{% else %}<div class="empty"><strong>No scan yet</strong></div>{% endif %}
-</section></div></main><script defer src="/static/analysis.js"></script><script defer src="/static/saturation.js"></script></html>
+{% else %}<div class="empty"><strong>A closer look at every base</strong><p>Select a reference locus and run a scan to map the predicted effects of 24 substitutions.</p></div>{% endif %}
+</section></div>{% endblock %}
+{% block scripts %}<script defer src="/static/analysis.js"></script><script defer src="/static/saturation.js"></script>{% endblock %}

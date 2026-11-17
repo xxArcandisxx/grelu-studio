@@ -1,16 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Variant Effect Prediction · gReLU Studio</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='studio.css') }}">
-<script defer src="{{ url_for('static', filename='studio.js') }}"></script>
-</head>
-<body>
-<header class="top"><a class="brand" href="/"><span aria-hidden="true">g</span> gReLU Studio</a><span>Regulatory genomics</span></header>
-<main>
-{% include 'analysis_nav.html' %}
+{% extends "base.html" %}
+{% block title %}Variant Effect Prediction{% endblock %}
+{% block content %}
+
 {% include 'variant_nav.html' %}
 <div class="intro"><h1>Predicted regulatory effects</h1><p>Compare the predicted signal for a reference window and a single-base alternate.</p></div>
 <div class="layout">
@@ -42,5 +33,5 @@
 <ul id="evidence"></ul>
 </div>
 </section></div>
-</main></body></html>
-
+{% endblock %}
+{% block scripts %}<script defer src="/static/studio.js"></script>{% endblock %}

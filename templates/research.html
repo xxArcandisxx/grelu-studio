@@ -1,9 +1,8 @@
-<!doctype html>
-<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ title }} · gReLU Studio</title><link rel="stylesheet" href="/static/studio.css">
-<header class="top"><a class="brand" href="/">gReLU Studio</a><span>Regulatory genomics</span></header>
-<main>
-{% include 'analysis_nav.html' %}
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+{% include 'research_nav.html' %}
+
 <div class="intro"><h1>{{ title }}</h1><p>{{ description }}</p></div>
 <div class="layout"><aside class="panel"><h2>Inputs</h2>
 <form method="post" enctype="multipart/form-data">
@@ -28,5 +27,6 @@
 {% if mode == 'bed' %}<p>This checks BED syntax and interval ordering. Chromosome lengths are outside this check.</p>{% endif %}
 <div class="actions"><button id="download-record" type="button">Download JSON</button></div>
 <script id="run-record" type="application/json">{{ result|tojson }}</script><script defer src="/static/analysis.js"></script>
-{% else %}<div class="empty"><strong>No analysis yet</strong></div>{% endif %}
-</section></div></main></html>
+{% else %}<div class="empty"><strong>Make sense of your data</strong><p>Upload your {{ "BED intervals" if mode == "bed" else "CSV data" }} or run the example to see summaries and downloadable results.</p></div>{% endif %}
+</section></div>{% endblock %}
+{% block scripts %}{% endblock %}

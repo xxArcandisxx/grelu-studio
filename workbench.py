@@ -66,10 +66,19 @@ def analyze(mode):
                 upload = request.files.get("file")
                 if upload and upload.filename:
                     fasta = upload.read().decode("utf-8-sig")
-                if mode not in MODES and "example" in request.form:
+                if "example" in request.form:
                     rng = random.Random(13)
-                    fasta = "\n".join(f">example_{i}\n" + "".join(rng.choices("ACGT", k=length))
-                                      for i in range(1, 4))
+                    if mode in MODES:
+                        reference = "".join(rng.choices("ACGT", k=length))
+                        sequences = [reference]
+                        for offset in range(1 if mode == "allele-specific" else 3):
+                            position = (length // 2 + offset) % length
+                            alternate = "A" if reference[position] != "A" else "C"
+                            sequences.append(reference[:position] + alternate + reference[position + 1:])
+                        fasta = "\n".join(f">example_{i}\n{sequence}" for i, sequence in enumerate(sequences, 1))
+                    else:
+                        fasta = "\n".join(f">example_{i}\n" + "".join(rng.choices("ACGT", k=length))
+                                          for i in range(1, 4))
                 records = parse_batch(fasta, parse_sequence)
                 checks = quality_report(records, length)
             provenance = PROVENANCE[model]

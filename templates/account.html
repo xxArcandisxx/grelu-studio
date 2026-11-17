@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% set title = {'register':'Create account', 'login':'Welcome back', 'activate':'Activate account', 'forgot':'Account recovery', 'reset':'Reset password', 'profile':'Your account'}.get(page, 'Your account') %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="auth-layout">
+<section class="auth-story"><span class="eyebrow">YOUR RESEARCH STARTS HERE</span><h1>A little curiosity.<br>A new discovery.</h1><p>A considered workspace for exploring DNA sequences and their regulatory effects.</p><div class="auth-art" aria-hidden="true">≋</div></section>
+<section class="auth-card" aria-labelledby="account-title">
+<span class="eyebrow">gReLU / RESEARCHER ACCOUNT</span>
+{% if state == 'success' %}
+<div class="success-icon" aria-hidden="true">✓</div><h2 id="account-title">{{ 'You’re activated.' if page == 'activate' else 'Password updated.' }}</h2><p>{{ 'Your account is ready. Sign in and get back to discovery.' if page == 'activate' else 'Sign in with your new password to return to your workspace.' }}</p><a class="button" href="/account/login">Continue to sign in →</a>
+{% elif state == 'pending' %}
+<div class="success-icon" aria-hidden="true">✉</div><h2 id="account-title">One more step.</h2><p>{{ 'Your account has been created. Activate it using the local development link below.' if preview_link else 'Your account has been created. Activation delivery is not configured on this server.' }}</p>
+{% else %}
+<h2 id="account-title">{{ title }}</h2>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+{% if message %}<p class="notice" role="status">{{ message }}</p>{% endif %}
+{% if page == 'profile' %}
+<p>Your space for regulatory discovery.</p><dl><dt>RESEARCHER</dt><dd>{{ current_user.name }}</dd><dt>EMAIL ADDRESS</dt><dd>{{ current_user.email }}</dd><dt>ACCOUNT STATUS</dt><dd>✓ Active</dd></dl><a class="button" href="/variants">Open the workbench →</a>
+<form method="post" action="/account/logout"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="quiet">Sign out</button></form>
+{% else %}
+<p>{{ {'register':'Create your account and activate your researcher profile.', 'login':'Sign in to your research workspace.', 'activate':'Confirm your account to activate your researcher profile.', 'forgot':'Enter your email to create a new activation or password reset link.', 'reset':'Choose a new password for your account.'}.get(page, '') }}</p>
+{% if page != 'activate' or token %}
+<form method="post">
+<input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+{% if page in ('activate','reset') %}<input type="hidden" name="token" value="{{ token }}">{% endif %}
+{% if page == 'register' %}<label for="name">Full name</label><input id="name" name="name" autocomplete="name" maxlength="80" placeholder="Alex Morgan" required value="{{ request.form.get('name','') }}">{% endif %}
+{% if page in ('register','login','forgot') %}<label for="email">Email address</label><input type="email" id="email" name="email" autocomplete="email" maxlength="254" placeholder="you@your-lab.org" required value="{{ request.form.get('email','') }}">{% endif %}
+{% if page in ('register','login','reset') %}<label for="password">{{ 'New password' if page == 'reset' else 'Password' }}</label><input type="password" id="password" name="password" autocomplete="{{ 'current-password' if page == 'login' else 'new-password' }}" {% if page != 'login' %}minlength="10"{% endif %} maxlength="256" required>{% if page != 'login' %}<p>At least 10 characters.</p>{% endif %}{% endif %}
+{% if page == 'reset' %}<label for="confirm_password">Confirm new password</label><input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" minlength="10" maxlength="256" required>{% endif %}
+<button type="submit">{{ {'register':'Create account', 'login':'Sign in', 'activate':'Activate my account', 'forgot':'Create recovery link', 'reset':'Update password'}.get(page) }} →</button>
+</form>
+{% endif %}
+<div class="auth-links">{% if page == 'login' %}<a href="/account/forgot">Forgot password?</a><p>New to the studio? <a href="/account/register">Create an account</a></p><a href="/account/activate">Activate your account</a>{% elif page == 'register' %}Already registered? <a href="/account/login">Sign in</a>{% elif page in ('activate','reset') %}<a href="/account/forgot">Request a new link</a>{% else %}<a href="/account/login">Back to sign in</a>{% endif %}</div>
+{% endif %}
+{% endif %}
+{% if preview_link %}<div class="notice"><strong>Local development preview</strong><p>Email delivery is not configured. This link expires in one hour.</p><a href="{{ preview_link }}">Open {{ 'activation' if '/activate?' in preview_link else 'password reset' }} link →</a></div>{% endif %}
+<p class="auth-links"><a href="/variants">Continue as a guest →</a></p>
+</section></div>
+{% endblock %}

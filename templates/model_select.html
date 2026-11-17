@@ -1,10 +1,13 @@
 <label for="model">Model</label>
-<select id="model" name="model" aria-describedby="model-help">
-<optgroup label="Local inference">
-{% for key, label in choices.local.items() %}<option value="{{ key }}"{% if key == selected %} selected{% endif %}>{{ label }}</option>{% endfor %}
+<select id="model" name="model" aria-describedby="model-help model-input-hint">
+<optgroup label="Installed models · local inference">
+{% for key, label in choices.local.items() %}<option value="{{ key }}" data-length="{{ choices.lengths[key] }}" data-label="{{ label }}"{% if key == selected %} selected{% endif %}>{{ label }}</option>{% endfor %}
 </optgroup>
-<optgroup label="gReLU Model Zoo · catalog only">
-{% for key in choices.zoo %}<option value="{{ key }}"{% if key == selected %} selected{% endif %}>{{ key }}</option>{% endfor %}
+<optgroup label="Model Zoo references · not installed">
+{% for key in choices.zoo %}<option disabled>{{ key }}</option>{% endfor %}
 </optgroup>
 </select>
-<p class="model-help" id="model-help">Catalog selections use {{ choices.actual_label }} locally with a {{ "{:,}".format(choices.actual_length) }} bp input window.</p>
+{% set current = selected if selected in choices.local else 'demo' %}
+<p class="model-help" id="model-help">{{ choices.local[current] }} · requires {{ "{:,}".format(choices.lengths[current]) }} bases per record.</p>
+<p class="model-input-hint" id="model-input-hint">{% if current == 'demo' %}Use quick-demo-200bp files. Random weights demonstrate the workflow only.{% elif choices.lengths[current] == 2114 %}Use trained-model-2114bp files. Quick-demo files are 200 bases and will not fit this model.{% else %}Use aligned full-length windows for the model's training assembly.{% endif %}</p>
+<a class="catalog-link" href="https://huggingface.co/collections/Genentech/grelu-model-zoo" target="_blank" rel="noopener noreferrer">Browse the gReLU Model Zoo ↗</a>

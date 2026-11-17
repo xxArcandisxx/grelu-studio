@@ -149,6 +149,11 @@ def run(mode):
             result["analysis"] = mode
         except (ValueError, csv.Error) as exc:
             error, status = str(exc), 400
+    if result is not None:
+        from experiment_store import save_experiment
+        result["saved_run_id"] = save_experiment(title, mode, result, request.path,
+            {"text": sample, "kind": kind}, {"tables": [
+                {"title": name, "headings": headings, "rows": list(rows)} for name, headings, rows in tables]})
     page = render_template("research.html", mode=mode, title=title, description=description,
                            sample=sample, kind=kind, result=result, tables=tables, error=error)
     response = make_response(page, status)

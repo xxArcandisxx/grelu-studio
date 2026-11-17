@@ -1,0 +1,7 @@
+{
+  "name": "Shared Preview QA",
+  "email": "shared.preview.qa@example.test",
+  "password": "Preview-QA-initial-2026",
+  "reset_password": "Preview-QA-replacement-2026",
+  "purpose": "Synthetic local browser-test account, no real email delivery."
+}

@@ -11,8 +11,8 @@ from studio_web import app
 class StudioTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.previous = {k: app.config.get(k) for k in ('TESTING', 'ACCOUNT_DATABASE', 'ACCOUNT_LOCAL_PREVIEW')}
-        app.config.update(TESTING=True, ACCOUNT_DATABASE=str(Path(self.tmp.name) / 'accounts.db'), ACCOUNT_LOCAL_PREVIEW=True)
+        self.previous = {k: app.config.get(k) for k in ('TESTING', 'ACCOUNT_DATABASE', 'ACCOUNT_LOCAL_PREVIEW', 'HISTORY_DATABASE')}
+        app.config.update(HISTORY_DATABASE=str(Path(self.tmp.name) / 'history.db'), TESTING=True, ACCOUNT_DATABASE=str(Path(self.tmp.name) / 'accounts.db'), ACCOUNT_LOCAL_PREVIEW=True)
         self.client = app.test_client()
 
     def tearDown(self):

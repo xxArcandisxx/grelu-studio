@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "description": "File-only acceptance inputs. No Run example actions or invented numerical responses.",
+  "settings": "test-inputs/website-suite/settings.json",
+  "accounts": "test-inputs/website-suite/account.json",
+  "cases": [
+    {
+      "id": "variants-demo",
+      "kind": "variant",
+      "route": "/variants",
+      "model": "demo",
+      "files": {
+        "reference-file": "test-inputs/quick-demo-200bp/01a_Predicted_Regulatory_Effects_reference.fasta",
+        "alternate-file": "test-inputs/quick-demo-200bp/01b_Predicted_Regulatory_Effects_alternate.fasta"
+      }
+    },
+    {
+      "id": "allele-specific-demo",
+      "kind": "analysis",
+      "route": "/allele-specific",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/quick-demo-200bp/02_Allele_Specific_Regulation_two_haplotypes.fasta"
+      }
+    },
+    {
+      "id": "prioritize-demo",
+      "kind": "analysis",
+      "route": "/prioritize",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/quick-demo-200bp/03_Variant_Prioritization_reference_and_two_SNVs.fasta"
+      }
+    },
+    {
+      "id": "multi-allelic-demo",
+      "kind": "analysis",
+      "route": "/multi-allelic",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/quick-demo-200bp/04_Multi_Allelic_reference_and_three_alternates.fasta"
+      }
+    },
+    {
+      "id": "predict-demo",
+      "kind": "analysis",
+      "route": "/predict",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/quick-demo-200bp/06_Sequence_Prediction_three_records.fasta"
+      }
+    },
+    {
+      "id": "qc-demo",
+      "kind": "analysis",
+      "route": "/qc",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/quick-demo-200bp/07_Sequence_QC_exact_short_and_unknown.fasta"
+      }
+    },
+    {
+      "id": "models-demo",
+      "kind": "analysis",
+      "route": "/models",
+      "model": "demo",
+      "files": {}
+    },
+    {
+      "id": "design-demo",
+      "kind": "advanced",
+      "route": "/design",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/new-workflows/demo-200bp-seed.txt"
+      }
+    },
+    {
+      "id": "batch-variants-demo",
+      "kind": "advanced",
+      "route": "/batch-variants",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/new-workflows/demo-200bp-variants.csv"
+      }
+    },
+    {
+      "id": "mutagenesis-demo",
+      "kind": "advanced",
+      "route": "/mutagenesis",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/new-workflows/demo-200bp-seed.txt"
+      }
+    },
+    {
+      "id": "attribution-demo",
+      "kind": "advanced",
+      "route": "/attribution",
+      "model": "demo",
+      "files": {
+        "file": "test-inputs/new-workflows/demo-200bp-seed.txt"
+      }
+    },
+    {
+      "id": "simulation-demo",
+      "kind": "simulation",
+      "route": "/motif-simulation",
+      "model": "demo",
+      "files": {
+        "sequence-file": "test-inputs/new-workflows/demo-200bp-seed.txt"
+      }
+    },
+    {
+      "id": "variants-human",
+      "kind": "variant",
+      "route": "/variants",
+      "model": "human",
+      "files": {
+        "reference-file": "test-inputs/trained-model-2114bp/01a_Predicted_Regulatory_Effects_reference.fasta",
+        "alternate-file": "test-inputs/trained-model-2114bp/01b_Predicted_Regulatory_Effects_alternate.fasta"
+      }
+    },
+    {
+      "id": "allele-specific-human",
+      "kind": "analysis",
+      "route": "/allele-specific",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/trained-model-2114bp/02_Allele_Specific_Regulation_two_haplotypes.fasta"
+      }
+    },
+    {
+      "id": "prioritize-human",
+      "kind": "analysis",
+      "route": "/prioritize",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/trained-model-2114bp/03_Variant_Prioritization_reference_and_two_SNVs.fasta"
+      }
+    },
+    {
+      "id": "multi-allelic-human",
+      "kind": "analysis",
+      "route": "/multi-allelic",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/trained-model-2114bp/04_Multi_Allelic_reference_and_three_alternates.fasta"
+      }
+    },
+    {
+      "id": "predict-human",
+      "kind": "analysis",
+      "route": "/predict",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/trained-model-2114bp/06_Sequence_Prediction_three_records.fasta"
+      }
+    },
+    {
+      "id": "qc-human",
+      "kind": "analysis",
+      "route": "/qc",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/trained-model-2114bp/07_Sequence_QC_exact_short_and_unknown.fasta"
+      }
+    },
+    {
+      "id": "models-human",
+      "kind": "analysis",
+      "route": "/models",
+      "model": "human",
+      "files": {}
+    },
+    {
+      "id": "design-human",
+      "kind": "advanced",
+      "route": "/design",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/new-workflows/trained-2114bp-seed.txt"
+      }
+    },
+    {
+      "id": "batch-variants-human",
+      "kind": "advanced",
+      "route": "/batch-variants",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/new-workflows/trained-2114bp-variants.csv"
+      }
+    },
+    {
+      "id": "mutagenesis-human",
+      "kind": "advanced",
+      "route": "/mutagenesis",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/new-workflows/trained-2114bp-seed.txt"
+      }
+    },
+    {
+      "id": "attribution-human",
+      "kind": "advanced",
+      "route": "/attribution",
+      "model": "human",
+      "files": {
+        "file": "test-inputs/new-workflows/trained-2114bp-seed.txt"
+      }
+    },
+    {
+      "id": "simulation-human",
+      "kind": "simulation",
+      "route": "/motif-simulation",
+      "model": "human",
+      "files": {
+        "sequence-file": "test-inputs/new-workflows/trained-2114bp-seed.txt"
+      }
+    },
+    {
+      "id": "prediction-shuffles",
+      "kind": "analysis",
+      "route": "/predict",
+      "model": "demo",
+      "shuffle": true,
+      "files": {
+        "file": "test-inputs/quick-demo-200bp/06_Sequence_Prediction_three_records.fasta"
+      }
+    },
+    {
+      "id": "curated-saturation",
+      "kind": "saturation",
+      "route": "/saturation",
+      "files": {}
+    },
+    {
+      "id": "benchmark-regression",
+      "kind": "research",
+      "route": "/research/benchmark",
+      "evaluation": "regression",
+      "files": {
+        "file": "test-inputs/09a_Benchmark_Evaluation_regression.csv"
+      }
+    },
+    {
+      "id": "benchmark-binary",
+      "kind": "research",
+      "route": "/research/benchmark",
+      "evaluation": "binary",
+      "files": {
+        "file": "test-inputs/09b_Benchmark_Evaluation_binary_classification.csv"
+      }
+    },
+    {
+      "id": "track-analysis",
+      "kind": "research",
+      "route": "/research/tracks",
+      "files": {
+        "file": "test-inputs/10_Track_Analysis_three_numeric_tracks.csv"
+      }
+    },
+    {
+      "id": "bed-validation",
+      "kind": "research",
+      "route": "/research/bed",
+      "files": {
+        "file": "test-inputs/11_BED_Validation_two_valid_two_invalid.bed"
+      }
+    },
+    {
+      "id": "motifs",
+      "kind": "motifs",
+      "route": "/motifs",
+      "patterns": "test-inputs/website-suite/motif-patterns.txt",
+      "files": {
+        "file": "test-inputs/new-workflows/motif-regions.txt"
+      }
+    },
+    {
+      "id": "pwm-jaspar",
+      "kind": "pwm",
+      "route": "/pwm-scan",
+      "files": {
+        "sequence-file": "test-inputs/new-workflows/pwm-regions.txt",
+        "matrix-file": "test-inputs/new-workflows/pwm-motifs.jaspar"
+      }
+    },
+    {
+      "id": "pwm-meme",
+      "kind": "pwm",
+      "route": "/pwm-scan",
+      "files": {
+        "sequence-file": "test-inputs/new-workflows/pwm-regions.txt",
+        "matrix-file": "test-inputs/new-workflows/pwm-motifs.meme"
+      }
+    },
+    {
+      "id": "model-comparison",
+      "kind": "comparison",
+      "route": "/model-comparison",
+      "files": {
+        "sequence-file": "test-inputs/new-workflows/trained-2114bp-comparison-records.txt"
+      }
+    },
+    {
+      "id": "training",
+      "kind": "training",
+      "route": "/training",
+      "files": {
+        "file": "test-inputs/website-suite/training-200bp.csv"
+      }
+    },
+    {
+      "id": "fine-tuning-local",
+      "kind": "fine-tuning-local",
+      "route": "/fine-tuning",
+      "files": {
+        "file": "test-inputs/website-suite/training-200bp.csv"
+      }
+    },
+    {
+      "id": "fine-tuning-human",
+      "kind": "fine-tuning-human",
+      "route": "/fine-tuning",
+      "files": {
+        "file": "test-inputs/website-suite/fine-tuning-2114bp.csv"
+      }
+    },
+    {
+      "id": "accounts",
+      "kind": "accounts",
+      "route": "/account/register",
+      "scenario": "test-inputs/website-suite/account.json",
+      "files": {}
+    },
+    {
+      "id": "model-zoo-cache",
+      "kind": "model-zoo",
+      "route": "/model-zoo",
+      "scenario": "test-inputs/website-suite/settings.json",
+      "files": {}
+    },
+    {
+      "id": "history-reports",
+      "kind": "history",
+      "route": "/experiments",
+      "scenario": "test-inputs/website-suite/settings.json",
+      "files": {}
+    },
+    {
+      "id": "mobile-navigation",
+      "kind": "mobile",
+      "route": "/",
+      "scenario": "test-inputs/website-suite/settings.json",
+      "files": {}
+    },
+    {
+      "id": "negative-inputs",
+      "kind": "negative",
+      "route": "/predict",
+      "files": {
+        "dna": "test-inputs/website-suite/invalid-dna.txt",
+        "csv": "test-inputs/website-suite/invalid-variant-columns.csv",
+        "pwm": "test-inputs/website-suite/invalid-matrix.jaspar",
+        "training": "test-inputs/website-suite/invalid-training-duplicates.csv"
+      }
+    }
+  ],
+  "external_dependencies": [
+    "Existing cached pinned GM12878 checkpoint; live model downloads are excluded from this offline suite."
+  ]
+}

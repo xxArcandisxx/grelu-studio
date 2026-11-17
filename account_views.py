@@ -112,7 +112,12 @@ def account(page='profile'):
                     raise ValueError('Email or password is incorrect.')
                 if not record or not record['active']:
                     raise ValueError('Activate your account before signing in. Use the activation page to create a new link.')
+                guest_token = session.get('lab_owner')
+                from experiment_store import claim_guest
+                claim_guest(guest_token, record['id'])
                 session.clear()
+                if guest_token:
+                    session['lab_owner'] = guest_token
                 session['user_id'] = record['id']
                 session['session_version'] = record['session_version']
                 return redirect(url_for('accounts.account'))

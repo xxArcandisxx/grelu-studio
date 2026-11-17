@@ -188,6 +188,15 @@ def load_model(spec: dict, device: str, batch_size=None, backend: str = "auto"):
     """
     if backend not in ("auto", "grelu", "builtin"):
         raise ValueError("backend must be 'auto', 'grelu' or 'builtin'")
+    if spec.get("source") == "studio_trained":
+        import torch
+        payload = torch.load(spec["path"], map_location="cpu", weights_only=True)
+        adapter, _ = load_model(payload["base_model"], device, batch_size, backend="builtin")
+        adapter.module.load_state_dict(payload["state_dict"])
+        adapter.module.eval()
+        adapter.meta = {**spec, "backend": "builtin"}
+        adapter.task_names = payload["task_names"]
+        return adapter, ["Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions."]
     source = spec.get("source", "demo")
     warnings = []
     if source == "demo" and backend == "grelu":

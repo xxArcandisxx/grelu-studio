@@ -4,6 +4,7 @@ from tempfile import TemporaryDirectory
 
 from flask import Blueprint, abort, make_response, render_template, request
 
+from studio_services import length_error
 from variant_views import MODES, comparisons, validate_pairs
 
 workbench = Blueprint("workbench", __name__)
@@ -96,7 +97,7 @@ def analyze(mode):
                 with inference_lock, TemporaryDirectory(prefix="grelu-studio-") as path:
                     if mode == "predict" or mode in MODES:
                         if any(not item["matches_model_length"] for item in checks):
-                            raise ValueError(f"Each record must be {length:,} bases. Check the file in Sequence QC.")
+                            raise ValueError(length_error(length, records))
                         if mode in MODES:
                             counts = validate_pairs(mode, records)
                             params["batch_size"] = 1
@@ -152,6 +153,10 @@ def analyze(mode):
     if result is not None:
         result["selected_model"] = selected
         result["actual_model"] = choices["local"][model]
+        from experiment_store import save_experiment
+        result["saved_run_id"] = save_experiment(TITLES[mode], mode, result, request.path,
+            {"model": selected, "fasta": fasta, "shuffle": shuffle},
+            {"tables": [{"title": "Analysis results", "headings": columns, "rows": rows}]})
     response = make_response(render_template("analysis.html", mode=mode, title=TITLES[mode],
                             choices=choices, selected=selected, fasta=fasta, shuffle=shuffle,
                             variant_help=MODES[mode][1] if mode in MODES else None,

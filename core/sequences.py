@@ -39,28 +39,27 @@ def one_hot(seqs, L: int) -> np.ndarray:
 
 
 def dinuc_shuffle(seq: str, rnd: random.Random, max_tries: int = 500) -> str:
-    """Dinucleotide-preserving shuffle (random Eulerian walk, rejection sampling)."""
-    n = len(seq)
-    if n < 4:
+    """Shuffle directed dinucleotide edges into a randomized Eulerian trail.
+
+    Hierholzer's algorithm consumes every edge, preserving all dinucleotide
+    counts even for repetitive sequences. max_tries remains for API compatibility.
+    The samples are randomized trails, not a claim of uniform sampling.
+    """
+    if len(seq) < 3:
         return seq
-    graph = {}
-    for a, b in zip(seq[:-1], seq[1:]):
-        graph.setdefault(a, []).append(b)
-    for _ in range(max_tries):
-        edges = {v: rnd.sample(nb, len(nb)) for v, nb in graph.items()}
-        ptr = {v: 0 for v in edges}
-        cur = seq[0]
-        out = [cur]
-        while cur in edges and ptr[cur] < len(edges[cur]):
-            nxt = edges[cur][ptr[cur]]
-            ptr[cur] += 1
-            out.append(nxt)
-            cur = nxt
-        if len(out) == n:
-            return "".join(out)
-    chars = list(seq)  # fallback: plain shuffle
-    rnd.shuffle(chars)
-    return "".join(chars)
+    edges = {}
+    for left, right in zip(seq[:-1], seq[1:]):
+        edges.setdefault(left, []).append(right)
+    for neighbors in edges.values():
+        rnd.shuffle(neighbors)
+    stack, trail = [seq[0]], []
+    while stack:
+        neighbors = edges.get(stack[-1])
+        if neighbors:
+            stack.append(neighbors.pop())
+        else:
+            trail.append(stack.pop())
+    return "".join(reversed(trail))
 
 
 def aggregate(preds: np.ndarray, center_bins) -> np.ndarray:

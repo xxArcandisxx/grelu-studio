@@ -1,0 +1,7 @@
+{
+  "name": "Website QA Researcher",
+  "email": "website.qa@example.test",
+  "password": "College-QA-initial-2026",
+  "reset_password": "College-QA-replacement-2026",
+  "purpose": "Synthetic credentials for isolated local acceptance tests only; no email is sent."
+}

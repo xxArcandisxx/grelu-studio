@@ -8,12 +8,14 @@
 <aside class="panel">
 <h2>Analysis inputs</h2>
 <form id="compare">
+{% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
 {% include 'model_select.html' %}
+{% include 'example_controls.html' %}
 <div class="field"><label for="reference">Reference sequence</label><label class="upload">Upload FASTA<input id="reference-file" type="file" accept=".fa,.fasta,.fna,.txt"></label></div>
-<textarea id="reference" placeholder="Paste DNA or one FASTA record" required spellcheck="false"></textarea>
+<textarea id="reference" placeholder="Paste DNA or one FASTA record" required spellcheck="false">{{ request.form.get("reference", "") }}</textarea>
 <div class="field"><label for="alternate">Alternate sequence</label><label class="upload">Upload FASTA<input id="alternate-file" type="file" accept=".fa,.fasta,.fna,.txt"></label></div>
-<textarea id="alternate" placeholder="Paste the matching alternate" required spellcheck="false"></textarea>
-<div class="actions"><button type="submit" id="run">Run comparison</button><button type="button" id="example" class="quiet">Load example</button></div>
+<textarea id="alternate" placeholder="Paste the matching alternate" required spellcheck="false">{{ request.form.get("alternate", "") }}</textarea>
+<div class="actions"><button type="submit" id="run">Run comparison</button></div>
 <p id="status" role="status"></p>
 </form>
 </aside>
@@ -21,6 +23,7 @@
 <div class="result-header"><h2 id="results-title">Results</h2><button id="download" type="button" class="quiet" hidden>Download JSON</button></div>
 <div id="empty" class="empty"><strong>No run yet</strong><p>Load the example or enter a sequence pair to view the selected track and score difference.</p></div>
 <div id="output" hidden>
+<div class="saved-run-links" id="comparison-saved" hidden><span>✓ Saved to experiment history</span><a id="comparison-open">Open saved run →</a><a id="comparison-report">Download report ↓</a></div>
 <p id="model-note" class="notice"></p>
 <div class="field"><label for="track">Output track</label><select id="track"></select></div>
 <div class="metrics"><div>Reference<strong id="ref-score"></strong></div><div>Alternate<strong id="alt-score"></strong></div><div>Alternate − reference<strong id="delta"></strong></div></div>

@@ -38,22 +38,6 @@ form.addEventListener("input", () => {
   clearResult();
   element("status").textContent = "";
 });
-element("example").addEventListener("click", async () => {
-  try {
-    const requestedModel = element("model").value;
-    const current = ++generation;
-    const example = await getJson("/api/example?model=" + encodeURIComponent(requestedModel));
-    if (current !== generation) return;
-    element("reference").value = example.reference;
-    element("alternate").value = example.alternate;
-    generation += 1;
-    clearResult();
-    for (const name of ["reference", "alternate"]) element(name).dispatchEvent(new Event("input"));
-    element("status").textContent = "Synthetic example loaded. Run the comparison to see the tracks.";
-  } catch (error) {
-    element("status").textContent = error.message;
-  }
-});
 
 function renderPlot(reference, alternate) {
   const plot = element("plot");
@@ -126,6 +110,11 @@ form.addEventListener("submit", async (event) => {
     });
     if (current !== generation) return;
     result = data;
+    element("comparison-saved").hidden = !data.saved_run_id;
+    if (data.saved_run_id) {
+      element("comparison-open").href = "/experiments/" + data.saved_run_id;
+      element("comparison-report").href = "/experiments/" + data.saved_run_id + "/report.html";
+    }
     element("track").replaceChildren(...data.model.tasks.map((name) => new Option(name, name)));
     const actual = data.demo ? "Demo CNN · random weights" : data.model.provenance.model_id;
     element("model-note").textContent = (data.model.catalog_selection ? "Selected " + data.selected_model + " · " : "") +

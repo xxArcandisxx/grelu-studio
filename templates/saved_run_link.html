@@ -1,0 +1,1 @@
+{% if result and result.saved_run_id %}<div class="saved-run-links"><span>✓ Saved to experiment history</span><a href="/experiments/{{ result.saved_run_id }}">Open saved run →</a><a href="/experiments/{{ result.saved_run_id }}/report.html">Download report ↓</a></div>{% endif %}

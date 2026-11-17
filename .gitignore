@@ -36,3 +36,13 @@ instance/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Small synthetic acceptance inputs belong with the test suite.
+!test-inputs/quick-demo-200bp/*.fasta
+!test-inputs/trained-model-2114bp/*.fasta
+
+# Local browser test artifacts and isolated test state.
+test-results/
+
+# Optional isolated browser-test tooling (not application dependencies).
+.test-tools/

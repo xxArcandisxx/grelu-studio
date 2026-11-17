@@ -7,6 +7,7 @@
 <div class="layout">
 <aside class="panel"><h2>Reference locus</h2>
 <form method="post" id="scan-form">
+{% include 'example_controls.html' %}
 <label for="locus">Human reference (hg38)</label>
 <select id="locus" name="locus">{% for key, locus in loci.items() %}<option value="{{ key }}"{% if selected == key %} selected{% endif %}>{{ locus.label }}</option>{% endfor %}</select>
 <div class="actions"><button id="scan-button" type="submit"{% if not available %} disabled{% endif %}>Run live scan</button></div>
@@ -16,6 +17,7 @@
 </form></aside>
 <section class="panel results" id="scan-results"><h2>Results</h2>
 {% if result %}
+{% include "saved_run_link.html" %}
 <p class="notice">{{ loci[selected].label }} · {{ result.assembly }} · {{ result.track }}</p>
 <p>Alternate score minus reference score. Blue shows a decrease, orange shows an increase. Darker cells show a larger absolute difference.</p>
 <div class="table-scroll"><table><thead><tr><th scope="col">Position (1-based)</th><th scope="col">Reference</th>{% for base in bases %}<th scope="col">{{ base }}</th>{% endfor %}</tr></thead>

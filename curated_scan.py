@@ -46,7 +46,7 @@ def saturation():
     selected = request.form.get("locus", next(iter(LOCI)))
     result, error, status = None, None, 200
     if request.method == "POST":
-        if set(request.form) != {"locus"} or len(request.form.getlist("locus")) != 1 or request.files or selected not in LOCI:
+        if (set(request.form) - {"csrf_token"}) != {"locus"} or len(request.form.getlist("locus")) != 1 or request.files or selected not in LOCI:
             error, status = "Choose one of the listed reference loci.", 400
         elif not ready:
             error, status = "Start Studio with the pinned Genentech GM12878 DNase checkpoint.", 503
@@ -60,6 +60,11 @@ def saturation():
                 error, status = "The model could not complete the scan.", 500
             if result:
                 result.update(locus=selected, source=locus["source"], model=provenance)
+    if result is not None:
+        from experiment_store import save_experiment
+        result["inputs"] = {"locus": selected, "sequence": LOCI[selected]["dna"], "chromosome": LOCI[selected]["chrom"], "start_0based": LOCI[selected]["start"]}
+        result["saved_run_id"] = save_experiment("Curated saturation scan", "saturation", result,
+            "/saturation", {"locus": selected})
     scale = 0.0
     if result:
         scale = max(abs(delta) for row in result["positions"] for delta in row["deltas"].values())

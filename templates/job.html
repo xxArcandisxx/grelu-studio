@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} run{% endblock %}
+{% block content %}
+<div class="intro"><h1>{{ title }}</h1><p>Run {{ job.id[:8] }} · Local compute workspace</p></div>
+<section class="panel" id="job-panel" data-job="{{ job.id }}"><div class="result-header"><h2>Run status</h2><span class="result-badge" id="job-state">{{ job.state }}</span></div><p class="notice" id="job-message" role="status" aria-live="polite">{{ job.message }}</p><div id="job-metrics"></div><section id="learning-section"><h3>Learning history</h3><svg id="learning-plot" viewBox="0 0 600 220" role="img" aria-label="Actual training and validation mean squared error by epoch"></svg><div class="report-legend"><span style="color:#286c52">● Training MSE</span><span style="color:#b66b32">● Validation MSE</span></div><div class="table-scroll"><table><thead><tr><th>Epoch</th><th>Training MSE</th><th>Validation MSE</th></tr></thead><tbody id="job-history"></tbody></table></div></section><div id="job-actions" class="actions"></div><p id="job-error" role="alert"></p></section>
+{% endblock %}
+{% block scripts %}<script defer src="/static/lab-job.js"></script>{% endblock %}

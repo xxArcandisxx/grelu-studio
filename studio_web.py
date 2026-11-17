@@ -10,6 +10,11 @@ from threading import Lock
 
 from flask import Flask, jsonify, render_template, request
 
+from example_views import examples
+from exploration_views import exploration
+from experiment_views import experiments
+from lab_views import lab
+from advanced_views import advanced
 from account_views import init_accounts
 from curated_scan import curated_scan
 from research_views import research
@@ -20,7 +25,14 @@ init_accounts(app)
 app.register_blueprint(workbench)
 app.register_blueprint(curated_scan)
 app.register_blueprint(research)
+app.register_blueprint(advanced)
+app.register_blueprint(lab)
+app.register_blueprint(experiments)
+app.register_blueprint(exploration)
+app.register_blueprint(examples)
 app.config["MAX_CONTENT_LENGTH"] = 600_000
+app.config["TRAIN_BATCH_SIZE"] = int(os.environ.get("GRELU_TRAIN_BATCH_SIZE", "8"))
+app.config["DISPLAY_TIMEZONE"] = os.environ.get("GRELU_DISPLAY_TIMEZONE", "Asia/Kolkata")
 inference_lock = Lock()
 
 MODELS = {"demo": {"source": "demo", "seq_len": 200, "n_tasks": 3, "seed": 0}}
@@ -55,20 +67,21 @@ ZOO_MODELS = (
 
 
 def resolve_model(selection):
-    if isinstance(selection, str):
-        if selection in MODELS:
-            return selection
-        if selection in ZOO_MODELS:
-            return "human" if "human" in MODELS else "demo"
-    return None
+    from model_registry import sync_models
+    sync_models()
+    # Catalog names are references, never aliases for a different model.
+    return selection if isinstance(selection, str) and selection in MODELS else None
 
 
 def model_choices():
-    active = resolve_model(ZOO_MODELS[0])
+    from model_registry import sync_models
+    sync_models()
+    active = "human" if "human" in MODELS else "demo"
     return {
         "local": {key: "Demo CNN · random weights" if key == "demo"
                   else info["model_id"] for key, info in PROVENANCE.items()},
         "zoo": ZOO_MODELS,
+        "lengths": {key: info["seq_len"] for key, info in MODELS.items()},
         "actual_label": PROVENANCE[active]["model_id"] if active != "demo" else "Demo CNN",
         "actual_length": MODELS[active]["seq_len"],
     }
@@ -86,9 +99,18 @@ def parse_sequence(raw, label):
     return sequence
 
 
-@app.get("/")
-@app.get("/variants")
+@app.route("/", methods=["GET", "POST"])
+@app.route("/variants", methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        from lab_views import check_csrf
+        from flask import redirect
+        check_csrf()
+        response = app.make_response(compare())
+        if response.status_code == 200:
+            return redirect("/experiments/" + response.get_json()["saved_run_id"])
+        return render_template("studio.html", mode="variants", choices=model_choices(),
+            selected=request.form.get("model", "demo"), error=response.get_json().get("error")), response.status_code
     return render_template("studio.html", mode="variants", choices=model_choices(), selected="demo")
 
 
@@ -108,6 +130,8 @@ def example():
 @app.post("/api/compare")
 def compare():
     body = request.get_json(silent=True)
+    if body is None and request.form and request.path in ("/", "/variants"):
+        body = request.form.to_dict()
     if not isinstance(body, dict):
         return jsonify(error="Send a JSON object."), 400
     selection = body.get("model")
@@ -124,8 +148,8 @@ def compare():
             raise ValueError("Provide exactly one substitution between A, C, G and T.")
         offset = differences[0]
         expected = MODELS[model]["seq_len"]
-        if model == "human" and expected and len(ref) != expected:
-            raise ValueError(f"Enter the model's full {expected:,}-base human regulatory window.")
+        if model != "demo" and expected and len(ref) != expected:
+            raise ValueError(f"Enter the model's full {expected:,}-base model window.")
         if model == "demo" and len(ref) > expected:
             raise ValueError(f"The demo accepts windows up to {expected} bases.")
     except ValueError as exc:
@@ -153,6 +177,9 @@ def compare():
     outcome["demo"] = model == "demo"
     outcome["selected_model"] = selection
     outcome["model"]["catalog_selection"] = selection in ZOO_MODELS
+    from experiment_store import save_experiment
+    outcome["saved_run_id"] = save_experiment("Predicted regulatory effects", "variants", outcome, "/variants",
+        {"model": selection, "reference": ref, "alternate": alt})
     response = jsonify(outcome)
     response.headers["Cache-Control"] = "no-store"
     return response

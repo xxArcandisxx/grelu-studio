@@ -11,14 +11,16 @@
 <option value="regression"{% if kind == 'regression' %} selected{% endif %}>Regression</option>
 <option value="binary"{% if kind == 'binary' %} selected{% endif %}>Binary classification</option></select>
 {% endif %}
+{% include 'example_controls.html' %}
 <div class="field"><label for="text">{{ 'BED' if mode == 'bed' else 'CSV' }} data</label></div>
 <textarea id="text" name="text" spellcheck="false">{{ sample }}</textarea>
 <div class="field"><label for="file">Or upload a file</label><input id="file" name="file" type="file" accept="{{ '.bed,.txt' if mode == 'bed' else '.csv,.txt' }}"></div>
-<div class="actions"><button type="submit">Run analysis</button><button class="quiet" name="example" value="1">Run example</button></div>
+<div class="actions"><button type="submit">Run analysis</button></div>
 {% if error %}<p id="status" role="alert">{{ error }}</p>{% endif %}
 </form></aside>
 <section class="panel results"><h2>Results</h2>
 {% if result %}
+{% include "saved_run_link.html" %}
 {% for name, headings, rows in tables %}
 <div class="table-scroll"><table><caption>{{ name }}</caption><thead><tr>{% for heading in headings %}<th scope="col">{{ heading }}</th>{% endfor %}</tr></thead>
 <tbody>{% for row in rows %}<tr>{% for value in row %}<td>{% if value is none %}Unavailable{% elif value is float %}{{ "%.5g"|format(value) }}{% else %}{{ value }}{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div>

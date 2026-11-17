@@ -1,0 +1,96 @@
+{
+  "design_demo": {
+    "iterations": "2",
+    "candidates": "4",
+    "target": "0",
+    "off_target": "1",
+    "edit_start": "81",
+    "edit_end": "120"
+  },
+  "design_human": {
+    "iterations": "1",
+    "candidates": "2",
+    "target": "0",
+    "edit_start": "1050",
+    "edit_end": "1065"
+  },
+  "scan_demo": {
+    "start": "101",
+    "end": "108",
+    "target": "0"
+  },
+  "scan_human": {
+    "start": "1058",
+    "end": "1059",
+    "target": "0"
+  },
+  "attribution_demo": {
+    "start": "51",
+    "end": "150",
+    "target": "0",
+    "randomized_check": true
+  },
+  "attribution_human": {
+    "start": "1008",
+    "end": "1107",
+    "target": "0",
+    "randomized_check": true
+  },
+  "training": {
+    "length": "200",
+    "epochs": "2",
+    "learning_rate": "0.001"
+  },
+  "fine_tuning": {
+    "epochs": "1",
+    "learning_rate": "0.0001",
+    "target": "0"
+  },
+  "simulation_demo": {
+    "motif": "TATAAA",
+    "positions": "81",
+    "orientation": "both",
+    "partner": "GATA",
+    "gaps": "0,5",
+    "target": "0",
+    "controls": true
+  },
+  "simulation_human": {
+    "motif": "TATAAA",
+    "positions": "1058",
+    "orientation": "+",
+    "partner": "",
+    "gaps": "0",
+    "target": "0",
+    "controls": true
+  },
+  "pwm": {
+    "threshold": "0.8",
+    "background": "0.25,0.25,0.25,0.25",
+    "smoothing": "0.1"
+  },
+  "comparison": {
+    "policy": "center",
+    "target_a": "0",
+    "target_b": "0"
+  },
+  "history": {
+    "query": "regulatory",
+    "workflow": "variants"
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844
+  },
+  "saturation": {
+    "locus": "actb",
+    "expected_substitutions": 24
+  },
+  "model_zoo": {
+    "repo": "Genentech/GM12878_dnase-model",
+    "revision": "9f2aaba3e04c5b7324a239c7af53fc4732cb2c3e",
+    "filename": "model.ckpt",
+    "mode": "cached",
+    "invalid_revision": "0000000000000000000000000000000000000000"
+  }
+}

@@ -14,12 +14,16 @@ def handle_design_workflow(params: dict) -> dict:
     params:
       model, device, seeds (list of strings) OR n_random, on_targets [idx], off_targets [idx],
       center_bins, max_iter(20), candidates_per_iter(64), patience(3), n_baseline(20),
-      seed, output_dir
+      edit_start(1), edit_end(model length), seed, output_dir
     """
     device = detect_device(params.get("device", "auto"))
     adapter, warnings = load_model(params["model"], device, params.get("batch_size"))
     L, T = adapter.seq_len, len(adapter.task_names)
     names = adapter.task_names
+    edit_start = int(params.get("edit_start", 1))
+    edit_end = int(params.get("edit_end", L))
+    if not 1 <= edit_start <= edit_end <= L:
+        raise ValueError("The editable region must be a valid 1-based inclusive model window.")
     on = [int(i) for i in params.get("on_targets", [0])]
     off = [int(i) for i in params.get("off_targets", [])]
     if not on or any(i < 0 or i >= T for i in on + off):
@@ -51,7 +55,7 @@ def handle_design_workflow(params: dict) -> dict:
         mutations, stale = [], 0
         for it in range(1, max_iter + 1):
             cands, moves = [], []
-            for p in rng.integers(0, L, K):
+            for p in rng.integers(edit_start - 1, edit_end, K):
                 p = int(p)
                 b = [x for x in BASES if x != cur[p]][int(rng.integers(3))]
                 cands.append(cur[:p] + b + cur[p + 1:])

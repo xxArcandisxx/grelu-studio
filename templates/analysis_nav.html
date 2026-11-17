@@ -1,9 +1,14 @@
-<nav class="primary" aria-label="Analysis workflows">
-{% for key, icon, label in [('variants', '⌘', 'Variant effects'), ('predict', '≋', 'Sequence prediction'), ('qc', '✓', 'Sequence QC'), ('models', '▧', 'Model inspector')] %}
+{% macro nav_link(key, icon, label) -%}
 <a href="/{{ key }}"{% if key == mode|default('') or (key == 'variants' and (variant_help|default(false) or mode|default('') == 'saturation')) %} aria-current="page"{% endif %}><span class="nav-icon" aria-hidden="true">{{ icon }}</span>{{ label }}<span class="nav-arrow">↗</span></a>
-{% endfor %}
+{%- endmacro %}
+<nav class="primary" aria-label="Analysis workflows">
+{% for key,icon,label in [('variants','⌘','Variant effects'),('predict','≋','Sequence prediction'),('qc','✓','Sequence QC'),('experiments','◷','Experiment history')] %}{{ nav_link(key,icon,label) }}{% endfor %}
+<details class="nav-group"{% if mode|default('') in ('design','attribution','mutagenesis','motifs','pwm-scan','motif-simulation') %} open{% endif %}><summary><span aria-hidden="true">⌬</span> Interpretation &amp; design</summary>
+{% for key,icon,label in [('design','✧','Sequence design'),('attribution','⌁','Gradient attribution'),('mutagenesis','▦','Sequence mutagenesis'),('motifs','⌬','Motif discovery'),('pwm-scan','▥','PWM motif scanning'),('motif-simulation','⇄','Motif simulations')] %}{{ nav_link(key,icon,label) }}{% endfor %}
+</details>
+<details class="nav-group"{% if mode|default('') in ('models','model-zoo','model-comparison','training','fine-tuning') %} open{% endif %}><summary><span aria-hidden="true">▣</span> Models &amp; training</summary>
+{% for key,icon,label in [('models','▧','Model inspector'),('model-comparison','◫','Model comparison'),('training','◈','Model training'),('fine-tuning','↗','Fine-tuning'),('model-zoo','▣','Model Zoo')] %}{{ nav_link(key,icon,label) }}{% endfor %}
+</details>
 <span class="nav-label">RESEARCH</span>
-{% for key, icon, label in [('benchmark', '◷', 'Benchmark evaluation'), ('tracks', '▥', 'Track analysis'), ('bed', '▤', 'BED validation')] %}
-<a href="/research/{{ key }}"{% if mode|default('') == key %} aria-current="page"{% endif %}><span class="nav-icon" aria-hidden="true">{{ icon }}</span>{{ label }}<span class="nav-arrow">↗</span></a>
-{% endfor %}
+{% for key,icon,label in [('benchmark','◷','Benchmark evaluation'),('tracks','▥','Track analysis'),('bed','▤','BED validation')] %}<a href="/research/{{ key }}"{% if mode|default('') == key %} aria-current="page"{% endif %}><span class="nav-icon" aria-hidden="true">{{ icon }}</span>{{ label }}<span class="nav-arrow">↗</span></a>{% endfor %}
 </nav>

@@ -1,0 +1,109 @@
+{
+  "case": "evaluation",
+  "mode": "isolated Flask request integration; no browser",
+  "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+  "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+  "status": "passed",
+  "limitations": [
+    "Evaluation/track tools checked with bundled synthetic numeric fixtures. BED contains no measured DNase targets; GM12878 accuracy, AUROC, and biological track concordance were not evaluated."
+  ],
+  "results": [
+    {
+      "analysis": "benchmark",
+      "metrics": {
+        "MAE": 1.0,
+        "Pearson r": 1.0,
+        "RMSE": 1.0,
+        "Samples": 4,
+        "Spearman rho": 1.0
+      },
+      "mode": "regression",
+      "saved_run_id": "0bc66365e8aad76801d91ff8ccede510"
+    },
+    {
+      "analysis": "benchmark",
+      "calibration_bins": [
+        {
+          "bin": 1,
+          "frac_pos": 0.0,
+          "mean_pred": 0.15,
+          "n": 1
+        },
+        {
+          "bin": 2,
+          "frac_pos": 0.0,
+          "mean_pred": 0.3,
+          "n": 1
+        },
+        {
+          "bin": 6,
+          "frac_pos": 1.0,
+          "mean_pred": 0.7,
+          "n": 1
+        },
+        {
+          "bin": 8,
+          "frac_pos": 1.0,
+          "mean_pred": 0.8,
+          "n": 1
+        }
+      ],
+      "metrics": {
+        "AUROC": 1.0,
+        "Average precision": 1.0,
+        "Brier score": 0.060625,
+        "Calibration error (10 bins)": 0.2375,
+        "Positive fraction": 0.5,
+        "Samples": 4
+      },
+      "mode": "binary",
+      "saved_run_id": "00e456c15caa42a79d2bbab0db4c587e"
+    },
+    {
+      "analysis": "tracks",
+      "pearson": [
+        [
+          1.0,
+          1.0,
+          -1.0
+        ],
+        [
+          1.0,
+          1.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          -1.0,
+          1.0
+        ]
+      ],
+      "samples": 4,
+      "saved_run_id": "ce2818b34829e42b621be9e45a9eafcc",
+      "tracks": [
+        {
+          "max": 4.0,
+          "mean": 2.5,
+          "min": 1.0,
+          "name": "track_A",
+          "sd": 1.118033988749895
+        },
+        {
+          "max": 8.0,
+          "mean": 5.0,
+          "min": 2.0,
+          "name": "track_B",
+          "sd": 2.23606797749979
+        },
+        {
+          "max": 40.0,
+          "mean": 25.0,
+          "min": 10.0,
+          "name": "track_C",
+          "sd": 11.180339887498949
+        }
+      ]
+    }
+  ],
+  "seconds": 1.21
+}

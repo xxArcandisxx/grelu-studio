@@ -1,0 +1,47 @@
+{
+  "scope": "Synthetic postprocessing boundaries and static labeling; no fake inference or biological evidence.",
+  "checks": [
+    {
+      "id": "wrong_batch",
+      "status": "FAIL",
+      "expected": "reject",
+      "actual": "array([[[1.]],\n\n       [[1.]]], dtype=float32)",
+      "warnings": []
+    },
+    {
+      "id": "nonfinite",
+      "status": "FAIL",
+      "expected": "reject",
+      "actual": "array([[nan]])",
+      "warnings": []
+    },
+    {
+      "id": "overflow_mean",
+      "status": "FAIL",
+      "expected": "finite",
+      "actual": "array([[inf]], dtype=float32)",
+      "warnings": [
+        "overflow encountered in reduce"
+      ]
+    },
+    {
+      "id": "invalid_chart_series",
+      "status": "FAIL",
+      "expected": "reject",
+      "actual": "{'title': 'test', 'series': [{'label': 'valid', 'color': '#286c52', 'points': '70.000,180.000 570.000,25.000', 'first_x': 70.0, 'first_y': 180.0, 'count': 2}], 'minimum': '1', 'maximum': '2'}",
+      "warnings": []
+    },
+    {
+      "id": "small_score_plot_rounding",
+      "status": "FAIL",
+      "actual": 0.0,
+      "expected": 9.99999993922529e-09,
+      "source": "workflows/predict.py np.round(...,5)"
+    },
+    {
+      "id": "pooled_score_label",
+      "status": "FAIL",
+      "expected": "Neutral single model score without a spatial-profile claim"
+    }
+  ]
+}

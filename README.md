@@ -139,6 +139,16 @@ Models use particular input windows. The default demonstration model uses **200 
 
 Most prediction pages require every record to match the selected window. QC can inspect mismatched lengths. Model Comparison has an explicit resizing policy; other pages should not be assumed to silently resize inputs.
 
+Input integrity checks accept case-insensitive ASCII A/C/G/T/N and normalize
+wrapped lines and ASCII edge whitespace. Non-ASCII DNA, empty records, blank
+FASTA identifiers and duplicate model-input IDs are rejected. Engine sequence
+CSV fields remain text: missing values are not converted to DNA, leading-zero
+IDs are preserved, and oversized batches fail rather than being truncated.
+The demo comparison explicitly configures short-input N-padding; prediction
+records include the effective input windows and transformations. Direct engine
+prediction calls with mismatched lengths now need an explicit supported input
+policy. See [Gate 2 input policies and coverage](Testing/testing-phase-2/input-output/gate-2/INPUT_PATHS.md).
+
 ### 4.3 Tasks and output bins
 
 A model may predict multiple tasks, called tracks in the interface. Some models return values across spatial output bins. The adapter normalizes supported outputs to the conceptual shape:
@@ -653,6 +663,8 @@ The model-sized FASTA folders contain reference/alternate files, paired haplotyp
 
 Sequences are synthetic unless explicitly identified as curated genomic context. A synthetic 2,114-base input is not automatically a valid hg38 locus.
 
+A separate user-supplied BED sample is documented in [datasets/gm12878/README.md](datasets/gm12878/README.md). `bed_to_fasta.py` retrieves the first ten intervals from UCSC hg38 and records their coordinate/sequence provenance. These reference sequences are real genomic context; derived substitutions and GC labels remain explicitly constructed/synthetic. This command-line helper does not restore the retired BED page.
+
 ## 11. Installation and configuration
 
 ### 11.1 Existing environment
@@ -708,7 +720,7 @@ Use `bash run_studio.sh` after dependencies are available. Fresh-machine portabi
 |---|---|---|
 | `PORT` | Launcher port | 5000 |
 | `GRELU_HUMAN_CHECKPOINT` | Trusted local checkpoint path | Optional; launcher can discover pinned cache |
-| `GRELU_HUMAN_INPUT_LENGTH` | Configured model's required length | Required with manually supplied checkpoint |
+| `GRELU_HUMAN_INPUT_LENGTH` | Optional declared workflow window | Inferred from authoritative checkpoint metadata when omitted; conflicts are rejected and unknown requirements block verified compatibility |
 | `GRELU_HUMAN_MODEL_ID` | Display identity | Configurable label |
 | `GRELU_TRAIN_BATCH_SIZE` | Training/validation batch size | 8; allowed 1–32 |
 | `GRELU_DISPLAY_TIMEZONE` | Report/history timezone | Asia/Kolkata; storage is UTC |
@@ -938,13 +950,49 @@ A separate GM12878 check used eight 2,114-base sequences, one epoch, batch size 
 
 These are measurements from one constrained run, not a universal RAM requirement or speed promise. Labels were synthetic and the fine-tuned model did not outperform the simple mean-label baseline.
 
-### 15.5 Verification limits
+### 15.5 Real-reference sample execution checks
+
+The separate run documented in `test-results/gm12878-verified/REPORT.md` passed **17 sequential feature-check groups** using the ten UCSC hg38 reference sequences under `datasets/gm12878/`. It exercised GM12878 prediction, constructed variant/allele comparisons, scans, attribution, motifs, design, cache-only Model Zoo registration, small training/fine-tuning, model comparison, numerical utilities, background jobs, private history, and exports. Each group ran in a fresh memory-guarded process through isolated Flask requests; this was not a browser acceptance run.
+
+Variants were constructed and training/fine-tuning targets were synthetic GC fractions. Numerical evaluation used existing synthetic fixtures because no measured DNase labels were supplied. PWM checks used the explicitly synthetic JASPAR-format fixture. These results establish execution on the supplied reference contexts, not biological accuracy, observed allele effects, arbitrary model support, or remote download coverage. See [the sample guide](datasets/gm12878/README.md) for inputs and reproduction.
+
+#### Measured-data benchmarks
+
+The separate [biological benchmark](datasets/gm12878/biological/README.md) uses
+real ENCODE GM12878 DNase signal and published LCL dsQTL/control variants. Its
+runner pins the checkpoint and interval revisions, verifies reference/signal
+checksums, records exclusions, and samples without looking at labels or scores.
+It does not change the website's model registrations or fine-tune on test data.
+
+The completed 500-region hg38 **chr11** sample produced Pearson **0.7847**,
+Spearman **0.7800**, and MSE **0.5708**, compared with **2.1904** MSE after
+shuffling the predictions. Targets are `log1p` of summed central-1,000-base
+ENCFF093VXI signal. This measures held-out accuracy within the original
+experiment; it is not a full test-set reproduction or proof of cross-cell-type
+generalization. The runner also supports the original hg19 dsQTL association
+benchmark, with reverse-complement averaging and absolute-effect ranking.
+
+The completed fixed 1,000-variant dsQTL sample contains **16 positives**. Average
+precision was **0.3195** and AUROC **0.8367**; the supplied gkmSVM scores achieved
+**0.2633** average precision on the same sample. Its positive fraction is
+**0.016**. These are preliminary sampled association-ranking results, with few
+positives, rather than a full published benchmark reproduction or evidence for
+signed biological effect accuracy. One source variant was excluded because
+neither supplied allele matched hg19 at its coordinate; exclusions are retained
+in the source manifest.
+
+Outputs are under `test-results/gm12878-biological/`: the report, metrics,
+scatter/precision–recall plots, predictions, provenance, and website-compatible
+benchmark CSVs. The original ten-sequence execution checks above remain
+separate from this biological evaluation.
+
+### 15.6 Verification limits
 
 Broad online Model Zoo installation, other large checkpoints, GPU execution, production email, full mobile acceptance, and biological generalization have not been verified end to end. An older local browser report contains a broad cached-registration statement; that wording is not evidence that the pending cached Model Zoo acceptance case completed.
 
 Whole-site testing stopped after reported VS Code/WSL instability during resource-heavy runs. Its exact cause was not established from system OOM logs. Updating documentation does not restart those tests.
 
-### 15.6 Test files
+### 15.7 Test files
 
 | File | Purpose |
 |---|---|
@@ -956,13 +1004,17 @@ Whole-site testing stopped after reported VS Code/WSL instability during resourc
 | `tests/test_exploration.py` | PWM calculations, simulation, comparison, history, safe reports |
 | `tests/test_example_loading.py` | Controls, lengths, files, downloads, absence of execution side effects |
 | `tests/smoke_trained.py` | Optional checks using a real cached checkpoint |
+| `tests/run_gm12878_sample.py` | Explicit sequential real-reference checks with memory guards and isolated state; not part of default unittest discovery |
+| `tests/test_biological_benchmark.py` | Measured-target scaling, missing-signal handling, and 1-based variant centering |
+| `scripts/benchmark_gm12878.py` | Public-data preparation and resumable real DNase/dsQTL evaluation |
+| `scripts/verify_gm12878_website.py` | Isolated website checks using real benchmark data and numerical agreement checks |
 | `tests/run_website_suite.py` | Optional file-based browser acceptance |
 | `tests/run_low_memory_checks.py` | Resource-guarded phases and process cleanup |
 | `tests/finish_file_checks.py` | Selected integration/persistence cases |
 | `scripts/generate_website_fixtures.py` | Rebuild acceptance fixtures |
 | `scripts/setup_browser_qa.py` | Optional local QA tooling setup |
 
-### 15.7 Commands for future verification
+### 15.8 Commands for future verification
 
 Light input-only checks:
 

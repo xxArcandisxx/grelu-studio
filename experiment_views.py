@@ -1,12 +1,21 @@
 """Saved-run history, reproducible reruns, and standalone report exports."""
 from datetime import datetime
 from zoneinfo import ZoneInfo
+import sqlite3
+from werkzeug.utils import secure_filename
 from flask import Blueprint, abort, current_app, jsonify, make_response, redirect, render_template, request
 
-from experiment_store import REPEAT_PATHS, delete_experiment, experiment, list_experiments
+from experiment_store import REPEAT_PATHS, StoredExperimentError, delete_experiment, experiment, list_experiments
 from report_builder import build_report
 
 experiments = Blueprint('experiments',__name__)
+
+
+@experiments.app_errorhandler(StoredExperimentError)
+@experiments.app_errorhandler(sqlite3.Error)
+def storage_error(error):
+    current_app.logger.exception('Experiment storage operation failed')
+    return 'Saved experiment storage could not be read or written. No completed save is confirmed; existing records were retained.',500
 
 
 @experiments.app_template_filter('display_time')
@@ -50,8 +59,10 @@ def detail(experiment_id):
 @experiments.get('/experiments/<experiment_id>/record.json')
 def record(experiment_id):
     saved = owned(experiment_id)
-    response = jsonify({key:saved[key] for key in ('id','title','workflow','created','payload','form')})
-    response.headers['Content-Disposition']=f'attachment; filename="grelu-{saved["workflow"]}-{experiment_id[:8]}.json"'
+    response = jsonify({key:saved[key] for key in ('id','title','workflow','created','payload','form','metadata')})
+    filename=secure_filename(saved['workflow']) or 'analysis'
+    response.headers['Content-Disposition']=f'attachment; filename="grelu-{filename}-{experiment_id[:8]}.json"'
+    response.headers['X-Content-Type-Options']='nosniff'
     response.headers['Cache-Control']='no-store'
     return response
 

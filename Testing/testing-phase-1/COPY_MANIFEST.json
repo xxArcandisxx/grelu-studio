@@ -1,0 +1,534 @@
+{
+  "name": "testing-phase-1",
+  "created_utc": "2026-11-22T11:47:00.298232+00:00",
+  "description": "Convenience copies of biological accuracy results and supporting earlier execution checks. Originals retained unchanged.",
+  "main_report": "REPORT.md",
+  "dataset_guide": "supporting-data/DATASET_GUIDE.md",
+  "earlier_execution_checks": "earlier-execution-checks/REPORT.md",
+  "excluded": "Code, model weights/checkpoints, database state, and large raw input datasets. Original locations and copied-file hashes are recorded below.",
+  "files": [
+    {
+      "original": "test-results/gm12878-biological/REPORT.md",
+      "copy": "REPORT.md",
+      "bytes": 2797,
+      "sha256": "8ac27402cf5092511b726ccb78b5efdc31087de8120d63b973d1b40cae8c1631"
+    },
+    {
+      "original": "test-results/gm12878-biological/dnase.png",
+      "copy": "dnase.png",
+      "bytes": 77357,
+      "sha256": "4a8358c9d1d4e61f7ab69919dd0c0e77879ae8de9f82fd802cea5b6ca963838d"
+    },
+    {
+      "original": "test-results/gm12878-biological/dnase_predictions.csv",
+      "copy": "dnase_predictions.csv",
+      "bytes": 30681,
+      "sha256": "9cfb54f9f4497afcf5b6cba98512399afc144d1d3e97a98bbbd3e8c3a3cee0c4"
+    },
+    {
+      "original": "test-results/gm12878-biological/dnase_provenance.json",
+      "copy": "dnase_provenance.json",
+      "bytes": 212,
+      "sha256": "b9e27fdfc69c47891074cc3ec168c4f78f29ffd275ad6e24076dc51c1db428ca"
+    },
+    {
+      "original": "test-results/gm12878-biological/dnase_website_benchmark.csv",
+      "copy": "dnase_website_benchmark.csv",
+      "bytes": 18566,
+      "sha256": "88ce745d8dc528ea552e80489b856828ab1c9722488bfd44a7ab4b8e8af21365"
+    },
+    {
+      "original": "test-results/gm12878-biological/dsqtl.png",
+      "copy": "dsqtl.png",
+      "bytes": 40554,
+      "sha256": "c075c93ca91bfa48c202ca927284beef61a2e58ad750b2ebe01bf84e3f9c4ebe"
+    },
+    {
+      "original": "test-results/gm12878-biological/dsqtl_predictions.csv",
+      "copy": "dsqtl_predictions.csv",
+      "bytes": 64882,
+      "sha256": "6075ae85c23f835c397f9b24f907f54f8b7fde3539338d7a1eea5ed70de8c25b"
+    },
+    {
+      "original": "test-results/gm12878-biological/dsqtl_provenance.json",
+      "copy": "dsqtl_provenance.json",
+      "bytes": 265,
+      "sha256": "7d75a9b2c4d30ba2ebd40eaf4a9132177a0a896506b818e84dad79f5aa2952d7"
+    },
+    {
+      "original": "test-results/gm12878-biological/dsqtl_website_benchmark.csv",
+      "copy": "dsqtl_website_benchmark.csv",
+      "bytes": 23893,
+      "sha256": "4c559c38471a9f880c19b35cc6fe762f608f1ad081e8fd8490c024e68671a931"
+    },
+    {
+      "original": "test-results/gm12878-biological/metrics.json",
+      "copy": "metrics.json",
+      "bytes": 1337,
+      "sha256": "21eeaead367a632ff57781cd078d0e30ebe87fa3d398b92956311e344625d7de"
+    },
+    {
+      "original": "test-results/gm12878-biological/website_batch_variants.html",
+      "copy": "website_batch_variants.html",
+      "bytes": 22679,
+      "sha256": "5e3da66ee4519177b5e507831553b580b40493ea01496e0693a723502a78980a"
+    },
+    {
+      "original": "test-results/gm12878-biological/website_checks.json",
+      "copy": "website_checks.json",
+      "bytes": 593,
+      "sha256": "013d4429e7c6a06eb037f6eb37fa4e3d94bb129bc3461d9a27b6ccc2c132f006"
+    },
+    {
+      "original": "test-results/gm12878-biological/website_dnase_benchmark.html",
+      "copy": "website_dnase_benchmark.html",
+      "bytes": 26419,
+      "sha256": "109fc19d81d672c94a18fe37b0e15cea84b66a09aa5ffee9cd695013510de6d9"
+    },
+    {
+      "original": "test-results/gm12878-biological/website_dsqtl_benchmark.html",
+      "copy": "website_dsqtl_benchmark.html",
+      "bytes": 32825,
+      "sha256": "82692c80aaac7d374bb73b8cad2128bdf0a2002c2dfd0108e5fb30e26442e5c1"
+    },
+    {
+      "original": "test-results/gm12878-biological/website_prediction.html",
+      "copy": "website_prediction.html",
+      "bytes": 19310,
+      "sha256": "a7e131a9fad04c9bcf9bae512d55b3e20138b7ebf7d26a4933aeacfebfc7e2af"
+    },
+    {
+      "original": "test-results/gm12878-biological/website_variant.json",
+      "copy": "website_variant.json",
+      "bytes": 6666,
+      "sha256": "04a94d229f64deea901bf91285feef8d4e14ba7e76dfd918d3a6444491761605"
+    },
+    {
+      "original": "datasets/gm12878/biological/sources.json",
+      "copy": "supporting-data/sources.json",
+      "bytes": 5360,
+      "sha256": "5b05d2b5f62a11d41c62ec19a52f021e9c576514f0de5bbf4ced5e63a4ba7242"
+    },
+    {
+      "original": "datasets/gm12878/biological/README.md",
+      "copy": "supporting-data/DATASET_GUIDE.md",
+      "bytes": 6751,
+      "sha256": "429522f0a4f5c74cd928a5199ecc5c534e53cc1687b7aef7f8960a47dc92aeee"
+    },
+    {
+      "original": "test-results/gm12878-verified/REPORT.md",
+      "copy": "earlier-execution-checks/REPORT.md",
+      "bytes": 2933,
+      "sha256": "b3db9b4daa1aa72fc18824f32c038a8bf961cc5c9387e3d8020bfddaee598aa7"
+    },
+    {
+      "original": "test-results/gm12878-verified/alleles-2d0b9158-report.html",
+      "copy": "earlier-execution-checks/alleles-2d0b9158-report.html",
+      "bytes": 17023,
+      "sha256": "8d452404b8ed6c44d8e9fe1d6d7bd2931a9f6cbd4b99994061421a14368ff8d9"
+    },
+    {
+      "original": "test-results/gm12878-verified/alleles-result.json",
+      "copy": "earlier-execution-checks/alleles-result.json",
+      "bytes": 7989,
+      "sha256": "1250bbaa32c25f1331c693efb1a6f9b0986ed64fa1b6b761d98d8c5e9603ede2"
+    },
+    {
+      "original": "test-results/gm12878-verified/alleles.log",
+      "copy": "earlier-execution-checks/alleles.log",
+      "bytes": 398,
+      "sha256": "8a1c0fe1f4ea90c5d5153de4ce34460e4a0a95d5c676895024a447380162ab20"
+    },
+    {
+      "original": "test-results/gm12878-verified/attribution-be90e0f3-report.html",
+      "copy": "earlier-execution-checks/attribution-be90e0f3-report.html",
+      "bytes": 448357,
+      "sha256": "743e89c6c586dc7a9d4135912d3072ad2fb0f496e27df0a23de76d5dc7982c9c"
+    },
+    {
+      "original": "test-results/gm12878-verified/attribution-result.json",
+      "copy": "earlier-execution-checks/attribution-result.json",
+      "bytes": 478529,
+      "sha256": "9f1f4a7f8e3547a1903d882b11ccc7398d613f9b8461480463f4abfbbcf6700f"
+    },
+    {
+      "original": "test-results/gm12878-verified/attribution.log",
+      "copy": "earlier-execution-checks/attribution.log",
+      "bytes": 287,
+      "sha256": "2f970a294ee1d1608e0e4e73f9dd06acf71b264e75fd66d88577017cf16416ed"
+    },
+    {
+      "original": "test-results/gm12878-verified/batch-variants-6313e12e-report.html",
+      "copy": "earlier-execution-checks/batch-variants-6313e12e-report.html",
+      "bytes": 22902,
+      "sha256": "49b6c87521380a7d40635772177c0f1f9af3ce93d92bdf384dd957573eebe25a"
+    },
+    {
+      "original": "test-results/gm12878-verified/batch-variants-result.json",
+      "copy": "earlier-execution-checks/batch-variants-result.json",
+      "bytes": 12592,
+      "sha256": "e5b5e864dec8beb6a33a8071a151cf17b2c21d902d3af601cb0424aa6371eb2b"
+    },
+    {
+      "original": "test-results/gm12878-verified/batch-variants.log",
+      "copy": "earlier-execution-checks/batch-variants.log",
+      "bytes": 388,
+      "sha256": "a27dec24853300eff91eb7a8019c5e7faf5327f5586014fd3b72a12b755457c9"
+    },
+    {
+      "original": "test-results/gm12878-verified/design-68ae7bc6-report.html",
+      "copy": "earlier-execution-checks/design-68ae7bc6-report.html",
+      "bytes": 18775,
+      "sha256": "8e0cf150fbf9d70ed924d6aa32711b85ec35ec40e53dc19756f301cf5aa1ab00"
+    },
+    {
+      "original": "test-results/gm12878-verified/design-result.json",
+      "copy": "earlier-execution-checks/design-result.json",
+      "bytes": 11888,
+      "sha256": "36e393e011c237a3ffdb622a177f58ca6d094f26eda886e032fda60de3a90b93"
+    },
+    {
+      "original": "test-results/gm12878-verified/design.log",
+      "copy": "earlier-execution-checks/design.log",
+      "bytes": 356,
+      "sha256": "7d9b60b05cedc8b3329bb03c5e3545fc29f26442ef05c4e45de69ff83fe27991"
+    },
+    {
+      "original": "test-results/gm12878-verified/evaluation-00e456c1-report.html",
+      "copy": "earlier-execution-checks/evaluation-00e456c1-report.html",
+      "bytes": 4555,
+      "sha256": "37e93e2e0788d2e2a9b77c66c7dbef8ebee12a949a69a8dd9c0b644f7704ccc2"
+    },
+    {
+      "original": "test-results/gm12878-verified/evaluation-0bc66365-report.html",
+      "copy": "earlier-execution-checks/evaluation-0bc66365-report.html",
+      "bytes": 3467,
+      "sha256": "c26683d84f0e8b1f5e79cae97a3259764e94edc7782eb66d43f4e16c1ae68d37"
+    },
+    {
+      "original": "test-results/gm12878-verified/evaluation-ce2818b3-report.html",
+      "copy": "earlier-execution-checks/evaluation-ce2818b3-report.html",
+      "bytes": 4522,
+      "sha256": "650eff111b80008f6da230cb21665c02fea6363a13c8ff0d8dff6d36b0d0ca9c"
+    },
+    {
+      "original": "test-results/gm12878-verified/evaluation-result.json",
+      "copy": "earlier-execution-checks/evaluation-result.json",
+      "bytes": 2453,
+      "sha256": "598db805819234d21c8213876e8faa0f3bb3ea453b63571bb47361130dffa57f"
+    },
+    {
+      "original": "test-results/gm12878-verified/evaluation.log",
+      "copy": "earlier-execution-checks/evaluation.log",
+      "bytes": 477,
+      "sha256": "e4553dde4892d7306ca9087c47392a0f9995cb85c2639d186f7e4bf635932f1f"
+    },
+    {
+      "original": "test-results/gm12878-verified/fine-tuning-855b2c3a-report.html",
+      "copy": "earlier-execution-checks/fine-tuning-855b2c3a-report.html",
+      "bytes": 11537,
+      "sha256": "33746ad34d1728c97c1c241e17519637ce2ca5519e92328a68811b48e681e22f"
+    },
+    {
+      "original": "test-results/gm12878-verified/fine-tuning-be15f53d-report.html",
+      "copy": "earlier-execution-checks/fine-tuning-be15f53d-report.html",
+      "bytes": 27409,
+      "sha256": "25ff3c6b62ef02f97632ec3bb025ee159fcbe3be31f78153b0e55d92d6ec6e51"
+    },
+    {
+      "original": "test-results/gm12878-verified/fine-tuning-result.json",
+      "copy": "earlier-execution-checks/fine-tuning-result.json",
+      "bytes": 6810,
+      "sha256": "4bd2f73882e7ef432e5c6d50dad953d1c48ccd390b084c89cd9ca818adf1a615"
+    },
+    {
+      "original": "test-results/gm12878-verified/fine-tuning.log",
+      "copy": "earlier-execution-checks/fine-tuning.log",
+      "bytes": 532,
+      "sha256": "523a52e9927e7a397f055dffe3b6f03c248ed0d23f6128747f7cafd74f80b0ab"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-comparison-6b8966b4-report.html",
+      "copy": "earlier-execution-checks/model-comparison-6b8966b4-report.html",
+      "bytes": 36620,
+      "sha256": "e2ec9defa148c6b624c6df3754602cccaf93e34d1efa3c2e0349ec96355c6f1e"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-comparison-result.json",
+      "copy": "earlier-execution-checks/model-comparison-result.json",
+      "bytes": 25190,
+      "sha256": "928524b10c5c1c8b8d962f69d46309f53ca6137f19037afd1a538aa7375e14a7"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-comparison.log",
+      "copy": "earlier-execution-checks/model-comparison.log",
+      "bytes": 411,
+      "sha256": "5fd326b08d63dc15d7eac6a4cdeffd4a7391be2a60e48486b6b77c685dcdfcb9"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-zoo-07ae41fe-report.html",
+      "copy": "earlier-execution-checks/model-zoo-07ae41fe-report.html",
+      "bytes": 3072,
+      "sha256": "5bd926b18a0c2be1cb3c5ec767908844e5d967cc488dfb197cb7c63e6c9a87da"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-zoo-7446a413-report.html",
+      "copy": "earlier-execution-checks/model-zoo-7446a413-report.html",
+      "bytes": 11548,
+      "sha256": "507d802c9eb98c2cbeb0d7a0c5b1fcc82eb9247db1a09721cedd4d12dc6f2d33"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-zoo-result.json",
+      "copy": "earlier-execution-checks/model-zoo-result.json",
+      "bytes": 5688,
+      "sha256": "febcab05f848c5093b6ed618f214a3309a7f9c57c90c96c25aead9d802780a65"
+    },
+    {
+      "original": "test-results/gm12878-verified/model-zoo.log",
+      "copy": "earlier-execution-checks/model-zoo.log",
+      "bytes": 462,
+      "sha256": "097c8e4a0c23a31b3bdf0e3e74143925572efff297c445d772e0af844ddedd7c"
+    },
+    {
+      "original": "test-results/gm12878-verified/motifs-124fd23a-report.html",
+      "copy": "earlier-execution-checks/motifs-124fd23a-report.html",
+      "bytes": 55996,
+      "sha256": "f396ef83b20ed880976ce74b691c1cce3b3b5ff7af17ae8e296b8a1b0534b618"
+    },
+    {
+      "original": "test-results/gm12878-verified/motifs-result.json",
+      "copy": "earlier-execution-checks/motifs-result.json",
+      "bytes": 28806,
+      "sha256": "386b70606dcb08b585ece470066c7b2ae7a3a9431b85bf9152f99973c8af423c"
+    },
+    {
+      "original": "test-results/gm12878-verified/motifs.log",
+      "copy": "earlier-execution-checks/motifs.log",
+      "bytes": 367,
+      "sha256": "4042cee1d161e5c57e5018f575a1a816e67f103f94f825a843b83b1b33aa1e44"
+    },
+    {
+      "original": "test-results/gm12878-verified/mutagenesis-fb44834a-report.html",
+      "copy": "earlier-execution-checks/mutagenesis-fb44834a-report.html",
+      "bytes": 10834,
+      "sha256": "5e952b6c684517e9e53b545decc534693fda52aa1c227184e0ac07a6550b00b1"
+    },
+    {
+      "original": "test-results/gm12878-verified/mutagenesis-result.json",
+      "copy": "earlier-execution-checks/mutagenesis-result.json",
+      "bytes": 4516,
+      "sha256": "4a37b4e2e6de6b692cc3476fb214161e0e4484c0dc62cffa608456eaea95b360"
+    },
+    {
+      "original": "test-results/gm12878-verified/mutagenesis.log",
+      "copy": "earlier-execution-checks/mutagenesis.log",
+      "bytes": 288,
+      "sha256": "8f4c948541a16bd469dad7647590a082e7e4a69a8e58bc3064d0ecf27cbda5e6"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction-139a769d-report.html",
+      "copy": "earlier-execution-checks/prediction-139a769d-report.html",
+      "bytes": 16485,
+      "sha256": "d5a28e5472fa61c50bd94f220166958e4e07b58c4bde92226461db52224ea73d"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction-1a6bf68f-report.html",
+      "copy": "earlier-execution-checks/prediction-1a6bf68f-report.html",
+      "bytes": 16487,
+      "sha256": "e6d06caa170bfb6d8c3bdaa493f05e552e43b01aad6391f1b33c49a5cfa5eb31"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction-2affd443-report.html",
+      "copy": "earlier-execution-checks/prediction-2affd443-report.html",
+      "bytes": 16490,
+      "sha256": "fb13a4869526ebb23a76a6df27f05e151f5c06a7be2fee357bcfc4d17c3def99"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction-d6c6235f-report.html",
+      "copy": "earlier-execution-checks/prediction-d6c6235f-report.html",
+      "bytes": 16487,
+      "sha256": "a18e1de170f0f5ef81493cfd5c57b153ee4aed8f88e820a8e2042a4293da9774"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction-d9f4653c-report.html",
+      "copy": "earlier-execution-checks/prediction-d9f4653c-report.html",
+      "bytes": 16487,
+      "sha256": "76c33a86f522718b48f8ee2652bfd9d8cc4f9d48aa896783400b0a7ba9afb408"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction-result.json",
+      "copy": "earlier-execution-checks/prediction-result.json",
+      "bytes": 39454,
+      "sha256": "6a37a6bd300f3a1b07f62e397f435f92c0d6778986ee833a85dd553d7c6d57ef"
+    },
+    {
+      "original": "test-results/gm12878-verified/prediction.log",
+      "copy": "earlier-execution-checks/prediction.log",
+      "bytes": 472,
+      "sha256": "5b1d089fec300536627720b338998e88935968e4cc1345657c9ecb06ec9c6deb"
+    },
+    {
+      "original": "test-results/gm12878-verified/prioritization-b0af2a60-report.html",
+      "copy": "earlier-execution-checks/prioritization-b0af2a60-report.html",
+      "bytes": 22622,
+      "sha256": "aab4536273e2040160bda55c8f131325f617f2e9257a79695105496667cfe58c"
+    },
+    {
+      "original": "test-results/gm12878-verified/prioritization-result.json",
+      "copy": "earlier-execution-checks/prioritization-result.json",
+      "bytes": 11111,
+      "sha256": "ed64551daec47de203c1d404a822be87bed8e4fc98eafcddbbd2a578e6a84ca2"
+    },
+    {
+      "original": "test-results/gm12878-verified/prioritization.log",
+      "copy": "earlier-execution-checks/prioritization.log",
+      "bytes": 406,
+      "sha256": "66a623e01774784e7ad8e48f7b4705f0768eed2e3d8f56ad18ec6f6cde86b5c8"
+    },
+    {
+      "original": "test-results/gm12878-verified/pwm-7f2d8ea8-report.html",
+      "copy": "earlier-execution-checks/pwm-7f2d8ea8-report.html",
+      "bytes": 150968,
+      "sha256": "1e6900a553a279a1eba61f14c145356d532e7aca2004d9424839cc840a47aa97"
+    },
+    {
+      "original": "test-results/gm12878-verified/pwm-result.json",
+      "copy": "earlier-execution-checks/pwm-result.json",
+      "bytes": 100942,
+      "sha256": "19a34f070fe47c0769a341899b24dd6dd9f234f83f1a61bfb74bc0c20526fc88"
+    },
+    {
+      "original": "test-results/gm12878-verified/pwm.log",
+      "copy": "earlier-execution-checks/pwm.log",
+      "bytes": 370,
+      "sha256": "49475f6968bf30798f4ee0a7d310194ceede42b144d0a56a4a4160f55d01cbde"
+    },
+    {
+      "original": "test-results/gm12878-verified/quality-7c155b17-report.html",
+      "copy": "earlier-execution-checks/quality-7c155b17-report.html",
+      "bytes": 28638,
+      "sha256": "adf39da795582347eb9515a7d7c249d5b20a71a2b1e113d328329d2cfd376fe0"
+    },
+    {
+      "original": "test-results/gm12878-verified/quality-b689f8f7-report.html",
+      "copy": "earlier-execution-checks/quality-b689f8f7-report.html",
+      "bytes": 32061,
+      "sha256": "c1589151d1e91a657e13f8eb2c5d615a63fd72e39a68fc1c2cda9049a777dfa3"
+    },
+    {
+      "original": "test-results/gm12878-verified/quality-result.json",
+      "copy": "earlier-execution-checks/quality-result.json",
+      "bytes": 8128,
+      "sha256": "95301902a8565d2f91ca55f1c876f9bdbd93acc8c40fe4dcf99fbcb9f5dded89"
+    },
+    {
+      "original": "test-results/gm12878-verified/quality.log",
+      "copy": "earlier-execution-checks/quality.log",
+      "bytes": 785,
+      "sha256": "4d1ee7274e63304a727b864b12946ea8fb150a2cbac9c563a20e0dad6f6d43a3"
+    },
+    {
+      "original": "test-results/gm12878-verified/simulation-e30c12bb-report.html",
+      "copy": "earlier-execution-checks/simulation-e30c12bb-report.html",
+      "bytes": 16372,
+      "sha256": "d3ef028519e282a3891c8c53abdf328e9da37e40fe2a5eaef0cee8819b937c1c"
+    },
+    {
+      "original": "test-results/gm12878-verified/simulation-result.json",
+      "copy": "earlier-execution-checks/simulation-result.json",
+      "bytes": 8776,
+      "sha256": "8ff2e54c78f52809a995ad550458b78485dedff0385d7ba0ebcaa0a5bdb7e85b"
+    },
+    {
+      "original": "test-results/gm12878-verified/simulation.log",
+      "copy": "earlier-execution-checks/simulation.log",
+      "bytes": 286,
+      "sha256": "ec3aab8ef55dc4d8f0962e2d618a30c729445a085bdfc155382e989a86d75ed6"
+    },
+    {
+      "original": "test-results/gm12878-verified/summary.json",
+      "copy": "earlier-execution-checks/summary.json",
+      "bytes": 8880,
+      "sha256": "3a3554cffe8e377070ab021c2f0bdfea126f18748398b76766a87f0b7e6e96b4"
+    },
+    {
+      "original": "test-results/gm12878-verified/training-f4b6bf16-report.html",
+      "copy": "earlier-execution-checks/training-f4b6bf16-report.html",
+      "bytes": 16172,
+      "sha256": "959af231920b5a21d0c97b7cd3cfd9e4db41e96f2242ae02c61375a27b58c744"
+    },
+    {
+      "original": "test-results/gm12878-verified/training-f5ad8dbb-report.html",
+      "copy": "earlier-execution-checks/training-f5ad8dbb-report.html",
+      "bytes": 26113,
+      "sha256": "8e31f49c91687f8a292fb27ba91d7753d22fd3c93531a247ab352b3aaa2c89c9"
+    },
+    {
+      "original": "test-results/gm12878-verified/training-result.json",
+      "copy": "earlier-execution-checks/training-result.json",
+      "bytes": 10373,
+      "sha256": "882bcaa2c1366b8b134b1d9f81f4a704b93a66b8eb2753f556b0348997d918d7"
+    },
+    {
+      "original": "test-results/gm12878-verified/training.log",
+      "copy": "earlier-execution-checks/training.log",
+      "bytes": 637,
+      "sha256": "ce971aeb8a6ed9ddc328b0a2e270ef17584664157783103a2cb04fc75356eae4"
+    },
+    {
+      "original": "test-results/gm12878-verified/variant-comparison-6e4fc100-report.html",
+      "copy": "earlier-execution-checks/variant-comparison-6e4fc100-report.html",
+      "bytes": 16384,
+      "sha256": "71cf8a77eb102099aa55b1458576b81d93094eb750e097d5db5e2bbc500204c4"
+    },
+    {
+      "original": "test-results/gm12878-verified/variant-comparison-result.json",
+      "copy": "earlier-execution-checks/variant-comparison-result.json",
+      "bytes": 7483,
+      "sha256": "450cb7c5faf723e8df2fac58b2b9cfbc52d56a7c5d2fd4b73de82a3b689e2981"
+    },
+    {
+      "original": "test-results/gm12878-verified/variant-comparison.log",
+      "copy": "earlier-execution-checks/variant-comparison.log",
+      "bytes": 395,
+      "sha256": "7fc897977e5eea4fe3fc42652c1cc658daab8b210c7f9c3ec8f83ca11e3e7c9f"
+    },
+    {
+      "original": "test-results/gm12878-biological/concerns-review/CONCERNS_REVIEW.md",
+      "copy": "concerns-review/CONCERNS_REVIEW.md",
+      "bytes": 7343,
+      "sha256": "19ae60ed9f193951bf286092419067389bb5b9a7467aa98e6248d9dfef4b07ad"
+    },
+    {
+      "original": "test-results/gm12878-biological/concerns-review/audit.json",
+      "copy": "concerns-review/audit.json",
+      "bytes": 3776,
+      "sha256": "5880d60b83fa0632f58758bbc12fdf239a5078016a1a2763f099c043562c3b0f"
+    },
+    {
+      "original": "test-results/gm12878-biological/concerns-review/dnase_bootstrap.csv",
+      "copy": "concerns-review/dnase_bootstrap.csv",
+      "bytes": 153315,
+      "sha256": "9109fe3e1120c8a487d580f23c2727497dd2e6edab385e2c92ba704cccbd9e1d"
+    },
+    {
+      "original": "test-results/gm12878-biological/concerns-review/feedback_received.txt",
+      "copy": "concerns-review/feedback_received.txt",
+      "bytes": 5505,
+      "sha256": "f0b277066d9ccbaaa0d126d67e805db45de2a1c3225a5f5c958da2ef30b600c1"
+    },
+    {
+      "original": "test-results/gm12878-biological/concerns-review/training_mean_baseline_sample.csv",
+      "copy": "concerns-review/training_mean_baseline_sample.csv",
+      "bytes": 214455,
+      "sha256": "ed3e40434f5ca272bee8f6111a97aaf21f5b3091a8d21102fbf1ae17f2bf8640"
+    },
+    {
+      "original": "test-results/gm12878-biological/concerns-review/variant_bootstrap.csv",
+      "copy": "concerns-review/variant_bootstrap.csv",
+      "bytes": 158565,
+      "sha256": "e7ed3350bce762553bfe0038b72dd54c993fb57340758a2f0be833416f964614"
+    }
+  ],
+  "concerns_review": "concerns-review/CONCERNS_REVIEW.md"
+}

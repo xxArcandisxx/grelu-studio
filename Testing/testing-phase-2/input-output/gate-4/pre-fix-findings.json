@@ -1,0 +1,28 @@
+{
+  "run": "Testing/testing-phase-2/input-output/gate-4/runs/20261122T163447347143Z",
+  "original_results_sha256": "5bc501c6f83fbd95a0d980e72bae8d7d5bfbe347eb9b42f84489d3a555807949",
+  "path_assertion_harness_error": {
+    "string_paths_differ": true,
+    "all_resolve_to_same_file": true,
+    "explanation": "Studio resolves the Hugging Face snapshot symlink to its content-addressed blob. String inequality is not a checkpoint identity failure. Pinned SHA and every loaded state hash agree."
+  },
+  "raw_comparisons": {
+    "count": 118,
+    "all_numerical_comparisons_pass": true,
+    "max_absolute_error": 0.0
+  },
+  "regression_checks": [
+    {
+      "id": "fallback_warning_visible",
+      "status": "FAIL",
+      "evidence": "Testing/testing-phase-2/input-output/gate-4/runs/20261122T163447347143Z/website/http_fault_recovery.json",
+      "actual_response_warnings": [
+        "Checkpoints are pickle files: only load ones you trust."
+      ],
+      "actual_adapter_notes": [
+        "gReLU predict_on_seqs failed (Gate4 explicit model fault injection); fell back to the built-in forward pass."
+      ],
+      "explanation": "Real fallback inference numerically matches the independent checkpoint, but its warning is absent from the API response."
+    }
+  ]
+}

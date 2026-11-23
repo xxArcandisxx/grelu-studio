@@ -1,0 +1,259 @@
+{
+  "case": "training",
+  "mode": "isolated Flask request integration; no browser",
+  "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+  "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+  "status": "passed",
+  "limitations": [
+    "Labels are synthetic GC fractions, not measured DNase activity. Optimizer/checkpoint execution only.",
+    "Compact CNN trained from scratch on center-cropped 2,000-base windows; not training GM12878 from scratch."
+  ],
+  "observed_job_states": [
+    "running",
+    "complete"
+  ],
+  "model_key": "local-24c0765831f5",
+  "optimizer_steps": 8,
+  "results": [
+    {
+      "created": 1794940013.4498518,
+      "history": [
+        {
+          "epoch": 1,
+          "training_loss": 0.13655045349150896,
+          "validation_loss": 0.0840823445469141
+        }
+      ],
+      "id": "24c0765831f5fcae30e6113734be83af",
+      "kind": "Model training",
+      "message": "Run complete. Results are ready.",
+      "result": {
+        "base_checkpoint_sha256": null,
+        "base_model_config": {
+          "n_tasks": 1,
+          "seed": 0,
+          "seq_len": 2000,
+          "source": "demo"
+        },
+        "batch_size": 1,
+        "best_epoch": 1,
+        "best_validation_mse": 0.0840823445469141,
+        "checkpoint": "model.pt",
+        "data_source": "uploaded numeric labels",
+        "epochs": 1,
+        "history": [
+          {
+            "epoch": 1,
+            "training_loss": 0.13655045349150896,
+            "validation_loss": 0.0840823445469141
+          }
+        ],
+        "initial_validation_mse": 0.11285561695694923,
+        "learning_rate": 0.0001,
+        "mean_label_baseline_mse": 0.007829632610082626,
+        "model_key": "local-24c0765831f5",
+        "model_provenance": {
+          "checkpoint_sha256": "35796e6f230839e7d6502807975fc5288a1eb6cca7cf8772a3b949fbfb193312",
+          "model_id": "Local trained model \u00b7 24c07658",
+          "origin": "training",
+          "torch_version": "2.15.0"
+        },
+        "optimizer_steps": 8,
+        "saved_run_id": "f5ad8dbb834280dc82f135fe3d7dc0ba",
+        "split_seed": 0,
+        "target_track": "task_0",
+        "training_records": 8,
+        "validation_records": 2
+      },
+      "state": "complete",
+      "updated": 1794940015.6501663,
+      "worker_pid": 63673
+    },
+    {
+      "actual_model": "Local trained model \u00b7 24c07658",
+      "device": "cpu",
+      "evidence": [
+        {
+          "message": "1 sequences, lengths 2000-2000 bp (model expects 2000), mean GC 0.57.",
+          "name": "Input QC",
+          "status": "pass"
+        },
+        {
+          "message": "Needs at least 3 sequences with varying scores.",
+          "name": "Reverse-complement consistency",
+          "status": "info"
+        },
+        {
+          "message": "These are checks, not proof. Passing them does not show the biology is right.",
+          "name": "Scope",
+          "status": "info"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "sequence_1",
+          "sequence": "TATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGA"
+        }
+      ],
+      "model": {
+        "backend": "builtin",
+        "seq_len": 2000,
+        "source": "studio_trained",
+        "tasks": [
+          "task_0"
+        ]
+      },
+      "ok": true,
+      "provenance": {
+        "checkpoint_sha256": "35796e6f230839e7d6502807975fc5288a1eb6cca7cf8772a3b949fbfb193312",
+        "model_id": "Local trained model \u00b7 24c07658",
+        "origin": "training",
+        "torch_version": "2.15.0"
+      },
+      "results": {
+        "predictions": [
+          {
+            "gc_content": 0.5685,
+            "id": "sequence_1",
+            "length": 2000,
+            "reverse_complement_scores": {
+              "task_0": 0.19976963102817535
+            },
+            "scores": {
+              "task_0": 0.20090004801750183
+            },
+            "tracks": {
+              "task_0": [
+                0.19599999487400055,
+                0.19663000106811523,
+                0.1921599954366684,
+                0.19925999641418457,
+                0.1994899958372116,
+                0.2022400051355362,
+                0.1975799947977066,
+                0.1896899938583374,
+                0.1952199935913086,
+                0.19850000739097595,
+                0.19499999284744263,
+                0.21095000207424164,
+                0.2011999934911728,
+                0.20885999500751495,
+                0.2005700021982193,
+                0.20666000247001648,
+                0.19047999382019043,
+                0.20640000700950623,
+                0.20900000631809235,
+                0.2103399932384491,
+                0.19203999638557434,
+                0.2052599936723709,
+                0.20288999378681183,
+                0.21111999452114105,
+                0.19972999393939972,
+                0.19513000547885895,
+                0.19492000341415405,
+                0.19169999659061432,
+                0.20736999809741974,
+                0.20473000407218933,
+                0.20468999445438385,
+                0.21317000687122345,
+                0.19232000410556793,
+                0.20114000141620636,
+                0.20103000104427338,
+                0.19735999405384064,
+                0.20552000403404236,
+                0.2013700008392334,
+                0.2029699981212616,
+                0.20582999289035797,
+                0.20170000195503235,
+                0.19799000024795532,
+                0.2027300000190735,
+                0.21299000084400177,
+                0.20071999728679657,
+                0.19869999587535858,
+                0.199630007147789,
+                0.20553000271320343,
+                0.19869999587535858,
+                0.20237000286579132,
+                0.1963600069284439,
+                0.20036999881267548,
+                0.20574000477790833,
+                0.19933000206947327,
+                0.20680999755859375,
+                0.2024800032377243,
+                0.19818000495433807,
+                0.20469999313354492,
+                0.19460999965667725,
+                0.2058500051498413,
+                0.19585999846458435,
+                0.19850000739097595,
+                0.20799000561237335,
+                0.1950400024652481,
+                0.20231999456882477,
+                0.20146000385284424,
+                0.19894999265670776,
+                0.1983100026845932,
+                0.2070000022649765,
+                0.2064100056886673,
+                0.20664000511169434,
+                0.19120000302791595,
+                0.20625999569892883,
+                0.20176999270915985,
+                0.20354999601840973,
+                0.20263999700546265,
+                0.2064799964427948,
+                0.2031800001859665,
+                0.19505999982357025,
+                0.2035599946975708,
+                0.19314000010490417,
+                0.19923000037670135,
+                0.20013000071048737,
+                0.19863000512123108,
+                0.20666000247001648,
+                0.19943000376224518,
+                0.20020000636577606,
+                0.2008100003004074,
+                0.19960999488830566,
+                0.1972299963235855,
+                0.20937000215053558,
+                0.2020999938249588,
+                0.20361000299453735,
+                0.19711999595165253,
+                0.2041199952363968,
+                0.19163000583648682,
+                0.193340003490448,
+                0.19480000436306,
+                0.2001200020313263,
+                0.1945199966430664
+              ]
+            }
+          }
+        ],
+        "qc": {
+          "length_max": 2000,
+          "length_median": 2000.0,
+          "length_min": 2000,
+          "mean_gc": 0.5685,
+          "model_input_length": 2000,
+          "n_cropped": 0,
+          "n_invalid_chars": 0,
+          "n_padded": 0,
+          "n_sequences": 1,
+          "n_with_N": 0
+        }
+      },
+      "runtime_s": 0.01,
+      "saved_run_id": "f4b6bf1682ae86d4a1293db2c05a3f1f",
+      "selected_model": "local-24c0765831f5",
+      "settings": {
+        "n_shuffles": 0,
+        "seed": 0,
+        "track_bins": 100
+      },
+      "warnings": [
+        "Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions."
+      ],
+      "workflow": "predict"
+    }
+  ],
+  "seconds": 2.58
+}

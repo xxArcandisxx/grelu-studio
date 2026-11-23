@@ -1,0 +1,23 @@
+{
+  "path": "/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py",
+  "sha256": "41d05cfc9f6af1a8b6029a184b58e283a13dca9cf49003f2e37ce71a0936a570",
+  "module_format_contract": "\n`grelu.sequence.format` contains functions related to checking the format of\ninput DNA sequences and converting them between accepted sequence formats.\n\nThe following are accepted sequence formats in gReLU:\n1. intervals: a pd.DataFrame object containing valid genomic intervals\n2. strings: A string or list of strings\n3. indices: A numpy array of shape (length,) or (N, length) and dtype np.int8\n4. one_hot: A torch tensor of shape (4, length) or (N, 4, length) and dtype torch.float32\n\n",
+  "functions": {
+    "check_one_hot": {
+      "line": 91,
+      "source": "def check_one_hot(one_hot: Tensor) -> bool:\n    \"\"\"\n    Check if an input tensor contains valid one-hot encoded DNA sequences.\n\n    Args:\n       one_hot: torch tensor\n\n    Returns:\n        Whether the tensor is a valid one-hot encoded DNA sequence or batch of sequences.\n    \"\"\"\n    # Check data type\n    if isinstance(one_hot, Tensor):\n        # Check dtype\n        if one_hot.dtype == torch.float32:\n            # Check that the tensor is 2-dimensional (4, L) or 3-dimensional (B, 4, L)\n            if one_hot.ndim in (2, 3):\n                # Check that the channels are in the correct axis\n                if one_hot.shape[-2] == 4:\n                    return True\n    return False\n"
+    },
+    "one_hot_to_indices": {
+      "line": 323,
+      "source": "def one_hot_to_indices(one_hot: Tensor) -> np.ndarray:\n    \"\"\"\n    Convert a one-hot encoded sequence to integer encoded format\n\n    Args:\n        one_hot: A one-hot encoded DNA sequence or batch of sequences.\n\n    Returns:\n        The integer-encoded sequences.\n    \"\"\"\n    # Convert\n    indices = one_hot.argmax(axis=-2).numpy().astype(np.int8)\n\n    # Account for Ns\n    indices[one_hot.max(axis=-2).values == 0] = 4\n\n    return indices\n"
+    },
+    "one_hot_to_strings": {
+      "line": 342,
+      "source": "def one_hot_to_strings(one_hot: Tensor) -> List[str]:\n    \"\"\"\n    Convert a one-hot encoded sequence to a list of strings\n\n    Args:\n        one_hot: A one-hot encoded DNA sequence or batch of sequences.\n\n    Returns:\n        A list of DNA sequences.\n    \"\"\"\n    indices = one_hot_to_indices(one_hot)\n    return indices_to_strings(indices)\n"
+    },
+    "indices_to_strings": {
+      "line": 356,
+      "source": "def indices_to_strings(indices: np.ndarray) -> List[str]:\n    \"\"\"\n    Convert indices to strings. Any index outside 0:3 range will be converted to 'N'\n\n    Args:\n        strings: A DNA sequence or list of sequences.\n\n    Returns:\n        The input sequences as a list of strings.\n    \"\"\"\n    # Convert a single sequence\n    if indices.ndim == 1:\n        return \"\".join([INDEX_TO_BASE_HASH[i.tolist()] for i in indices])\n\n    # Convert multiple sequences\n    else:\n        return [indices_to_strings(idx) for idx in indices]\n"
+    }
+  }
+}

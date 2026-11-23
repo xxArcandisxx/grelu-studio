@@ -4,17 +4,20 @@ import math
 
 def chart(title, series):
     colors = ['#286c52', '#b66b32', '#3b76a0', '#8770ad']
-    valid = [(label, [float(value) for value in values]) for label, values in series
-             if values and all(isinstance(value, (int, float)) and math.isfinite(value) for value in values)]
+    if any(not values or any(isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) for value in values) for _, values in series):
+        raise ValueError('Chart series must contain nonempty finite numeric model values; no series was silently removed.')
+    valid = [(label, [float(value) for value in values]) for label, values in series]
     if not valid:
         return None
     minimum = min(min(values) for _, values in valid)
     maximum = max(max(values) for _, values in valid)
-    span = maximum - minimum or 1
+    factor = max(1, abs(minimum), abs(maximum))
+    low, high = minimum / factor, maximum / factor
+    span = high - low or 1
     plotted = []
     for index, (label, values) in enumerate(valid[:4]):
         points = [(70 + i / max(1, len(values)-1) * 500,
-                   100 if minimum == maximum else 180 - (value-minimum)/span*155) for i,value in enumerate(values)]
+                   100 if minimum == maximum else 180 - (value/factor-low)/span*155) for i,value in enumerate(values)]
         plotted.append({'label':label,'color':colors[index],
                         'points':' '.join(f'{x:.3f},{y:.3f}' for x,y in points),
                         'first_x':points[0][0], 'first_y':points[0][1], 'count':len(values)})
@@ -38,7 +41,7 @@ def build_report(saved):
                    for row in predictions for track,score in row['scores'].items()))
             if predictions and predictions[0].get('tracks'):
                 track = next(iter(predictions[0]['tracks']))
-                plot = chart('Predicted output bins · ' + track,
+                plot = chart(('Model prediction scores · ' if len(predictions[0]['tracks'][track]) == 1 else 'Model output positions · ') + track,
                              [(row['id'],row['tracks'][track]) for row in predictions[:4] if track in row.get('tracks',{})])
                 if plot:
                     plots.append(plot)
@@ -83,7 +86,7 @@ def build_report(saved):
         predictions = result['predictions']
         if predictions[0].get('tracks'):
             track = next(iter(predictions[0]['tracks']))
-            plotted = chart('Predicted output bins · ' + track,
+            plotted = chart(('Model prediction scores · ' if len(predictions[0]['tracks'][track]) == 1 else 'Model output positions · ') + track,
                 [(row['id'],row['tracks'][track]) for row in predictions[:4] if track in row.get('tracks',{})])
             if plotted:
                 plots.append(plotted)

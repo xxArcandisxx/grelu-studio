@@ -43,6 +43,7 @@ def _file(name, content, media_type='text/plain'):
 
 
 def build_example(workflow, query):
+    from core.model_lengths import required_length
     from studio_web import MODELS, ZOO_MODELS, model_choices, resolve_model
     if workflow not in WORKFLOWS:
         abort(404)
@@ -108,7 +109,7 @@ def build_example(workflow, query):
         model = resolve_model(query.get('model','demo'))
         if model is None:
             raise ValueError('Choose an installed model before loading an example.')
-        length = MODELS[model]['seq_len']
+        length = required_length(MODELS[model])
         seed = _sequence(length)
         folder = 'quick-demo-200bp' if length==200 else 'trained-model-2114bp' if length==2114 else None
         if workflow=='training':
@@ -131,7 +132,7 @@ def build_example(workflow, query):
             second = resolve_model(query.get('model_b','demo'))
             if first is None or second is None:
                 raise ValueError('Choose two installed models.')
-            lengths = [MODELS[key]['seq_len'] for key in (first,second)]
+            lengths = [required_length(MODELS[key]) for key in (first,second)]
             if max(lengths)>20000:
                 raise ValueError('Choose models with windows up to 20,000 bases for CPU comparison.')
             length = max(lengths)

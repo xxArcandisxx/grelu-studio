@@ -1,0 +1,11 @@
+{
+  "mode": "SYNTHETIC_PROCESSING_ONLY",
+  "status": "FAIL",
+  "expected": "No difference without a justified same-model/task scale contract",
+  "actual": 997.0,
+  "input_scores": [
+    3,
+    1000
+  ],
+  "note": "No model inference; hand-set postprocessing fixture demonstrates an unjustified cross-task subtraction."
+}

@@ -1,0 +1,195 @@
+{
+  "category": "optional external dependency compatibility",
+  "counts": {
+    "PASS": 2,
+    "FAIL": 5,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "short_A_roundtrip",
+      "status": "FAIL",
+      "scope": "optional dependency compatibility",
+      "dna": "A",
+      "expected": [
+        "A"
+      ],
+      "actual": {
+        "value": [
+          "N"
+        ],
+        "error": null,
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    },
+    {
+      "id": "short_C_roundtrip",
+      "status": "FAIL",
+      "scope": "optional dependency compatibility",
+      "dna": "C",
+      "expected": [
+        "C"
+      ],
+      "actual": {
+        "value": [
+          "N"
+        ],
+        "error": null,
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    },
+    {
+      "id": "short_G_roundtrip",
+      "status": "FAIL",
+      "scope": "optional dependency compatibility",
+      "dna": "G",
+      "expected": [
+        "G"
+      ],
+      "actual": {
+        "value": [
+          "N"
+        ],
+        "error": null,
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    },
+    {
+      "id": "short_T_roundtrip",
+      "status": "FAIL",
+      "scope": "optional dependency compatibility",
+      "dna": "T",
+      "expected": [
+        "T"
+      ],
+      "actual": {
+        "value": [
+          "N"
+        ],
+        "error": null,
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    },
+    {
+      "id": "short_N_roundtrip",
+      "status": "FAIL",
+      "scope": "optional dependency compatibility",
+      "dna": "N",
+      "expected": [
+        "N"
+      ],
+      "actual": {
+        "value": null,
+        "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 57, in <lambda>\n    observed = attempt(lambda: fmt.one_hot_to_strings(x))\n                               ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 352, in one_hot_to_strings\n    indices = one_hot_to_indices(one_hot)\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 337, in one_hot_to_indices\n    indices[one_hot.max(axis=-2).values == 0] = 4\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        1
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    },
+    {
+      "id": "short_ACGTN_roundtrip",
+      "status": "PASS",
+      "scope": "optional dependency compatibility",
+      "dna": "ACGTN",
+      "expected": [
+        "ACGTN"
+      ],
+      "actual": {
+        "value": [
+          "ACGTN"
+        ],
+        "error": null,
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        5
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    },
+    {
+      "id": "short_GANTCTNNAG_roundtrip",
+      "status": "PASS",
+      "scope": "optional dependency compatibility",
+      "dna": "GANTCTNNAG",
+      "expected": [
+        "GANTCTNNAG"
+      ],
+      "actual": {
+        "value": [
+          "GANTCTNNAG"
+        ],
+        "error": null,
+        "warnings": []
+      },
+      "shape": [
+        1,
+        4,
+        10
+      ],
+      "dtype": "torch.float32",
+      "device": "cpu",
+      "accepted_by_library_check": true,
+      "detected_format": "one_hot",
+      "equals_native_encoder": true
+    }
+  ],
+  "isolation_ok": true,
+  "diagnostics": "dimension-and-mask-diagnostics.json",
+  "source": "installed-source.json"
+}

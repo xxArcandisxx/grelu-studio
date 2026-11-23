@@ -1,0 +1,207 @@
+[
+  {
+    "workflow": "Short encoders",
+    "classification": "VERIFIED",
+    "scope": "Exact native and builtin vectors, native integer values, normalized lowercase and N.",
+    "check_workflows": [
+      "short encoders",
+      "native integer"
+    ]
+  },
+  {
+    "workflow": "Optional gReLU inverse",
+    "classification": "FAILED",
+    "scope": "Five single-base round-trip failures; not used by website prediction.",
+    "check_workflows": [
+      "native optional inverse"
+    ]
+  },
+  {
+    "workflow": "GM12878 adapter / batch schedule",
+    "classification": "VERIFIED",
+    "scope": "Both backends; 2114 bases; single/multiple inputs; 2/2/1 and size-1 batches; duplicates under distinct IDs. Each chunk captured separately; numerical concatenation untested.",
+    "check_workflows": [
+      "adapter",
+      "batch preprocessing",
+      "determinism",
+      "reverse complement"
+    ]
+  },
+  {
+    "workflow": "/predict",
+    "classification": "VERIFIED",
+    "scope": "Actual FASTA/upload/duplicate-DNA ID mapping and exact tensors. Invalid bases/duplicate IDs rejected. No completed numeric request.",
+    "check_workflows": [
+      "/predict"
+    ]
+  },
+  {
+    "workflow": "/api/compare",
+    "classification": "VERIFIED",
+    "scope": "Actual prepared DNA and order; exact forward-input tensors. Remaining batch-size-1 chunks replayed through original adapter; scores untested.",
+    "check_workflows": [
+      "/api/compare"
+    ]
+  },
+  {
+    "workflow": "/allele-specific",
+    "classification": "VERIFIED",
+    "scope": "Actual prepared DNA and order; exact forward-input tensors. Remaining batch-size-1 chunks replayed through original adapter; scores untested.",
+    "check_workflows": [
+      "/allele-specific"
+    ]
+  },
+  {
+    "workflow": "/prioritize",
+    "classification": "VERIFIED",
+    "scope": "Actual prepared DNA and order; exact forward-input tensors. Remaining batch-size-1 chunks replayed through original adapter; scores untested.",
+    "check_workflows": [
+      "/prioritize"
+    ]
+  },
+  {
+    "workflow": "/multi-allelic",
+    "classification": "VERIFIED",
+    "scope": "Actual prepared DNA and order; exact forward-input tensors. Remaining batch-size-1 chunks replayed through original adapter; scores untested.",
+    "check_workflows": [
+      "/multi-allelic"
+    ]
+  },
+  {
+    "workflow": "/batch-variants",
+    "classification": "VERIFIED",
+    "scope": "Actual prepared DNA and order; exact forward-input tensors. Remaining batch-size-1 chunks replayed through original adapter; scores untested.",
+    "check_workflows": [
+      "/batch-variants"
+    ]
+  },
+  {
+    "workflow": "/motif-simulation",
+    "classification": "PARTIAL",
+    "scope": "Reference and one forward motif replacement verified; untested control/partner/orientation combinations remain outside certification.",
+    "check_workflows": [
+      "/motif-simulation"
+    ]
+  },
+  {
+    "workflow": "/attribution",
+    "classification": "PARTIAL",
+    "scope": "Initial HTTP prediction and direct gradient-input encoding verified; later attribution after baseline scores not executed.",
+    "check_workflows": [
+      "/attribution",
+      "attribution"
+    ]
+  },
+  {
+    "workflow": "/design",
+    "classification": "PARTIAL",
+    "scope": "Seed tensor verified; later candidates require scores and are not executed.",
+    "check_workflows": [
+      "/design"
+    ]
+  },
+  {
+    "workflow": "/mutagenesis",
+    "classification": "PARTIAL",
+    "scope": "Reference verified; later mutants require numeric reference output.",
+    "check_workflows": [
+      "/mutagenesis"
+    ]
+  },
+  {
+    "workflow": "/saturation",
+    "classification": "PARTIAL",
+    "scope": "Both curated reference tensors verified; mutation tensors require baseline inference.",
+    "check_workflows": [
+      "/saturation"
+    ]
+  },
+  {
+    "workflow": "/model-comparison",
+    "classification": "PARTIAL",
+    "scope": "Both actual preflight windows and tensors verified independently (2114 and 200), with strict and center/odd offsets. Continuous second HTTP handoff unverified.",
+    "check_workflows": [
+      "/model-comparison"
+    ]
+  },
+  {
+    "workflow": "Training / fine-tuning",
+    "classification": "PARTIAL",
+    "scope": "Shared encoder verified; no training dataset, job, optimizer or model forward is run.",
+    "check_workflows": [
+      "training/fine-tuning"
+    ]
+  },
+  {
+    "workflow": "Resize helper",
+    "classification": "VERIFIED",
+    "scope": "Independent exact odd crop/N-pad tensors; no separate left/right crop policy.",
+    "check_workflows": [
+      "resize helper"
+    ]
+  },
+  {
+    "workflow": "GPU device paths",
+    "classification": "NOT TESTED",
+    "scope": "CPU only. CUDA/MPS not exercised.",
+    "check_workflows": [
+      "device"
+    ]
+  },
+  {
+    "workflow": "/qc",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "/qc"
+    ]
+  },
+  {
+    "workflow": "/research/dataset",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "/research/dataset"
+    ]
+  },
+  {
+    "workflow": "/motifs",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "/motifs"
+    ]
+  },
+  {
+    "workflow": "/pwm-scan",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "/pwm-scan"
+    ]
+  },
+  {
+    "workflow": "/variants",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "/variants"
+    ]
+  },
+  {
+    "workflow": "/research/bed",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "/research/bed"
+    ]
+  },
+  {
+    "workflow": "frontend",
+    "classification": "NOT TESTED",
+    "scope": "No tensor-boundary claim in Gate 3. Descriptive/non-neural paths, retired BED route or browser behavior remain within documented Gate 2 scope.",
+    "check_workflows": [
+      "frontend"
+    ]
+  }
+]

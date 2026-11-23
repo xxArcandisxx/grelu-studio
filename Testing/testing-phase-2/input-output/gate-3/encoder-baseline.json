@@ -1,0 +1,200 @@
+{
+  "scope": "Low-level encoder guard checks; website input validation was already tested in Gate 2. No inference.",
+  "checks": [
+    {
+      "input": "X",
+      "status": "FAIL",
+      "observed": "accepted by low-level encoder",
+      "shape": [
+        1,
+        4,
+        4
+      ],
+      "values": [
+        [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "expectation": "reject malformed/empty DNA before encoding"
+    },
+    {
+      "input": "A!",
+      "status": "FAIL",
+      "observed": "accepted by low-level encoder",
+      "shape": [
+        1,
+        4,
+        4
+      ],
+      "values": [
+        [
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "expectation": "reject malformed/empty DNA before encoding"
+    },
+    {
+      "input": "A1",
+      "status": "FAIL",
+      "observed": "accepted by low-level encoder",
+      "shape": [
+        1,
+        4,
+        4
+      ],
+      "values": [
+        [
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "expectation": "reject malformed/empty DNA before encoding"
+    },
+    {
+      "input": "\uff21",
+      "status": "FAIL",
+      "observed": "accepted by low-level encoder",
+      "shape": [
+        1,
+        4,
+        4
+      ],
+      "values": [
+        [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "expectation": "reject malformed/empty DNA before encoding"
+    },
+    {
+      "input": "",
+      "status": "FAIL",
+      "observed": "accepted by low-level encoder",
+      "shape": [
+        1,
+        4,
+        4
+      ],
+      "values": [
+        [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      ],
+      "expectation": "reject malformed/empty DNA before encoding"
+    }
+  ]
+}

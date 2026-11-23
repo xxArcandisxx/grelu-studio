@@ -1,3 +1,5 @@
+from core.export_values import csv_cell
+from core.output_processing import predict_checked
 import csv
 import random
 from pathlib import Path
@@ -44,7 +46,9 @@ def handle_vep_workflow(params: dict) -> dict:
     n_sh = int(params.get("n_shuffles", 10))
     rnd = random.Random(int(params.get("seed", 0)))
 
-    df = pd.read_csv(params["variants_csv"])
+    # Preserve identifiers such as 001 and DNA text; empty cells must not turn
+    # into float NaN and then the apparently valid sequence NAN.
+    df = pd.read_csv(params["variants_csv"], dtype=str, keep_default_na=False)
     df.columns = [c.lower().strip() for c in df.columns]
     if params.get("max_variants"):
         df = df.head(int(params["max_variants"]))
@@ -95,12 +99,12 @@ def handle_vep_workflow(params: dict) -> dict:
         warnings.append(f"{skipped} variant(s) skipped; see 'status' for each.")
 
     log(f"[engine] VEP: {n} variants on {device}")
-    pr = adapter.predict(ref_seqs + alt_seqs)
+    pr = predict_checked(adapter, ref_seqs + alt_seqs)
     ref_s, alt_s = aggregate(pr[:n], center), aggregate(pr[n:], center)
     effect = alt_s - ref_s  # (n, T)
 
     # Evidence 1: reverse-complement consistency
-    prc = adapter.predict([revcomp(s) for s in ref_seqs] + [revcomp(s) for s in alt_seqs])
+    prc = predict_checked(adapter, [revcomp(s) for s in ref_seqs] + [revcomp(s) for s in alt_seqs])
     eff_rc = aggregate(prc[n:], center) - aggregate(prc[:n], center)
     rc_agree = (np.sign(effect) == np.sign(eff_rc)).mean(axis=1)
 
@@ -114,7 +118,7 @@ def handle_vep_workflow(params: dict) -> dict:
                 sh = dinuc_shuffle(ref_seqs[k], rnd)
                 bg_r.append(sh[:p] + ref + sh[p + 1:])
                 bg_a.append(sh[:p] + alt + sh[p + 1:])
-            pb = adapter.predict(bg_r + bg_a)
+            pb = predict_checked(adapter, bg_r + bg_a)
             eff_bg = aggregate(pb[n_sh:], center) - aggregate(pb[:n_sh], center)
             pvals[k] = (1 + (np.abs(eff_bg) >= np.abs(effect[k])[None, :]).sum(axis=0)) / (1 + n_sh)
 
@@ -135,13 +139,13 @@ def handle_vep_workflow(params: dict) -> dict:
     out_dir = Path(params.get("output_dir", "runs/vep"))
     out_dir.mkdir(parents=True, exist_ok=True)
     csv_path = out_dir / "vep_results.csv"
-    with open(csv_path, "w", newline="") as f:
-        w = csv.writer(f)
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f, quoting=csv.QUOTE_ALL)
         w.writerow(["variant_id", "ref", "alt", "status", "top_task", "top_effect",
                     "top_task_pvalue", "rc_sign_agreement"] + [f"effect_{t}" for t in names])
         for r in records:
             eff = r.get("effects", {})
-            w.writerow([r["variant_id"], r["ref"], r["alt"], r["status"], r.get("top_task", ""),
+            w.writerow([csv_cell(r["variant_id"]), r["ref"], r["alt"], r["status"], csv_cell(r.get("top_task", "")),
                         r.get("top_effect", ""), r.get("top_task_pvalue", ""),
                         r.get("rc_sign_agreement", "")] + [eff.get(t, "") for t in names])
 
@@ -156,4 +160,4 @@ def handle_vep_workflow(params: dict) -> dict:
     cards.append(card("Scope", "info", "These are checks, not proof. Passing them does not show the biology is right."))
 
     return {"model": {**adapter.meta, "seq_len": L, "tasks": names}, "device": device,
-            "results": {"variants": records, "csv": str(csv_path)}, "evidence": cards, "warnings": warnings}
+            "results": {"variants": records, "csv": str(csv_path)}, "evidence": cards, "warnings": warnings + adapter.notes}

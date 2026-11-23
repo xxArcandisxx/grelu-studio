@@ -1,0 +1,42 @@
+{
+  "scope": "Isolated database and saved Gate 4 raw-output replay; no production experiment was read or changed.",
+  "checks": [
+    {
+      "id": "form_file_path_filter",
+      "status": "FAIL",
+      "actual": {
+        "file": "/private/example.fa"
+      },
+      "expected": "Do not retain upload/internal path form keys."
+    },
+    {
+      "id": "corrupt_nonstandard_json",
+      "status": "FAIL",
+      "http_status": 200,
+      "actual": "{\"created\":\"2026-11-23T09:28:22+00:00\",\"form\":{\"file\":\"/private/example.fa\"},\"id\":\"48a0fc5a701cac33bc24a27a2c581b0d\",\"payload\":{\"value\":NaN},\"title\":\"corruption test\",\"workflow\":\"predict\"}\n",
+      "expected": "Visible error; never emit invalid JSON as a successful download."
+    },
+    {
+      "id": "missing_job_read_creates_folder",
+      "status": "FAIL",
+      "expected": "Read-only 404 must not create a new job directory."
+    },
+    {
+      "id": "engine_csv_formula_injection",
+      "status": "FAIL",
+      "actual": [
+        "=SUM(1,2)",
+        "2114",
+        "0.5114",
+        "5.364211082458496"
+      ],
+      "expected": "Spreadsheet-safe text cell; original ID remains exact in JSON."
+    },
+    {
+      "id": "numpy_direct_storage",
+      "status": "UNSUPPORTED",
+      "actual": "Object of type ndarray is not JSON serializable",
+      "note": "Current serializer rejects NumPy arrays; engine currently converts most result values before storage."
+    }
+  ]
+}

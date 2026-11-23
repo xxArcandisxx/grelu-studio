@@ -1,0 +1,21 @@
+{
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "versions": {
+    "grelu": "1.1.0",
+    "torch": "2.15.0",
+    "numpy": "2.5.4"
+  },
+  "cwd": "/tmp",
+  "sys_path": [
+    "/usr/lib/python314.zip",
+    "/usr/lib/python3.14",
+    "/usr/lib/python3.14/lib-dynload",
+    "/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages",
+    "/home/akshadha/Desktop/GRELU-Studio/src"
+  ],
+  "isolated_python": true,
+  "studio_modules_loaded": [],
+  "models_loaded": 0,
+  "inference_executed": false,
+  "installed_package_modified": false
+}

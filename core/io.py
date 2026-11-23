@@ -1,68 +1,63 @@
 import numpy as np
+import csv
 
 from core.sequences import BASES
+from core.dna_inputs import normalize_dna, parse_records
 
 
 def _clean(s) -> str:
-    return "".join(str(s).split()).upper()
+    return normalize_dna(s)
 
 
 def read_fasta(path):
-    out, name, buf = [], None, []
-    with open(path) as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            if line.startswith(">"):
-                if name is not None:
-                    out.append((name, _clean("".join(buf))))
-                parts = line[1:].split()
-                name = parts[0] if parts else f"seq{len(out)}"
-                buf = []
-            else:
-                buf.append(line)
-    if name is not None:
-        out.append((name, _clean("".join(buf))))
-    return out
+    with open(path, encoding='utf-8-sig') as stream:
+        records = parse_records(stream.read(), max_records=1000, allow_raw=False)
+    return [(row['id'],row['sequence']) for row in records]
 
 
 def read_sequences(params: dict):
     """Accepts ONE of: 'sequences' (list of strings or {id, sequence}), 'fasta' (path),
     'sequences_csv' (path with a 'sequence' column and optional 'id').
     Returns ([(id, sequence), ...], warnings)."""
+    sources = [key for key in ['sequences','fasta','sequences_csv'] if key in params and params[key] is not None]
+    if len(sources) != 1:
+        raise ValueError('Provide exactly one sequence source; inputs are not silently selected or dropped.')
     seqs = []
-    if params.get("sequences"):
+    if sources[0] == 'sequences':
+        if not isinstance(params['sequences'], (list,tuple)) or not params['sequences']:
+            raise ValueError('sequences must be a nonempty list of DNA strings or records.')
         for i, s in enumerate(params["sequences"]):
             if isinstance(s, dict):
-                seqs.append((str(s.get("id", f"seq{i}")), _clean(s["sequence"])))
+                if 'sequence' not in s:
+                    raise ValueError('Each sequence record needs a sequence field.')
+                seqs.append((s.get("id", f"seq{i}"), _clean(s["sequence"])))
             else:
                 seqs.append((f"seq{i}", _clean(s)))
-    elif params.get("fasta"):
+    elif sources[0] == 'fasta':
         seqs = read_fasta(params["fasta"])
-    elif params.get("sequences_csv"):
-        import pandas as pd
-
-        df = pd.read_csv(params["sequences_csv"])
-        df.columns = [c.lower().strip() for c in df.columns]
-        if "sequence" not in df.columns:
-            raise ValueError("sequences_csv needs a 'sequence' column.")
-        ids = df["id"].astype(str).tolist() if "id" in df.columns else [f"seq{i}" for i in range(len(df))]
-        seqs = [(i, _clean(s)) for i, s in zip(ids, df["sequence"])]
+    elif sources[0] == 'sequences_csv':
+        with open(params['sequences_csv'], encoding='utf-8-sig', newline='') as stream:
+            reader=csv.DictReader(stream, strict=True)
+            headers=[key.lower().strip() for key in reader.fieldnames or []]
+            if 'sequence' not in headers or len(headers)!=len(set(headers)):
+                raise ValueError("sequences_csv needs unique headers including 'sequence'.")
+            reader.fieldnames=headers
+            for i,row in enumerate(reader):
+                if None in row or any(value is None for value in row.values()):
+                    raise ValueError('Sequence CSV contains missing or extra fields.')
+                seqs.append((row.get('id',f'seq{i}'),_clean(row['sequence'])))
     else:
         raise ValueError("Provide one of: 'sequences', 'fasta', 'sequences_csv'.")
 
     warnings = []
-    before = len(seqs)
-    seqs = [(i, s) for i, s in seqs if s]
-    if len(seqs) < before:
-        warnings.append(f"{before - len(seqs)} empty sequence(s) dropped.")
     if not seqs:
         raise ValueError("No sequences found in the input.")
     cap = int(params.get("max_sequences", 1000))
     if len(seqs) > cap:
-        warnings.append(f"Input had {len(seqs)} sequences; only the first {cap} are used (max_sequences).")
-        seqs = seqs[:cap]
+        raise ValueError(f'Input has {len(seqs)} records; max_sequences={cap}. Records are not truncated.')
+    ids=[identifier for identifier,_ in seqs]
+    if any(not isinstance(identifier,str) or not identifier for identifier in ids) or len(ids)!=len(set(ids)):
+        raise ValueError('Sequence identifiers must be nonempty, distinct strings.')
     return seqs, warnings
 
 

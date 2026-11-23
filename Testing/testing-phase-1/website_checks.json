@@ -1,0 +1,26 @@
+{
+  "mode": "isolated Flask requests, no browser automation",
+  "checks": {
+    "prediction": {
+      "status": "passed",
+      "records": 2,
+      "matches_benchmark_predictions": true
+    },
+    "variant_comparison": {
+      "status": "passed",
+      "published_variant": "rs144973948"
+    },
+    "batch_variants": {
+      "status": "passed",
+      "published_variants": 2
+    },
+    "dnase_benchmark": {
+      "status": "passed",
+      "metrics_match_local_evaluation": true
+    },
+    "dsqtl_benchmark": {
+      "status": "passed",
+      "metrics_match_local_evaluation": true
+    }
+  }
+}

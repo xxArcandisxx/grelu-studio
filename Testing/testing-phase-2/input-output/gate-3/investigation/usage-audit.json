@@ -1,0 +1,490 @@
+{
+  "method": "Whole-website source scan plus AST import/dynamic-call inventory. Manual indirect-path review: USAGE_AUDIT.md.",
+  "root": "/home/akshadha/Desktop/GRELU-Studio",
+  "command": [
+    "rg",
+    "--files",
+    "--hidden",
+    "--no-ignore",
+    "-g",
+    "!.git/**",
+    "-g",
+    "!.venv/**",
+    "-g",
+    "!.codex/**",
+    "-g",
+    "!.agents/**",
+    "-g",
+    "!.aws/**",
+    "-g",
+    "!__pycache__/**",
+    "-g",
+    "!Testing/**",
+    "-g",
+    "!test-results/**",
+    "-g",
+    "!test-inputs/**",
+    "-g",
+    "!datasets/**",
+    "-g",
+    "!instance/**",
+    "-g",
+    "!runs/**",
+    "-g",
+    "!uploads/**",
+    "-g",
+    "!.test-tools/**",
+    "-g",
+    "!**/__pycache__/**",
+    "-g",
+    "!*.pyc"
+  ],
+  "excluded_directories": [
+    ".git",
+    ".venv",
+    ".codex",
+    ".agents",
+    ".aws",
+    "__pycache__",
+    "Testing",
+    "test-results",
+    "test-inputs",
+    "datasets",
+    "instance",
+    "runs",
+    "uploads",
+    ".test-tools"
+  ],
+  "suffixes": [
+    ".cjs",
+    ".css",
+    ".htm",
+    ".html",
+    ".js",
+    ".json",
+    ".mjs",
+    ".py",
+    ".sh",
+    ".svg",
+    ".toml",
+    ".yaml",
+    ".yml"
+  ],
+  "file_count": 101,
+  "source_sha256": {
+    "account_views.py": "ad5ed197b9ff984349e8e2cb864af02c4ce77a9b92e2eaab6a769a550646e9fa",
+    "advanced_views.py": "d9a3c46f1ce12fe2093ac1426893ee400abc30cd4653ca9b1fbdbc4cbf112d50",
+    "bed_to_fasta.py": "c1f040cced4c4060b87c71024a925b6120dc6df85f31dba760a570dff6b2cb4b",
+    "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "core/dataset.py": "8da4643a90ca09004bf24a94389d4b6b160aa951f1bb6e2a2aa2ac613838e088",
+    "core/device.py": "53150cc7f2065be9941cc55850c11597f669a67d346a33e835b42cbac1c17561",
+    "core/dna_inputs.py": "bc181a3e370db3f0dcf70793095b3df4ac5fedad1daf8e7d47cc666d8b244371",
+    "core/grelu_api.py": "130909b85f52cfff99bdd0f07f8f4f80ba406fd74a01533dec5062988032ac7e",
+    "core/io.py": "bee5c9407147e279ef45270614afd7a89fb8b944879af3bd227f272a5cde09b9",
+    "core/model_lengths.py": "711d50b6d9c7b3699cb7498863a0dd6b91bd24070b5a313fb386574c64fae796",
+    "core/models.py": "cdeb574e40b83c4dcd9a77c6abb5cea9e987a5d49566ec3522252aa68302199b",
+    "core/pwm.py": "da454929a089331ec84c4e653625ce6f99a48e3fa99a14ea974bece48ef996c5",
+    "core/sequences.py": "ae4b84db0191cc57663dc495f82522f555f90dc209e83b6cb6fd2f0860b245f9",
+    "core/stats.py": "13b25291b6258ee80191dfd1f6fc615015307e105695c6bdfe7fc48b138df317",
+    "core/utils.py": "1402e687b3c970051401bf7e72474bcdeba338e2854dd6c9b1b93baa835dd71a",
+    "core/zoo.py": "ea48f2778fbef7b7b60f3b2e0a13250ab17d12aa9181e6f0ca8474acad2cd5f1",
+    "curated_loci.json": "084e3d905aa7f3f2372a7c21592059e189b4c37b0df0911114e2bb027e0f312a",
+    "curated_scan.py": "afc96a584f0416f46000af9c722f6b409a4f9f64ea67ba66c0e77a00bab09b2d",
+    "engine.py": "5e3db99f9f64a812867e03ba2f46c14a79371cc45e4d3a99c5b115b6d920e82b",
+    "example_views.py": "e1b081552d181b58881b381a05711992c068073d279fb72584f2d186daf4c121",
+    "experiment_store.py": "fbd571353b20669aa280f87bead7f59c8b5edce3bd267b59b7dea3be06ad3726",
+    "experiment_views.py": "2da3d972a4521718c27e87a590b181016d10624d8220926d95aef96368fb57a9",
+    "exploration_views.py": "bb92a8eec02363f9862efc61d41b5e38a8dad12b8190eee5d0cc2dbb4239d7be",
+    "lab_compute.py": "58785c4b155ce646ec45751e877464f2bdb1c86a6387c0d0def1f99fe85ea3b6",
+    "lab_jobs.py": "90de9819871db2909963766ebe9a544e36399268fb2b03bb483dcbf8def8830b",
+    "lab_views.py": "9c64c64a72bd813a0369913093bf99503391dc95de0e3598b04b51e6d3a49ee1",
+    "model_registry.py": "89554cd615fa342a5057800914d20aad60cb08c1b838084f0c0a6acdcfd95306",
+    "pyproject.toml": "e94aa127c99a0e66bd28c6a79150dbe297e5642e915dd24ee76650874a817a3a",
+    "report_builder.py": "b7f1534a538c3f43f75d54ed05e66803c3eff51681a78aca4f55e9b8fa62fa6e",
+    "research_views.py": "2d655f13df2a2f847c57d46dc2695aa67e528074e47136ad359d5ebc182733a4",
+    "run_studio.sh": "aa452a4cfe38df2b9bdf22153b36a7b147bd929f967ac920eabe65da10579ac2",
+    "scripts/audit_phase1.py": "5753d9c2540d2b046fd87361bd4ac9e801328ad3dcb9388281ba385858dabbdc",
+    "scripts/benchmark_gm12878.py": "cb493c1e7ef316e6e9e2a3727d1d06286f34f23a456dde2fb6ba4a9c9b320f8a",
+    "scripts/generate_website_fixtures.py": "0df19b2dfccd823e4b1587ec0cbe826f484f4c1c27e30726ed73e1352d046eb1",
+    "scripts/setup_browser_qa.py": "a8287853104b73c6ad0287a1e4ba47d672ee7049dd84ca01632b7fe24035edb8",
+    "scripts/verify_gm12878_website.py": "24c9eecd8af10e37497296656840d386dc2a26fc40e893ba63c300b9cdfcc9ea",
+    "src/grelu_studio/__init__.py": "7fb7540c6fb90ac3a9a46a281e9269fe25992f0d4abaa404bf0a8053b3b67012",
+    "static/account-settings.css": "42dac38010d049e3f2912f822ce0e42e766626af8080ef9a07ef56887f38cf7f",
+    "static/account-settings.js": "5bb909118113414f1ffcaac4b61df438d3d8f7422c4563dd0bd2ec2d9514629d",
+    "static/advanced.js": "52e0a3e4e3ac7ace86610fed5adc94b165be17301bd8ee23153a0fcbd882df7c",
+    "static/analysis.js": "b291c0495c6984644b2bf9bc0bed7fea18c423264be6f36df589c8bda3d5608c",
+    "static/dataset-overview.css": "112c7c02828c9eb1810faeb9a9ca98dacdb55480b7c015c1b51ab317d1dae320",
+    "static/examples.js": "dbde468acc8ecab4ffba7be8aa80ff6aebae5f619dd1d662b7cd78bce0c453b8",
+    "static/exploration.js": "2250a0b600f13c1a34eb56ff2ba297d3a26ac40435a06fa5b9c2234cb9d76b49",
+    "static/lab-job.js": "04de2c47a875bf5bff37ac72297af203f76ea8275a2064b3d08452350421ff3d",
+    "static/model-inputs.js": "56ff2c0f2f62786c288cd5a3aae7748bfa038fc070e6c808eddeae528130860e",
+    "static/saturation.js": "b574d0aa79f71e8a1b7d2442062e10a5222a50de82df3407407b7232428583e2",
+    "static/sequence-strand.svg": "544043807742065c7960ff7422da9e6ffa31e755bba4c217e5c90c39ff67d7c9",
+    "static/studio.css": "c9918875abdc5b6c8fe3ed695f682dcd4933c50adbbc89bc963a0aa7144e13e8",
+    "static/studio.js": "50a7de664d9c1acfb99fafd5785d045afe0ab7186955affdfd86b10ab58b7eee",
+    "static/workspace-theme.css": "1ec12a4aa5045c5d3442691c650ce57ba101833de71fcecac19a4ab557274253",
+    "static/workspace.js": "b4173b6b96de05b9e92fd3da5825d48103579e41bcda6528a931348e3025ecf7",
+    "studio_services.py": "798d3b9ae908fb54547eed7a832519d8f1c603e5c870df62c95efa311eb29a72",
+    "studio_web.py": "1d976a54b54c59a1513c0885ed260f6b43ab2aee18a69abdfbecf38c14ad4e45",
+    "templates/account.html": "2cfff4f0a4c9032340fb035134e6d0bbb1efc521f42686d2464e094c394a2856",
+    "templates/advanced.html": "82e8fe0629fc517ce8178a9a079c94f4c0e128ba4ccd1c73d1d24ce7a2d76754",
+    "templates/analysis.html": "16d72f9f0c82b71d60d6ad3df0cfb410c1dbaf767af04614423582dde8ca6ff6",
+    "templates/analysis_nav.html": "3c9ba3d0ae472e5c60d81383e6a0afa0399d30a075dc7ec65c55d527239b0592",
+    "templates/avatar.html": "a39dafde1241998390f97c040793e8f9ae08cef6c5831f2730ada6394d319d99",
+    "templates/base.html": "0de4a08f9fec75c0b68ea584d87c7ab737f815abe223fdc21a9c6b2c1d84773a",
+    "templates/example_controls.html": "a7f2dba04f9b8e9985fcf893c5312a668805b8e48e51ece3b62a1590b61c3476",
+    "templates/experiment.html": "3143c90cdb0b10ec0a621a4023bddbd8ee6c807862978768c5dda40a67019f6c",
+    "templates/experiments.html": "6471d6842b3ba189ac50cd7795dcce1cadb86f1fbd313ceae824c3dd2a251960",
+    "templates/exploration.html": "2f9f5835c197d308f1ce792bec7ea9d8b6090bc1491f592755bc3f6fd306d17f",
+    "templates/job.html": "650097c8581ae8328cf6987b1e4ee6fb6fce65d31a510f7722f01031caf9c06f",
+    "templates/lab.html": "e0a16c62eedc248e4e3e032004f3b2cb9a1a9701ecb976264abb8ea57b233f8e",
+    "templates/model_select.html": "4f12dd834bccb2bcb82010d212deb074ba2177ec009bc05b3e5dd1ae623faa08",
+    "templates/profile.html": "c955f296aeb36b8db859b1020fb74feb7d9a8f6080bd6eedc760cb504831ecca",
+    "templates/report.html": "ce48984905bf4e079287cc79b513f5b99e830c4f5593d4a0a961683b310b8608",
+    "templates/report_content.html": "e28f6293566370b5bf441bea5129e7d0cb11d4b99f3a08ccf0f65b28b7197213",
+    "templates/research.html": "b2bdb5ebfc794c2d86da6c44e93382d217d1136222b9eacc750910eb2ea26272",
+    "templates/research_nav.html": "d6b48e5e902b9957c0eb3e0bde62a98f2161cfd2c38d97905f5918ce378079fc",
+    "templates/saturation.html": "a539d8daacaf60424f14d5a186be4b0d355a22e98059098010ba458210129618",
+    "templates/saved_run_link.html": "14a7ffbfe0ee7706c4ec61cd02310c2b718022f80c79d7834d78b87e7413d376",
+    "templates/studio.html": "0aa36d19b36ca5753da2f68ca1d3237e1ff0fffb36783b2508e0b9d1e4d66921",
+    "templates/variant_nav.html": "56b0c803cbeb52229d1a5b4c770282ed48073dcf91e7aa75a78db0a0179fcf03",
+    "tests/finish_file_checks.py": "c2e57808d19ae3ad4a6f5848b395e2b9679beda5874fdcd613728fc8ade3f57d",
+    "tests/run_gm12878_sample.py": "b1abb3178dbb1e67c4fccf207a27862cc91bddf59665f1fc89fa01a4ba3e4cc4",
+    "tests/run_low_memory_checks.py": "5de5741ee0a3b18df8e28c4e2e433a48897c21e52fc75af55214022949495d51",
+    "tests/run_website_suite.py": "1dd3127c758afe8c784abb38e808cb7142c07d3cd8cb17eea07fcd4495989168",
+    "tests/serve_website_suite.py": "d5aa787d87c0bf3746376f855a8b3d5024a9c3691874ccb588ff012a3ba615ee",
+    "tests/smoke_trained.py": "a3f13dbc41d7389e6a0ecda282e6ca50b4fc968081e7ef99219879fc85aecbdf",
+    "tests/test_account_settings.py": "ca160f4bd31051bc41fb1f823dd969ced7acba63a41c7898f3cf5b9b0a42ebc2",
+    "tests/test_advanced.py": "27f29dee633d5246410379bcbbdd1985ad7bb7b8bfb7d31594d062304974e662",
+    "tests/test_biological_benchmark.py": "da95501b0a528e3b53a8cb17d9c86e412103aead9e608ebabdf96b821d5f76b1",
+    "tests/test_dataset_overview.py": "4bf7d23027b553861bb2a1531ad144271ade641b1233cc162865ac57970ec239",
+    "tests/test_example_loading.py": "d67d0f2ef54d644b5a7961142b943e21599c2cf413d10cedb5156d8d9f863425",
+    "tests/test_exploration.py": "61af95f6f5774e4cce034b3def86a4c7b49a60700f4bf1074d9cee2049fe8899",
+    "tests/test_lab.py": "9c002f5d04f5094702db262c01782bc6af6e3d4547dd42f156b6026922c803a8",
+    "tests/test_studio_web.py": "6dfacdc5c6a1fb0c197ae49e190f2e68806c6ce58dbe8350195cfc9fa4d10da7",
+    "variant_views.py": "06fd6ee86e8be5d507d2463399cafc0f3826c218bf34ab53372cdd1d6c2219b1",
+    "workbench.py": "0db34049ba0b90f6c46f3b9450b895f833de2ace8d80b717387461a96155bb6e",
+    "workflows/__init__.py": "d8c6dfb6add24e32ba9d030b114fc152ca7b0454f609385bdd709eda007a1c9c",
+    "workflows/attribution.py": "a80f922a26793da97d9784ecce77d689934b560dd81bb49dda95b37bb8a2d276",
+    "workflows/design.py": "e8e2a1ad731435eec555d1fc98bf0c8b0eff33d1a9f5d8926ec1a0d852df27b5",
+    "workflows/explore.py": "8fc6e32eeee14316eb1021fcc31e43e98f4c4e7fce57908c15849bc4867fd738",
+    "workflows/info.py": "f7d935286a0e19845331493d3d915fc3e99a22eb46564af8edecb4f24a589c7f",
+    "workflows/predict.py": "61544df178257bcccbed7e80f93c52f0959a195a56788d3bdcf4c8a12739ff79",
+    "workflows/scan.py": "5b6bc7accfef149abe8800699c35484b3be03e969b6509f0c42fb0395fc2145a",
+    "workflows/vep.py": "ba1e9f6db0b5e74ded263d9abb6ebf22b9e9abf80a7ad0851f270e9aa3657d2d",
+    "workflows/zoo.py": "6def3b180698f18c6f4ff5f3d7500c7056e40406618657f9af11150b2d3051f5"
+  },
+  "inverse_and_dispatcher_hits": [],
+  "grelu_imports": [
+    {
+      "path": "core/grelu_api.py",
+      "line": 41,
+      "statement": "from grelu.transforms.prediction_transforms import Aggregate, Specificity",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/grelu_api.py",
+      "line": 18,
+      "statement": "import grelu",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 154,
+      "statement": "from grelu.lightning import LightningModel",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 212,
+      "statement": "import grelu.resources",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/zoo.py",
+      "line": 1,
+      "statement": "from core.grelu_api import require_grelu",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/zoo.py",
+      "line": 7,
+      "statement": "import grelu.resources",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/zoo.py",
+      "line": 15,
+      "statement": "import grelu.resources as r",
+      "group": "website/source/config"
+    },
+    {
+      "path": "workflows/info.py",
+      "line": 2,
+      "statement": "from core.grelu_api import grelu_version",
+      "group": "website/source/config"
+    }
+  ],
+  "dynamic_calls_for_manual_review": [
+    {
+      "path": "account_views.py",
+      "line": 88,
+      "expression": "getattr(image, 'is_animated', False)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/device.py",
+      "line": 8,
+      "expression": "getattr(torch.backends, 'mps', None)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/model_lengths.py",
+      "line": 22,
+      "expression": "getattr(np.dtypes, name)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 251,
+      "expression": "getattr(adapter, 'length_contract', {'status': 'unknown', 'seq_len': None, 'verified_compatibility': False})",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 253,
+      "expression": "getattr(adapter.module, 'data_params', None)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 258,
+      "expression": "getattr(adapter.module, 'performance', None)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 233,
+      "expression": "getattr(module, 'data_params', None)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "core/models.py",
+      "line": 234,
+      "expression": "getattr(module, 'model_params', None)",
+      "group": "website/source/config"
+    },
+    {
+      "path": "exploration_views.py",
+      "line": 107,
+      "expression": "__import__('random')",
+      "group": "website/source/config"
+    },
+    {
+      "path": "tests/run_website_suite.py",
+      "line": 176,
+      "expression": "getattr(self, 'case_' + case['kind'].replace('-', '_'))",
+      "group": "test/tooling"
+    },
+    {
+      "path": "workflows/info.py",
+      "line": 11,
+      "expression": "getattr(torch.backends, 'mps', None)",
+      "group": "website/source/config"
+    }
+  ],
+  "python_parse_errors": [],
+  "library_inverse_and_dispatcher_callsites": [
+    {
+      "path": "data/dataset.py",
+      "line": 30,
+      "text": "    convert_input_type,"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 165,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 517,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 596,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 706,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 828,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 907,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 986,
+      "text": "        self.seqs = convert_input_type(seqs, \"indices\", genome=self.genome)"
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 1088,
+      "text": "        self.seqs = convert_input_type("
+    },
+    {
+      "path": "data/dataset.py",
+      "line": 1204,
+      "text": "        self.seqs = convert_input_type("
+    },
+    {
+      "path": "design.py",
+      "line": 14,
+      "text": "from grelu.sequence.format import convert_input_type"
+    },
+    {
+      "path": "design.py",
+      "line": 113,
+      "text": "                [convert_input_type(ds[j], \"strings\") for j in range(len(ds))]"
+    },
+    {
+      "path": "design.py",
+      "line": 132,
+      "text": "            curr_output[\"seq\"] = convert_input_type("
+    },
+    {
+      "path": "design.py",
+      "line": 136,
+      "text": "            curr_output.loc[curr_best_idxs, \"seq\"] = convert_input_type("
+    },
+    {
+      "path": "design.py",
+      "line": 254,
+      "text": "    X = convert_input_type(seq, \"one_hot\")"
+    },
+    {
+      "path": "design.py",
+      "line": 300,
+      "text": "    return convert_input_type(X_hat, \"strings\")"
+    },
+    {
+      "path": "interpret/modisco.py",
+      "line": 237,
+      "text": "    from grelu.sequence.format import convert_input_type"
+    },
+    {
+      "path": "interpret/modisco.py",
+      "line": 250,
+      "text": "    one_hot = convert_input_type(seqs, \"one_hot\", genome=genome)"
+    },
+    {
+      "path": "interpret/motifs.py",
+      "line": 45,
+      "text": "    from grelu.sequence.format import indices_to_strings"
+    },
+    {
+      "path": "interpret/motifs.py",
+      "line": 61,
+      "text": "        return indices_to_strings(indices)"
+    },
+    {
+      "path": "interpret/score.py",
+      "line": 20,
+      "text": "from grelu.sequence.format import convert_input_type"
+    },
+    {
+      "path": "interpret/score.py",
+      "line": 68,
+      "text": "    seqs = convert_input_type(seqs, \"strings\", genome=genome)"
+    },
+    {
+      "path": "interpret/score.py",
+      "line": 160,
+      "text": "    seqs = convert_input_type(seqs, \"one_hot\", genome=genome, add_batch_axis=True)"
+    },
+    {
+      "path": "interpret/score.py",
+      "line": 252,
+      "text": "    x = convert_input_type(seqs, \"one_hot\", genome=genome)"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 323,
+      "text": "def one_hot_to_indices(one_hot: Tensor) -> np.ndarray:"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 342,
+      "text": "def one_hot_to_strings(one_hot: Tensor) -> List[str]:"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 352,
+      "text": "    indices = one_hot_to_indices(one_hot)"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 353,
+      "text": "    return indices_to_strings(indices)"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 356,
+      "text": "def indices_to_strings(indices: np.ndarray) -> List[str]:"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 372,
+      "text": "        return [indices_to_strings(idx) for idx in indices]"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 375,
+      "text": "def convert_input_type("
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 433,
+      "text": "            return indices_to_strings(inputs)"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 438,
+      "text": "            return one_hot_to_indices(inputs)"
+    },
+    {
+      "path": "sequence/format.py",
+      "line": 440,
+      "text": "            return one_hot_to_strings(inputs)"
+    },
+    {
+      "path": "sequence/utils.py",
+      "line": 11,
+      "text": "from grelu.sequence.format import convert_input_type, get_input_type"
+    },
+    {
+      "path": "sequence/utils.py",
+      "line": 405,
+      "text": "    seqs = convert_input_type("
+    },
+    {
+      "path": "sequence/utils.py",
+      "line": 415,
+      "text": "    return convert_input_type(shuf_seqs, input_type)"
+    },
+    {
+      "path": "sequence/utils.py",
+      "line": 444,
+      "text": "    return convert_input_type(seqs, output_format)"
+    }
+  ],
+  "website_hit_count": 0
+}

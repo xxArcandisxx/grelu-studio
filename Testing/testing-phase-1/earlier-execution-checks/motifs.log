@@ -1,0 +1,1 @@
+{"case": "motifs", "mode": "isolated Flask request integration; no browser", "reference_data": "UCSC hg38 first 10 supplied BED intervals", "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta", "status": "passed", "limitations": ["Exact pattern derived from the reference sequence; k-mer enrichment is exploratory."], "seconds": 0.38}

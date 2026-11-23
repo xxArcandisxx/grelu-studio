@@ -53,7 +53,7 @@
     else { keys=['id','score_a','score_b','raw_difference','transformation_a','transformation_b']; rows=result.results.comparisons; }
     const cell = value => {
       let text = value == null ? '' : String(value);
-      if (typeof value === 'string' && text !== '+' && text !== '-' && /^[=+\-@\t\r]/.test(text)) text = "'" + text;
+      if (typeof value === 'string' && text !== '+' && text !== '-' && /^[\t\r\n]|^\s*[=+\-@＝＋－＠]/.test(text)) text = "'" + text;
       return '"' + text.replaceAll('"','""') + '"';
     };
     const csv = [keys,...rows.map(row => keys.map(key => row[key]))].map(row => row.map(cell).join(',')).join('\r\n')+'\r\n';

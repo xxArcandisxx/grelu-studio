@@ -20,7 +20,7 @@
         data.tasks.forEach((name, index) => select.add(new Option(`${index}: ${name}`, String(index))));
         select.value = [...select.options].some(option => option.value === previous) ? previous : select.options[0].value;
       }
-      status.textContent = `${data.n_tasks} output track${data.n_tasks === 1 ? '' : 's'} · scores averaged across model output bins${data.tasks_truncated ? ' · first 500 tracks shown' : ''}.`;
+      status.textContent = `${data.n_tasks} output track${data.n_tasks === 1 ? '' : 's'} · native model prediction scores; one output is passed through, multiple positions are averaged${data.tasks_truncated ? ' · first 500 tracks shown' : ''}.`;
     } catch (error) {
       if (generation === metadataGeneration) status.textContent = `${error.message} Track index 0 remains available; the server validates the selection.`;
     }
@@ -45,7 +45,7 @@
   });
   const cell = value => {
     let text = value == null ? '' : String(value);
-    if (typeof value === 'string' && /^[=+\-@\t\r]/.test(text)) text = "'" + text;
+    if (typeof value === 'string' && /^[\t\r\n]|^\s*[=+\-@＝＋－＠]/.test(text)) text = "'" + text;
     return '"' + text.replaceAll('"', '""') + '"';
   };
   document.getElementById('download-csv')?.addEventListener('click', () => {

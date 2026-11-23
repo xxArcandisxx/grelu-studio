@@ -1,0 +1,14 @@
+{
+  "repo_id": "Genentech/GM12878_dnase-model",
+  "revision": "9f2aaba3e04c5b7324a239c7af53fc4732cb2c3e",
+  "filename": "model.ckpt",
+  "checkpoint_sha256": "f266b296f49b4e97e3ac52e94594da0aaae1d467778ea58b421e1ee7c4482bea",
+  "website_selection": "human",
+  "website_label": "Genentech GM12878 DNase",
+  "seq_len": 2114,
+  "tasks": ["ENCFF093VXI"],
+  "genome": "hg38",
+  "model_params": {"model_type": "DilatedConvModel", "crop_len": 557, "n_tasks": 1, "channels": 512, "n_conv": 9},
+  "negative_declared_length": 200,
+  "identity_anchor": "Pinned launcher revision, curated_scan.GM12878_SHA256, and previously recorded Phase 1 checkpoint hash. No new upstream authenticity/signature verification is claimed. No expected predictions are specified."
+}

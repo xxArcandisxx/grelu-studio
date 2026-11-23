@@ -1,6 +1,8 @@
 """Shared model metadata and input guidance for browser workflows."""
 import json
 from functools import lru_cache
+from pathlib import Path
+from core.model_lengths import ModelLengthError, required_length
 
 
 def length_error(expected, records=None):
@@ -12,12 +14,14 @@ def length_error(expected, records=None):
 
 
 @lru_cache(maxsize=8)
-def _metadata(spec_json):
+def _metadata(spec_json, checkpoint_stamp=None):
     from core.models import load_model, model_card
     from studio_web import inference_lock
 
     with inference_lock:
-        adapter, warnings = load_model(json.loads(spec_json), 'cpu', batch_size=1)
+        spec = json.loads(spec_json)
+        required_length(spec)
+        adapter, warnings = load_model(spec, 'cpu', batch_size=1)
         card = model_card(adapter)
     return card, warnings
 
@@ -26,6 +30,14 @@ def model_metadata(model):
     from studio_web import MODELS
 
     try:
-        return _metadata(json.dumps(MODELS[model], sort_keys=True))
+        spec = MODELS[model]
+        required_length(spec)
+        stamp = None
+        if spec.get('path'):
+            stat = Path(spec['path']).stat()
+            stamp = (stat.st_mtime_ns, stat.st_size)
+        return _metadata(json.dumps(spec, sort_keys=True), stamp)
+    except ModelLengthError:
+        raise
     except Exception as exc:
         raise RuntimeError('Could not load model metadata. Check the configured checkpoint and server installation.') from exc

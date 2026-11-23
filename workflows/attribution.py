@@ -1,3 +1,4 @@
+from core.output_processing import predict_checked
 """Local gradient sensitivity with optional randomized-weight sanity comparison."""
 import numpy as np
 
@@ -17,7 +18,7 @@ def handle_attribution_workflow(params):
         raise ValueError('Choose an available output track.')
     if not 1 <= start <= end <= len(sequence) or end - start + 1 > 200:
         raise ValueError('Display a valid region of at most 200 positions.')
-    score = float(adapter.predict([sequence])[0, target].mean())
+    score = float(predict_checked(adapter, [sequence])[0, target].mean())
     matrix = adapter.grad_attribution([sequence], [target], 0)[0]
     contributions = matrix.sum(axis=0)
     if not np.isfinite(matrix).all() or not np.isfinite(score):

@@ -1,0 +1,2 @@
+[engine] predict: 1 sequences on cpu
+{"case": "fine-tuning", "mode": "isolated Flask request integration; no browser", "reference_data": "UCSC hg38 first 10 supplied BED intervals", "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta", "status": "passed", "limitations": ["Labels are synthetic GC fractions, not measured DNase activity. Optimizer/checkpoint execution only."], "observed_job_states": ["running", "complete"], "model_key": "local-bc852f5840fc", "optimizer_steps": 8, "seconds": 22.06}

@@ -1,10 +1,37 @@
+from core.output_processing import predict_checked
 """CPU-bounded motif placement and explicit cross-model comparisons."""
 import math
 import random
 
 from core.models import load_model
-from core.sequences import fit_with_offset, revcomp
+from core.sequences import aggregate, fit_with_offset, revcomp
 from core.stats import pearson
+from core.model_lengths import required_length
+
+
+def prepare_comparison_inputs(specifications, records, policy):
+    """Validate and record ALL model windows before any model can see input."""
+    if policy not in ('strict','center'):
+        raise ValueError('Choose strict input lengths or explicit center-crop/N-pad handling.')
+    prepared=[]
+    for spec in specifications:
+        expected=required_length(spec)
+        if expected>20000:
+            raise ValueError('CPU comparison supports model windows up to 20,000 bases.')
+        sequences,details=[],[]
+        for row in records:
+            original=row['sequence'];length=len(original)
+            if policy=='strict' and length!=expected:
+                raise ValueError(f"Record {row['id']} has {length:,} bases; this model needs {expected:,}. Choose explicit center-crop/N-pad handling or matching model windows.")
+            sequence,offset=fit_with_offset(original,expected)
+            description=('Unchanged' if length==expected else
+                f'Center-cropped from {length:,} to {expected:,} bases; removed {-offset} bases on the left' if length>expected else
+                f'N-padded from {length:,} to {expected:,} bases; added {offset} bases on the left')
+            sequences.append(sequence)
+            details.append({'id':row['id'],'original_length':length,'model_length':expected,'offset':offset,
+                            'transformation':description,'sequence':sequence})
+        prepared.append({'sequences':sequences,'details':details})
+    return prepared
 
 
 def simulate_motif(spec, sequence, motif, positions, target=0, strands=('+',), partner='', gaps=(0,), controls=True):
@@ -40,7 +67,7 @@ def simulate_motif(spec, sequence, motif, positions, target=0, strands=('+',), p
     sequences = [sequence] + [row['sequence'] for row in conditions]
     if controls:
         sequences += [row['control_sequence'] for row in conditions]
-    scores = adapter.predict(sequences)[:,target].mean(axis=-1)
+    scores = aggregate(predict_checked(adapter, sequences), 0)[:,target]
     if not all(math.isfinite(float(value)) for value in scores):
         raise ValueError('The model returned non-finite predictions.')
     reference = float(scores[0])
@@ -60,32 +87,14 @@ def simulate_motif(spec, sequence, motif, positions, target=0, strands=('+',), p
 
 
 def compare_models(specifications, records, targets, policy='strict'):
-    if policy not in ('strict','center'):
-        raise ValueError('Choose strict input lengths or explicit center-crop/N-pad handling.')
+    prepared=prepare_comparison_inputs(specifications,records,policy)
     all_predictions,transforms = [],[]
-    for spec,target in zip(specifications,targets,strict=True):
-        expected = spec['seq_len']
-        if expected > 20000:
-            raise ValueError('CPU comparison supports model windows up to 20,000 bases.')
-        effective,details = [],[]
-        for row in records:
-            length = len(row['sequence'])
-            if policy=='strict' and length != expected:
-                raise ValueError(f"Record {row['id']} has {length:,} bases; this model needs {expected:,}. Choose explicit center-crop/N-pad handling or matching model windows.")
-            sequence,offset = fit_with_offset(row['sequence'],expected)
-            if length==expected:
-                description='Unchanged'
-            elif length>expected:
-                description=f'Center-cropped from {length:,} to {expected:,} bases; removed {-offset} bases on the left'
-            else:
-                description=f'N-padded from {length:,} to {expected:,} bases; added {offset} bases on the left'
-            effective.append(sequence)
-            details.append({'id':row['id'],'original_length':length,'model_length':expected,'offset':offset,
-                            'transformation':description,'sequence':sequence})
+    for spec,target,item in zip(specifications,targets,prepared,strict=True):
+        effective,details=item['sequences'],item['details']
         adapter,warnings = load_model(spec,'cpu',batch_size=1)
         if not 0 <= target < len(adapter.task_names):
             raise ValueError('Choose available output track indices for both models.')
-        values = adapter.predict(effective).mean(axis=-1)
+        values = aggregate(predict_checked(adapter, effective), 0)
         if not all(math.isfinite(float(value)) for row in values for value in row):
             raise ValueError('A model returned non-finite predictions.')
         all_predictions.append({'track':adapter.task_names[target],'selected_scores':[float(row[target]) for row in values],
@@ -93,12 +102,14 @@ def compare_models(specifications, records, targets, policy='strict'):
             'tasks':adapter.task_names,'warnings':warnings+adapter.notes})
         transforms.append(details)
     first,second = all_predictions
+    comparable = specifications[0] == specifications[1] and targets[0] == targets[1]
+    scale_policy = {'comparable': comparable, 'policy': 'Raw differences require identical model configurations and the same selected task; no scale harmonization is assumed.'}
     rows = [{'id':record['id'],'score_a':first['selected_scores'][index],'score_b':second['selected_scores'][index],
-             'raw_difference':second['selected_scores'][index]-first['selected_scores'][index],
+             'raw_difference':second['selected_scores'][index]-first['selected_scores'][index] if comparable else None,
              'transformation_a':transforms[0][index]['transformation'],'transformation_b':transforms[1][index]['transformation']}
             for index,record in enumerate(records)]
     correlation = pearson(first['selected_scores'],second['selected_scores']) if len(records)>=3 else None
-    return {'results':{'comparisons':rows,'models':all_predictions,'effective_inputs':transforms,'pearson':correlation},
+    return {'results':{'comparisons':rows,'models':all_predictions,'effective_inputs':transforms,'pearson':correlation, 'scale_comparison':scale_policy},
             'settings':{'input_policy':policy,'track_a':targets[0],'track_b':targets[1]},
             'method':'Mean selected-track scores on explicitly recorded model input windows. Cross-model score differences are descriptive; track scales and training objectives can differ.',
-            'warnings':first['warnings']+second['warnings']}
+            'warnings':first['warnings']+second['warnings']+([] if comparable else ['Scores use different or unverified model/task scales. Raw differences are not computed; no cross-model scale equivalence is established.'])}

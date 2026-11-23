@@ -1,0 +1,8 @@
+{
+  "experiment_status": 200,
+  "experiment_body": "{\"created\":\"2026-11-23T11:02:27+00:00\",\"form\":{},\"id\":\"9b0eb019aad27a7a5a1e7f2ca690b44e\",\"metadata\":{},\"payload\":{\"value\":Infinity},\"title\":\"legacy exponent fixture\",\"workflow\":\"qc\"}\n",
+  "job_status": 200,
+  "job_body": "{\"created\":1795431747.8302734,\"history\":[],\"id\":\"cccccccccccccccccccccccccccccccc\",\"result\":{\"value\":Infinity},\"state\":\"complete\",\"updated\":1795431747.8302736,\"worker_pid\":2}\n",
+  "expected": "Visible errors; JSON 1e309 overflows float64 and cannot be emitted as Infinity.",
+  "model_computations": 0
+}

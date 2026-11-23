@@ -1,0 +1,201 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sequence prediction · gReLU Studio report</title><style>
+:root{font-family:system-ui,sans-serif;color:#243c36;line-height:1.6;background:#f6f8f2}*{box-sizing:border-box}body{max-width:1050px;margin:32px auto;background:white;padding:42px;border:1px solid #dfe5d8;border-radius:12px}h1{font-size:30px;letter-spacing:-1px;margin:12px 0}h2,h3{font-size:16px;margin:25px 0 12px}p{font-size:12px}.eyebrow{font-size:10px;letter-spacing:2px;color:#567649}.report-meta,.report-legend{display:flex;flex-wrap:wrap;gap:20px;font-size:11px;color:#708068}.notice{background:#edf4e4;padding:12px;border:1px solid #dce7d0;border-radius:6px}.report-section{break-inside:avoid;margin:28px 0}.table-scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:9px;text-align:left;border-bottom:1px solid #e4eadf}th{background:#f2f6eb}.model-help{font-size:11px;color:#6a7d61}svg{display:block;width:100%;max-height:300px;margin:14px 0}.metrics{display:flex;gap:15px;flex-wrap:wrap}.metrics>div{background:#f2f6eb;border:1px solid #e0e9d6;border-radius:6px;padding:12px;font-size:11px;min-width:140px}.metrics strong{display:block;font-size:22px}.settings-list{display:grid;grid-template-columns:180px 1fr;font-size:12px;gap:7px}.settings-list dt{color:#667a5d}.settings-list dd{margin:0;overflow-wrap:anywhere}ul{font-size:12px}.sequence-output{white-space:pre-wrap;overflow-wrap:anywhere;font-size:10px;max-height:500px;overflow:auto;background:#f6f8f2;padding:15px}summary{font-size:12px;cursor:pointer}footer{font-size:10px;border-top:1px solid #dfe5d8;padding-top:18px;margin-top:30px;color:#7d8b76}@media print{body{border:0;margin:0;padding:10px;background:white}.print-tip,.record-details{display:none}table{font-size:9px}.report-section{break-inside:avoid}details[open]{display:block}}@media(max-width:650px){body{padding:20px;margin:0}.settings-list{grid-template-columns:1fr}.settings-list dd{margin-bottom:10px}}
+</style></head><body><div class="eyebrow">gReLU STUDIO / ANALYSIS REPORT</div><h1>Sequence prediction</h1><p class="model-help print-tip">Standalone report. Use your browser’s Print command to print or save as PDF.</p><div class="report-meta"><span>RUN f4b6bf16</span><time datetime="2026-11-17T18:26:55+00:00">17 Nov 2026 · 11:56 PM IST</time><span>Predict</span></div>
+<p class="notice">Model: Local trained model · 24c07658</p>
+<details><summary>Model and execution notes</summary><p class="notice">Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions.</p></details>
+
+
+<section class="report-section"><h3>Predicted output bins · task_0</h3><svg viewBox="0 0 600 220" role="img" aria-label="Predicted output bins · task_0"><line x1="70" x2="570" y1="180" y2="180" stroke="#dfe5d8"/><line x1="70" x2="570" y1="25" y2="25" stroke="#dfe5d8"/><text x="2" y="29" font-size="11" fill="#66765c">0.21317</text><text x="2" y="184" font-size="11" fill="#66765c">0.18969</text><polyline points="70.000,138.345 75.051,134.187 80.101,163.695 85.152,116.825 90.202,115.307 95.253,97.153 100.303,127.915 105.354,180.000 110.404,143.494 115.455,121.842 120.505,144.947 125.556,39.655 130.606,104.018 135.657,53.452 140.707,108.177 145.758,67.975 150.808,174.785 155.859,69.691 160.909,52.528 165.960,43.682 171.010,164.487 176.061,77.217 181.111,92.862 186.162,38.533 191.212,113.722 196.263,144.089 201.313,145.475 206.364,166.731 211.414,63.288 216.465,80.715 221.515,80.980 226.566,25.000 231.616,162.638 236.667,104.414 241.717,105.141 246.768,129.368 251.818,75.500 256.869,102.896 261.919,92.334 266.970,73.454 272.020,100.718 277.071,125.209 282.121,93.918 287.172,26.188 292.222,107.187 297.273,120.522 302.323,114.382 307.374,75.434 312.424,120.522 317.475,96.295 322.525,135.969 327.576,109.497 332.626,74.048 337.677,116.363 342.727,66.985 347.778,95.569 352.828,123.954 357.879,80.914 362.929,147.521 367.980,73.322 373.030,139.270 378.081,121.842 383.131,59.195 388.182,144.683 393.232,96.625 398.283,102.302 403.333,118.871 408.384,123.096 413.434,65.730 418.485,69.625 423.535,68.107 428.586,170.032 433.636,70.615 438.687,100.256 443.737,88.505 448.788,94.512 453.838,69.163 458.889,90.948 463.939,144.551 468.990,88.439 474.040,157.225 479.091,117.023 484.141,111.082 489.192,120.984 494.242,67.975 499.293,115.703 504.343,110.620 509.394,106.593 514.444,114.515 519.495,130.226 524.545,50.085 529.596,98.077 534.646,88.109 539.697,130.952 544.747,84.742 549.798,167.193 554.848,155.905 559.899,146.267 564.949,111.148 570.000,148.115" fill="none" stroke="#286c52" stroke-width="2"/><text x="320" y="212" font-size="11" text-anchor="middle" fill="#66765c">Ordered observations / output bins</text></svg><div class="report-legend"><span style="color:#286c52">● sequence_1</span></div></section>
+<section class="report-section"><h3>Analysis results</h3><div class="table-scroll"><table><thead><tr><th scope="col">Record</th><th scope="col">Track</th><th scope="col">Score</th><th scope="col">Reverse-complement score</th><th scope="col">GC content</th></tr></thead><tbody><tr><td>sequence_1</td><td>task_0</td><td>0.2009</td><td>0.19977</td><td>56.9%</td></tr></tbody></table></div></section><section class="report-section"><h3>Model provenance</h3><div class="table-scroll"><table><thead><tr><th scope="col">Model</th><th scope="col">Checkpoint SHA-256</th><th scope="col">Torch version</th></tr></thead><tbody><tr><td>Local trained model · 24c07658</td><td>35796e6f230839e7d6502807975fc5288a1eb6cca7cf8772a3b949fbfb193312</td><td>2.15.0</td></tr></tbody></table></div></section>
+<section class="report-section"><h3>Analysis settings</h3><dl class="settings-list"><dt>N Shuffles</dt><dd>0</dd><dt>Track Bins</dt><dd>100</dd><dt>Seed</dt><dd>0</dd></dl></section>
+<section class="report-section"><h3>Interpretation notes</h3><ul><li>1 sequences, lengths 2000-2000 bp (model expects 2000), mean GC 0.57.</li><li>Needs at least 3 sequences with varying scores.</li><li>These are checks, not proof. Passing them does not show the biology is right.</li></ul></section>
+<details class="record-details"><summary>Complete inputs, provenance, and numerical record</summary><pre class="sequence-output">{
+  "inputs_and_settings": {
+    "fasta": "TATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGA",
+    "model": "local-24c0765831f5"
+  },
+  "numerical_result": {
+    "actual_model": "Local trained model \u00b7 24c07658",
+    "device": "cpu",
+    "evidence": [
+      {
+        "message": "1 sequences, lengths 2000-2000 bp (model expects 2000), mean GC 0.57.",
+        "name": "Input QC",
+        "status": "pass"
+      },
+      {
+        "message": "Needs at least 3 sequences with varying scores.",
+        "name": "Reverse-complement consistency",
+        "status": "info"
+      },
+      {
+        "message": "These are checks, not proof. Passing them does not show the biology is right.",
+        "name": "Scope",
+        "status": "info"
+      }
+    ],
+    "inputs": [
+      {
+        "id": "sequence_1",
+        "sequence": "TATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGA"
+      }
+    ],
+    "model": {
+      "backend": "builtin",
+      "seq_len": 2000,
+      "source": "studio_trained",
+      "tasks": [
+        "task_0"
+      ]
+    },
+    "ok": true,
+    "provenance": {
+      "checkpoint_sha256": "35796e6f230839e7d6502807975fc5288a1eb6cca7cf8772a3b949fbfb193312",
+      "model_id": "Local trained model \u00b7 24c07658",
+      "origin": "training",
+      "torch_version": "2.15.0"
+    },
+    "results": {
+      "predictions": [
+        {
+          "gc_content": 0.5685,
+          "id": "sequence_1",
+          "length": 2000,
+          "reverse_complement_scores": {
+            "task_0": 0.19976963102817535
+          },
+          "scores": {
+            "task_0": 0.20090004801750183
+          },
+          "tracks": {
+            "task_0": [
+              0.19599999487400055,
+              0.19663000106811523,
+              0.1921599954366684,
+              0.19925999641418457,
+              0.1994899958372116,
+              0.2022400051355362,
+              0.1975799947977066,
+              0.1896899938583374,
+              0.1952199935913086,
+              0.19850000739097595,
+              0.19499999284744263,
+              0.21095000207424164,
+              0.2011999934911728,
+              0.20885999500751495,
+              0.2005700021982193,
+              0.20666000247001648,
+              0.19047999382019043,
+              0.20640000700950623,
+              0.20900000631809235,
+              0.2103399932384491,
+              0.19203999638557434,
+              0.2052599936723709,
+              0.20288999378681183,
+              0.21111999452114105,
+              0.19972999393939972,
+              0.19513000547885895,
+              0.19492000341415405,
+              0.19169999659061432,
+              0.20736999809741974,
+              0.20473000407218933,
+              0.20468999445438385,
+              0.21317000687122345,
+              0.19232000410556793,
+              0.20114000141620636,
+              0.20103000104427338,
+              0.19735999405384064,
+              0.20552000403404236,
+              0.2013700008392334,
+              0.2029699981212616,
+              0.20582999289035797,
+              0.20170000195503235,
+              0.19799000024795532,
+              0.2027300000190735,
+              0.21299000084400177,
+              0.20071999728679657,
+              0.19869999587535858,
+              0.199630007147789,
+              0.20553000271320343,
+              0.19869999587535858,
+              0.20237000286579132,
+              0.1963600069284439,
+              0.20036999881267548,
+              0.20574000477790833,
+              0.19933000206947327,
+              0.20680999755859375,
+              0.2024800032377243,
+              0.19818000495433807,
+              0.20469999313354492,
+              0.19460999965667725,
+              0.2058500051498413,
+              0.19585999846458435,
+              0.19850000739097595,
+              0.20799000561237335,
+              0.1950400024652481,
+              0.20231999456882477,
+              0.20146000385284424,
+              0.19894999265670776,
+              0.1983100026845932,
+              0.2070000022649765,
+              0.2064100056886673,
+              0.20664000511169434,
+              0.19120000302791595,
+              0.20625999569892883,
+              0.20176999270915985,
+              0.20354999601840973,
+              0.20263999700546265,
+              0.2064799964427948,
+              0.2031800001859665,
+              0.19505999982357025,
+              0.2035599946975708,
+              0.19314000010490417,
+              0.19923000037670135,
+              0.20013000071048737,
+              0.19863000512123108,
+              0.20666000247001648,
+              0.19943000376224518,
+              0.20020000636577606,
+              0.2008100003004074,
+              0.19960999488830566,
+              0.1972299963235855,
+              0.20937000215053558,
+              0.2020999938249588,
+              0.20361000299453735,
+              0.19711999595165253,
+              0.2041199952363968,
+              0.19163000583648682,
+              0.193340003490448,
+              0.19480000436306,
+              0.2001200020313263,
+              0.1945199966430664
+            ]
+          }
+        }
+      ],
+      "qc": {
+        "length_max": 2000,
+        "length_median": 2000.0,
+        "length_min": 2000,
+        "mean_gc": 0.5685,
+        "model_input_length": 2000,
+        "n_cropped": 0,
+        "n_invalid_chars": 0,
+        "n_padded": 0,
+        "n_sequences": 1,
+        "n_with_N": 0
+      }
+    },
+    "runtime_s": 0.01,
+    "selected_model": "local-24c0765831f5",
+    "settings": {
+      "n_shuffles": 0,
+      "seed": 0,
+      "track_bins": 100
+    },
+    "warnings": [
+      "Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions."
+    ],
+    "workflow": "predict"
+  }
+}</pre></details><footer>Generated from a saved numerical run. Model predictions and exploratory analyses require independent biological validation.</footer></body></html>

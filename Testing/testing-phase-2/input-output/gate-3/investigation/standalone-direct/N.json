@@ -1,0 +1,24 @@
+{
+  "id": "short_N_roundtrip",
+  "status": "FAIL",
+  "scope": "optional dependency compatibility",
+  "dna": "N",
+  "expected": [
+    "N"
+  ],
+  "actual": {
+    "value": null,
+    "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 57, in <lambda>\n    observed = attempt(lambda: fmt.one_hot_to_strings(x))\n                               ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 352, in one_hot_to_strings\n    indices = one_hot_to_indices(one_hot)\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 337, in one_hot_to_indices\n    indices[one_hot.max(axis=-2).values == 0] = 4\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+    "warnings": []
+  },
+  "shape": [
+    1,
+    4,
+    1
+  ],
+  "dtype": "torch.float32",
+  "device": "cpu",
+  "accepted_by_library_check": true,
+  "detected_format": "one_hot",
+  "equals_native_encoder": true
+}

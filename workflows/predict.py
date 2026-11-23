@@ -1,3 +1,5 @@
+from core.export_values import csv_cell
+from core.output_processing import predict_checked, output_semantics
 import csv
 import random
 from pathlib import Path
@@ -16,7 +18,7 @@ def _downsample(track, n_bins):
     if track.shape[-1] <= n_bins:
         return track
     parts = np.array_split(track, n_bins, axis=-1)
-    return np.stack([p.mean(axis=-1) for p in parts], axis=-1)
+    return np.array([aggregate(np.asarray(p).reshape(1, 1, -1), 0)[0, 0] for p in parts])
 
 
 def handle_predict_workflow(params: dict) -> dict:
@@ -38,18 +40,27 @@ def handle_predict_workflow(params: dict) -> dict:
     track_bins = int(params.get("track_bins", 100))
     rnd = random.Random(int(params.get("seed", 0)))
 
-    fitted = [fit_with_offset(s, L)[0] for _, s in seqs]
+    policy=params.get('input_policy',params['model'].get('input_policy','strict'))
+    effective_inputs=[]
+    for identifier,sequence in seqs:
+        if len(sequence)!=L and not (policy=='center' or policy=='allow_short_with_n_pad' and len(sequence)<L):
+            raise ValueError(f'Input {identifier} must contain {L:,} bases; resizing needs an explicit supported input policy.')
+        fitted_sequence,offset=fit_with_offset(sequence,L)
+        effective_inputs.append({'id':identifier,'original_length':len(sequence),'model_length':L,
+            'input_policy':policy,'offset':offset,'sequence':fitted_sequence,
+            'transformation':'unchanged' if len(sequence)==L else 'center_crop' if len(sequence)>L else 'center_N_pad'})
+    fitted = [row['sequence'] for row in effective_inputs]
     log(f"[engine] predict: {N} sequences on {device}")
-    preds = adapter.predict(fitted)  # (N, T, L_out)
+    preds = predict_checked(adapter, fitted)  # (N, T, L_out)
     scores = aggregate(preds, center)
-    rc_scores = aggregate(adapter.predict([revcomp(s) for s in fitted]), center)
+    rc_scores = aggregate(predict_checked(adapter, [revcomp(s) for s in fitted]), center)
 
     base = None
     if n_sh > 0:
         base = np.zeros((N, T))
         for i, s in enumerate(fitted):
             sh = [dinuc_shuffle(s, rnd) for _ in range(n_sh)]
-            base[i] = aggregate(adapter.predict(sh), center).mean(axis=0)
+            base[i] = aggregate(predict_checked(adapter, sh), center).mean(axis=0)
 
     rows = []
     for i, (sid, s) in enumerate(seqs):
@@ -62,17 +73,17 @@ def handle_predict_workflow(params: dict) -> dict:
             row["shuffled_baseline"] = {names[t]: float(base[i, t]) for t in range(T)}
             row["delta_vs_baseline"] = {names[t]: float(scores[i, t] - base[i, t]) for t in range(T)}
         if params.get("return_tracks", True):
-            row["tracks"] = {names[t]: np.round(_downsample(preds[i, t], track_bins), 5).tolist() for t in range(T)}
+            row["tracks"] = {names[t]: _downsample(preds[i, t], track_bins).tolist() for t in range(T)}
         rows.append(row)
 
     out_dir = Path(params.get("output_dir", "runs/predict"))
     out_dir.mkdir(parents=True, exist_ok=True)
     csv_path = out_dir / "predictions.csv"
-    with open(csv_path, "w", newline="") as f:
-        wr = csv.writer(f)
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        wr = csv.writer(f, quoting=csv.QUOTE_ALL)
         wr.writerow(["id", "length", "gc_content"] + [f"score_{t}" for t in names])
         for r in rows:
-            wr.writerow([r["id"], r["length"], round(r["gc_content"], 4)] + [r["scores"][t] for t in names])
+            wr.writerow([csv_cell(r["id"]), r["length"], r["gc_content"]] + [r["scores"][t] for t in names])
 
     cards = []
     bad = qc["n_padded"] + qc["n_cropped"] + qc["n_invalid_chars"]
@@ -93,6 +104,6 @@ def handle_predict_workflow(params: dict) -> dict:
                           f"(mean of {n_sh} shuffles). Shuffles keep composition but destroy motifs."))
     cards.append(card("Scope", "info", "These are checks, not proof. Passing them does not show the biology is right."))
 
-    return {"model": {**adapter.meta, "seq_len": L, "tasks": names}, "device": device,
-            "results": {"predictions": rows, "qc": qc, "csv": str(csv_path)},
-            "evidence": cards, "warnings": warnings}
+    return {"model": {**adapter.meta, "seq_len": L, "tasks": names, "output_semantics": output_semantics(preds)}, "device": device,
+            "results": {"predictions": rows, "qc": qc, "csv": str(csv_path), "effective_inputs": effective_inputs},
+            "evidence": cards, "warnings": warnings + adapter.notes}

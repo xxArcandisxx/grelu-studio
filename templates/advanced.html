@@ -17,7 +17,7 @@
 <div class="field"><label for="shuffles">Background shuffles per variant</label></div><input type="number" id="shuffles" name="shuffles" value="{{ values.shuffles }}" min="0" max="100" required>
 <p class="model-help">0 skips background testing. With n shuffles, the smallest empirical p-value is 1/(n+1). The CPU budget limits large combinations of variants and shuffles.</p>
 {% else %}
-<div class="field"><label for="target">{{ 'On-target output track' if mode == 'design' else 'Output track' }}</label></div>
+<div class="field"><label for="target">{{ 'On-target output track' if mode == 'design' else 'Output task' }}</label></div>
 <select id="target" name="target" data-track-select data-value="{{ values.target }}"><option value="{{ values.target }}">Track index {{ values.target }}</option></select>
 <p class="model-help" id="track-help" role="status">Loading output track names…</p>
 {% if mode == 'design' %}
@@ -36,7 +36,7 @@
 <div class="actions"><button type="submit">{{ 'Optimize sequence' if mode == 'design' else 'Score variants' if mode == 'batch-variants' else 'Compute attribution' if mode == 'attribution' else 'Run sequence scan' }} →</button></div>
 <p id="run-progress" class="model-help" role="status" hidden>Running inference on the CPU. Please keep this page open; trained-model runs can take a few minutes.</p>
 </form></aside>
-<section class="panel results" id="advanced-results" aria-labelledby="results-title"><div class="result-header"><h2 id="results-title">{{ 'Design results' if mode == 'design' else 'Variant effects' if mode == 'batch-variants' else 'Input contributions' if mode == 'attribution' else 'Substitution map' }}</h2>{% if result %}<span class="result-badge">Analysis complete</span>{% endif %}</div>
+<section class="panel results" id="advanced-results" aria-labelledby="results-title"><div class="result-header"><h2 id="results-title">{{ 'Design results' if mode == 'design' else 'Variant effects' if mode == 'batch-variants' else 'Input contributions' if mode == 'attribution' else 'Substitution map' }}</h2>{% if result %}<p class="model-help">Model prediction scores use the native model scale. Units and probability interpretation are not established; score changes are not proven biological effects.</p><span class="result-badge">Analysis complete</span>{% endif %}</div>
 {% if result %}
 {% include "saved_run_link.html" %}
 <p class="notice">Model used: {{ result.actual_model }} · {{ result.runtime_s }} s</p>
@@ -51,7 +51,7 @@
 <p class="model-help">Final objective exceeds {{ '%.0f'|format(design.percentile_vs_shuffled) }}% of the five shuffled-seed baseline scores. This is a descriptive comparison.</p>
 {% endfor %}
 {% elif mode == 'batch-variants' %}
-<div class="metrics"><div>Variants scored<strong>{{ result.results.variants|length }}</strong></div><div>Output tracks<strong>{{ result.model.tasks|length }}</strong></div><div>Background shuffles<strong>{{ result.settings.n_shuffles }}</strong></div></div>
+<div class="metrics"><div>Variants scored<strong>{{ result.results.variants|length }}</strong></div><div>Output tasks<strong>{{ result.model.tasks|length }}</strong></div><div>Background shuffles<strong>{{ result.settings.n_shuffles }}</strong></div></div>
 <p class="model-help">Ranked by absolute effect on each variant's most affected track. Deltas are alternate minus reference; ranks across tracks depend on their score scales.</p>
 <div class="table-scroll"><table><thead><tr><th>Rank</th><th>Variant</th><th>Change</th><th>Top track</th><th>Effect</th><th>RC sign agreement</th><th>Empirical p</th></tr></thead><tbody>{% for row in result.results.ranked_variants %}<tr><td>{{ row.rank }}</td><td>{{ row.variant_id }}</td><td>{{ row.ref }} → {{ row.alt }}</td><td>{{ row.top_task }}</td><td class="{{ 'negative' if row.top_effect < 0 else 'positive' }}">{{ '%+.6g'|format(row.top_effect) }}</td><td>{{ '%.0f'|format(row.rc_sign_agreement * 100) }}%</td><td>{{ '%.4g'|format(row.top_task_pvalue) if row.top_task_pvalue is not none else 'Not tested' }}</td></tr>{% endfor %}</tbody></table></div>
 <details><summary>All variants and output tracks</summary><div class="table-scroll"><table><thead><tr><th>Variant</th><th>Track</th><th>Reference</th><th>Alternate</th><th>Delta</th><th>Empirical p</th></tr></thead><tbody>{% for row in result.results.variants %}{% for track, effect in row.effects.items() %}<tr><td>{{ row.variant_id }}</td><td>{{ track }}</td><td>{{ '%.6g'|format(row.ref_scores[track]) }}</td><td>{{ '%.6g'|format(row.alt_scores[track]) }}</td><td>{{ '%+.6g'|format(effect) }}</td><td>{{ '%.4g'|format(row.pvalues[track]) if row.pvalues else 'Not tested' }}</td></tr>{% endfor %}{% endfor %}</tbody></table></div></details>
@@ -62,12 +62,12 @@
 <h3>Top 20 positions by absolute contribution</h3><div class="table-scroll"><table><thead><tr><th>Position</th><th>Reference</th><th>Signed contribution</th></tr></thead><tbody>{% for row in result.results.top_positions %}<tr><td>{{ row.position }}</td><td>{{ row.reference }}</td><td>{{ '%+.6g'|format(row.contribution) }}</td></tr>{% endfor %}</tbody></table></div>
 {% else %}
 <div class="metrics"><div>Reference score<strong>{{ '%.5g'|format(result.results.reference_score) }}</strong></div><div>Substitutions<strong>{{ result.results.substitutions }}</strong></div><div>Positions skipped<strong>{{ result.results.skipped_positions }}</strong></div></div>
-<p class="model-help">Track: {{ result.results.track }}. Blue = decreased signal; orange = increased signal. Darker cells indicate larger absolute effects. “Reference” cells are unchanged bases.</p>
+<p class="model-help">Track: {{ result.results.track }}. Blue = lower model prediction score; orange = higher model prediction score. Darker cells indicate larger absolute effects. “Reference” cells are unchanged bases.</p>
 <div class="table-scroll"><table class="scan-table"><thead><tr><th>Position</th><th>Reference</th>{% for base in 'ACGT' %}<th>{{ base }}</th>{% endfor %}</tr></thead><tbody>{% for row in result.results.positions %}<tr><th scope="row">{{ row.position }}</th><td>{{ row.reference }}</td>{% for base in 'ACGT' %}{% if base in row.deltas %}{% set delta = row.deltas[base] %}<td style="background-color:hsl({{ 205 if delta < 0 else 30 }},65%,{{ 97 - (delta|abs / heatmap_scale * 30 if heatmap_scale else 0) }}%)">{{ '%+.4g'|format(delta) }}</td>{% else %}<td>{{ 'Skipped' if row.reference == 'N' else 'Reference' }}</td>{% endif %}{% endfor %}</tr>{% endfor %}</tbody></table></div>
 {% endif %}
 <details><summary>Prediction diagnostics and model notes</summary><ul>{% for note in result.evidence %}<li>{{ note.name }} — {{ note.message }}</li>{% endfor %}{% for warning in result.warnings %}<li>{{ warning }}</li>{% endfor %}</ul></details>
 <div class="actions"><button id="download-record" type="button">Download JSON</button><button id="download-csv" type="button" class="quiet">Download CSV</button>{% if mode == 'design' %}<button id="download-fasta" type="button" class="quiet">Download FASTA</button>{% endif %}</div>
-<script type="application/json" id="run-record">{{ result|tojson }}</script>
+<p class="model-help">Spreadsheet-safe CSV prefixes formula-like text with an apostrophe. JSON preserves the exact original identifiers; CSV missing values are blank.</p><script type="application/json" id="run-record">{{ result|tojson }}</script>
 {% else %}<div class="empty"><strong>{{ 'A sequence with potential' if mode == 'design' else 'Explore many variants at once' if mode == 'batch-variants' else 'Inspect local model sensitivity' if mode == 'attribution' else 'Every base tells a story' }}</strong><p>{{ 'Load an example, choose your objective, and follow the sequence as the model accepts edits.' if mode == 'design' else 'Load an example or upload your data. Results include model provenance and exportable analysis records.' }}</p></div>{% endif %}
 </section></div>
 {% endblock %}

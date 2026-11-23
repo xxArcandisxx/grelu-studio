@@ -1,0 +1,248 @@
+[
+  {
+    "case": "quality",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [],
+    "summary": {
+      "all_unknown_records": 0,
+      "duplicate_groups": 0,
+      "duplicate_records": 0,
+      "length_max": 2114,
+      "length_mean": 2114,
+      "length_median": 2114.0,
+      "length_min": 2114,
+      "mean_record_gc_percent": 52.49763481551561,
+      "pooled_gc_percent": 52.49763481551561,
+      "records": 10,
+      "records_with_unknowns": 0,
+      "repeated_identifiers": 0,
+      "total_bases": 21140,
+      "unique_sequences": 10,
+      "unknown_bases": 0
+    },
+    "bed_validation": "Removed from website; source coordinates/lengths were checked by the conversion helper.",
+    "seconds": 0.81,
+    "peak_rss_mb": 62.7,
+    "minimum_available_mb": 2231.0
+  },
+  {
+    "case": "prediction",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [],
+    "seconds": 24.21,
+    "peak_rss_mb": 1299.8,
+    "minimum_available_mb": 1414.3
+  },
+  {
+    "case": "variant-comparison",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Constructed single-base substitution, not an observed variant."
+    ],
+    "seconds": 11.38,
+    "peak_rss_mb": 1271.6,
+    "minimum_available_mb": 1439.0
+  },
+  {
+    "case": "batch-variants",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Three constructed SNVs; shuffled significance testing disabled."
+    ],
+    "seconds": 13.84,
+    "peak_rss_mb": 1233.3,
+    "minimum_available_mb": 1473.8
+  },
+  {
+    "case": "alleles",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Constructed alternate sequences; no observed allele/phasing dataset supplied."
+    ],
+    "seconds": 10.15,
+    "peak_rss_mb": 1215.2,
+    "minimum_available_mb": 1495.5
+  },
+  {
+    "case": "prioritization",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Constructed alternate sequences; no observed allele/phasing dataset supplied."
+    ],
+    "seconds": 10.77,
+    "peak_rss_mb": 1264.6,
+    "minimum_available_mb": 1485.2
+  },
+  {
+    "case": "mutagenesis",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [],
+    "seconds": 12.19,
+    "peak_rss_mb": 1304.9,
+    "minimum_available_mb": 1393.3
+  },
+  {
+    "case": "attribution",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [],
+    "seconds": 10.97,
+    "peak_rss_mb": 1328.7,
+    "minimum_available_mb": 1395.8
+  },
+  {
+    "case": "motifs",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Exact pattern derived from the reference sequence; k-mer enrichment is exploratory."
+    ],
+    "seconds": 0.61,
+    "peak_rss_mb": 63.2,
+    "minimum_available_mb": 2242.8
+  },
+  {
+    "case": "pwm",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Explicitly synthetic JASPAR-format matrix; no annotated biological motif matrix supplied."
+    ],
+    "seconds": 0.61,
+    "peak_rss_mb": 64.6,
+    "minimum_available_mb": 2241.9
+  },
+  {
+    "case": "simulation",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [],
+    "seconds": 9.96,
+    "peak_rss_mb": 1229.0,
+    "minimum_available_mb": 1492.0
+  },
+  {
+    "case": "design",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "One iteration, two candidate edits; no claim of biological improvement."
+    ],
+    "seconds": 13.4,
+    "peak_rss_mb": 1313.6,
+    "minimum_available_mb": 1399.9
+  },
+  {
+    "case": "model-zoo",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Pinned cache installation tested; remote downloads and other catalogue models not tested."
+    ],
+    "observed_job_states": [
+      "running",
+      "complete"
+    ],
+    "seconds": 13.41,
+    "peak_rss_mb": 1401.7,
+    "minimum_available_mb": 1310.2
+  },
+  {
+    "case": "training",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Labels are synthetic GC fractions, not measured DNase activity. Optimizer/checkpoint execution only.",
+      "Compact CNN trained from scratch on center-cropped 2,000-base windows; not training GM12878 from scratch."
+    ],
+    "observed_job_states": [
+      "running",
+      "complete"
+    ],
+    "model_key": "local-24c0765831f5",
+    "optimizer_steps": 8,
+    "seconds": 3.66,
+    "peak_rss_mb": 849.8,
+    "minimum_available_mb": 1857.3
+  },
+  {
+    "case": "fine-tuning",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Labels are synthetic GC fractions, not measured DNase activity. Optimizer/checkpoint execution only."
+    ],
+    "observed_job_states": [
+      "running",
+      "complete"
+    ],
+    "model_key": "local-bc852f5840fc",
+    "optimizer_steps": 8,
+    "seconds": 23.97,
+    "peak_rss_mb": 1498.8,
+    "minimum_available_mb": 1223.8
+  },
+  {
+    "case": "model-comparison",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Original DNase model versus synthetic-GC fine-tuned checkpoint; different target scales, descriptive comparison only."
+    ],
+    "seconds": 12.18,
+    "peak_rss_mb": 1304.9,
+    "minimum_available_mb": 1414.2
+  },
+  {
+    "case": "evaluation",
+    "mode": "isolated Flask request integration; no browser",
+    "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+    "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+    "status": "passed",
+    "limitations": [
+      "Evaluation/track tools checked with bundled synthetic numeric fixtures. BED contains no measured DNase targets; GM12878 accuracy, AUROC, and biological track concordance were not evaluated."
+    ],
+    "seconds": 1.83,
+    "peak_rss_mb": 177.1,
+    "minimum_available_mb": 2153.0
+  }
+]

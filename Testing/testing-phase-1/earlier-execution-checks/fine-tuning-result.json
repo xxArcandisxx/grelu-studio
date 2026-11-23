@@ -1,0 +1,157 @@
+{
+  "case": "fine-tuning",
+  "mode": "isolated Flask request integration; no browser",
+  "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+  "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+  "status": "passed",
+  "limitations": [
+    "Labels are synthetic GC fractions, not measured DNase activity. Optimizer/checkpoint execution only."
+  ],
+  "observed_job_states": [
+    "running",
+    "complete"
+  ],
+  "model_key": "local-bc852f5840fc",
+  "optimizer_steps": 8,
+  "results": [
+    {
+      "created": 1794940017.0936775,
+      "history": [
+        {
+          "epoch": 1,
+          "training_loss": 4.389768690802157,
+          "validation_loss": 0.5362471342086792
+        }
+      ],
+      "id": "bc852f5840fc0ff769f9470f8271f737",
+      "kind": "Fine-tuning",
+      "message": "Run complete. Results are ready.",
+      "result": {
+        "base_checkpoint_sha256": "f266b296f49b4e97e3ac52e94594da0aaae1d467778ea58b421e1ee7c4482bea",
+        "base_model_config": {
+          "seq_len": 2114,
+          "source": "checkpoint"
+        },
+        "batch_size": 1,
+        "best_epoch": 1,
+        "best_validation_mse": 0.5362471342086792,
+        "checkpoint": "model.pt",
+        "data_source": "uploaded numeric labels",
+        "epochs": 1,
+        "history": [
+          {
+            "epoch": 1,
+            "training_loss": 4.389768690802157,
+            "validation_loss": 0.5362471342086792
+          }
+        ],
+        "initial_validation_mse": 13.214995384216309,
+        "learning_rate": 0.0001,
+        "mean_label_baseline_mse": 0.00742638623341918,
+        "model_key": "local-bc852f5840fc",
+        "model_provenance": {
+          "checkpoint_sha256": "21c3aeaa246dd95ec54765ad0deef5ae1b8466f4599cbfd973265a81f077306b",
+          "model_id": "Local trained model \u00b7 bc852f58",
+          "origin": "training",
+          "torch_version": "2.15.0"
+        },
+        "optimizer_steps": 8,
+        "saved_run_id": "be15f53d86ea38c93a8a43f9a74d3ba8",
+        "split_seed": 0,
+        "target_track": "ENCFF093VXI",
+        "training_records": 8,
+        "validation_records": 2
+      },
+      "state": "complete",
+      "updated": 1794940033.8313825,
+      "worker_pid": 63692
+    },
+    {
+      "actual_model": "Local trained model \u00b7 bc852f58",
+      "device": "cpu",
+      "evidence": [
+        {
+          "message": "1 sequences, lengths 2114-2114 bp (model expects 2114), mean GC 0.56.",
+          "name": "Input QC",
+          "status": "pass"
+        },
+        {
+          "message": "Needs at least 3 sequences with varying scores.",
+          "name": "Reverse-complement consistency",
+          "status": "info"
+        },
+        {
+          "message": "These are checks, not proof. Passing them does not show the biology is right.",
+          "name": "Scope",
+          "status": "info"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "sequence_1",
+          "sequence": "ACAATCCAGGTCATCCTTCAATATTTGCAGAAAACATCACAAAGAAAACTTGATACTTATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGACATAGGTGGATTTTGCTTTTAAGTAGTAAAGACTTAATTGGTGACTTACTGGGGCTA"
+        }
+      ],
+      "model": {
+        "backend": "builtin",
+        "seq_len": 2114,
+        "source": "studio_trained",
+        "tasks": [
+          "ENCFF093VXI"
+        ]
+      },
+      "ok": true,
+      "provenance": {
+        "checkpoint_sha256": "21c3aeaa246dd95ec54765ad0deef5ae1b8466f4599cbfd973265a81f077306b",
+        "model_id": "Local trained model \u00b7 bc852f58",
+        "origin": "training",
+        "torch_version": "2.15.0"
+      },
+      "results": {
+        "predictions": [
+          {
+            "gc_content": 0.5567644276253548,
+            "id": "sequence_1",
+            "length": 2114,
+            "reverse_complement_scores": {
+              "ENCFF093VXI": 1.2230807542800903
+            },
+            "scores": {
+              "ENCFF093VXI": 1.262637972831726
+            },
+            "tracks": {
+              "ENCFF093VXI": [
+                1.2626399993896484
+              ]
+            }
+          }
+        ],
+        "qc": {
+          "length_max": 2114,
+          "length_median": 2114.0,
+          "length_min": 2114,
+          "mean_gc": 0.5567644276253548,
+          "model_input_length": 2114,
+          "n_cropped": 0,
+          "n_invalid_chars": 0,
+          "n_padded": 0,
+          "n_sequences": 1,
+          "n_with_N": 0
+        }
+      },
+      "runtime_s": 3.66,
+      "saved_run_id": "855b2c3a3beeec5ff5680301a5dcfaa8",
+      "selected_model": "local-bc852f5840fc",
+      "settings": {
+        "n_shuffles": 0,
+        "seed": 0,
+        "track_bins": 100
+      },
+      "warnings": [
+        "Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions."
+      ],
+      "workflow": "predict"
+    }
+  ],
+  "seconds": 22.06
+}

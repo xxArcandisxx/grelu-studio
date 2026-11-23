@@ -1,0 +1,14 @@
+{
+  "standalone_command": "/home/akshadha/Desktop/GRELU-Studio/.venv/bin/python -I /home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py --output /home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/standalone-direct",
+  "standalone_exit_code": 1,
+  "expected_exit_reason": "Five real optional compatibility failures, all saved.",
+  "working_directory": "/tmp",
+  "minimal_command": "/home/akshadha/Desktop/GRELU-Studio/.venv/bin/python -I /home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/minimal_repro.py",
+  "minimal_exit_code": 0,
+  "minimal_exit_note": "Print-only repro, not a PASS/FAIL runner. See optional test for nonzero failing status.",
+  "sandbox_import_attempt": {
+    "status": "BLOCKED",
+    "output_directory": "standalone",
+    "reason": "Import of grelu.sequence.format transitively imports genomepy, which requires its existing /home/akshadha/.cache/genomepy/0.16.4/cache.lock. Sandbox returned OSError errno 30. Rerun with authorized cache access completed. No pending import blocker."
+  }
+}

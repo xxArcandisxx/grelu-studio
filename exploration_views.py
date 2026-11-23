@@ -10,6 +10,7 @@ from core.pwm import EXAMPLE_MATRIX, parse_motifs, scan_pwm
 from experiment_store import experiment, save_experiment
 from lab_views import check_csrf
 from studio_services import length_error
+from core.model_lengths import required_length
 
 exploration = Blueprint('exploration',__name__)
 TITLES = {'pwm-scan':'PWM motif scanning','motif-simulation':'Motif simulations','model-comparison':'Model comparison'}
@@ -65,7 +66,7 @@ def run(mode):
                 model = resolve_model(values['model'])
                 if model is None:
                     raise ValueError('Choose an installed model.')
-                length = MODELS[model]['seq_len']
+                length = required_length(MODELS[model])
                 if 'example' in request.form:
                     values['text']='>synthetic_background\n'+example_sequence(length)
                     center = length//2+1
@@ -102,7 +103,7 @@ def run(mode):
                 if any(key is None for key in keys):
                     raise ValueError('Choose two installed models.')
                 if 'example' in request.form:
-                    length=max(MODELS[key]['seq_len'] for key in keys)
+                    length=max(required_length(MODELS[key]) for key in keys)
                     values['text']='\n'.join(f'>sequence_{index+1}\n'+''.join(__import__('random').Random(31+index).choices('ACGT',k=length)) for index in range(3))
                 records = parse_batch(values['text'],parse_sequence)
                 if len(records)>6:
@@ -125,6 +126,11 @@ def run(mode):
                         'rows':[[row[key] for key in ('id','score_a','score_b','raw_difference','transformation_a','transformation_b')] for row in rows]}],
                     'plots':[{'title':'Selected-track scores by input record','series':[{'label':'Model A','values':[row['score_a'] for row in rows]},
                         {'label':'Model B','values':[row['score_b'] for row in rows]}]}]}
+                if not result['results']['scale_comparison']['comparable']:
+                    presentation['plots'] = [
+                        {'title':f'Model {letter} native scores (scale not harmonized)',
+                         'series':[{'label':f'Model {letter}', 'values':[row[key] for row in rows]}]}
+                        for letter,key in [('A','score_a'),('B','score_b')]]
             result['workflow']=mode
             result['runtime_s']=round(time.monotonic()-started,3)
             replay_keys = {'pwm-scan':('text','matrices','threshold','background','smoothing'),

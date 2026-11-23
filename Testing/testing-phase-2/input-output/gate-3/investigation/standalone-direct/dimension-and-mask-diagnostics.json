@@ -1,0 +1,997 @@
+[
+  {
+    "sequences": [
+      "A"
+    ],
+    "shape": [
+      1,
+      4,
+      1
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "A"
+    ],
+    "expected_indices": [
+      [
+        0
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        false
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "N"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          0
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "A"
+    ],
+    "shape": [
+      4,
+      1
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": "A",
+    "expected_indices": [
+      0
+    ],
+    "argmax_before_N_handling": [
+      0
+    ],
+    "torch_boolean_mask": [
+      false
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": "N",
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        0
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "N"
+    ],
+    "shape": [
+      1,
+      4,
+      1
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "N"
+    ],
+    "expected_indices": [
+      [
+        4
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        true
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": null,
+      "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 92, in <lambda>\n    'native_inverse_indices': attempt(lambda: fmt.one_hot_to_indices(x)),\n                                              ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 337, in one_hot_to_indices\n    indices[one_hot.max(axis=-2).values == 0] = 4\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": null,
+      "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 93, in <lambda>\n    'native_inverse_strings': attempt(lambda: fmt.one_hot_to_strings(x)),\n                                              ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 352, in one_hot_to_strings\n    indices = one_hot_to_indices(one_hot)\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 337, in one_hot_to_indices\n    indices[one_hot.max(axis=-2).values == 0] = 4\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": null,
+      "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 94, in <lambda>\n    'same_source_operation_torch_mask': attempt(lambda: mask_assign(False)),\n                                                        ~~~~~~~~~~~^^^^^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 84, in mask_assign\n    result[mask.numpy() if use_numpy else mask] = 4\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "N"
+    ],
+    "shape": [
+      4,
+      1
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": "N",
+    "expected_indices": [
+      4
+    ],
+    "argmax_before_N_handling": [
+      0
+    ],
+    "torch_boolean_mask": [
+      true
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": null,
+      "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 92, in <lambda>\n    'native_inverse_indices': attempt(lambda: fmt.one_hot_to_indices(x)),\n                                              ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 337, in one_hot_to_indices\n    indices[one_hot.max(axis=-2).values == 0] = 4\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": null,
+      "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 93, in <lambda>\n    'native_inverse_strings': attempt(lambda: fmt.one_hot_to_strings(x)),\n                                              ~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 352, in one_hot_to_strings\n    indices = one_hot_to_indices(one_hot)\n  File \"/home/akshadha/Desktop/GRELU-Studio/.venv/lib/python3.14/site-packages/grelu/sequence/format.py\", line 337, in one_hot_to_indices\n    indices[one_hot.max(axis=-2).values == 0] = 4\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": null,
+      "error": "Traceback (most recent call last):\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 44, in attempt\n    value = fn()\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 94, in <lambda>\n    'same_source_operation_torch_mask': attempt(lambda: mask_assign(False)),\n                                                        ~~~~~~~~~~~^^^^^^^\n  File \"/home/akshadha/Desktop/GRELU-Studio/Testing/testing-phase-2/input-output/gate-3/investigation/verify_optional_inverse.py\", line 84, in mask_assign\n    result[mask.numpy() if use_numpy else mask] = 4\n    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nIndexError: index 1 is out of bounds for axis 0 with size 1\n",
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "A",
+      "C",
+      "G",
+      "T",
+      "N"
+    ],
+    "shape": [
+      5,
+      4,
+      1
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "A",
+      "C",
+      "G",
+      "T",
+      "N"
+    ],
+    "expected_indices": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        false
+      ],
+      [
+        false
+      ],
+      [
+        false
+      ],
+      [
+        false
+      ],
+      [
+        true
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "A",
+        "C",
+        "G",
+        "T",
+        "N"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "AC"
+    ],
+    "shape": [
+      1,
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "AC"
+    ],
+    "expected_indices": [
+      [
+        0,
+        1
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0,
+        1
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        false,
+        false
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          0,
+          1
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "AC"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          0,
+          1
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          0,
+          1
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "AC"
+    ],
+    "shape": [
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": "AC",
+    "expected_indices": [
+      0,
+      1
+    ],
+    "argmax_before_N_handling": [
+      0,
+      1
+    ],
+    "torch_boolean_mask": [
+      false,
+      false
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        0,
+        1
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": "AC",
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        0,
+        1
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        0,
+        1
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "AN"
+    ],
+    "shape": [
+      1,
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "AN"
+    ],
+    "expected_indices": [
+      [
+        0,
+        4
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0,
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        false,
+        true
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          0,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "AN"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          0,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          0,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "AN"
+    ],
+    "shape": [
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": "AN",
+    "expected_indices": [
+      0,
+      4
+    ],
+    "argmax_before_N_handling": [
+      0,
+      0
+    ],
+    "torch_boolean_mask": [
+      false,
+      true
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        0,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": "AN",
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        0,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        0,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "NN"
+    ],
+    "shape": [
+      1,
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "NN"
+    ],
+    "expected_indices": [
+      [
+        4,
+        4
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0,
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        true,
+        true
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          4,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "NN"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          4,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          4,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "NN"
+    ],
+    "shape": [
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": "NN",
+    "expected_indices": [
+      4,
+      4
+    ],
+    "argmax_before_N_handling": [
+      0,
+      0
+    ],
+    "torch_boolean_mask": [
+      true,
+      true
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        4,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": "NN",
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        4,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        4,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "AC",
+      "NN"
+    ],
+    "shape": [
+      2,
+      4,
+      2
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "AC",
+      "NN"
+    ],
+    "expected_indices": [
+      [
+        0,
+        1
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        false,
+        false
+      ],
+      [
+        true,
+        true
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "AC",
+        "NN"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          0,
+          1
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "ACGTN"
+    ],
+    "shape": [
+      1,
+      4,
+      5
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": [
+      "ACGTN"
+    ],
+    "expected_indices": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "argmax_before_N_handling": [
+      [
+        0,
+        1,
+        2,
+        3,
+        0
+      ]
+    ],
+    "torch_boolean_mask": [
+      [
+        false,
+        false,
+        false,
+        false,
+        true
+      ]
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": [
+        "ACGTN"
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  },
+  {
+    "sequences": [
+      "ACGTN"
+    ],
+    "shape": [
+      4,
+      5
+    ],
+    "accepted_by_library_check": true,
+    "expected_strings": "ACGTN",
+    "expected_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "argmax_before_N_handling": [
+      0,
+      1,
+      2,
+      3,
+      0
+    ],
+    "torch_boolean_mask": [
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "mask_dtype": "torch.bool",
+    "native_inverse_indices": {
+      "value": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "native_inverse_strings": {
+      "value": "ACGTN",
+      "error": null,
+      "warnings": []
+    },
+    "same_source_operation_torch_mask": {
+      "value": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "diagnostic_only_numpy_mask": {
+      "value": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "error": null,
+      "warnings": []
+    },
+    "note": "NumPy-mask variant is an isolated cause experiment; installed functions and website code are not patched."
+  }
+]

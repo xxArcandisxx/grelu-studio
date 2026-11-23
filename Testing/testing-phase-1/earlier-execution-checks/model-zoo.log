@@ -1,0 +1,2 @@
+[engine] predict: 1 sequences on cpu
+{"case": "model-zoo", "mode": "isolated Flask request integration; no browser", "reference_data": "UCSC hg38 first 10 supplied BED intervals", "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta", "status": "passed", "limitations": ["Pinned cache installation tested; remote downloads and other catalogue models not tested."], "observed_job_states": ["running", "complete"], "seconds": 11.52}

@@ -1,3 +1,4 @@
+from core.output_processing import predict_checked
 import random
 from pathlib import Path
 
@@ -42,7 +43,7 @@ def handle_design_workflow(params: dict) -> dict:
     seeds = [fit_with_offset(s.upper(), L)[0] for s in seeds]
 
     def objective(seqs):
-        agg = aggregate(adapter.predict(seqs), center)
+        agg = aggregate(predict_checked(adapter, seqs), center)
         score = agg[:, on].mean(axis=1) - (agg[:, off].mean(axis=1) if off else 0.0)
         return np.asarray(score), agg
 
@@ -108,4 +109,4 @@ def handle_design_workflow(params: dict) -> dict:
                       "Designs are optimised against the same model that scores them. Validate with a second model."))
 
     return {"model": {**adapter.meta, "seq_len": L, "tasks": names}, "device": device,
-            "results": {"designs": designs, "fasta": str(fasta)}, "evidence": cards, "warnings": warnings}
+            "results": {"designs": designs, "fasta": str(fasta)}, "evidence": cards, "warnings": warnings + adapter.notes}

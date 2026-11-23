@@ -1,0 +1,2 @@
+[engine] VEP: 3 variants on cpu
+{"case": "batch-variants", "mode": "isolated Flask request integration; no browser", "reference_data": "UCSC hg38 first 10 supplied BED intervals", "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta", "status": "passed", "limitations": ["Three constructed SNVs; shuffled significance testing disabled."], "seconds": 11.91}

@@ -19,6 +19,7 @@ from account_views import init_accounts
 from curated_scan import curated_scan
 from research_views import research
 from workbench import workbench
+from core.model_lengths import ModelLengthError, contract_for_spec, required_length
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -47,17 +48,23 @@ app.config["TRAIN_BATCH_SIZE"] = int(os.environ.get("GRELU_TRAIN_BATCH_SIZE", "8
 app.config["DISPLAY_TIMEZONE"] = os.environ.get("GRELU_DISPLAY_TIMEZONE", "Asia/Kolkata")
 inference_lock = Lock()
 
-MODELS = {"demo": {"source": "demo", "seq_len": 200, "n_tasks": 3, "seed": 0}}
+MODELS = {"demo": {"source": "demo", "seq_len": 200, "n_tasks": 3, "seed": 0,
+                   "input_policy": "allow_short_with_n_pad"}}
 checkpoint = os.environ.get("GRELU_HUMAN_CHECKPOINT")
 PROVENANCE = {"demo": {"model_id": "studio-demo-cnn-v1", "torch_version": version("torch")}}
 if checkpoint:
-    length = int(os.environ["GRELU_HUMAN_INPUT_LENGTH"])
-    if not 1 <= length <= 200_000:
+    declared_length = os.environ.get("GRELU_HUMAN_INPUT_LENGTH")
+    spec = {"source": "checkpoint", "path": str(Path(checkpoint).resolve(strict=True))}
+    if declared_length is not None:
+        spec['seq_len'] = declared_length
+    contract = contract_for_spec(spec, require_known=False)
+    length = contract['seq_len']
+    if length is not None and not 1 <= length <= 200_000:
         raise ValueError("GRELU_HUMAN_INPUT_LENGTH must be between 1 and 200,000 bases.")
     checkpoint_path = Path(checkpoint).resolve(strict=True)
     with checkpoint_path.open("rb") as model_file:
         digest = hashlib.file_digest(model_file, "sha256").hexdigest()
-    MODELS["human"] = {"source": "checkpoint", "path": str(checkpoint_path), "seq_len": length}
+    MODELS["human"] = {**spec, "seq_len": length if length is not None else declared_length}
     PROVENANCE["human"] = {
         "model_id": os.environ.get("GRELU_HUMAN_MODEL_ID", "Lab human regulatory model"),
         "checkpoint_sha256": digest,
@@ -89,26 +96,33 @@ def model_choices():
     from model_registry import sync_models
     sync_models()
     active = "human" if "human" in MODELS else "demo"
+    lengths, length_errors = {}, {}
+    for key, spec in MODELS.items():
+        try:
+            contract = contract_for_spec(spec)
+            lengths[key] = contract['seq_len']
+        except (ModelLengthError, OSError, KeyError) as exc:
+            lengths[key] = None
+            length_errors[key] = str(exc)
     return {
         "local": {key: "Compact CNN · 200 bp" if key == "demo"
                   else info["model_id"] for key, info in PROVENANCE.items()},
         "zoo": ZOO_MODELS,
-        "lengths": {key: info["seq_len"] for key, info in MODELS.items()},
+        "lengths": lengths, "length_errors": length_errors,
         "actual_label": PROVENANCE[active]["model_id"] if active != "demo" else "Compact CNN",
-        "actual_length": MODELS[active]["seq_len"],
+        "actual_length": lengths[active],
     }
 
 
+@app.errorhandler(ModelLengthError)
+def incompatible_model_length(error):
+    return jsonify(error=str(error), seq_len=None, input_length_contract=error.contract,
+                   verified_compatibility=False), 400
+
+
 def parse_sequence(raw, label):
-    if not isinstance(raw, str):
-        raise ValueError(f"Provide a {label} sequence.")
-    lines = [line.strip() for line in raw.splitlines() if line.strip()]
-    if lines and lines[0].startswith(">"):
-        lines = lines[1:]
-    sequence = "".join(lines).upper()
-    if not re.fullmatch(r"[ACGTN]+", sequence) or len(sequence) > 200_000:
-        raise ValueError(f"Enter one {label} sequence of up to 200,000 bases using A, C, G, T or N.")
-    return sequence
+    from core.dna_inputs import parse_single
+    return parse_single(raw, label)
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -131,7 +145,7 @@ def example():
     model = resolve_model(request.args.get("model", "demo"))
     if model is None:
         return jsonify(error="Choose an available model."), 400
-    length = MODELS[model]["seq_len"]
+    length = required_length(MODELS[model])
     position = length // 2
     rng = random.Random(9)
     ref = "".join(rng.choices("ACGT", k=length))
@@ -146,6 +160,10 @@ def compare():
         body = request.form.to_dict()
     if not isinstance(body, dict):
         return jsonify(error="Send a JSON object."), 400
+    extras = set(body) - {'model','reference','alternate','csrf_token'}
+    if extras:
+        return jsonify(error='Unsupported input fields: '+', '.join(sorted(extras))+
+            '. This endpoint compares supplied sequences; genomic coordinates and assemblies are not extracted.'), 400
     selection = body.get("model")
     model = resolve_model(selection)
     if model is None:
@@ -159,7 +177,7 @@ def compare():
         if len(differences) != 1 or "N" in (ref[differences[0]], alt[differences[0]]):
             raise ValueError("Provide exactly one substitution between A, C, G and T.")
         offset = differences[0]
-        expected = MODELS[model]["seq_len"]
+        expected = required_length(MODELS[model])
         if model != "demo" and expected and len(ref) != expected:
             raise ValueError(f"Enter the model's full {expected:,}-base model window.")
         if model == "demo" and len(ref) > expected:

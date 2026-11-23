@@ -1,0 +1,38 @@
+{
+  "checkpoint_sha256": "f266b296f49b4e97e3ac52e94594da0aaae1d467778ea58b421e1ee7c4482bea",
+  "checkpoint_revision": "9f2aaba3e04c5b7324a239c7af53fc4732cb2c3e",
+  "started_utc": "2026-11-22T10:03:34.210662+00:00",
+  "data_manifest_sha256": "5b05d2b5f62a11d41c62ec19a52f021e9c576514f0de5bbf4ced5e63a4ba7242",
+  "versions": {
+    "torch": "2.15.0",
+    "grelu": "1.1.0",
+    "numpy": "2.5.4",
+    "pyBigWig": "0.3.29",
+    "biopython": "1.88"
+  },
+  "threads": 2,
+  "batch_size": 1,
+  "warnings": [
+    "Checkpoints are pickle files: only load ones you trust."
+  ],
+  "scope": "Fixed samples; DNase is within-experiment held-out chr11 evaluation. dsQTL loci can overlap model training chromosomes. No wet-lab validation of designs or attributions.",
+  "dnase": {
+    "samples": 500,
+    "Pearson r": 0.7847196531250741,
+    "Spearman rho": 0.7800279904704129,
+    "MSE": 0.570838535045015,
+    "RMSE": 0.755538572837294,
+    "MAE": 0.49746227616071703,
+    "shuffled_prediction_MSE": 2.1903880256893995,
+    "shuffled_prediction_Pearson": 0.012731445438832327
+  },
+  "elapsed_seconds": 1058.010213338,
+  "dsqtl": {
+    "samples": 1000,
+    "positives": 16,
+    "positive_fraction": 0.016,
+    "average_precision": 0.31954299519812057,
+    "AUROC": 0.8366996951219512,
+    "gkmSVM_average_precision_same_sample": 0.26327585277820176
+  }
+}

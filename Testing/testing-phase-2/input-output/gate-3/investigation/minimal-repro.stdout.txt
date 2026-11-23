@@ -1,0 +1,5 @@
+A: shape=[1, 4, 1] accepted=True expected=['A'] actual=['N']
+C: shape=[1, 4, 1] accepted=True expected=['C'] actual=['N']
+G: shape=[1, 4, 1] accepted=True expected=['G'] actual=['N']
+T: shape=[1, 4, 1] accepted=True expected=['T'] actual=['N']
+N: shape=[1, 4, 1] accepted=True expected=['N'] actual='IndexError: index 1 is out of bounds for axis 0 with size 1'

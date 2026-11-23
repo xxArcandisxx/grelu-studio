@@ -1,0 +1,6 @@
+[engine] predict: 2 sequences on cpu
+[engine] predict: 2 sequences on cpu
+[engine] predict: 2 sequences on cpu
+[engine] predict: 2 sequences on cpu
+[engine] predict: 2 sequences on cpu
+{"case": "prediction", "mode": "isolated Flask request integration; no browser", "reference_data": "UCSC hg38 first 10 supplied BED intervals", "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta", "status": "passed", "limitations": [], "seconds": 22.37}

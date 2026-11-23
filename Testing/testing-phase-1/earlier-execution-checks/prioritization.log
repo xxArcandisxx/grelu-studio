@@ -1,0 +1,2 @@
+[engine] predict: 3 sequences on cpu
+{"case": "prioritization", "mode": "isolated Flask request integration; no browser", "reference_data": "UCSC hg38 first 10 supplied BED intervals", "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta", "status": "passed", "limitations": ["Constructed alternate sequences; no observed allele/phasing dataset supplied."], "seconds": 8.96}

@@ -5,6 +5,7 @@ from tempfile import TemporaryDirectory
 from flask import Blueprint, abort, make_response, render_template, request
 
 from studio_services import length_error
+from core.model_lengths import required_length
 from variant_views import MODES, comparisons, validate_pairs
 
 workbench = Blueprint("workbench", __name__)
@@ -13,24 +14,8 @@ TITLES.update({key: details[0] for key, details in MODES.items()})
 
 
 def parse_batch(text, parse_sequence):
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    if not lines:
-        raise ValueError("Enter DNA or a FASTA batch.")
-    if not lines[0].startswith(">"):
-        return [{"id": "sequence_1", "sequence": parse_sequence(text, "input")}]
-    records = []
-    for line in lines:
-        if line.startswith(">"):
-            if len(records) == 12:
-                raise ValueError("Provide up to 12 FASTA records per run.")
-            parts = line[1:].split(maxsplit=1)
-            records.append((parts[0] if parts else f"sequence_{len(records) + 1}", []))
-        else:
-            records[-1][1].append(line)
-    if len({name for name, _ in records}) != len(records):
-        raise ValueError("Each FASTA record needs a distinct identifier.")
-    return [{"id": name, "sequence": parse_sequence("".join(parts), f"record {index}")}
-            for index, (name, parts) in enumerate(records, 1)]
+    from core.dna_inputs import parse_records
+    return parse_records(text)
 
 
 def quality_report(records, length):
@@ -62,7 +47,7 @@ def analyze(mode):
             if model is None:
                 raise ValueError("Choose an available model.")
             spec = MODELS[model]
-            length = spec["seq_len"]
+            length = required_length(spec)
             if mode != "models":
                 upload = request.files.get("file")
                 if upload and upload.filename:

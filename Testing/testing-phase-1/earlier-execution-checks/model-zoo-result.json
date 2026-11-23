@@ -1,0 +1,123 @@
+{
+  "case": "model-zoo",
+  "mode": "isolated Flask request integration; no browser",
+  "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+  "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+  "status": "passed",
+  "limitations": [
+    "Pinned cache installation tested; remote downloads and other catalogue models not tested."
+  ],
+  "observed_job_states": [
+    "running",
+    "complete"
+  ],
+  "results": [
+    {
+      "created": 1794940000.045804,
+      "history": [],
+      "id": "142feba7e9f8ac114f903356bec52619",
+      "kind": "Model installation",
+      "message": "Run complete. Results are ready.",
+      "result": {
+        "filename": "model.ckpt",
+        "input_length": 2114,
+        "model_key": "local-142feba7e9f8",
+        "repository": "Genentech/GM12878_dnase-model",
+        "revision": "9f2aaba3e04c5b7324a239c7af53fc4732cb2c3e",
+        "saved_run_id": "07ae41fead017e19136c62e90e20332c",
+        "source": "local_cache",
+        "tracks": 1
+      },
+      "state": "complete",
+      "updated": 1794940006.834185,
+      "worker_pid": 63610
+    },
+    {
+      "actual_model": "Genentech/GM12878_dnase-model",
+      "device": "cpu",
+      "evidence": [
+        {
+          "message": "1 sequences, lengths 2114-2114 bp (model expects 2114), mean GC 0.56.",
+          "name": "Input QC",
+          "status": "pass"
+        },
+        {
+          "message": "Needs at least 3 sequences with varying scores.",
+          "name": "Reverse-complement consistency",
+          "status": "info"
+        },
+        {
+          "message": "These are checks, not proof. Passing them does not show the biology is right.",
+          "name": "Scope",
+          "status": "info"
+        }
+      ],
+      "inputs": [
+        {
+          "id": "chr1:826264-828378",
+          "sequence": "ACAATCCAGGTCATCCTTCAATATTTGCAGAAAACATCACAAAGAAAACTTGATACTTATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGACATAGGTGGATTTTGCTTTTAAGTAGTAAAGACTTAATTGGTGACTTACTGGGGCTA"
+        }
+      ],
+      "model": {
+        "backend": "grelu",
+        "seq_len": 2114,
+        "source": "checkpoint",
+        "tasks": [
+          "ENCFF093VXI"
+        ]
+      },
+      "ok": true,
+      "provenance": {
+        "checkpoint_sha256": "f266b296f49b4e97e3ac52e94594da0aaae1d467778ea58b421e1ee7c4482bea",
+        "model_id": "Genentech/GM12878_dnase-model",
+        "origin": "Hugging Face revision 9f2aaba3e04c5b7324a239c7af53fc4732cb2c3e",
+        "torch_version": "2.15.0"
+      },
+      "results": {
+        "predictions": [
+          {
+            "gc_content": 0.5567644276253548,
+            "id": "chr1:826264-828378",
+            "length": 2114,
+            "reverse_complement_scores": {
+              "ENCFF093VXI": 6.205634593963623
+            },
+            "scores": {
+              "ENCFF093VXI": 5.9634928703308105
+            },
+            "tracks": {
+              "ENCFF093VXI": [
+                5.963490009307861
+              ]
+            }
+          }
+        ],
+        "qc": {
+          "length_max": 2114,
+          "length_median": 2114.0,
+          "length_min": 2114,
+          "mean_gc": 0.5567644276253548,
+          "model_input_length": 2114,
+          "n_cropped": 0,
+          "n_invalid_chars": 0,
+          "n_padded": 0,
+          "n_sequences": 1,
+          "n_with_N": 0
+        }
+      },
+      "runtime_s": 3.29,
+      "saved_run_id": "7446a413cf2af782ed415384a98eede5",
+      "selected_model": "local-142feba7e9f8",
+      "settings": {
+        "n_shuffles": 0,
+        "seed": 0,
+        "track_bins": 100
+      },
+      "warnings": [
+        "Checkpoints are pickle files: only load ones you trust."
+      ],
+      "workflow": "predict"
+    }
+  ],
+  "seconds": 11.52
+}

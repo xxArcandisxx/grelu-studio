@@ -3,7 +3,7 @@
 {% block content %}
 
 {% include 'variant_nav.html' %}
-<div class="intro"><h1>Predicted regulatory effects</h1><p>Compare the predicted signal for a reference window and a single-base alternate.</p></div>
+<div class="intro"><h1>Predicted regulatory effects</h1><p>Compare native model prediction scores for a reference window and a single-base alternate.</p></div>
 <div class="layout">
 <aside class="panel">
 <h2>Analysis inputs</h2>
@@ -25,11 +25,11 @@
 <div id="output" hidden>
 <div class="saved-run-links" id="comparison-saved" hidden><span>✓ Saved to experiment history</span><a id="comparison-open">Open saved run →</a><a id="comparison-report">Download report ↓</a></div>
 <p id="model-note" class="notice"></p>
-<div class="field"><label for="track">Output track</label><select id="track"></select></div>
+<div class="field"><label for="track">Output task</label><select id="track"></select></div>
 <div class="metrics"><div>Reference<strong id="ref-score"></strong></div><div>Alternate<strong id="alt-score"></strong></div><div>Alternate − reference<strong id="delta"></strong></div></div>
-<h3>Predicted signal by output bin</h3>
+<h3 id="plot-title">Model prediction scores</h3>
 <div class="legend"><span>Reference</span><span>Alternate</span></div>
-<svg id="plot" viewBox="0 0 600 210" role="img" aria-label="Reference and alternate predicted signal"></svg>
+<svg id="plot" viewBox="0 0 600 210" role="img" aria-label="Reference and alternate model prediction scores"></svg>
 <p id="context"></p>
 <details><summary>Prediction diagnostics and model notes</summary>
 <div class="table-scroll"><table><thead><tr><th scope="col">Statistic</th><th scope="col">Reference</th><th scope="col">Alternate</th></tr></thead><tbody id="diagnostics"></tbody></table></div>

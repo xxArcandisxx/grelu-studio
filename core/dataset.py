@@ -50,7 +50,8 @@ def dataset_overview(text, kind='fasta'):
 
     def add(identifier, sequence, label=None):
         nonlocal total
-        sequence = sequence.strip().upper()
+        from core.dna_inputs import normalize_dna
+        sequence = normalize_dna(sequence, max_length=MAX_BASES)
         if not sequence or any(base not in 'ACGTN' for base in sequence):
             raise ValueError(f'Record {len(records) + 1} must contain nonempty A/C/G/T/N DNA.')
         if len(records) >= MAX_RECORDS:
@@ -75,22 +76,9 @@ def dataset_overview(text, kind='fasta'):
                 raise ValueError(f'CSV row {line} needs a finite label with magnitude at most 1,000,000.')
             add(f'record_{len(records) + 1}', row['sequence'], label)
     else:
-        lines = [line.strip() for line in text.splitlines() if line.strip()]
-        if lines and lines[0].startswith('>'):
-            identifier, parts = None, []
-            for line in lines:
-                if line.startswith('>'):
-                    if identifier is not None:
-                        add(identifier, ''.join(parts))
-                    identifier = line[1:].split(maxsplit=1)[0] if line[1:].strip() else ''
-                    if not identifier or len(identifier) > 200:
-                        raise ValueError('Each FASTA record needs an identifier of 1–200 characters.')
-                    parts = []
-                else:
-                    parts.append(line)
-            add(identifier, ''.join(parts))
-        elif lines:
-            add('sequence_1', ''.join(lines))
+        from core.dna_inputs import parse_records
+        for row in parse_records(text,max_records=MAX_RECORDS,max_length=MAX_BASES,duplicate_ids=True):
+            add(row['id'],row['sequence'])
     if not records:
         raise ValueError('Provide at least one DNA sequence or labeled CSV record.')
 
@@ -99,14 +87,14 @@ def dataset_overview(text, kind='fasta'):
     bases = Counter(''.join(row['sequence'] for row in records))
     lengths = [len(row['sequence']) for row in records]
     gc_values, details = [], []
-    for row in records:
+    for record_index,row in enumerate(records):
         sequence = row['sequence']
         unknown = sequence.count('N')
         known = len(sequence) - unknown
         gc = 100 * (sequence.count('G') + sequence.count('C')) / known if known else None
         if gc is not None:
             gc_values.append(gc)
-        details.append({'id': row['id'], 'length': len(sequence), 'gc_percent': gc,
+        details.append({'id': row['id'], 'record_index': record_index, 'length': len(sequence), 'gc_percent': gc,
                         'unknown_bases': unknown, 'duplicate_sequence': sequences[sequence] > 1,
                         'label': row['label']})
     duplicates = len(records) - len(sequences)

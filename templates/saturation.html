@@ -16,17 +16,17 @@
 {% if error %}<p role="alert" id="status">{{ error }}</p>{% endif %}
 </form></aside>
 <section class="panel results" id="scan-results"><h2>Results</h2>
-{% if result %}
+{% if result %}<p class="model-help">Model prediction scores use the native model scale. Units and probability interpretation are not established; score changes are not proven biological effects.</p>
 {% include "saved_run_link.html" %}
 <p class="notice">{{ loci[selected].label }} · {{ result.assembly }} · {{ result.track }}</p>
-<p>Alternate score minus reference score. Blue shows a decrease, orange shows an increase. Darker cells show a larger absolute difference.</p>
+<p>Alternate score minus reference score. Blue shows a lower model prediction score, orange shows a higher model prediction score. Darker cells show a larger absolute difference.</p>
 <div class="table-scroll"><table><thead><tr><th scope="col">Position (1-based)</th><th scope="col">Reference</th>{% for base in bases %}<th scope="col">{{ base }}</th>{% endfor %}</tr></thead>
 <tbody>{% for row in result.positions %}<tr><th scope="row">{{ result.chromosome }}:{{ row.position }}</th><td>{{ row.reference }}</td>
 {% for base in bases %}{% if base in row.deltas %}{% set delta = row.deltas[base] %}<td style="background-color:hsl({{ 205 if delta < 0 else 30 }}, 72%, {{ 98 - ((delta|abs / scale) * 34 if scale else 0) }}%)">{{ "%+.4g"|format(delta) }}</td>{% else %}<td>—</td>{% endif %}{% endfor %}
 </tr>{% endfor %}</tbody></table></div>
 <h3>Prediction diagnostics</h3><ul><li>Reference score {{ "%.5g"|format(result.reference_score) }}.</li>
 <li>{{ result.positions|length }} positions, {{ (result.positions|length) * 3 }} substitutions, {{ result.runtime_s }} seconds.</li>
-<li>Scores estimate model response at this reference locus. Experimental validation requires measured data.</li></ul>
+<li>Scores estimate model response at this reference locus. Experimental validation requires measured data.</li>{% for warning in result.warnings %}<li>{{ warning }}</li>{% endfor %}</ul>
 <div class="actions"><button id="download-record" type="button">Download JSON</button></div>
 <script type="application/json" id="run-record">{{ result|tojson }}</script>
 {% else %}<div class="empty"><strong>A closer look at every base</strong><p>Select a reference locus and run a scan to map the predicted effects of 24 substitutions.</p></div>{% endif %}

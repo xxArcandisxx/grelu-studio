@@ -29,6 +29,15 @@ def fit_with_offset(seq: str, L: int):
 
 
 def one_hot(seqs, L: int) -> np.ndarray:
+    # Gate 2 normalizes website input; the encoder must also fail clearly if a
+    # caller bypasses that boundary. Never turn invalid characters into N.
+    if isinstance(L, bool) or not isinstance(L, (int, np.integer)) or L <= 0:
+        raise ValueError('Encoding window must be a positive integer.')
+    if isinstance(seqs, str) or not isinstance(seqs, (list, tuple)) or not seqs:
+        raise ValueError('Encoding requires a nonempty sequence batch.')
+    for s in seqs:
+        if not isinstance(s, str) or not s or not s.isascii() or any(base not in 'ACGTNacgtn' for base in s):
+            raise ValueError('Encoding requires nonempty ASCII A/C/G/T/N sequences; validate and normalize input first.')
     arr = np.zeros((len(seqs), 4, L), dtype=np.float32)
     for i, s in enumerate(seqs):
         s, _ = fit_with_offset(s, L)
@@ -64,9 +73,20 @@ def dinuc_shuffle(seq: str, rnd: random.Random, max_tries: int = 500) -> str:
 
 def aggregate(preds: np.ndarray, center_bins) -> np.ndarray:
     """(N, T, L_out) -> (N, T), optionally using only the central bins."""
+    from core.output_processing import prediction_tensor
+    preds = prediction_tensor(preds)
     L = preds.shape[-1]
     if center_bins and 0 < int(center_bins) < L:
-        c = int(center_bins)
-        s = (L - c) // 2
-        preds = preds[..., s:s + c]
-    return preds.mean(axis=-1)
+        start = (L - int(center_bins)) // 2
+        preds = preds[..., start:start + int(center_bins)]
+    if preds.shape[-1] == 1:
+        return preds[..., 0].astype(np.float64)
+    # Accumulate in float64 so a finite float32 mean cannot overflow its sum.
+    try:
+        with np.errstate(over='raise', invalid='raise'):
+            return preds.mean(axis=-1, dtype=np.float64)
+    except FloatingPointError:
+        values = preds.astype(np.float64)
+        scale = np.max(np.abs(values), axis=-1, keepdims=True)
+        scaled = np.divide(values, scale, out=np.zeros_like(values), where=scale != 0)
+        return scaled.mean(axis=-1) * scale[..., 0]

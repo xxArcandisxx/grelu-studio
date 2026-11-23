@@ -1,0 +1,2571 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PWM motif scanning · gReLU Studio report</title><style>
+:root{font-family:system-ui,sans-serif;color:#243c36;line-height:1.6;background:#f6f8f2}*{box-sizing:border-box}body{max-width:1050px;margin:32px auto;background:white;padding:42px;border:1px solid #dfe5d8;border-radius:12px}h1{font-size:30px;letter-spacing:-1px;margin:12px 0}h2,h3{font-size:16px;margin:25px 0 12px}p{font-size:12px}.eyebrow{font-size:10px;letter-spacing:2px;color:#567649}.report-meta,.report-legend{display:flex;flex-wrap:wrap;gap:20px;font-size:11px;color:#708068}.notice{background:#edf4e4;padding:12px;border:1px solid #dce7d0;border-radius:6px}.report-section{break-inside:avoid;margin:28px 0}.table-scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:9px;text-align:left;border-bottom:1px solid #e4eadf}th{background:#f2f6eb}.model-help{font-size:11px;color:#6a7d61}svg{display:block;width:100%;max-height:300px;margin:14px 0}.metrics{display:flex;gap:15px;flex-wrap:wrap}.metrics>div{background:#f2f6eb;border:1px solid #e0e9d6;border-radius:6px;padding:12px;font-size:11px;min-width:140px}.metrics strong{display:block;font-size:22px}.settings-list{display:grid;grid-template-columns:180px 1fr;font-size:12px;gap:7px}.settings-list dt{color:#667a5d}.settings-list dd{margin:0;overflow-wrap:anywhere}ul{font-size:12px}.sequence-output{white-space:pre-wrap;overflow-wrap:anywhere;font-size:10px;max-height:500px;overflow:auto;background:#f6f8f2;padding:15px}summary{font-size:12px;cursor:pointer}footer{font-size:10px;border-top:1px solid #dfe5d8;padding-top:18px;margin-top:30px;color:#7d8b76}@media print{body{border:0;margin:0;padding:10px;background:white}.print-tip,.record-details{display:none}table{font-size:9px}.report-section{break-inside:avoid}details[open]{display:block}}@media(max-width:650px){body{padding:20px;margin:0}.settings-list{grid-template-columns:1fr}.settings-list dd{margin-bottom:10px}}
+</style></head><body><div class="eyebrow">gReLU STUDIO / ANALYSIS REPORT</div><h1>PWM motif scanning</h1><p class="model-help print-tip">Standalone report. Use your browser’s Print command to print or save as PDF.</p><div class="report-meta"><span>RUN 7f2d8ea8</span><time datetime="2026-11-17T18:26:16+00:00">17 Nov 2026 · 11:56 PM IST</time><span>Pwm Scan</span></div>
+
+
+<p class="model-help">DNA log2-odds scoring on both strands. Relative scores span each strand matrix’s theoretical minimum and maximum; thresholds are not p-values.</p>
+<div class="metrics"><div>Sequences<strong>10</strong></div><div>Matrices<strong>1</strong></div><div>Hits<strong>244</strong></div></div>
+
+<section class="report-section"><h3>Motif locations</h3><p class="model-help">Showing 200 of 244 rows. The JSON record contains complete results.</p><div class="table-scroll"><table><thead><tr><th scope="col">Record</th><th scope="col">Motif</th><th scope="col">Start</th><th scope="col">End</th><th scope="col">Strand</th><th scope="col">Score</th><th scope="col">Relative Score</th></tr></thead><tbody><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1852</td><td>1857</td><td>-</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1854</td><td>1859</td><td>+</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>29</td><td>34</td><td>+</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1491</td><td>1496</td><td>-</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1877</td><td>1882</td><td>+</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1588</td><td>1593</td><td>-</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1735</td><td>1740</td><td>-</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1737</td><td>1742</td><td>+</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1836</td><td>1841</td><td>-</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:901991-904105</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1466</td><td>1471</td><td>+</td><td>10.08948</td><td>1</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>50</td><td>55</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>56</td><td>61</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>75</td><td>80</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>106</td><td>111</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>185</td><td>190</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>187</td><td>192</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>221</td><td>226</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>272</td><td>277</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>278</td><td>283</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>278</td><td>283</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>508</td><td>513</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1909</td><td>1914</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1915</td><td>1920</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1917</td><td>1922</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1940</td><td>1945</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1951</td><td>1956</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1969</td><td>1974</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1971</td><td>1976</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1973</td><td>1978</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1973</td><td>1978</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1985</td><td>1990</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1985</td><td>1990</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1991</td><td>1996</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1995</td><td>2000</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2023</td><td>2028</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:826264-828378</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2035</td><td>2040</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>109</td><td>114</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>109</td><td>114</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>175</td><td>180</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>177</td><td>182</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>472</td><td>477</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>476</td><td>481</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>863</td><td>868</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>928</td><td>933</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1089</td><td>1094</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1093</td><td>1098</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1121</td><td>1126</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1221</td><td>1226</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1283</td><td>1288</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1285</td><td>1290</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1292</td><td>1297</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1292</td><td>1297</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1294</td><td>1299</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1344</td><td>1349</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1346</td><td>1351</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:864773-866887</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1413</td><td>1418</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>109</td><td>114</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>279</td><td>284</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>283</td><td>288</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>289</td><td>294</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>291</td><td>296</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>291</td><td>296</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>358</td><td>363</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>358</td><td>363</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>360</td><td>365</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>538</td><td>543</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>540</td><td>545</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>608</td><td>613</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>668</td><td>673</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>745</td><td>750</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1325</td><td>1330</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1346</td><td>1351</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1446</td><td>1451</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1528</td><td>1533</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1544</td><td>1549</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1584</td><td>1589</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1594</td><td>1599</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1610</td><td>1615</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1612</td><td>1617</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1806</td><td>1811</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1822</td><td>1827</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1890</td><td>1895</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1892</td><td>1897</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1939</td><td>1944</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2018</td><td>2023</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2031</td><td>2036</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2039</td><td>2044</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:868853-870967</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2064</td><td>2069</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:874703-876817</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>105</td><td>110</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:874703-876817</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>105</td><td>110</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:874703-876817</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>326</td><td>331</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>187</td><td>192</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>189</td><td>194</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>200</td><td>205</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>329</td><td>334</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>516</td><td>521</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>522</td><td>527</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>806</td><td>811</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>865</td><td>870</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>995</td><td>1000</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1257</td><td>1262</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1306</td><td>1311</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1401</td><td>1406</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1401</td><td>1406</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1416</td><td>1421</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1586</td><td>1591</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1623</td><td>1628</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1644</td><td>1649</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1683</td><td>1688</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1691</td><td>1696</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1705</td><td>1710</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1708</td><td>1713</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1713</td><td>1718</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1724</td><td>1729</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1724</td><td>1729</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1728</td><td>1733</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1797</td><td>1802</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1807</td><td>1812</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1809</td><td>1814</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1834</td><td>1839</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1838</td><td>1843</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1847</td><td>1852</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1858</td><td>1863</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1860</td><td>1865</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1873</td><td>1878</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1873</td><td>1878</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1887</td><td>1892</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1931</td><td>1936</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1998</td><td>2003</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2000</td><td>2005</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2016</td><td>2021</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2022</td><td>2027</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2024</td><td>2029</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2026</td><td>2031</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2091</td><td>2096</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2098</td><td>2103</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:889680-891794</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2100</td><td>2105</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>10</td><td>15</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>10</td><td>15</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>28</td><td>33</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>28</td><td>33</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>55</td><td>60</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>110</td><td>115</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>772</td><td>777</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>776</td><td>781</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>821</td><td>826</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1002</td><td>1007</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1034</td><td>1039</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1057</td><td>1062</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1100</td><td>1105</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1124</td><td>1129</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1124</td><td>1129</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1149</td><td>1154</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1180</td><td>1185</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1433</td><td>1438</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1435</td><td>1440</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1589</td><td>1594</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1595</td><td>1600</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1677</td><td>1682</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2076</td><td>2081</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2076</td><td>2081</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:897608-899722</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2078</td><td>2083</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>157</td><td>162</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>189</td><td>194</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>212</td><td>217</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>255</td><td>260</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>279</td><td>284</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>279</td><td>284</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>304</td><td>309</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>335</td><td>340</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>588</td><td>593</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>590</td><td>595</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>744</td><td>749</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>750</td><td>755</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>832</td><td>837</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1231</td><td>1236</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1231</td><td>1236</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1233</td><td>1238</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1518</td><td>1523</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1536</td><td>1541</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1745</td><td>1750</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1745</td><td>1750</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1774</td><td>1779</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1837</td><td>1842</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:898453-900567</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>2084</td><td>2089</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>144</td><td>149</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>150</td><td>155</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>232</td><td>237</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>631</td><td>636</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>631</td><td>636</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>633</td><td>638</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>918</td><td>923</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>936</td><td>941</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1145</td><td>1150</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1145</td><td>1150</td><td>-</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1174</td><td>1179</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1237</td><td>1242</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1484</td><td>1489</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1671</td><td>1676</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr><tr><td>chr1:899053-901167</td><td>DEMO_AT_RICH Synthetic_AT_pattern</td><td>1673</td><td>1678</td><td>+</td><td>6.486892</td><td>0.8333333</td></tr></tbody></table></div></section>
+<section class="report-section"><h3>Analysis settings</h3><dl class="settings-list"><dt>Relative Threshold</dt><dd>0.8</dd><dt>Background Acgt</dt><dd>[0.25, 0.25, 0.25, 0.25]</dd><dt>Smoothing Weight</dt><dd>0.1</dd></dl></section>
+
+<details class="record-details"><summary>Complete inputs, provenance, and numerical record</summary><pre class="sequence-output">{
+  "inputs_and_settings": {
+    "background": "0.25,0.25,0.25,0.25",
+    "matrices": "\u003eDEMO_AT_RICH Synthetic_AT_pattern\nA [ 1 18 1 18 18 18 ]\nC [ 1 1 1 1 1 1 ]\nG [ 1 1 1 1 1 1 ]\nT [ 18 1 18 1 1 1 ]\n",
+    "smoothing": "0.1",
+    "text": "\u003echr1:826264-828378\nACAATCCAGGTCATCCTTCAATATTTGCAGAAAACATCACAAAGAAAACTTGATACTTATACTTAGTTGG\nAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAAC\nTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAA\nGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTT\nAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTC\nTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTA\nTTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCA\nGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTG\nTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGG\nAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGC\nAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGA\nGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCT\nCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGA\nTGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGA\nACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCT\nGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCC\nTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGG\nTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAA\nCAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGG\nGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTT\nCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGT\nGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGG\nGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTC\nGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACG\nCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCG\nGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATT\nTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACA\nTCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTT\nGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGA\nGGCTTGTAAAGTGGATAGTGTTCAGGACATAGGTGGATTTTGCTTTTAAGTAGTAAAGACTTAATTGGTG\nACTTACTGGGGCTA\n\u003echr1:864773-866887\nTCTCAATGTCTTTAAGTTCAGTCAGTCCTATAAATTGCTATCCCTATTCATGCAGTGTGTTTTCCCCTGT\nGTGAGGCATTTGTGAGTTCCATTAGCACTGATAGGACTTTTAAATGCAGAAGCAGCAGTGAAGGGAATGG\nCATTTCCCAGCTGTAGGGCACGGGCCTTCTTTGAGATAAAAACCCACCCTGGCATCGATGACATGGGAAC\nTATTCTGTGTCTTTTCACCCGAGAGCTCTTCAATCAACTGATGATCGCACCTGCATAACTGCTACCAGAC\nCTGCTAAGGGGGAGCCTGGCCCAGCCATCTCTTCTTTGTGGTCACAAGCATGAACGGCCCTGGGACATCC\nTCTTTCCTCACTGTCCCCTCACAGCATTTCCTGACCACTGTGGCCTTGGTCCCACCACCCACCTGTGCAG\nCTCATCTGGCCATGAACCTCTCCAGCTCACAACTCTGTTTTCTCCCTGTTGTTTCTATGAAACCAGGTTC\nCAGCCCCGCCACACAGTCTGCACGGCCTCCACCGCAGCTCTGGTGAGCCTCTTGGCCAGCTCCTGGTGAC\nAGCGTGCACCTCCCTGCTCTGAGAAGGTCTCCCTCTCCTCTCTGCCCACCCTGTACAGAGACATCTTTCA\nAGCCCATCCCAGAGGAGAGTGGCCTCTCTCCTCAACCCCAAGAGGACGGCCTCTCATGTGGCTGTCACCC\nATCTGACCCCTATCACAGACCTGAGGGTAAGTGGTGCTCACGGGCCCACATCTGTCAGCCTGCGCCTGGT\nTGGAGACGCCTCCCTCTCATTTGTCCTTGCTTGCTGCGTGACTTTGGCAAGTGCTTGCCTCTTTGAGACC\nCTCAGTTTTCACACCTGAGAAATAGAAAGGTGGTGCCTGCCCCAGCTGCCACGCAGAAGAGTTTAGGTGG\nCATGTGAGAAAATGCCTTATGAACTACGATGTGAGCAACTGCAGCATGCTGTGAACACCGCTTTCATGAG\nCTCCTCAGGGGCAGGGTAACACCCAAGCATTCTTACACCTCCCACCGGGCTTGTCACGACCGTATGCAAA\nTGAAGGCCATCAAGCGTGTTTGATCAGTGATGTATTTCTTTATTTTTAGTTGTAGAATATGACAACTCTA\nTTTTTAGCAGCTATAGCGGCCAAAACTTTGTTACCACTCAGCAGTTGTGTGTTCTTCAAGAGTAGGTTTT\nGTGCTTTCAAAATATCTGAATCCTCTACCATTTACAGGTGTTCTGTGCATACTTGGTGTATGAGTTCCTC\nAGGAAGGAAGAAAAATGTGCCCTTTTTATCTTTTAAAAAGATGGCTTGGCTTGGTACTCCTTTGCCTGCA\nTTCCTTCTCTGTATTTAGAAACGAACCTACACAAGTGAAGGCAAAGGAAGCCTCTTGAAAGATAAGGCAG\nGAAAAATGAGGATAGAAAACAAAACCCTTCTAGAGAGTTTACGTGGAGGCTACCACGGGCATCGCTGCTC\nTGCAGTCTGTCAACCAGAGGCCCCTGGTGCTGCAGCACGGCCTTGGCAGCTTCACCAACAGGAATGTGTT\nCTCCTAGGGTACTGGAGGGTGGCAGTCCCAGAGCAAGGTGTGGCAGGGCTGCTCCTCCTGAGGCCTCTCC\nCTGGCTTGCAGACGACATCTTCTCCCATGTTCTCATGTGGGCCTCCCTCTGCACACGTATATCTGACATC\nCTCCCATGTCCTCACACGTTCCTCCCTTTGCACTCGAATCCCGGACATCCTCCTATGTCTCACGTGGTCC\nTCTCTCTGCACTCGAATCCCAGACATCCTCCTATGTCCTCACATGGTCCTCCCCCTGCACTCACATCCCT\nGACGTCCTCCCGTGCCCTCACGTGGTCCTCCCTCTGCACTCACATCCCTGACGTCCTCCCGTGCCCTCAC\nGTGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGAGCCCTCACGTGGTCCTCCCTCTGCACTCA\nCATCCCTGACGTCCTCCCGTGCCCTCACGTGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGAG\nCCCTCACGTGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGAGCCCTCACGTGGTCCTCCCCCT\nGCACTCACATCCCT\n\u003echr1:868853-870967\nCTATATTAGAGCTGCCTGTGTTCCCCTGTCACTGAGATTAAAACAAAAATGTCCAATACAATCATTCACA\nGCATGGGAGAGGGGAAGATGAAGGATGGAAAGGCCAGGCATAAAAGGATTTCAGAATTTCGGTCCATAAG\nGAAGTGGCTTTGTGCATTGTCTGTTACTATGTGCAAGGTGAAGTTTGAAGAATGAAAACGTGCAGTAACA\nAAGGCTGCTTTGTCCATCTCACCTCCCCAGATACCAAGTTTCAGACATGTTGCATTTTAATTGAAAGGTT\nGATATAATTTTTTAAAAGAACACTTGTGGTGTTTGAAGTGACAAAGGCTGCTGTGACAAAAAAGCAGGGA\nAAGGGAATTTAAAAAAAAAAAAGCAAACAACAACAACAAAAACCCCACAGAAAAGCAAACAACAAACAAA\nCAAAAAACAGAGGAAGAAGTCAAACACCCTGGGCTGTGGCTACTTCCAGGAAGGGGCTACAAGAGGCAGT\nTGGAAATTCTATTTGTTTTGCAACTGTGGGTTTTCCGGCCTGCTTCCTTTCTAAAGTATATTACTCTGCT\nTTTGGTTCATGAAGTTATCCATTTCTGTTTTCTGGAACAGCTATGTATTTATCTATCATCTATCTATCTA\nCCTGCCTATCATCTATCTATCTATTTACTATCTATCTTTTCTACCTTTCGCCATCAAGAGCTTCAACACC\nTGGACACATTCCGCAAAGTTTCCTAAGAAAGCAAGAAAAATAATTAAAAAAAAAAATCCGGAGTCCGGGG\nGGCTAATGGGGCTTTACTGGGACTCTCTGGCTTAATCCTCCAAACAACCCTGCCATAGCAGCCCATCAGT\nCCTCTGAGACAGGTGAGGAAACTGAGGTCGCAGGAGGGCACCCAGAAGGTCCAGGCAGAGCCCCCAGGCC\nCCCACACCTCCCCCCGTGGCAGCTCCAACCCCAGCTTTTTCACTAGTAAGGCACTCGCGCTGCTGGGCCA\nCGCCCACTCCCCCACGCGGGGAAGGAGCTTCGCGCTGCCGCCTGGCTGGGGACTGGGCACGCCCTCCCGC\nGGCTCCGGAGCCGGCTGCCACCAGGGGGCGCGCCCGCGGTGTCCGGGAGCCTGGCGGCGCCTGTGCAGCG\nGCCAGTGCACCTGCTCCTGCCCTCGCCTCGGTCTCTGCCAGGACCCCGACGCCCAGCCGGACCCTGCCCT\nCCAGCGGGGCCGCGGCTCCACGGCCCGCAACAGCAGCCCCACCCGGCATTCGGCGCGCTCCGCGGGGCAG\nAGGTCGCGGTGTCCTCAGGCTGTGGCGCCGGCCTACAACCCCCACGCCGGGCCCGGGCCCCGTGATTATA\nTTTGGGCCCCGTGTGATTATATTTGACAGGTCTTAGTTGACGCGCTGTTCAGCGCTTTGAGTTCGGCTGA\nGTTTTGGGTTGGAGAATTTTCTTCCACAGGGGATTGTCTTGGATTTTTCTATTTCTCCCTCAGTATCCAC\nCTGGAAAACATTTCAATTAATTTATATTCACTTAAACATTTCCGTGCAAAAACTGTGTACAAAAGCCCCA\nAAGTATAATTTGCGCAGTTGAGCACATGTTCTGTTGTCCAGCATTTATGGTGGTTTGTAGTGGAAAAGAT\nTTTTAGAATATGTGGATTTTTGGGATATTCCCAGAAGCCCAGATGGCCACACTTTAACTTTGGAGGAATT\nAATTCTCAGAATATTGCACACAATCAATCGCCTTTGGAAGGAGCATATATTCCCAGCAAAAGCTCTGGTT\nTTTTGAAGTCTGTGTTGTGTGTTATTTCCAGGAGAATATGCAATGATGACAATGTTATTAACTGATTCGA\nATATGAAATGCTGTTATGCCAAACAATGAATCTTTGTGTTACACATTATGCCTAACTATAAATCTTCGTG\nTTATACATTTTAATGTCATTGGAGAGTACTCCTGTCTTCTTGGCATTATTGATAATTCGATTCTAATTGC\nTAATAAGTCAGAAAAATTAGGAACACCAAATTTCAGTCGTCTCAAAAGCACTCCTCTTATTAAATTTGGA\nTTTTTACCTTTATCACATCAAAAGAAATATTGTTAGAAAGGTGTTTAATGTTTTCCAGATGGTTAGATTA\nCTGTTATTAGTTCT\n\u003echr1:874703-876817\nGCCTTGGGCAGCGACGTGGTGGAAAACCTGTTCCTGAAGGCAAGCCTTGGCTTATCCCATGTGCCAAACT\nTCTAGGGGACCAGCTGGCCCTCTGTTTCTGGAATTTTAAAAGGGGTCAGTGACCCTGGTGGACAATGTCC\nCCAAAGTCTCATCTCAGGGTAGGAATGTGGTCAGACAGCTGGCTCTGAACCAGCAAGGAAGGGTGGGCAA\nGTAGGACCCCAGGCACTCCATCACCACGATGGCCTGGGTGTGTTTGTGTGGCCTCATTCTCTTCACCAGG\nTGGGCATGGGGTATCTGGCAGGGACTAGGCAGGAATCAAGCCCGGTGTATACTCACATGCACTGAACCCT\nATGTAGAAGGGATTAGGTCCTGGGGGCCATAGATGGCGGTTGCTGGGCCTGTGTGCTCGGGGCAGTCTCT\nCCAAAGGCACAGATGGGGTTTCTGAACAGGACCTGGGGAGACAGGCAGGTGCTCACAAGTGCTGCTTCCC\nCCAACTGGCAACCAGTGAGGAAAAACGCCCGAGTGGAGGTCTGACCTGCCCCACTCTGGAGGGCTGATGC\nTCTCTGGAAAGGTGGGTGATGTGCAGTGTCTGCTGTCTCCCTGTCCCCCACTCCAAAACTTCAGGGAAAA\nAATAATCCAAGATTGTCAGGATGAGCCTGGTGAGGGTGGCACCTTTGGGGATAGGCCCTTCAGCCTGGCA\nGAGTCTCCTCCCCAGGCTTCTTGGGGAGCCTGGACTGCAAAGCCTGCTTTGGGGAAGCTGTCAAATGAGA\nGCTGTGTGTGTGAGCTGGGTGCTGGGCAACACGCACGGACAGTGTTCTTCTCCCTGGCTCTTGTAGAACT\nTGTCCATGGCCTGTGTGTTGGTCTCTTGGTAATTCCCACCCTACCCCCATCACACAGATAAGATGAAGCC\nAGCATAGCCCAGGGGTGGGGAGATGAACAGGCGCTACCCCAGGTCCCCTAGGCATGCCCATCTGCCTCTG\nACATGTCCGGGAAAGCAGGTGAGGCCCCTTCTTGTTCTCTGAATGTTGTCAATGGTCTATTGCAGCCAAA\nTGGGGACAGGCAGGCAGGAGAGTGTCTCATCTCGAAAGAAGTGGTTCCTGGAAGCAGCTGGGAGGTGGGA\nGAGGTTCCCCAAACTCCCCCATACTCCCCCATACTCCCCCACATTCCCTCACACTCCCCCACGCTCCCCC\nACGCTCGCCCACGCTCGCCCACGCTCCTCCCCCACACTCTCCCACACTCCCCCACACTCCCCCACACTCC\nCCCACGCTCCTCCCCCACACTCTCCCACACTCCCCCACACTCCCCCACACTCCCCCATACTCCCCCATAC\nTCCCCCATACTCCCCCACACTCCCCCACACTCCCCCACACTCCCCCATACTCGCCCACACTCCCCCACAC\nCCCACACTCGCCCACACTCGCCCACACTCCCCCACACTCGCCCATACTCGCCCACACTCCCCCACACCCC\nACACTCGCCCACACTCGCCCACACTCGCCCACACTCGCCCACACTCCCCCACACTCGCCCACACTCCCCC\nACACTCGCCCACACTCGCCCACACTCCCCCACACTCCCTCACAGTCGCCCACACTCCCCCACACTCCCCC\nACACTCCCCCACACTCGCCCACACTCCCCCACGCTCCCCCATACTCGCCCACGCTCCCCCATACTCGCCC\nACGCTCCCCCACGCTCCCCCATACTCCCCCACACTCCCCCATACTCCCCCAAACTGTTCTCAGGTTAGGA\nAAAGGGGCCTCTGTGACAGCCCCACTCAGTGGCTCTCACTGTCTGAGGGGTGTCCTTGCCCAACCCAGGT\nGCGCACCCATCTGAGATGGCCTTGCATGGACCTGGTTGGGAAGGTTCAGCTACAGCAACCACTGGAACCT\nGCCCACACCTAGTGTCTCCACTCACACGTGGGGCTAGATGTTCCTCCCTCCCGTAGTGGCACAGCCAGTG\nGCAGAGGGGGCAAGTCACCGCTGCAGTTCCCACTTGAGTCTGAGGGGGGATCAGGCTTAGTGCCCATGTA\nTTTCCCAATTACCTGGTTCCATCTGGGGGCTTCATGGACAGGAGTGGTGCTTTTCCAGGCCTCTTTTCCA\nTATGCCAGCTACAG\n\u003echr1:889680-891794\nAAGCCCCTGTAGGCAGAGCCTAGACAAGAGTTACATCACCTGGGTGACAGGCAAACAACAATGACAACTT\nATTTTCATCCCCACTTCAGTCTTTGAGGTTAGACAGACCTGGATTCAAATCCAAGCTCCACCCCTCGCTG\nTGTGAGTTTGCTCATGCTGCTAACCTCTCTGAGACTTGACTCTTCATTTATGAAATGAGGATAAAGCCCC\nTTCTCTCAGGGGCTGTGCCAAGGATGAAATGAGTCACGCATTGGTCAGGACAGGTGATGCTGTGTAACAA\nGCCCCTAAACCTCAGTGGCGTCAACAGCAAAGTTGACTTCTTTTCTTTTTTCTATTTTTTCTTTTGTTGG\nGGGGGTGGGGAGGTGGATGGAGTCTCACTCTGTCACCCGGGCTGGAGTGCAGTGGTGCAATCTCAGCTCA\nCTGCAACCTCCACCTCCTGGGTTCAAGTGATTCTCCTGCCTCAGCCTCCTGAGTAGCTGGGGCTACAGAT\nGTCAGCCACCAGGCCCAGCTAATTTTTTGTATTTTTAGTAGAGATGGGGTTTCACCATGTTAGTCAGGAT\nGGTCTCGATCTCCTGACCTCATGATCTGCCTGCCTCAGCCTCCCAAAGTGTTGGGATTACAGGCGTGAGC\nCACTGCACCCGGCCTTGACTTCTCAATTGATTTCACATCCATCACGGGTCAACAAGGGGGTTCTGGTGGT\nCGTAGTCAATGAGCCGAGACCATGCCACTGCACTCCAGCCTGAGTGACAGAGTGAGACTTCATCTCAAAA\nAAAAAAAGTCTCAGGCTATGTCTGAACTAGGAGGGTAGAAAGAATAGTCATTTTGGTTGCCACAAACCAT\nCGAAACAAAGATGCAGATCATTGATGTAAAATTACAGTTAGTTCCTTCCCACTCCTTTTCAGCTTCTCTT\nCGTTGCTATGACCCAGCGTCTCCTGTGTCAGTTTTCAGTCTATTGTCTCCCAGCTTCTAGTGCACCTTTC\nAATATGTGCACTGTGATAAACTGGGAAGCACTTTTCAATATACCTTCTGGAAGTGAACATTCTGCAGGCA\nTCTAGATAGAGGATGGAGAGACTGCAGGGGGCAGGAGCTCTCTGGCTGGGCCTTGTTCAAGCCCCAACCA\nCAGAGACCTAGGCATGGTCCCTCAGCCACCTTGCAGCCTTGGCTAGCAACATCTCGACACGGAAACCAAA\nACGCAGCAGAGCCCATGTGATCTGAAGGTTCCTGAAAAGTTGCCCAGACCTCCTCTTGTACCCACATACA\nAAGAGTGTGTCCAGGGTCATGAGTGAGCATGATATTACAGAGGAATGTAAACAGGAAAACCATAGCATAG\nAGCAGTGGGGATCCATAGCTCACAGTGATAGCATGGAAGTTTCCTGGTTACATGAAGTAATTAAGACGTA\nTTTAAAAGCCAAGAGTACAAAATTAGACCTGATGAAAAAGCAGGAGTTATCATCCCAGCCATGCAGAAAA\nGCCAAGCCTTCTCTCCCTTCTCAAGAAGGAACAGAAGACAATGATGTGATCTGTGAGTCATGTGTAACAT\nGAAAGTACAGGAAAAGTTGAATTTCTGATACACAAATCTGAAAAGTTTTTATAGTAACAGATTTCAGGAT\nTAAAAGTCAATATTTATTACTTCATTAAGAGCAAATAAATACTTTAAGAAAACCTTGTTGTTTTAACCAA\nAATTTTTAGTTTTGTATCACTATGTTTTTAATATTATACCTAATTTAAATAAACTTTATAAACAATCTAT\nCTGATCTCAATCAGTTTTGACCTCGAGGTAAGATTTACGTAAACTTTTAATAACCTTGTATAATTTTTTC\nCATCTTTTCCAACTTTTTATACACATTTTATCTATCTTTTTTATTCCTTCAATTTAAAATAATCCTTAAA\nAATCTCTAAGCGAATTTACTTTCTCTGAAACAAAAACCGGTATACATTTTGCATACAGAATTGTTTCTCT\nTGTACCTAGTAGTCTTAATCACATATATCTACCACAATATTAATACTTAGTAACCTTTATTTTAATAAAA\nAACCTAGGAAGCAAGAAATCTTGAATTGTCATATAGCAGTATCTTACAGATGAGAATAATTTCATAATTT\nAGAAATATGTGTTC\n\u003echr1:897608-899722\nAATAGCTTCTTTAAATTCTTTGAGTAATTTAAAAGGAAAAGGTTCAAATGTAGCTATAATATCTCCCTGT\nTGATCTGGGGGGTGTATTCTAACAGGGAACTGCCAAGCCTCTAAATCACCCTCTCTTCTAGCTTGCTGAA\nTTCCTGCCTGAATAGAACTAAGAGCAGTCGCTCCAGGCGCTGCTCAGTCACTGGGGCAACTACTTTTCGC\nCCACAGTCCTCTGGAAAAGAAATACCTGGAGGGTCATTTTCTTCAAAATAATAATGAGGGGGTGCAGAAG\nGGTAGGGATGAACCTCTCCCTCCTTTGCCGCTTCAGCTTTAGCTGGCAAACAAACCTGGTCTGTAACCTC\nTTCTGTTACGTCGCTATACTCTCCTTCCTCCTCCTCATCAGTGTGAAAAGGTTCCAAGGTGAAACGAACC\nAGACCCCACGCCTGTCCCATTGTTACCCTGATGCTTCCGAGCTCCCCTTCTTACTCACCACGGGGATGGC\nTTTAAGAGTACTCAGGTGTCCTCCAGCTAGTTCCACGTTCTCCAACCGTCGCTCTGGCGACCCTTCGACC\nTGGATTCGAGCCCCCACGATGGACGCCACTTGCAGAGACCAGCTCGGTCAGGAAGACCCTAACCCAGCGG\nCACTAGAGGAATTAAAGACACATACACAGAAATACAGAGGTGTGAAGTGGGAAATCAGGGGTCTCACAGC\nCTTCAGAGCTGACAGCCCCGAACAGAGATTTACCCACATATTTAGTAACAGCAAACCAGTCATTAGCATT\nGTTTCTATTAACTAAAAGTATCCCTTACGGGAAATGAAGGGATGGGCCGGAATAAAGGGGTGGGTTTGGC\nTAGTTATCTGCAGCAGGAGCATGCCCTGATGGCACAGATCGCTCATGCTATGTTTGTGGTTTGAGAACGT\nCTTTCAGCGGTTTTCCACCCTGGGCGGGTCAGGTGTTCCTTGCCCTCATTCCGGTAAACCCACAACCTTC\nCAGCGTGGGCGTTAGGGCCATTATGAACATGTCACAGTGCTGCAGAGATTTTGTTTATGGCCAGTTTTGT\nGGCCAGTTTATGGCCAGATTTTGGGGGGCCTGTTCCCAACAGTAACCAATATTAAGTCATTCTCATTTCA\nACATTTAAACTCTTCCAACTGAATGCATTAAAAAACAAAAGTCACACACCACTGTACCCCTTATATGTAC\nACAGCGGTCGGCAAACATGTGACAGGTGGAGGTCCTGAGGCACCACTGGGAGCTTGTGAGCGGATGGGCG\nTCTTCCAGAACGCACTCTGCAGGCACTCGGCAACGTGAAGTGTTCACGTCCTGTGATGCAGCCTCTGCTC\nCAGGCCACTTCCGGAACTGCGAGGGAACAGCTGTGGGCGCGCTCATTTCAGCTTTGCTTCAGATCCTGGG\nAGTTGGGGGCACCTTCTTTTTTTTTTTTTTTTTTTTTAGACGGAGTCTTGCTCTGTCACCCAGGCTGGAG\nTGCAGTGGCGCGATCTCGGCTCACTGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCT\nCCCGAGTAGCTGGGACTACAGGCGCCCGCCACCGTGCCTGGCTAATTTTTTGTATTTTTAGTACAGACGG\nGGTTTCACCATGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCATCTCGGCCTCCCATA\nAAGTGCTGGGATTACAGGCATGAGCCACCGCGCCCGGCTGGGGGCACCTTCTGGCCCACAGTGAGGGAAT\nAAGCAAACCAGAATGGGGGGTGCCTGCACGGAATACTCCTAAGTGCTCAGACACGGCGTCCACAGATGGA\nTCCAAATCAGTGCTGGATGACGGGCACTCACCCCAGGTCTGCAGTCCAATAACACGGGCCTGAGCAGAAA\nGCACGTGGCATGGAGCCCCGTGGCAGATATGGGGACGAGCGGCCAATACATCAGCTCAGGTGTCCGAGGG\nGTTTCAGGGACATGAGAGAGAGTGGGGAACGAAGGGGGAAATCGCTTGGAGACCCAGGACGAGCCTGGCA\nCACCAGGATGCTGATTCTGAAAGGGCGATTAAGGAGATTCCATGTTTTAAAAATCTGGATTTCTGGCTTC\nTTCTGAAAAAAATC\n\u003echr1:898453-900567\nATCTGCAGCAGGAGCATGCCCTGATGGCACAGATCGCTCATGCTATGTTTGTGGTTTGAGAACGTCTTTC\nAGCGGTTTTCCACCCTGGGCGGGTCAGGTGTTCCTTGCCCTCATTCCGGTAAACCCACAACCTTCCAGCG\nTGGGCGTTAGGGCCATTATGAACATGTCACAGTGCTGCAGAGATTTTGTTTATGGCCAGTTTTGTGGCCA\nGTTTATGGCCAGATTTTGGGGGGCCTGTTCCCAACAGTAACCAATATTAAGTCATTCTCATTTCAACATT\nTAAACTCTTCCAACTGAATGCATTAAAAAACAAAAGTCACACACCACTGTACCCCTTATATGTACACAGC\nGGTCGGCAAACATGTGACAGGTGGAGGTCCTGAGGCACCACTGGGAGCTTGTGAGCGGATGGGCGTCTTC\nCAGAACGCACTCTGCAGGCACTCGGCAACGTGAAGTGTTCACGTCCTGTGATGCAGCCTCTGCTCCAGGC\nCACTTCCGGAACTGCGAGGGAACAGCTGTGGGCGCGCTCATTTCAGCTTTGCTTCAGATCCTGGGAGTTG\nGGGGCACCTTCTTTTTTTTTTTTTTTTTTTTTAGACGGAGTCTTGCTCTGTCACCCAGGCTGGAGTGCAG\nTGGCGCGATCTCGGCTCACTGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGA\nGTAGCTGGGACTACAGGCGCCCGCCACCGTGCCTGGCTAATTTTTTGTATTTTTAGTACAGACGGGGTTT\nCACCATGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCATCTCGGCCTCCCATAAAGTG\nCTGGGATTACAGGCATGAGCCACCGCGCCCGGCTGGGGGCACCTTCTGGCCCACAGTGAGGGAATAAGCA\nAACCAGAATGGGGGGTGCCTGCACGGAATACTCCTAAGTGCTCAGACACGGCGTCCACAGATGGATCCAA\nATCAGTGCTGGATGACGGGCACTCACCCCAGGTCTGCAGTCCAATAACACGGGCCTGAGCAGAAAGCACG\nTGGCATGGAGCCCCGTGGCAGATATGGGGACGAGCGGCCAATACATCAGCTCAGGTGTCCGAGGGGTTTC\nAGGGACATGAGAGAGAGTGGGGAACGAAGGGGGAAATCGCTTGGAGACCCAGGACGAGCCTGGCACACCA\nGGATGCTGATTCTGAAAGGGCGATTAAGGAGATTCCATGTTTTAAAAATCTGGATTTCTGGCTTCTTCTG\nAAAAAAATCAGAAGATGTTTAGCACAACAGCGTGGCATCGTCAGCTGTACTCCTGCCCCACTGTCCCCCA\nGGGAGCCTGGCTCATCCCATGGCTCACAGAGGCCCACACTGTGGCCAGACAGGTCCACTGATGGCTCAGC\nACGTGCACCCCGGCTGCAGGGAGATGGGTACCAGCCCAGGAAGTGGGACACTGGCTGAAACAGGATGGGA\nTGCAGGGATGGGGTGGGATGGGAGACCAAACCAGTGTGAGGAATGAGGATAAAGGAGATGCTGGAGATAA\nAATCTGGGCAAGTAAGCAGGGGGTGGTCCTGCTGGCTGAGGCCAGAGATGCCAGCCCACTCAGACTCCTG\nCGCTGGCCCTTCCACACCATCCCAGGCCCAAGGCCTCCCACACACAGCGTCACATACACAAACAGCACCC\nTCCTCATGGCAACAGGTGACCCTGCCCCTTCACAGACCTCCCTGCCCCCACAGTCACCCCACATTTTAAA\nGGGAACTTGAGTCCATCCTGATATGTAAACGTGAGGTTAAATATCTATCATGGGGGAGAACAGACAAATC\nTCCAGTGCAGAATAGTTCTAAATAACCTAAGTGGAGGCTCCACTCTTGAGGAGATCCAGCCTAACTCCCC\nACCTCTCCAACGCGGCTCATCGCAGCGACCTCCTTCTTCCAACGTGGCTCATCGCAGTGACCTCCTTCTC\nAGGAGTGCAGAGTGGAGGTCAGTGGTGGAGTGAAGACGGACCAGGGTTAACATCGGCAGTGATCACTTGA\nCCTCTGCACACTTGACTCTGGGTCTTTCTCCCCAAAAAAAACCAGAACCTCAGTATAATCGTGAGGAAAA\nTAGACAAATCCTAA\n\u003echr1:899053-901167\nTCTTGCTCTGTCACCCAGGCTGGAGTGCAGTGGCGCGATCTCGGCTCACTGCAAGCTCCGCCTCCCGGGT\nTCACGCCATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGACTACAGGCGCCCGCCACCGTGCCTGGCTAA\nTTTTTTGTATTTTTAGTACAGACGGGGTTTCACCATGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGT\nGATCCGCCCATCTCGGCCTCCCATAAAGTGCTGGGATTACAGGCATGAGCCACCGCGCCCGGCTGGGGGC\nACCTTCTGGCCCACAGTGAGGGAATAAGCAAACCAGAATGGGGGGTGCCTGCACGGAATACTCCTAAGTG\nCTCAGACACGGCGTCCACAGATGGATCCAAATCAGTGCTGGATGACGGGCACTCACCCCAGGTCTGCAGT\nCCAATAACACGGGCCTGAGCAGAAAGCACGTGGCATGGAGCCCCGTGGCAGATATGGGGACGAGCGGCCA\nATACATCAGCTCAGGTGTCCGAGGGGTTTCAGGGACATGAGAGAGAGTGGGGAACGAAGGGGGAAATCGC\nTTGGAGACCCAGGACGAGCCTGGCACACCAGGATGCTGATTCTGAAAGGGCGATTAAGGAGATTCCATGT\nTTTAAAAATCTGGATTTCTGGCTTCTTCTGAAAAAAATCAGAAGATGTTTAGCACAACAGCGTGGCATCG\nTCAGCTGTACTCCTGCCCCACTGTCCCCCAGGGAGCCTGGCTCATCCCATGGCTCACAGAGGCCCACACT\nGTGGCCAGACAGGTCCACTGATGGCTCAGCACGTGCACCCCGGCTGCAGGGAGATGGGTACCAGCCCAGG\nAAGTGGGACACTGGCTGAAACAGGATGGGATGCAGGGATGGGGTGGGATGGGAGACCAAACCAGTGTGAG\nGAATGAGGATAAAGGAGATGCTGGAGATAAAATCTGGGCAAGTAAGCAGGGGGTGGTCCTGCTGGCTGAG\nGCCAGAGATGCCAGCCCACTCAGACTCCTGCGCTGGCCCTTCCACACCATCCCAGGCCCAAGGCCTCCCA\nCACACAGCGTCACATACACAAACAGCACCCTCCTCATGGCAACAGGTGACCCTGCCCCTTCACAGACCTC\nCCTGCCCCCACAGTCACCCCACATTTTAAAGGGAACTTGAGTCCATCCTGATATGTAAACGTGAGGTTAA\nATATCTATCATGGGGGAGAACAGACAAATCTCCAGTGCAGAATAGTTCTAAATAACCTAAGTGGAGGCTC\nCACTCTTGAGGAGATCCAGCCTAACTCCCCACCTCTCCAACGCGGCTCATCGCAGCGACCTCCTTCTTCC\nAACGTGGCTCATCGCAGTGACCTCCTTCTCAGGAGTGCAGAGTGGAGGTCAGTGGTGGAGTGAAGACGGA\nCCAGGGTTAACATCGGCAGTGATCACTTGACCTCTGCACACTTGACTCTGGGTCTTTCTCCCCAAAAAAA\nACCAGAACCTCAGTATAATCGTGAGGAAAATAGACAAATCCTAATTGAGGGACATTCTCCAAAATACCTG\nACTGGCCCTCCTCAAAACTGCCAAGGTCATGGAAAAAGGAAAGTCTGAAAAACTCACAGTTTAGGAACCT\nAAAGAGACTTGATTACTAAATGGAATATATCCTGGGATCCTGGAAAAGAAAAGGACATTATGTAAAAACT\nAAGAAAACCTGAATAAAATGTGGCCTTTAGTTAATAAGAATCCATCAATATTGGTGCATTCGTTGTAACA\nAGTAGTTGTAACAAGTGCCACGCTAATGTAACACGTTAGTACCAGCGTAACTGGGTGCCAGGCGTTTGTA\nAACTCTGTTCCGTCTTCTCAATTGTTTTGTGAATCTAAAACCGTTCTTTAAAAAGAGTTTATTTAGTAGG\nCTGGGCATGGTGGCTCACACCTGCAATCCCAGCACTTGGGAAGGCCAAGACTGGTGGATCACTTGAGCTC\nAGGAGTTGGAGACATGCCTAGGTAACATGGCAAAACCCCATCTCTACTAAAAATACAAAAATTAGCCAGG\nTGTGGTGGCGCACACCTGTAGTCGCAGCCACTTGGGAGGTTGAGGTGGGAGGATCGCTGGAGCCTCGGAG\nGTCGAGGTGGTAGT\n\u003echr1:900820-902934\nCCACGCTAATGTAACACGTTAGTACCAGCGTAACTGGGTGCCAGGCGTTTGTAAACTCTGTTCCGTCTTC\nTCAATTGTTTTGTGAATCTAAAACCGTTCTTTAAAAAGAGTTTATTTAGTAGGCTGGGCATGGTGGCTCA\nCACCTGCAATCCCAGCACTTGGGAAGGCCAAGACTGGTGGATCACTTGAGCTCAGGAGTTGGAGACATGC\nCTAGGTAACATGGCAAAACCCCATCTCTACTAAAAATACAAAAATTAGCCAGGTGTGGTGGCGCACACCT\nGTAGTCGCAGCCACTTGGGAGGTTGAGGTGGGAGGATCGCTGGAGCCTCGGAGGTCGAGGTGGTAGTGAG\nCCAAGATTGCACCACTGCACTCCAGCCCGGGCAACCAGAGTGAAACGCTGTGTCCAAAAAATAAAAAAAG\nAGTGTATGTAAAGTGAAAACAGAGAGAGTACAAGAAAAGAGGGAAACCAGGGGCTCAGTGGAGGTGGGCA\nGGGGCTGGTCCATGTGCATTCAGCCCACCTGGTTGGCAGCTGCCCAGGTGTCTCCTCAGGTGTCGGAACA\nGGAGTTTCTTCCACAGCCTTCAGTTTGCTCAGGTGGGCATGTGGCGATGGCAGACCCTTGGGCTGTGAGA\nAACTATGTTGCTGTTTTATCCAAGTCTTCACAGACCAAAGACGGGGCTTTGCCCAGAGGAGGCCTTGAGA\nAGCCAGGCTGGAGTTTGTGGAGAGAGTGTGTGTCACTCACAGGACATATGACGCATTTGCAACATGCGTT\nCTCAAAGTGGGAGCCACAGCAGTGTTCGTTTTACTATTGCTGGGCCTGTAAATGGAGCGTTTTATCTTTT\nTCGTCAGCTGGTTCATTGAACAAGTGTTTACAGAGCACCTGCTAGGCAAATCCATCGTGACAGAGACTCG\nGTGTGCCCCCAAGGAGCTCACAGTCTAGCGGTAAAGATGGTGCATAAACTCCCTGACACTCAGGGTGGCA\nACAGCCACCCCACCTGCTCCTCCCTTTCCTAATGCCCACACGGAGCAGACACTCGAGGGCTGCTTTTAGG\nAGTGCTGACTACATGCTTCCCTACCTCCATGTAGGCATGTGTGTACACAAGCGTGTCCTGTTTTCACCTT\nTTCACAAAACTATGTCAAAAGTGAAACATTTTGGAATACATTTCCAGTTATGCAAAATGTTTAAAATATG\nAATTTCTTCGGTTAACACAAATTAGGCATGAAATGTAGGCAACCCTGTTTACCAAGAAACATCAGGGTGC\nGGTGTGGGTCTGGGAGGTGCCCATGAGCACCTCATCTTGAGGCCAGTCTTCATGCTAGACCCTGGGTGGA\nGAGAGCGAGGCGGCTGGAGGTGGGTGTGTGACACCAGGTGACTTAGCGGCCCCAGGAGGGTGACTTCCCC\nTCCGGAGGTGCCATGCGACTGTACAGCTCAGGAGCACTCGGGGTCACCTACAGGAGGGGCAACTCCTGGG\nTGTCTCCCAACAGAGCCCAAAACCTGGAAGTGGACAGAGCACCCCCCGCTCATCTCCTGGGCCCTCGTCT\nCAGAGGAAGGACGGCCATTCTGGCCAACACTGACCAATGCTCCAGCCCACACTGCCCTGCACTGCCTAGA\nAGGAGAACCTAGGCTGGGCTCCCAGACAGGAGAGAGGGGTGCGTTTGTGGGGCTAATTAATAGTAATAAT\nAGGCCGGGAGCGGTGGCTCATGCCTGTAATCCCAGCACTTTGGGAGGCCGAGGTGGGTGGATCACCTTAG\nCTCAGGAGTTCAAGACCAGCCTGGCCAACATGGTGAAACCCCGTCTAAAAATGCAAAAAAACTAGCTGGG\nCGTGGTGGTGCCTGTAGTCCCAGCTACTCGGGAGGCTGAGACAGAATCACATGAACCCGGGAGGCGGAGC\nTTGCAGTGAGCCGAGATCGCGCCATTGCACCCAGCCTGGGCAACCAGAGTGAAACTCTGTCTCAAAAAAA\nAAAAAAAATCGTCATAATAATAATCCCCCCTCACCTGAGTTCTGGGAGGTCAATCCAGGTTCAAGATTCC\nTCCTTTGAAAGGTAGACTGGATTTGGATACAGAGGGTGCCCATGCGTGAGGGGACGAGGGGGCCCGGGAT\nGCGGGTCCGTGTGA\n\u003echr1:901991-904105\nGCAAAATGTTTAAAATATGAATTTCTTCGGTTAACACAAATTAGGCATGAAATGTAGGCAACCCTGTTTA\nCCAAGAAACATCAGGGTGCGGTGTGGGTCTGGGAGGTGCCCATGAGCACCTCATCTTGAGGCCAGTCTTC\nATGCTAGACCCTGGGTGGAGAGAGCGAGGCGGCTGGAGGTGGGTGTGTGACACCAGGTGACTTAGCGGCC\nCCAGGAGGGTGACTTCCCCTCCGGAGGTGCCATGCGACTGTACAGCTCAGGAGCACTCGGGGTCACCTAC\nAGGAGGGGCAACTCCTGGGTGTCTCCCAACAGAGCCCAAAACCTGGAAGTGGACAGAGCACCCCCCGCTC\nATCTCCTGGGCCCTCGTCTCAGAGGAAGGACGGCCATTCTGGCCAACACTGACCAATGCTCCAGCCCACA\nCTGCCCTGCACTGCCTAGAAGGAGAACCTAGGCTGGGCTCCCAGACAGGAGAGAGGGGTGCGTTTGTGGG\nGCTAATTAATAGTAATAATAGGCCGGGAGCGGTGGCTCATGCCTGTAATCCCAGCACTTTGGGAGGCCGA\nGGTGGGTGGATCACCTTAGCTCAGGAGTTCAAGACCAGCCTGGCCAACATGGTGAAACCCCGTCTAAAAA\nTGCAAAAAAACTAGCTGGGCGTGGTGGTGCCTGTAGTCCCAGCTACTCGGGAGGCTGAGACAGAATCACA\nTGAACCCGGGAGGCGGAGCTTGCAGTGAGCCGAGATCGCGCCATTGCACCCAGCCTGGGCAACCAGAGTG\nAAACTCTGTCTCAAAAAAAAAAAAAAATCGTCATAATAATAATCCCCCCTCACCTGAGTTCTGGGAGGTC\nAATCCAGGTTCAAGATTCCTCCTTTGAAAGGTAGACTGGATTTGGATACAGAGGGTGCCCATGCGTGAGG\nGGACGAGGGGGCCCGGGATGCGGGTCCGTGTGAGGGGCTGAAGAGTTGCCCCTGTGCTAGTCAGTGCCGC\nCGCCATAACCGAGCCCCGCCGGCTGCGCGGCGTCTTCAGCAAGCGTTTATTTGCTAATTCTGGGGGCTGG\nAGGTCCGCGGTCACGGTGTCCACAGACTGACTTCTCCAGAGGCCTCTCCTTGGCTTGTGGACACCGTCTT\nCTCCCTAAATCCTCATCTCCTCTTCTTATACATTGTATCAGGGCCCGCCCCATGACCCCATTTCACCTTA\nATCGCCTCGTTAAAGACCCCATCTCCAAACAACCATATTCTGAGGTCCTGGGGGTTAGGGCCTCAGCACA\nGGAATTTGGGGCGGGGGGACACACACTCTGACTTCGCACCACCTCCCCACCACTGCGTGGTGTGTGCTGC\nGGTTTAGCTTGTGTGACTGTGATCTTTTTCGTCAACTGGTTCATTGAACAAGTGTTCAACGGGCCCTCTA\nAGAAAGTAATTAACGTCAAATGAGGCCCTAAGGGTGGGGCCCTGATCTGATAGAATTCGTGTCCTTATAA\nAAGAGGCACCAGAGCACCCACTCCCTGTCTCCGACGTGTGGGGACAGAACAGGCGGCCATCTGCAAGCCA\nGGTAAGAGCCCTCGCCAGGAAAGGCCCAGCTCACACCTTGACCCTGGACTTCCAGCCCCTAGAACTGTGA\nGAAAATTAATTTCTGTTTAACCTACCCAGTCTGTGGTACAGTCATCTCTCAGTATCTGTGGGGCACTGAT\nTCCAGGATCCCCACAGATACCAAAATCCACAGATGTTCAAGTCCCCCAGTGAGCCGTCTGCATCCATGGA\nGGCAGCCCCAGCCTTGGAGACCGACTGTGTTTCCTTAGGGCAGCCCTAGGCGCAGCGGTGCAAGGAGAGC\nCACATTTACCCCTGGCGCTGCACGGCCCTGAGGCTGGGCAAGGCTGTCCACCCCGCTGTCAGAACCCCAG\nCAGGGAAGGTGTCCAGAAGGCAGTCCTGGGAACCCTGCACAGAGGCCCAGCGGGCACAAGGTTGGGGCAG\nCTCTGTTCCCAGCAGGCCGAGCCCGGGTGGCTGGAGAGGGAGCTCTGGAAGGTCAGCCTAGGGGCCGTCG\nGCCCCTGCAGACCCTGTGCCCAGCCCAGCATCCCGGGGAGCTCCCTCCACATGCTCATCTCACGAGGTTC\nCTGCTGCACTCAGA\n",
+    "threshold": "0.8"
+  },
+  "numerical_result": {
+    "hits": [
+      {
+        "end": 1857,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1852,
+        "strand": "-"
+      },
+      {
+        "end": 1859,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1854,
+        "strand": "+"
+      },
+      {
+        "end": 34,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 29,
+        "strand": "+"
+      },
+      {
+        "end": 1496,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1491,
+        "strand": "-"
+      },
+      {
+        "end": 1882,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1877,
+        "strand": "+"
+      },
+      {
+        "end": 1593,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1588,
+        "strand": "-"
+      },
+      {
+        "end": 1740,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1735,
+        "strand": "-"
+      },
+      {
+        "end": 1742,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1737,
+        "strand": "+"
+      },
+      {
+        "end": 1841,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1836,
+        "strand": "-"
+      },
+      {
+        "end": 1471,
+        "matched_sequence": "TATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 1.0,
+        "score": 10.089484145338657,
+        "start": 1466,
+        "strand": "+"
+      },
+      {
+        "end": 55,
+        "matched_sequence": "TATCAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 50,
+        "strand": "-"
+      },
+      {
+        "end": 61,
+        "matched_sequence": "TATAAG",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 56,
+        "strand": "-"
+      },
+      {
+        "end": 80,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 75,
+        "strand": "-"
+      },
+      {
+        "end": 111,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 106,
+        "strand": "+"
+      },
+      {
+        "end": 190,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 185,
+        "strand": "+"
+      },
+      {
+        "end": 192,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 187,
+        "strand": "+"
+      },
+      {
+        "end": 226,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 221,
+        "strand": "+"
+      },
+      {
+        "end": 277,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 272,
+        "strand": "+"
+      },
+      {
+        "end": 283,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 278,
+        "strand": "+"
+      },
+      {
+        "end": 283,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 278,
+        "strand": "-"
+      },
+      {
+        "end": 513,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 508,
+        "strand": "+"
+      },
+      {
+        "end": 1914,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1909,
+        "strand": "+"
+      },
+      {
+        "end": 1920,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1915,
+        "strand": "-"
+      },
+      {
+        "end": 1922,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1917,
+        "strand": "+"
+      },
+      {
+        "end": 1945,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1940,
+        "strand": "+"
+      },
+      {
+        "end": 1956,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1951,
+        "strand": "-"
+      },
+      {
+        "end": 1974,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1969,
+        "strand": "-"
+      },
+      {
+        "end": 1976,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1971,
+        "strand": "-"
+      },
+      {
+        "end": 1978,
+        "matched_sequence": "TATATA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1973,
+        "strand": "+"
+      },
+      {
+        "end": 1978,
+        "matched_sequence": "TATATA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1973,
+        "strand": "-"
+      },
+      {
+        "end": 1990,
+        "matched_sequence": "TATATA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1985,
+        "strand": "+"
+      },
+      {
+        "end": 1990,
+        "matched_sequence": "TATATA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1985,
+        "strand": "-"
+      },
+      {
+        "end": 1996,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1991,
+        "strand": "-"
+      },
+      {
+        "end": 2000,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1995,
+        "strand": "-"
+      },
+      {
+        "end": 2028,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 2023,
+        "strand": "+"
+      },
+      {
+        "end": 2040,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:826264-828378",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2035,
+        "strand": "+"
+      },
+      {
+        "end": 114,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 109,
+        "strand": "+"
+      },
+      {
+        "end": 114,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 109,
+        "strand": "-"
+      },
+      {
+        "end": 180,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 175,
+        "strand": "+"
+      },
+      {
+        "end": 182,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 177,
+        "strand": "+"
+      },
+      {
+        "end": 477,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 472,
+        "strand": "-"
+      },
+      {
+        "end": 481,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 476,
+        "strand": "+"
+      },
+      {
+        "end": 868,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 863,
+        "strand": "+"
+      },
+      {
+        "end": 933,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 928,
+        "strand": "+"
+      },
+      {
+        "end": 1094,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1089,
+        "strand": "-"
+      },
+      {
+        "end": 1098,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1093,
+        "strand": "-"
+      },
+      {
+        "end": 1126,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1121,
+        "strand": "-"
+      },
+      {
+        "end": 1226,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1221,
+        "strand": "-"
+      },
+      {
+        "end": 1288,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1283,
+        "strand": "-"
+      },
+      {
+        "end": 1290,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1285,
+        "strand": "-"
+      },
+      {
+        "end": 1297,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1292,
+        "strand": "+"
+      },
+      {
+        "end": 1297,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1292,
+        "strand": "-"
+      },
+      {
+        "end": 1299,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1294,
+        "strand": "+"
+      },
+      {
+        "end": 1349,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1344,
+        "strand": "-"
+      },
+      {
+        "end": 1351,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1346,
+        "strand": "+"
+      },
+      {
+        "end": 1418,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:864773-866887",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1413,
+        "strand": "+"
+      },
+      {
+        "end": 114,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 109,
+        "strand": "+"
+      },
+      {
+        "end": 284,
+        "matched_sequence": "TATCAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 279,
+        "strand": "-"
+      },
+      {
+        "end": 288,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 283,
+        "strand": "+"
+      },
+      {
+        "end": 294,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 289,
+        "strand": "-"
+      },
+      {
+        "end": 296,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 291,
+        "strand": "+"
+      },
+      {
+        "end": 296,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 291,
+        "strand": "-"
+      },
+      {
+        "end": 363,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 358,
+        "strand": "+"
+      },
+      {
+        "end": 363,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 358,
+        "strand": "-"
+      },
+      {
+        "end": 365,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 360,
+        "strand": "+"
+      },
+      {
+        "end": 543,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 538,
+        "strand": "-"
+      },
+      {
+        "end": 545,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 540,
+        "strand": "+"
+      },
+      {
+        "end": 613,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 608,
+        "strand": "-"
+      },
+      {
+        "end": 673,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 668,
+        "strand": "-"
+      },
+      {
+        "end": 750,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 745,
+        "strand": "+"
+      },
+      {
+        "end": 1330,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1325,
+        "strand": "-"
+      },
+      {
+        "end": 1351,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1346,
+        "strand": "-"
+      },
+      {
+        "end": 1451,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1446,
+        "strand": "-"
+      },
+      {
+        "end": 1533,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1528,
+        "strand": "+"
+      },
+      {
+        "end": 1549,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1544,
+        "strand": "+"
+      },
+      {
+        "end": 1589,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1584,
+        "strand": "-"
+      },
+      {
+        "end": 1599,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1594,
+        "strand": "-"
+      },
+      {
+        "end": 1615,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1610,
+        "strand": "-"
+      },
+      {
+        "end": 1617,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1612,
+        "strand": "-"
+      },
+      {
+        "end": 1811,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1806,
+        "strand": "+"
+      },
+      {
+        "end": 1827,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1822,
+        "strand": "+"
+      },
+      {
+        "end": 1895,
+        "matched_sequence": "TATAAC",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1890,
+        "strand": "-"
+      },
+      {
+        "end": 1897,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1892,
+        "strand": "+"
+      },
+      {
+        "end": 1944,
+        "matched_sequence": "TATCAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1939,
+        "strand": "-"
+      },
+      {
+        "end": 2023,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2018,
+        "strand": "+"
+      },
+      {
+        "end": 2036,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2031,
+        "strand": "-"
+      },
+      {
+        "end": 2044,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 2039,
+        "strand": "-"
+      },
+      {
+        "end": 2069,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:868853-870967",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2064,
+        "strand": "+"
+      },
+      {
+        "end": 110,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:874703-876817",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 105,
+        "strand": "+"
+      },
+      {
+        "end": 110,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:874703-876817",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 105,
+        "strand": "-"
+      },
+      {
+        "end": 331,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:874703-876817",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 326,
+        "strand": "-"
+      },
+      {
+        "end": 192,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 187,
+        "strand": "-"
+      },
+      {
+        "end": 194,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 189,
+        "strand": "+"
+      },
+      {
+        "end": 205,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 200,
+        "strand": "+"
+      },
+      {
+        "end": 334,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 329,
+        "strand": "-"
+      },
+      {
+        "end": 521,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 516,
+        "strand": "-"
+      },
+      {
+        "end": 527,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 522,
+        "strand": "-"
+      },
+      {
+        "end": 811,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 806,
+        "strand": "+"
+      },
+      {
+        "end": 870,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 865,
+        "strand": "+"
+      },
+      {
+        "end": 1000,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 995,
+        "strand": "+"
+      },
+      {
+        "end": 1262,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1257,
+        "strand": "+"
+      },
+      {
+        "end": 1311,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1306,
+        "strand": "+"
+      },
+      {
+        "end": 1406,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1401,
+        "strand": "+"
+      },
+      {
+        "end": 1406,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1401,
+        "strand": "-"
+      },
+      {
+        "end": 1421,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1416,
+        "strand": "+"
+      },
+      {
+        "end": 1591,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1586,
+        "strand": "-"
+      },
+      {
+        "end": 1628,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1623,
+        "strand": "-"
+      },
+      {
+        "end": 1649,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1644,
+        "strand": "+"
+      },
+      {
+        "end": 1688,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1683,
+        "strand": "-"
+      },
+      {
+        "end": 1696,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1691,
+        "strand": "-"
+      },
+      {
+        "end": 1710,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1705,
+        "strand": "-"
+      },
+      {
+        "end": 1713,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1708,
+        "strand": "-"
+      },
+      {
+        "end": 1718,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1713,
+        "strand": "-"
+      },
+      {
+        "end": 1729,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1724,
+        "strand": "+"
+      },
+      {
+        "end": 1729,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1724,
+        "strand": "-"
+      },
+      {
+        "end": 1733,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1728,
+        "strand": "+"
+      },
+      {
+        "end": 1802,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1797,
+        "strand": "-"
+      },
+      {
+        "end": 1812,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1807,
+        "strand": "-"
+      },
+      {
+        "end": 1814,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1809,
+        "strand": "+"
+      },
+      {
+        "end": 1839,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1834,
+        "strand": "-"
+      },
+      {
+        "end": 1843,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1838,
+        "strand": "+"
+      },
+      {
+        "end": 1852,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1847,
+        "strand": "-"
+      },
+      {
+        "end": 1863,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1858,
+        "strand": "-"
+      },
+      {
+        "end": 1865,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1860,
+        "strand": "-"
+      },
+      {
+        "end": 1878,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1873,
+        "strand": "+"
+      },
+      {
+        "end": 1878,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1873,
+        "strand": "-"
+      },
+      {
+        "end": 1892,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1887,
+        "strand": "+"
+      },
+      {
+        "end": 1936,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1931,
+        "strand": "+"
+      },
+      {
+        "end": 2003,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1998,
+        "strand": "+"
+      },
+      {
+        "end": 2005,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2000,
+        "strand": "-"
+      },
+      {
+        "end": 2021,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 2016,
+        "strand": "-"
+      },
+      {
+        "end": 2027,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2022,
+        "strand": "-"
+      },
+      {
+        "end": 2029,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2024,
+        "strand": "+"
+      },
+      {
+        "end": 2031,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2026,
+        "strand": "+"
+      },
+      {
+        "end": 2096,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2091,
+        "strand": "-"
+      },
+      {
+        "end": 2103,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2098,
+        "strand": "-"
+      },
+      {
+        "end": 2105,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:889680-891794",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2100,
+        "strand": "+"
+      },
+      {
+        "end": 15,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 10,
+        "strand": "+"
+      },
+      {
+        "end": 15,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 10,
+        "strand": "-"
+      },
+      {
+        "end": 33,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 28,
+        "strand": "+"
+      },
+      {
+        "end": 33,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 28,
+        "strand": "-"
+      },
+      {
+        "end": 60,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 55,
+        "strand": "+"
+      },
+      {
+        "end": 115,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 110,
+        "strand": "+"
+      },
+      {
+        "end": 777,
+        "matched_sequence": "TAGAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 772,
+        "strand": "-"
+      },
+      {
+        "end": 781,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 776,
+        "strand": "+"
+      },
+      {
+        "end": 826,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 821,
+        "strand": "+"
+      },
+      {
+        "end": 1007,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1002,
+        "strand": "+"
+      },
+      {
+        "end": 1039,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1034,
+        "strand": "-"
+      },
+      {
+        "end": 1062,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1057,
+        "strand": "-"
+      },
+      {
+        "end": 1105,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1100,
+        "strand": "+"
+      },
+      {
+        "end": 1129,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1124,
+        "strand": "+"
+      },
+      {
+        "end": 1129,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1124,
+        "strand": "-"
+      },
+      {
+        "end": 1154,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1149,
+        "strand": "+"
+      },
+      {
+        "end": 1185,
+        "matched_sequence": "TATAAG",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1180,
+        "strand": "-"
+      },
+      {
+        "end": 1438,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1433,
+        "strand": "-"
+      },
+      {
+        "end": 1440,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1435,
+        "strand": "-"
+      },
+      {
+        "end": 1594,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1589,
+        "strand": "-"
+      },
+      {
+        "end": 1600,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1595,
+        "strand": "-"
+      },
+      {
+        "end": 1682,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1677,
+        "strand": "+"
+      },
+      {
+        "end": 2081,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2076,
+        "strand": "+"
+      },
+      {
+        "end": 2081,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2076,
+        "strand": "-"
+      },
+      {
+        "end": 2083,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:897608-899722",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2078,
+        "strand": "+"
+      },
+      {
+        "end": 162,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 157,
+        "strand": "+"
+      },
+      {
+        "end": 194,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 189,
+        "strand": "-"
+      },
+      {
+        "end": 217,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 212,
+        "strand": "-"
+      },
+      {
+        "end": 260,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 255,
+        "strand": "+"
+      },
+      {
+        "end": 284,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 279,
+        "strand": "+"
+      },
+      {
+        "end": 284,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 279,
+        "strand": "-"
+      },
+      {
+        "end": 309,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 304,
+        "strand": "+"
+      },
+      {
+        "end": 340,
+        "matched_sequence": "TATAAG",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 335,
+        "strand": "-"
+      },
+      {
+        "end": 593,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 588,
+        "strand": "-"
+      },
+      {
+        "end": 595,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 590,
+        "strand": "-"
+      },
+      {
+        "end": 749,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 744,
+        "strand": "-"
+      },
+      {
+        "end": 755,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 750,
+        "strand": "-"
+      },
+      {
+        "end": 837,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 832,
+        "strand": "+"
+      },
+      {
+        "end": 1236,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1231,
+        "strand": "+"
+      },
+      {
+        "end": 1236,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1231,
+        "strand": "-"
+      },
+      {
+        "end": 1238,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1233,
+        "strand": "+"
+      },
+      {
+        "end": 1523,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1518,
+        "strand": "+"
+      },
+      {
+        "end": 1541,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1536,
+        "strand": "+"
+      },
+      {
+        "end": 1750,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1745,
+        "strand": "+"
+      },
+      {
+        "end": 1750,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1745,
+        "strand": "-"
+      },
+      {
+        "end": 1779,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1774,
+        "strand": "+"
+      },
+      {
+        "end": 1842,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1837,
+        "strand": "+"
+      },
+      {
+        "end": 2089,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:898453-900567",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 2084,
+        "strand": "+"
+      },
+      {
+        "end": 149,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 144,
+        "strand": "-"
+      },
+      {
+        "end": 155,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 150,
+        "strand": "-"
+      },
+      {
+        "end": 237,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 232,
+        "strand": "+"
+      },
+      {
+        "end": 636,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 631,
+        "strand": "+"
+      },
+      {
+        "end": 636,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 631,
+        "strand": "-"
+      },
+      {
+        "end": 638,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 633,
+        "strand": "+"
+      },
+      {
+        "end": 923,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 918,
+        "strand": "+"
+      },
+      {
+        "end": 941,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 936,
+        "strand": "+"
+      },
+      {
+        "end": 1150,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1145,
+        "strand": "+"
+      },
+      {
+        "end": 1150,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1145,
+        "strand": "-"
+      },
+      {
+        "end": 1179,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1174,
+        "strand": "+"
+      },
+      {
+        "end": 1242,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1237,
+        "strand": "+"
+      },
+      {
+        "end": 1489,
+        "matched_sequence": "TATAAT",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1484,
+        "strand": "+"
+      },
+      {
+        "end": 1676,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1671,
+        "strand": "+"
+      },
+      {
+        "end": 1678,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1673,
+        "strand": "+"
+      },
+      {
+        "end": 1697,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1692,
+        "strand": "+"
+      },
+      {
+        "end": 1716,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1711,
+        "strand": "-"
+      },
+      {
+        "end": 1820,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1815,
+        "strand": "-"
+      },
+      {
+        "end": 1822,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1817,
+        "strand": "+"
+      },
+      {
+        "end": 1859,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1854,
+        "strand": "+"
+      },
+      {
+        "end": 1872,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1867,
+        "strand": "+"
+      },
+      {
+        "end": 1872,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1867,
+        "strand": "-"
+      },
+      {
+        "end": 1874,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1869,
+        "strand": "+"
+      },
+      {
+        "end": 1883,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1878,
+        "strand": "-"
+      },
+      {
+        "end": 2013,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2008,
+        "strand": "+"
+      },
+      {
+        "end": 2019,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:899053-901167",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 2014,
+        "strand": "+"
+      },
+      {
+        "end": 53,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 48,
+        "strand": "-"
+      },
+      {
+        "end": 55,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 50,
+        "strand": "+"
+      },
+      {
+        "end": 92,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 87,
+        "strand": "+"
+      },
+      {
+        "end": 105,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 100,
+        "strand": "+"
+      },
+      {
+        "end": 105,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 100,
+        "strand": "-"
+      },
+      {
+        "end": 107,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 102,
+        "strand": "+"
+      },
+      {
+        "end": 116,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 111,
+        "strand": "-"
+      },
+      {
+        "end": 246,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 241,
+        "strand": "+"
+      },
+      {
+        "end": 252,
+        "matched_sequence": "TACAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 247,
+        "strand": "+"
+      },
+      {
+        "end": 415,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 410,
+        "strand": "+"
+      },
+      {
+        "end": 417,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 412,
+        "strand": "+"
+      },
+      {
+        "end": 432,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 427,
+        "strand": "+"
+      },
+      {
+        "end": 650,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 645,
+        "strand": "-"
+      },
+      {
+        "end": 822,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 817,
+        "strand": "+"
+      },
+      {
+        "end": 836,
+        "matched_sequence": "GATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 831,
+        "strand": "-"
+      },
+      {
+        "end": 872,
+        "matched_sequence": "TGTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 867,
+        "strand": "-"
+      },
+      {
+        "end": 958,
+        "matched_sequence": "CATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 953,
+        "strand": "+"
+      },
+      {
+        "end": 1185,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1180,
+        "strand": "+"
+      },
+      {
+        "end": 1185,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1180,
+        "strand": "-"
+      },
+      {
+        "end": 1192,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1187,
+        "strand": "+"
+      },
+      {
+        "end": 1672,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1667,
+        "strand": "-"
+      },
+      {
+        "end": 1799,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1794,
+        "strand": "+"
+      },
+      {
+        "end": 1801,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:900820-902934",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1796,
+        "strand": "+"
+      },
+      {
+        "end": 14,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 9,
+        "strand": "+"
+      },
+      {
+        "end": 14,
+        "matched_sequence": "TTTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 9,
+        "strand": "-"
+      },
+      {
+        "end": 21,
+        "matched_sequence": "TATGAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 16,
+        "strand": "+"
+      },
+      {
+        "end": 501,
+        "matched_sequence": "TATTAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 496,
+        "strand": "-"
+      },
+      {
+        "end": 628,
+        "matched_sequence": "TCTAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 623,
+        "strand": "+"
+      },
+      {
+        "end": 630,
+        "matched_sequence": "TAAAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 625,
+        "strand": "+"
+      },
+      {
+        "end": 1031,
+        "matched_sequence": "AATAAA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.48689175059571,
+        "start": 1026,
+        "strand": "-"
+      },
+      {
+        "end": 1150,
+        "matched_sequence": "TATAAG",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1145,
+        "strand": "-"
+      },
+      {
+        "end": 1152,
+        "matched_sequence": "TATACA",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1147,
+        "strand": "+"
+      },
+      {
+        "end": 1469,
+        "matched_sequence": "TATAAG",
+        "motif": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "record": "chr1:901991-904105",
+        "relative_score": 0.8333333333333333,
+        "score": 6.486891750595709,
+        "start": 1464,
+        "strand": "-"
+      }
+    ],
+    "inputs": [
+      {
+        "id": "chr1:826264-828378",
+        "sequence": "ACAATCCAGGTCATCCTTCAATATTTGCAGAAAACATCACAAAGAAAACTTGATACTTATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGACATAGGTGGATTTTGCTTTTAAGTAGTAAAGACTTAATTGGTGACTTACTGGGGCTA"
+      },
+      {
+        "id": "chr1:864773-866887",
+        "sequence": "TCTCAATGTCTTTAAGTTCAGTCAGTCCTATAAATTGCTATCCCTATTCATGCAGTGTGTTTTCCCCTGTGTGAGGCATTTGTGAGTTCCATTAGCACTGATAGGACTTTTAAATGCAGAAGCAGCAGTGAAGGGAATGGCATTTCCCAGCTGTAGGGCACGGGCCTTCTTTGAGATAAAAACCCACCCTGGCATCGATGACATGGGAACTATTCTGTGTCTTTTCACCCGAGAGCTCTTCAATCAACTGATGATCGCACCTGCATAACTGCTACCAGACCTGCTAAGGGGGAGCCTGGCCCAGCCATCTCTTCTTTGTGGTCACAAGCATGAACGGCCCTGGGACATCCTCTTTCCTCACTGTCCCCTCACAGCATTTCCTGACCACTGTGGCCTTGGTCCCACCACCCACCTGTGCAGCTCATCTGGCCATGAACCTCTCCAGCTCACAACTCTGTTTTCTCCCTGTTGTTTCTATGAAACCAGGTTCCAGCCCCGCCACACAGTCTGCACGGCCTCCACCGCAGCTCTGGTGAGCCTCTTGGCCAGCTCCTGGTGACAGCGTGCACCTCCCTGCTCTGAGAAGGTCTCCCTCTCCTCTCTGCCCACCCTGTACAGAGACATCTTTCAAGCCCATCCCAGAGGAGAGTGGCCTCTCTCCTCAACCCCAAGAGGACGGCCTCTCATGTGGCTGTCACCCATCTGACCCCTATCACAGACCTGAGGGTAAGTGGTGCTCACGGGCCCACATCTGTCAGCCTGCGCCTGGTTGGAGACGCCTCCCTCTCATTTGTCCTTGCTTGCTGCGTGACTTTGGCAAGTGCTTGCCTCTTTGAGACCCTCAGTTTTCACACCTGAGAAATAGAAAGGTGGTGCCTGCCCCAGCTGCCACGCAGAAGAGTTTAGGTGGCATGTGAGAAAATGCCTTATGAACTACGATGTGAGCAACTGCAGCATGCTGTGAACACCGCTTTCATGAGCTCCTCAGGGGCAGGGTAACACCCAAGCATTCTTACACCTCCCACCGGGCTTGTCACGACCGTATGCAAATGAAGGCCATCAAGCGTGTTTGATCAGTGATGTATTTCTTTATTTTTAGTTGTAGAATATGACAACTCTATTTTTAGCAGCTATAGCGGCCAAAACTTTGTTACCACTCAGCAGTTGTGTGTTCTTCAAGAGTAGGTTTTGTGCTTTCAAAATATCTGAATCCTCTACCATTTACAGGTGTTCTGTGCATACTTGGTGTATGAGTTCCTCAGGAAGGAAGAAAAATGTGCCCTTTTTATCTTTTAAAAAGATGGCTTGGCTTGGTACTCCTTTGCCTGCATTCCTTCTCTGTATTTAGAAACGAACCTACACAAGTGAAGGCAAAGGAAGCCTCTTGAAAGATAAGGCAGGAAAAATGAGGATAGAAAACAAAACCCTTCTAGAGAGTTTACGTGGAGGCTACCACGGGCATCGCTGCTCTGCAGTCTGTCAACCAGAGGCCCCTGGTGCTGCAGCACGGCCTTGGCAGCTTCACCAACAGGAATGTGTTCTCCTAGGGTACTGGAGGGTGGCAGTCCCAGAGCAAGGTGTGGCAGGGCTGCTCCTCCTGAGGCCTCTCCCTGGCTTGCAGACGACATCTTCTCCCATGTTCTCATGTGGGCCTCCCTCTGCACACGTATATCTGACATCCTCCCATGTCCTCACACGTTCCTCCCTTTGCACTCGAATCCCGGACATCCTCCTATGTCTCACGTGGTCCTCTCTCTGCACTCGAATCCCAGACATCCTCCTATGTCCTCACATGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGTGCCCTCACGTGGTCCTCCCTCTGCACTCACATCCCTGACGTCCTCCCGTGCCCTCACGTGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGAGCCCTCACGTGGTCCTCCCTCTGCACTCACATCCCTGACGTCCTCCCGTGCCCTCACGTGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGAGCCCTCACGTGGTCCTCCCCCTGCACTCACATCCCTGACGTCCTCCCGAGCCCTCACGTGGTCCTCCCCCTGCACTCACATCCCT"
+      },
+      {
+        "id": "chr1:868853-870967",
+        "sequence": "CTATATTAGAGCTGCCTGTGTTCCCCTGTCACTGAGATTAAAACAAAAATGTCCAATACAATCATTCACAGCATGGGAGAGGGGAAGATGAAGGATGGAAAGGCCAGGCATAAAAGGATTTCAGAATTTCGGTCCATAAGGAAGTGGCTTTGTGCATTGTCTGTTACTATGTGCAAGGTGAAGTTTGAAGAATGAAAACGTGCAGTAACAAAGGCTGCTTTGTCCATCTCACCTCCCCAGATACCAAGTTTCAGACATGTTGCATTTTAATTGAAAGGTTGATATAATTTTTTAAAAGAACACTTGTGGTGTTTGAAGTGACAAAGGCTGCTGTGACAAAAAAGCAGGGAAAGGGAATTTAAAAAAAAAAAAGCAAACAACAACAACAAAAACCCCACAGAAAAGCAAACAACAAACAAACAAAAAACAGAGGAAGAAGTCAAACACCCTGGGCTGTGGCTACTTCCAGGAAGGGGCTACAAGAGGCAGTTGGAAATTCTATTTGTTTTGCAACTGTGGGTTTTCCGGCCTGCTTCCTTTCTAAAGTATATTACTCTGCTTTTGGTTCATGAAGTTATCCATTTCTGTTTTCTGGAACAGCTATGTATTTATCTATCATCTATCTATCTACCTGCCTATCATCTATCTATCTATTTACTATCTATCTTTTCTACCTTTCGCCATCAAGAGCTTCAACACCTGGACACATTCCGCAAAGTTTCCTAAGAAAGCAAGAAAAATAATTAAAAAAAAAAATCCGGAGTCCGGGGGGCTAATGGGGCTTTACTGGGACTCTCTGGCTTAATCCTCCAAACAACCCTGCCATAGCAGCCCATCAGTCCTCTGAGACAGGTGAGGAAACTGAGGTCGCAGGAGGGCACCCAGAAGGTCCAGGCAGAGCCCCCAGGCCCCCACACCTCCCCCCGTGGCAGCTCCAACCCCAGCTTTTTCACTAGTAAGGCACTCGCGCTGCTGGGCCACGCCCACTCCCCCACGCGGGGAAGGAGCTTCGCGCTGCCGCCTGGCTGGGGACTGGGCACGCCCTCCCGCGGCTCCGGAGCCGGCTGCCACCAGGGGGCGCGCCCGCGGTGTCCGGGAGCCTGGCGGCGCCTGTGCAGCGGCCAGTGCACCTGCTCCTGCCCTCGCCTCGGTCTCTGCCAGGACCCCGACGCCCAGCCGGACCCTGCCCTCCAGCGGGGCCGCGGCTCCACGGCCCGCAACAGCAGCCCCACCCGGCATTCGGCGCGCTCCGCGGGGCAGAGGTCGCGGTGTCCTCAGGCTGTGGCGCCGGCCTACAACCCCCACGCCGGGCCCGGGCCCCGTGATTATATTTGGGCCCCGTGTGATTATATTTGACAGGTCTTAGTTGACGCGCTGTTCAGCGCTTTGAGTTCGGCTGAGTTTTGGGTTGGAGAATTTTCTTCCACAGGGGATTGTCTTGGATTTTTCTATTTCTCCCTCAGTATCCACCTGGAAAACATTTCAATTAATTTATATTCACTTAAACATTTCCGTGCAAAAACTGTGTACAAAAGCCCCAAAGTATAATTTGCGCAGTTGAGCACATGTTCTGTTGTCCAGCATTTATGGTGGTTTGTAGTGGAAAAGATTTTTAGAATATGTGGATTTTTGGGATATTCCCAGAAGCCCAGATGGCCACACTTTAACTTTGGAGGAATTAATTCTCAGAATATTGCACACAATCAATCGCCTTTGGAAGGAGCATATATTCCCAGCAAAAGCTCTGGTTTTTTGAAGTCTGTGTTGTGTGTTATTTCCAGGAGAATATGCAATGATGACAATGTTATTAACTGATTCGAATATGAAATGCTGTTATGCCAAACAATGAATCTTTGTGTTACACATTATGCCTAACTATAAATCTTCGTGTTATACATTTTAATGTCATTGGAGAGTACTCCTGTCTTCTTGGCATTATTGATAATTCGATTCTAATTGCTAATAAGTCAGAAAAATTAGGAACACCAAATTTCAGTCGTCTCAAAAGCACTCCTCTTATTAAATTTGGATTTTTACCTTTATCACATCAAAAGAAATATTGTTAGAAAGGTGTTTAATGTTTTCCAGATGGTTAGATTACTGTTATTAGTTCT"
+      },
+      {
+        "id": "chr1:874703-876817",
+        "sequence": "GCCTTGGGCAGCGACGTGGTGGAAAACCTGTTCCTGAAGGCAAGCCTTGGCTTATCCCATGTGCCAAACTTCTAGGGGACCAGCTGGCCCTCTGTTTCTGGAATTTTAAAAGGGGTCAGTGACCCTGGTGGACAATGTCCCCAAAGTCTCATCTCAGGGTAGGAATGTGGTCAGACAGCTGGCTCTGAACCAGCAAGGAAGGGTGGGCAAGTAGGACCCCAGGCACTCCATCACCACGATGGCCTGGGTGTGTTTGTGTGGCCTCATTCTCTTCACCAGGTGGGCATGGGGTATCTGGCAGGGACTAGGCAGGAATCAAGCCCGGTGTATACTCACATGCACTGAACCCTATGTAGAAGGGATTAGGTCCTGGGGGCCATAGATGGCGGTTGCTGGGCCTGTGTGCTCGGGGCAGTCTCTCCAAAGGCACAGATGGGGTTTCTGAACAGGACCTGGGGAGACAGGCAGGTGCTCACAAGTGCTGCTTCCCCCAACTGGCAACCAGTGAGGAAAAACGCCCGAGTGGAGGTCTGACCTGCCCCACTCTGGAGGGCTGATGCTCTCTGGAAAGGTGGGTGATGTGCAGTGTCTGCTGTCTCCCTGTCCCCCACTCCAAAACTTCAGGGAAAAAATAATCCAAGATTGTCAGGATGAGCCTGGTGAGGGTGGCACCTTTGGGGATAGGCCCTTCAGCCTGGCAGAGTCTCCTCCCCAGGCTTCTTGGGGAGCCTGGACTGCAAAGCCTGCTTTGGGGAAGCTGTCAAATGAGAGCTGTGTGTGTGAGCTGGGTGCTGGGCAACACGCACGGACAGTGTTCTTCTCCCTGGCTCTTGTAGAACTTGTCCATGGCCTGTGTGTTGGTCTCTTGGTAATTCCCACCCTACCCCCATCACACAGATAAGATGAAGCCAGCATAGCCCAGGGGTGGGGAGATGAACAGGCGCTACCCCAGGTCCCCTAGGCATGCCCATCTGCCTCTGACATGTCCGGGAAAGCAGGTGAGGCCCCTTCTTGTTCTCTGAATGTTGTCAATGGTCTATTGCAGCCAAATGGGGACAGGCAGGCAGGAGAGTGTCTCATCTCGAAAGAAGTGGTTCCTGGAAGCAGCTGGGAGGTGGGAGAGGTTCCCCAAACTCCCCCATACTCCCCCATACTCCCCCACATTCCCTCACACTCCCCCACGCTCCCCCACGCTCGCCCACGCTCGCCCACGCTCCTCCCCCACACTCTCCCACACTCCCCCACACTCCCCCACACTCCCCCACGCTCCTCCCCCACACTCTCCCACACTCCCCCACACTCCCCCACACTCCCCCATACTCCCCCATACTCCCCCATACTCCCCCACACTCCCCCACACTCCCCCACACTCCCCCATACTCGCCCACACTCCCCCACACCCCACACTCGCCCACACTCGCCCACACTCCCCCACACTCGCCCATACTCGCCCACACTCCCCCACACCCCACACTCGCCCACACTCGCCCACACTCGCCCACACTCGCCCACACTCCCCCACACTCGCCCACACTCCCCCACACTCGCCCACACTCGCCCACACTCCCCCACACTCCCTCACAGTCGCCCACACTCCCCCACACTCCCCCACACTCCCCCACACTCGCCCACACTCCCCCACGCTCCCCCATACTCGCCCACGCTCCCCCATACTCGCCCACGCTCCCCCACGCTCCCCCATACTCCCCCACACTCCCCCATACTCCCCCAAACTGTTCTCAGGTTAGGAAAAGGGGCCTCTGTGACAGCCCCACTCAGTGGCTCTCACTGTCTGAGGGGTGTCCTTGCCCAACCCAGGTGCGCACCCATCTGAGATGGCCTTGCATGGACCTGGTTGGGAAGGTTCAGCTACAGCAACCACTGGAACCTGCCCACACCTAGTGTCTCCACTCACACGTGGGGCTAGATGTTCCTCCCTCCCGTAGTGGCACAGCCAGTGGCAGAGGGGGCAAGTCACCGCTGCAGTTCCCACTTGAGTCTGAGGGGGGATCAGGCTTAGTGCCCATGTATTTCCCAATTACCTGGTTCCATCTGGGGGCTTCATGGACAGGAGTGGTGCTTTTCCAGGCCTCTTTTCCATATGCCAGCTACAG"
+      },
+      {
+        "id": "chr1:889680-891794",
+        "sequence": "AAGCCCCTGTAGGCAGAGCCTAGACAAGAGTTACATCACCTGGGTGACAGGCAAACAACAATGACAACTTATTTTCATCCCCACTTCAGTCTTTGAGGTTAGACAGACCTGGATTCAAATCCAAGCTCCACCCCTCGCTGTGTGAGTTTGCTCATGCTGCTAACCTCTCTGAGACTTGACTCTTCATTTATGAAATGAGGATAAAGCCCCTTCTCTCAGGGGCTGTGCCAAGGATGAAATGAGTCACGCATTGGTCAGGACAGGTGATGCTGTGTAACAAGCCCCTAAACCTCAGTGGCGTCAACAGCAAAGTTGACTTCTTTTCTTTTTTCTATTTTTTCTTTTGTTGGGGGGGTGGGGAGGTGGATGGAGTCTCACTCTGTCACCCGGGCTGGAGTGCAGTGGTGCAATCTCAGCTCACTGCAACCTCCACCTCCTGGGTTCAAGTGATTCTCCTGCCTCAGCCTCCTGAGTAGCTGGGGCTACAGATGTCAGCCACCAGGCCCAGCTAATTTTTTGTATTTTTAGTAGAGATGGGGTTTCACCATGTTAGTCAGGATGGTCTCGATCTCCTGACCTCATGATCTGCCTGCCTCAGCCTCCCAAAGTGTTGGGATTACAGGCGTGAGCCACTGCACCCGGCCTTGACTTCTCAATTGATTTCACATCCATCACGGGTCAACAAGGGGGTTCTGGTGGTCGTAGTCAATGAGCCGAGACCATGCCACTGCACTCCAGCCTGAGTGACAGAGTGAGACTTCATCTCAAAAAAAAAAAGTCTCAGGCTATGTCTGAACTAGGAGGGTAGAAAGAATAGTCATTTTGGTTGCCACAAACCATCGAAACAAAGATGCAGATCATTGATGTAAAATTACAGTTAGTTCCTTCCCACTCCTTTTCAGCTTCTCTTCGTTGCTATGACCCAGCGTCTCCTGTGTCAGTTTTCAGTCTATTGTCTCCCAGCTTCTAGTGCACCTTTCAATATGTGCACTGTGATAAACTGGGAAGCACTTTTCAATATACCTTCTGGAAGTGAACATTCTGCAGGCATCTAGATAGAGGATGGAGAGACTGCAGGGGGCAGGAGCTCTCTGGCTGGGCCTTGTTCAAGCCCCAACCACAGAGACCTAGGCATGGTCCCTCAGCCACCTTGCAGCCTTGGCTAGCAACATCTCGACACGGAAACCAAAACGCAGCAGAGCCCATGTGATCTGAAGGTTCCTGAAAAGTTGCCCAGACCTCCTCTTGTACCCACATACAAAGAGTGTGTCCAGGGTCATGAGTGAGCATGATATTACAGAGGAATGTAAACAGGAAAACCATAGCATAGAGCAGTGGGGATCCATAGCTCACAGTGATAGCATGGAAGTTTCCTGGTTACATGAAGTAATTAAGACGTATTTAAAAGCCAAGAGTACAAAATTAGACCTGATGAAAAAGCAGGAGTTATCATCCCAGCCATGCAGAAAAGCCAAGCCTTCTCTCCCTTCTCAAGAAGGAACAGAAGACAATGATGTGATCTGTGAGTCATGTGTAACATGAAAGTACAGGAAAAGTTGAATTTCTGATACACAAATCTGAAAAGTTTTTATAGTAACAGATTTCAGGATTAAAAGTCAATATTTATTACTTCATTAAGAGCAAATAAATACTTTAAGAAAACCTTGTTGTTTTAACCAAAATTTTTAGTTTTGTATCACTATGTTTTTAATATTATACCTAATTTAAATAAACTTTATAAACAATCTATCTGATCTCAATCAGTTTTGACCTCGAGGTAAGATTTACGTAAACTTTTAATAACCTTGTATAATTTTTTCCATCTTTTCCAACTTTTTATACACATTTTATCTATCTTTTTTATTCCTTCAATTTAAAATAATCCTTAAAAATCTCTAAGCGAATTTACTTTCTCTGAAACAAAAACCGGTATACATTTTGCATACAGAATTGTTTCTCTTGTACCTAGTAGTCTTAATCACATATATCTACCACAATATTAATACTTAGTAACCTTTATTTTAATAAAAAACCTAGGAAGCAAGAAATCTTGAATTGTCATATAGCAGTATCTTACAGATGAGAATAATTTCATAATTTAGAAATATGTGTTC"
+      },
+      {
+        "id": "chr1:897608-899722",
+        "sequence": "AATAGCTTCTTTAAATTCTTTGAGTAATTTAAAAGGAAAAGGTTCAAATGTAGCTATAATATCTCCCTGTTGATCTGGGGGGTGTATTCTAACAGGGAACTGCCAAGCCTCTAAATCACCCTCTCTTCTAGCTTGCTGAATTCCTGCCTGAATAGAACTAAGAGCAGTCGCTCCAGGCGCTGCTCAGTCACTGGGGCAACTACTTTTCGCCCACAGTCCTCTGGAAAAGAAATACCTGGAGGGTCATTTTCTTCAAAATAATAATGAGGGGGTGCAGAAGGGTAGGGATGAACCTCTCCCTCCTTTGCCGCTTCAGCTTTAGCTGGCAAACAAACCTGGTCTGTAACCTCTTCTGTTACGTCGCTATACTCTCCTTCCTCCTCCTCATCAGTGTGAAAAGGTTCCAAGGTGAAACGAACCAGACCCCACGCCTGTCCCATTGTTACCCTGATGCTTCCGAGCTCCCCTTCTTACTCACCACGGGGATGGCTTTAAGAGTACTCAGGTGTCCTCCAGCTAGTTCCACGTTCTCCAACCGTCGCTCTGGCGACCCTTCGACCTGGATTCGAGCCCCCACGATGGACGCCACTTGCAGAGACCAGCTCGGTCAGGAAGACCCTAACCCAGCGGCACTAGAGGAATTAAAGACACATACACAGAAATACAGAGGTGTGAAGTGGGAAATCAGGGGTCTCACAGCCTTCAGAGCTGACAGCCCCGAACAGAGATTTACCCACATATTTAGTAACAGCAAACCAGTCATTAGCATTGTTTCTATTAACTAAAAGTATCCCTTACGGGAAATGAAGGGATGGGCCGGAATAAAGGGGTGGGTTTGGCTAGTTATCTGCAGCAGGAGCATGCCCTGATGGCACAGATCGCTCATGCTATGTTTGTGGTTTGAGAACGTCTTTCAGCGGTTTTCCACCCTGGGCGGGTCAGGTGTTCCTTGCCCTCATTCCGGTAAACCCACAACCTTCCAGCGTGGGCGTTAGGGCCATTATGAACATGTCACAGTGCTGCAGAGATTTTGTTTATGGCCAGTTTTGTGGCCAGTTTATGGCCAGATTTTGGGGGGCCTGTTCCCAACAGTAACCAATATTAAGTCATTCTCATTTCAACATTTAAACTCTTCCAACTGAATGCATTAAAAAACAAAAGTCACACACCACTGTACCCCTTATATGTACACAGCGGTCGGCAAACATGTGACAGGTGGAGGTCCTGAGGCACCACTGGGAGCTTGTGAGCGGATGGGCGTCTTCCAGAACGCACTCTGCAGGCACTCGGCAACGTGAAGTGTTCACGTCCTGTGATGCAGCCTCTGCTCCAGGCCACTTCCGGAACTGCGAGGGAACAGCTGTGGGCGCGCTCATTTCAGCTTTGCTTCAGATCCTGGGAGTTGGGGGCACCTTCTTTTTTTTTTTTTTTTTTTTTAGACGGAGTCTTGCTCTGTCACCCAGGCTGGAGTGCAGTGGCGCGATCTCGGCTCACTGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGACTACAGGCGCCCGCCACCGTGCCTGGCTAATTTTTTGTATTTTTAGTACAGACGGGGTTTCACCATGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCATCTCGGCCTCCCATAAAGTGCTGGGATTACAGGCATGAGCCACCGCGCCCGGCTGGGGGCACCTTCTGGCCCACAGTGAGGGAATAAGCAAACCAGAATGGGGGGTGCCTGCACGGAATACTCCTAAGTGCTCAGACACGGCGTCCACAGATGGATCCAAATCAGTGCTGGATGACGGGCACTCACCCCAGGTCTGCAGTCCAATAACACGGGCCTGAGCAGAAAGCACGTGGCATGGAGCCCCGTGGCAGATATGGGGACGAGCGGCCAATACATCAGCTCAGGTGTCCGAGGGGTTTCAGGGACATGAGAGAGAGTGGGGAACGAAGGGGGAAATCGCTTGGAGACCCAGGACGAGCCTGGCACACCAGGATGCTGATTCTGAAAGGGCGATTAAGGAGATTCCATGTTTTAAAAATCTGGATTTCTGGCTTCTTCTGAAAAAAATC"
+      },
+      {
+        "id": "chr1:898453-900567",
+        "sequence": "ATCTGCAGCAGGAGCATGCCCTGATGGCACAGATCGCTCATGCTATGTTTGTGGTTTGAGAACGTCTTTCAGCGGTTTTCCACCCTGGGCGGGTCAGGTGTTCCTTGCCCTCATTCCGGTAAACCCACAACCTTCCAGCGTGGGCGTTAGGGCCATTATGAACATGTCACAGTGCTGCAGAGATTTTGTTTATGGCCAGTTTTGTGGCCAGTTTATGGCCAGATTTTGGGGGGCCTGTTCCCAACAGTAACCAATATTAAGTCATTCTCATTTCAACATTTAAACTCTTCCAACTGAATGCATTAAAAAACAAAAGTCACACACCACTGTACCCCTTATATGTACACAGCGGTCGGCAAACATGTGACAGGTGGAGGTCCTGAGGCACCACTGGGAGCTTGTGAGCGGATGGGCGTCTTCCAGAACGCACTCTGCAGGCACTCGGCAACGTGAAGTGTTCACGTCCTGTGATGCAGCCTCTGCTCCAGGCCACTTCCGGAACTGCGAGGGAACAGCTGTGGGCGCGCTCATTTCAGCTTTGCTTCAGATCCTGGGAGTTGGGGGCACCTTCTTTTTTTTTTTTTTTTTTTTTAGACGGAGTCTTGCTCTGTCACCCAGGCTGGAGTGCAGTGGCGCGATCTCGGCTCACTGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGACTACAGGCGCCCGCCACCGTGCCTGGCTAATTTTTTGTATTTTTAGTACAGACGGGGTTTCACCATGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCATCTCGGCCTCCCATAAAGTGCTGGGATTACAGGCATGAGCCACCGCGCCCGGCTGGGGGCACCTTCTGGCCCACAGTGAGGGAATAAGCAAACCAGAATGGGGGGTGCCTGCACGGAATACTCCTAAGTGCTCAGACACGGCGTCCACAGATGGATCCAAATCAGTGCTGGATGACGGGCACTCACCCCAGGTCTGCAGTCCAATAACACGGGCCTGAGCAGAAAGCACGTGGCATGGAGCCCCGTGGCAGATATGGGGACGAGCGGCCAATACATCAGCTCAGGTGTCCGAGGGGTTTCAGGGACATGAGAGAGAGTGGGGAACGAAGGGGGAAATCGCTTGGAGACCCAGGACGAGCCTGGCACACCAGGATGCTGATTCTGAAAGGGCGATTAAGGAGATTCCATGTTTTAAAAATCTGGATTTCTGGCTTCTTCTGAAAAAAATCAGAAGATGTTTAGCACAACAGCGTGGCATCGTCAGCTGTACTCCTGCCCCACTGTCCCCCAGGGAGCCTGGCTCATCCCATGGCTCACAGAGGCCCACACTGTGGCCAGACAGGTCCACTGATGGCTCAGCACGTGCACCCCGGCTGCAGGGAGATGGGTACCAGCCCAGGAAGTGGGACACTGGCTGAAACAGGATGGGATGCAGGGATGGGGTGGGATGGGAGACCAAACCAGTGTGAGGAATGAGGATAAAGGAGATGCTGGAGATAAAATCTGGGCAAGTAAGCAGGGGGTGGTCCTGCTGGCTGAGGCCAGAGATGCCAGCCCACTCAGACTCCTGCGCTGGCCCTTCCACACCATCCCAGGCCCAAGGCCTCCCACACACAGCGTCACATACACAAACAGCACCCTCCTCATGGCAACAGGTGACCCTGCCCCTTCACAGACCTCCCTGCCCCCACAGTCACCCCACATTTTAAAGGGAACTTGAGTCCATCCTGATATGTAAACGTGAGGTTAAATATCTATCATGGGGGAGAACAGACAAATCTCCAGTGCAGAATAGTTCTAAATAACCTAAGTGGAGGCTCCACTCTTGAGGAGATCCAGCCTAACTCCCCACCTCTCCAACGCGGCTCATCGCAGCGACCTCCTTCTTCCAACGTGGCTCATCGCAGTGACCTCCTTCTCAGGAGTGCAGAGTGGAGGTCAGTGGTGGAGTGAAGACGGACCAGGGTTAACATCGGCAGTGATCACTTGACCTCTGCACACTTGACTCTGGGTCTTTCTCCCCAAAAAAAACCAGAACCTCAGTATAATCGTGAGGAAAATAGACAAATCCTAA"
+      },
+      {
+        "id": "chr1:899053-901167",
+        "sequence": "TCTTGCTCTGTCACCCAGGCTGGAGTGCAGTGGCGCGATCTCGGCTCACTGCAAGCTCCGCCTCCCGGGTTCACGCCATTCTCCTGCCTCAGCCTCCCGAGTAGCTGGGACTACAGGCGCCCGCCACCGTGCCTGGCTAATTTTTTGTATTTTTAGTACAGACGGGGTTTCACCATGTTAGCCAGGATGGTCTCGATCTCCTGACCTCGTGATCCGCCCATCTCGGCCTCCCATAAAGTGCTGGGATTACAGGCATGAGCCACCGCGCCCGGCTGGGGGCACCTTCTGGCCCACAGTGAGGGAATAAGCAAACCAGAATGGGGGGTGCCTGCACGGAATACTCCTAAGTGCTCAGACACGGCGTCCACAGATGGATCCAAATCAGTGCTGGATGACGGGCACTCACCCCAGGTCTGCAGTCCAATAACACGGGCCTGAGCAGAAAGCACGTGGCATGGAGCCCCGTGGCAGATATGGGGACGAGCGGCCAATACATCAGCTCAGGTGTCCGAGGGGTTTCAGGGACATGAGAGAGAGTGGGGAACGAAGGGGGAAATCGCTTGGAGACCCAGGACGAGCCTGGCACACCAGGATGCTGATTCTGAAAGGGCGATTAAGGAGATTCCATGTTTTAAAAATCTGGATTTCTGGCTTCTTCTGAAAAAAATCAGAAGATGTTTAGCACAACAGCGTGGCATCGTCAGCTGTACTCCTGCCCCACTGTCCCCCAGGGAGCCTGGCTCATCCCATGGCTCACAGAGGCCCACACTGTGGCCAGACAGGTCCACTGATGGCTCAGCACGTGCACCCCGGCTGCAGGGAGATGGGTACCAGCCCAGGAAGTGGGACACTGGCTGAAACAGGATGGGATGCAGGGATGGGGTGGGATGGGAGACCAAACCAGTGTGAGGAATGAGGATAAAGGAGATGCTGGAGATAAAATCTGGGCAAGTAAGCAGGGGGTGGTCCTGCTGGCTGAGGCCAGAGATGCCAGCCCACTCAGACTCCTGCGCTGGCCCTTCCACACCATCCCAGGCCCAAGGCCTCCCACACACAGCGTCACATACACAAACAGCACCCTCCTCATGGCAACAGGTGACCCTGCCCCTTCACAGACCTCCCTGCCCCCACAGTCACCCCACATTTTAAAGGGAACTTGAGTCCATCCTGATATGTAAACGTGAGGTTAAATATCTATCATGGGGGAGAACAGACAAATCTCCAGTGCAGAATAGTTCTAAATAACCTAAGTGGAGGCTCCACTCTTGAGGAGATCCAGCCTAACTCCCCACCTCTCCAACGCGGCTCATCGCAGCGACCTCCTTCTTCCAACGTGGCTCATCGCAGTGACCTCCTTCTCAGGAGTGCAGAGTGGAGGTCAGTGGTGGAGTGAAGACGGACCAGGGTTAACATCGGCAGTGATCACTTGACCTCTGCACACTTGACTCTGGGTCTTTCTCCCCAAAAAAAACCAGAACCTCAGTATAATCGTGAGGAAAATAGACAAATCCTAATTGAGGGACATTCTCCAAAATACCTGACTGGCCCTCCTCAAAACTGCCAAGGTCATGGAAAAAGGAAAGTCTGAAAAACTCACAGTTTAGGAACCTAAAGAGACTTGATTACTAAATGGAATATATCCTGGGATCCTGGAAAAGAAAAGGACATTATGTAAAAACTAAGAAAACCTGAATAAAATGTGGCCTTTAGTTAATAAGAATCCATCAATATTGGTGCATTCGTTGTAACAAGTAGTTGTAACAAGTGCCACGCTAATGTAACACGTTAGTACCAGCGTAACTGGGTGCCAGGCGTTTGTAAACTCTGTTCCGTCTTCTCAATTGTTTTGTGAATCTAAAACCGTTCTTTAAAAAGAGTTTATTTAGTAGGCTGGGCATGGTGGCTCACACCTGCAATCCCAGCACTTGGGAAGGCCAAGACTGGTGGATCACTTGAGCTCAGGAGTTGGAGACATGCCTAGGTAACATGGCAAAACCCCATCTCTACTAAAAATACAAAAATTAGCCAGGTGTGGTGGCGCACACCTGTAGTCGCAGCCACTTGGGAGGTTGAGGTGGGAGGATCGCTGGAGCCTCGGAGGTCGAGGTGGTAGT"
+      },
+      {
+        "id": "chr1:900820-902934",
+        "sequence": "CCACGCTAATGTAACACGTTAGTACCAGCGTAACTGGGTGCCAGGCGTTTGTAAACTCTGTTCCGTCTTCTCAATTGTTTTGTGAATCTAAAACCGTTCTTTAAAAAGAGTTTATTTAGTAGGCTGGGCATGGTGGCTCACACCTGCAATCCCAGCACTTGGGAAGGCCAAGACTGGTGGATCACTTGAGCTCAGGAGTTGGAGACATGCCTAGGTAACATGGCAAAACCCCATCTCTACTAAAAATACAAAAATTAGCCAGGTGTGGTGGCGCACACCTGTAGTCGCAGCCACTTGGGAGGTTGAGGTGGGAGGATCGCTGGAGCCTCGGAGGTCGAGGTGGTAGTGAGCCAAGATTGCACCACTGCACTCCAGCCCGGGCAACCAGAGTGAAACGCTGTGTCCAAAAAATAAAAAAAGAGTGTATGTAAAGTGAAAACAGAGAGAGTACAAGAAAAGAGGGAAACCAGGGGCTCAGTGGAGGTGGGCAGGGGCTGGTCCATGTGCATTCAGCCCACCTGGTTGGCAGCTGCCCAGGTGTCTCCTCAGGTGTCGGAACAGGAGTTTCTTCCACAGCCTTCAGTTTGCTCAGGTGGGCATGTGGCGATGGCAGACCCTTGGGCTGTGAGAAACTATGTTGCTGTTTTATCCAAGTCTTCACAGACCAAAGACGGGGCTTTGCCCAGAGGAGGCCTTGAGAAGCCAGGCTGGAGTTTGTGGAGAGAGTGTGTGTCACTCACAGGACATATGACGCATTTGCAACATGCGTTCTCAAAGTGGGAGCCACAGCAGTGTTCGTTTTACTATTGCTGGGCCTGTAAATGGAGCGTTTTATCTTTTTCGTCAGCTGGTTCATTGAACAAGTGTTTACAGAGCACCTGCTAGGCAAATCCATCGTGACAGAGACTCGGTGTGCCCCCAAGGAGCTCACAGTCTAGCGGTAAAGATGGTGCATAAACTCCCTGACACTCAGGGTGGCAACAGCCACCCCACCTGCTCCTCCCTTTCCTAATGCCCACACGGAGCAGACACTCGAGGGCTGCTTTTAGGAGTGCTGACTACATGCTTCCCTACCTCCATGTAGGCATGTGTGTACACAAGCGTGTCCTGTTTTCACCTTTTCACAAAACTATGTCAAAAGTGAAACATTTTGGAATACATTTCCAGTTATGCAAAATGTTTAAAATATGAATTTCTTCGGTTAACACAAATTAGGCATGAAATGTAGGCAACCCTGTTTACCAAGAAACATCAGGGTGCGGTGTGGGTCTGGGAGGTGCCCATGAGCACCTCATCTTGAGGCCAGTCTTCATGCTAGACCCTGGGTGGAGAGAGCGAGGCGGCTGGAGGTGGGTGTGTGACACCAGGTGACTTAGCGGCCCCAGGAGGGTGACTTCCCCTCCGGAGGTGCCATGCGACTGTACAGCTCAGGAGCACTCGGGGTCACCTACAGGAGGGGCAACTCCTGGGTGTCTCCCAACAGAGCCCAAAACCTGGAAGTGGACAGAGCACCCCCCGCTCATCTCCTGGGCCCTCGTCTCAGAGGAAGGACGGCCATTCTGGCCAACACTGACCAATGCTCCAGCCCACACTGCCCTGCACTGCCTAGAAGGAGAACCTAGGCTGGGCTCCCAGACAGGAGAGAGGGGTGCGTTTGTGGGGCTAATTAATAGTAATAATAGGCCGGGAGCGGTGGCTCATGCCTGTAATCCCAGCACTTTGGGAGGCCGAGGTGGGTGGATCACCTTAGCTCAGGAGTTCAAGACCAGCCTGGCCAACATGGTGAAACCCCGTCTAAAAATGCAAAAAAACTAGCTGGGCGTGGTGGTGCCTGTAGTCCCAGCTACTCGGGAGGCTGAGACAGAATCACATGAACCCGGGAGGCGGAGCTTGCAGTGAGCCGAGATCGCGCCATTGCACCCAGCCTGGGCAACCAGAGTGAAACTCTGTCTCAAAAAAAAAAAAAAATCGTCATAATAATAATCCCCCCTCACCTGAGTTCTGGGAGGTCAATCCAGGTTCAAGATTCCTCCTTTGAAAGGTAGACTGGATTTGGATACAGAGGGTGCCCATGCGTGAGGGGACGAGGGGGCCCGGGATGCGGGTCCGTGTGA"
+      },
+      {
+        "id": "chr1:901991-904105",
+        "sequence": "GCAAAATGTTTAAAATATGAATTTCTTCGGTTAACACAAATTAGGCATGAAATGTAGGCAACCCTGTTTACCAAGAAACATCAGGGTGCGGTGTGGGTCTGGGAGGTGCCCATGAGCACCTCATCTTGAGGCCAGTCTTCATGCTAGACCCTGGGTGGAGAGAGCGAGGCGGCTGGAGGTGGGTGTGTGACACCAGGTGACTTAGCGGCCCCAGGAGGGTGACTTCCCCTCCGGAGGTGCCATGCGACTGTACAGCTCAGGAGCACTCGGGGTCACCTACAGGAGGGGCAACTCCTGGGTGTCTCCCAACAGAGCCCAAAACCTGGAAGTGGACAGAGCACCCCCCGCTCATCTCCTGGGCCCTCGTCTCAGAGGAAGGACGGCCATTCTGGCCAACACTGACCAATGCTCCAGCCCACACTGCCCTGCACTGCCTAGAAGGAGAACCTAGGCTGGGCTCCCAGACAGGAGAGAGGGGTGCGTTTGTGGGGCTAATTAATAGTAATAATAGGCCGGGAGCGGTGGCTCATGCCTGTAATCCCAGCACTTTGGGAGGCCGAGGTGGGTGGATCACCTTAGCTCAGGAGTTCAAGACCAGCCTGGCCAACATGGTGAAACCCCGTCTAAAAATGCAAAAAAACTAGCTGGGCGTGGTGGTGCCTGTAGTCCCAGCTACTCGGGAGGCTGAGACAGAATCACATGAACCCGGGAGGCGGAGCTTGCAGTGAGCCGAGATCGCGCCATTGCACCCAGCCTGGGCAACCAGAGTGAAACTCTGTCTCAAAAAAAAAAAAAAATCGTCATAATAATAATCCCCCCTCACCTGAGTTCTGGGAGGTCAATCCAGGTTCAAGATTCCTCCTTTGAAAGGTAGACTGGATTTGGATACAGAGGGTGCCCATGCGTGAGGGGACGAGGGGGCCCGGGATGCGGGTCCGTGTGAGGGGCTGAAGAGTTGCCCCTGTGCTAGTCAGTGCCGCCGCCATAACCGAGCCCCGCCGGCTGCGCGGCGTCTTCAGCAAGCGTTTATTTGCTAATTCTGGGGGCTGGAGGTCCGCGGTCACGGTGTCCACAGACTGACTTCTCCAGAGGCCTCTCCTTGGCTTGTGGACACCGTCTTCTCCCTAAATCCTCATCTCCTCTTCTTATACATTGTATCAGGGCCCGCCCCATGACCCCATTTCACCTTAATCGCCTCGTTAAAGACCCCATCTCCAAACAACCATATTCTGAGGTCCTGGGGGTTAGGGCCTCAGCACAGGAATTTGGGGCGGGGGGACACACACTCTGACTTCGCACCACCTCCCCACCACTGCGTGGTGTGTGCTGCGGTTTAGCTTGTGTGACTGTGATCTTTTTCGTCAACTGGTTCATTGAACAAGTGTTCAACGGGCCCTCTAAGAAAGTAATTAACGTCAAATGAGGCCCTAAGGGTGGGGCCCTGATCTGATAGAATTCGTGTCCTTATAAAAGAGGCACCAGAGCACCCACTCCCTGTCTCCGACGTGTGGGGACAGAACAGGCGGCCATCTGCAAGCCAGGTAAGAGCCCTCGCCAGGAAAGGCCCAGCTCACACCTTGACCCTGGACTTCCAGCCCCTAGAACTGTGAGAAAATTAATTTCTGTTTAACCTACCCAGTCTGTGGTACAGTCATCTCTCAGTATCTGTGGGGCACTGATTCCAGGATCCCCACAGATACCAAAATCCACAGATGTTCAAGTCCCCCAGTGAGCCGTCTGCATCCATGGAGGCAGCCCCAGCCTTGGAGACCGACTGTGTTTCCTTAGGGCAGCCCTAGGCGCAGCGGTGCAAGGAGAGCCACATTTACCCCTGGCGCTGCACGGCCCTGAGGCTGGGCAAGGCTGTCCACCCCGCTGTCAGAACCCCAGCAGGGAAGGTGTCCAGAAGGCAGTCCTGGGAACCCTGCACAGAGGCCCAGCGGGCACAAGGTTGGGGCAGCTCTGTTCCCAGCAGGCCGAGCCCGGGTGGCTGGAGAGGGAGCTCTGGAAGGTCAGCCTAGGGGCCGTCGGCCCCTGCAGACCCTGTGCCCAGCCCAGCATCCCGGGGAGCTCCCTCCACATGCTCATCTCACGAGGTTCCTGCTGCACTCAGA"
+      }
+    ],
+    "matrices": [
+      {
+        "format": "JASPAR PFM",
+        "matrix": [
+          [
+            1.0,
+            18.0,
+            1.0,
+            18.0,
+            18.0,
+            18.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          [
+            18.0,
+            1.0,
+            18.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        ],
+        "name": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "width": 6
+      }
+    ],
+    "method": "DNA log2-odds scoring on both strands. Relative scores span each strand matrix\u2019s theoretical minimum and maximum; thresholds are not p-values.",
+    "motifs": [
+      {
+        "format": "JASPAR PFM",
+        "hits": 244,
+        "information_bits": 5.808481494442816,
+        "name": "DEMO_AT_RICH Synthetic_AT_pattern",
+        "skipped_unknown_windows": 0,
+        "width": 6
+      }
+    ],
+    "records": 10,
+    "runtime_s": 0.007,
+    "settings": {
+      "background_ACGT": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "relative_threshold": 0.8,
+      "smoothing_weight": 0.1
+    },
+    "workflow": "pwm-scan"
+  }
+}</pre></details><footer>Generated from a saved numerical run. Model predictions and exploratory analyses require independent biological validation.</footer></body></html>

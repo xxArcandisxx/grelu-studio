@@ -1,0 +1,116 @@
+{
+  "created_utc": "2026-11-22T11:53:19.604050+00:00",
+  "seed": 20261122,
+  "source_metrics_sha256": "21eeaead367a632ff57781cd078d0e30ebe87fa3d398b92956311e344625d7de",
+  "leakage": {
+    "training_regions": 390473,
+    "validation_regions": 21987,
+    "test_regions": 22595,
+    "all_500_in_original_chr11_test_set": true,
+    "training_coordinate_overlap": 0,
+    "exact_training_sequence_matches_including_reverse_complements": [],
+    "near_duplicate_homology_audit": "NOT performed; exact-match and chromosome checks cannot exclude all homology leakage.",
+    "variant_split": "External association benchmark; loci can overlap training chromosomes. No hg19-to-hg38 locus overlap/liftover audit performed.",
+    "checkpoint_training_provenance": "Published chromosome split reconstructed; original training execution was not independently audited."
+  },
+  "fairness": {
+    "same_1000_variant_ids_labels_and_baseline_scores_verified": true,
+    "positives": 16,
+    "controls": 984,
+    "positive_fraction": 0.016,
+    "model_ap": 0.31954299519812057,
+    "gkmsvm_ap": 0.26327585277820176,
+    "ap_difference": 0.056267142419918814,
+    "baseline_limit": "Supplied published gkmSVM scores; its training/tuning history not re-audited. Same-row scoring fairness does not prove equal training exposure."
+  },
+  "dnase_baselines": {
+    "training_label_sample": 5000,
+    "training_only_mean": 4.219563204199075,
+    "model_mse": 0.570838535045015,
+    "training_sample_mean_mse": 1.4613741091402632,
+    "model_mse_reduction_vs_training_sample_mean": 0.6093823398986838,
+    "test_mean_oracle_mse": 1.4603513169157099,
+    "oracle_limit": "Test-mean baseline uses test outcomes; descriptive best possible constant, not a deployable fitted baseline."
+  },
+  "uncertainty": {
+    "replicates_requested": 2000,
+    "method": "Paired grouped percentile bootstrap, 95% intervals; approximate and conditional on existing samples.",
+    "dnase_groups": "1 Mb genomic blocks by interval start",
+    "dnase_group_count": 117,
+    "variant_groups": "whole chromosomes",
+    "variant_group_count": 22,
+    "variant_valid_replicates": 2000,
+    "dnase_95_percent_intervals": {
+      "Pearson": [
+        0.7007405519721077,
+        0.8527137384832262
+      ],
+      "Spearman": [
+        0.7280146659898377,
+        0.8252020504607774
+      ],
+      "MSE": [
+        0.395188507883699,
+        0.7937217600592067
+      ],
+      "mean_baseline_mse_minus_model_mse": [
+        0.6685362436682518,
+        1.1374019799447246
+      ]
+    },
+    "variant_95_percent_intervals": {
+      "model_AP": [
+        0.10968703708099228,
+        0.5568480001425694
+      ],
+      "AUROC": [
+        0.7274960768834801,
+        0.9347823188591465
+      ],
+      "gkmSVM_AP": [
+        0.04584933727823259,
+        0.5524461784323446
+      ],
+      "paired_AP_difference": [
+        -0.07658035384419115,
+        0.20226949135631242
+      ]
+    },
+    "limits": "Few variant positives, only one DNase chromosome, approximate block choice, and limited chromosome groups. Resampling is not a new independent dataset or a retrained-model comparison."
+  },
+  "random_ranking": {
+    "simulations": 2000,
+    "mean_AP": 0.022737803761805814,
+    "AP_95_percent_reference_range": [
+      0.012337372724248305,
+      0.06227903474954252
+    ]
+  },
+  "variant_top_k": {
+    "5": {
+      "positives": 4,
+      "precision": 0.8,
+      "recall": 0.25
+    },
+    "10": {
+      "positives": 4,
+      "precision": 0.4,
+      "recall": 0.25
+    },
+    "25": {
+      "positives": 4,
+      "precision": 0.16,
+      "recall": 0.25
+    },
+    "50": {
+      "positives": 6,
+      "precision": 0.12,
+      "recall": 0.375
+    },
+    "100": {
+      "positives": 10,
+      "precision": 0.1,
+      "recall": 0.625
+    }
+  }
+}

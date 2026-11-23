@@ -1,0 +1,30 @@
+[
+  {
+    "tensor_mask": [
+      [
+        false
+      ]
+    ],
+    "operator_index": 0,
+    "numpy_converted_dtype": "bool",
+    "numpy_converted_mask": [
+      [
+        false
+      ]
+    ]
+  },
+  {
+    "tensor_mask": [
+      [
+        true
+      ]
+    ],
+    "operator_index": 1,
+    "numpy_converted_dtype": "bool",
+    "numpy_converted_mask": [
+      [
+        true
+      ]
+    ]
+  }
+]

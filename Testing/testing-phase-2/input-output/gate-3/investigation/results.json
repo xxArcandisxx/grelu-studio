@@ -1,0 +1,1690 @@
+{
+  "recommendation": "SAFE TO PROCEED WITH DOCUMENTED LIMITATIONS",
+  "review_required_before_gate4": true,
+  "gate4_started": false,
+  "original_gate3": {
+    "path": "Testing/testing-phase-2/input-output/gate-3/runs/20261122T142625611276Z/results.json",
+    "sha256": "d7fa4e650156928c6d182d839952e19bd3f049fe878ea6a8ce6ed87242d5cdb5",
+    "status": "FAIL",
+    "counts": {
+      "PASS": 150,
+      "FAIL": 5,
+      "SKIP": 8,
+      "BLOCKED": 0
+    }
+  },
+  "required_website_preprocessing": {
+    "counts": {
+      "PASS": 148,
+      "FAIL": 0,
+      "SKIP": 8,
+      "BLOCKED": 0
+    },
+    "basis": "Explicit classification of original saved checks; not a new tensor-suite run. All statuses preserved.",
+    "checks": [
+      {
+        "id": "short_A_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_A_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_A_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_A_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_A_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_A.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "short_C_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_C_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_C_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_C_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_C_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_C.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "short_G_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_G_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_G_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_G_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_G_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_G.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "short_T_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_T_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_T_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_T_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_T_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_T.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "short_N_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_N_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_N_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_N_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_N_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_N.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "short_ACGTN_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_ACGTN_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_ACGTN_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_ACGTN_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_ACGTN_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_ACGTN.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "short_GANTCTNNAG_native",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_GANTCTNNAG_native/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_GANTCTNNAG_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Literal A/C/G/T channel vectors and N zero vector checked against actual encoded values.",
+        "evidence": [
+          "captures/short_GANTCTNNAG_builtin/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "short_GANTCTNNAG_indices",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual integer values and int8 dtype checked independently.",
+        "evidence": [
+          "integer-roundtrip/short_GANTCTNNAG.json"
+        ],
+        "workflow": "native integer"
+      },
+      {
+        "id": "lowercase_after_normalization",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual Gate 2 normalization precedes native encoding; expected uppercase DNA is literal.",
+        "evidence": [
+          "captures/lowercase_after_normalization/comparison.json"
+        ],
+        "workflow": "short encoders"
+      },
+      {
+        "id": "encoder_reject_'X'",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Malformed DNA must raise before numerical encoding, not turn into zero/N columns.",
+        "evidence": [
+          "invalid_29.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "encoder_reject_'A!'",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Malformed DNA must raise before numerical encoding, not turn into zero/N columns.",
+        "evidence": [
+          "invalid_30.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "encoder_reject_'A1'",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Malformed DNA must raise before numerical encoding, not turn into zero/N columns.",
+        "evidence": [
+          "invalid_31.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "encoder_reject_'\uff21'",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Malformed DNA must raise before numerical encoding, not turn into zero/N columns.",
+        "evidence": [
+          "invalid_32.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "encoder_reject_''",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Malformed DNA must raise before numerical encoding, not turn into zero/N columns.",
+        "evidence": [
+          "invalid_33.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "invalid_batch_size_0",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Reject invalid batch configuration instead of defaulting or dropping records.",
+        "evidence": [
+          "bad_batch_34.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "invalid_batch_size_-1",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Reject invalid batch configuration instead of defaulting or dropping records.",
+        "evidence": [
+          "bad_batch_35.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "invalid_batch_size_True",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Reject invalid batch configuration instead of defaulting or dropping records.",
+        "evidence": [
+          "bad_batch_36.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "invalid_batch_size_1.5",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Reject invalid batch configuration instead of defaulting or dropping records.",
+        "evidence": [
+          "bad_batch_37.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "GM12878_single_grelu",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_single_grelu/comparison.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "GM12878_three_grelu",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_three_grelu/comparison.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "GM12878_batches_grelu_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_batches_grelu_0/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "GM12878_batches_grelu_1",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_batches_grelu_1/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "GM12878_batches_grelu_2",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_batches_grelu_2/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_schedule_grelu",
+        "status": "PASS",
+        "kind": "batch invariant",
+        "explanation": "All five IDs covered exactly once, batches 2/2/1, with exact captured tensors for each actual chunk.",
+        "evidence": [
+          "batch-manifest-grelu.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_size_one_grelu_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/batch_size_one_grelu_0/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_size_one_grelu_1",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/batch_size_one_grelu_1/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_size_one_grelu_2",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/batch_size_one_grelu_2/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "GM12878_single_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_single_builtin/comparison.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "GM12878_three_builtin",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_three_builtin/comparison.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "GM12878_batches_builtin_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_batches_builtin_0/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "GM12878_batches_builtin_1",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_batches_builtin_1/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "GM12878_batches_builtin_2",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/GM12878_batches_builtin_2/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_schedule_builtin",
+        "status": "PASS",
+        "kind": "batch invariant",
+        "explanation": "All five IDs covered exactly once, batches 2/2/1, with exact captured tensors for each actual chunk.",
+        "evidence": [
+          "batch-manifest-builtin.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_size_one_builtin_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/batch_size_one_builtin_0/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_size_one_builtin_1",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/batch_size_one_builtin_1/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "batch_size_one_builtin_2",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/batch_size_one_builtin_2/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "duplicate_DNA_distinct_ids",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/duplicate_DNA_distinct_ids/comparison.json"
+        ],
+        "workflow": "batch preprocessing"
+      },
+      {
+        "id": "deterministic_a",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/deterministic_a/comparison.json"
+        ],
+        "workflow": "determinism"
+      },
+      {
+        "id": "deterministic_b",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/deterministic_b/comparison.json"
+        ],
+        "workflow": "determinism"
+      },
+      {
+        "id": "deterministic_no_augmentation",
+        "status": "PASS",
+        "kind": "tensor invariant",
+        "explanation": "Repeated tensor captures agree; actual inference path never calls Augmenter despite training metadata settings.",
+        "evidence": [
+          "augmentation.json",
+          "captures/deterministic_a/comparison.json",
+          "captures/deterministic_b/comparison.json"
+        ],
+        "workflow": "determinism"
+      },
+      {
+        "id": "reverse_complement",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/reverse_complement/comparison.json"
+        ],
+        "workflow": "reverse complement"
+      },
+      {
+        "id": "gradient_input_encoding",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/gradient_input_encoding/comparison.json"
+        ],
+        "workflow": "attribution"
+      },
+      {
+        "id": "http_prediction_fasta_id_mapping",
+        "status": "PASS",
+        "kind": "record mapping",
+        "explanation": "IDs and DNA order from actual workflow reader map exactly onto captured tensor rows.",
+        "evidence": [
+          "captures/http_prediction_fasta/record-mapping.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_prediction_fasta_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_prediction_fasta/prepared.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_prediction_fasta",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_prediction_fasta/comparison.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_prediction_upload_id_mapping",
+        "status": "PASS",
+        "kind": "record mapping",
+        "explanation": "IDs and DNA order from actual workflow reader map exactly onto captured tensor rows.",
+        "evidence": [
+          "captures/http_prediction_upload/record-mapping.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_prediction_upload_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_prediction_upload/prepared.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_prediction_upload",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_prediction_upload/comparison.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_variant_pair_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_variant_pair/prepared.json"
+        ],
+        "workflow": "/api/compare"
+      },
+      {
+        "id": "http_variant_pair",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_variant_pair/comparison.json"
+        ],
+        "workflow": "/api/compare"
+      },
+      {
+        "id": "http_allele-specific_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_allele-specific/prepared.json"
+        ],
+        "workflow": "/allele-specific"
+      },
+      {
+        "id": "http_allele-specific",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_allele-specific/comparison.json"
+        ],
+        "workflow": "/allele-specific"
+      },
+      {
+        "id": "http_allele-specific_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_allele-specific_remaining_0/prepared.json"
+        ],
+        "workflow": "/allele-specific"
+      },
+      {
+        "id": "http_allele-specific_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_allele-specific_remaining_0/comparison.json"
+        ],
+        "workflow": "/allele-specific"
+      },
+      {
+        "id": "http_prioritize_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_prioritize/prepared.json"
+        ],
+        "workflow": "/prioritize"
+      },
+      {
+        "id": "http_prioritize",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_prioritize/comparison.json"
+        ],
+        "workflow": "/prioritize"
+      },
+      {
+        "id": "http_prioritize_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_prioritize_remaining_0/prepared.json"
+        ],
+        "workflow": "/prioritize"
+      },
+      {
+        "id": "http_prioritize_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_prioritize_remaining_0/comparison.json"
+        ],
+        "workflow": "/prioritize"
+      },
+      {
+        "id": "http_multi-allelic_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_multi-allelic/prepared.json"
+        ],
+        "workflow": "/multi-allelic"
+      },
+      {
+        "id": "http_multi-allelic",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_multi-allelic/comparison.json"
+        ],
+        "workflow": "/multi-allelic"
+      },
+      {
+        "id": "http_multi-allelic_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_multi-allelic_remaining_0/prepared.json"
+        ],
+        "workflow": "/multi-allelic"
+      },
+      {
+        "id": "http_multi-allelic_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_multi-allelic_remaining_0/comparison.json"
+        ],
+        "workflow": "/multi-allelic"
+      },
+      {
+        "id": "http_design_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_design/prepared.json"
+        ],
+        "workflow": "/design"
+      },
+      {
+        "id": "http_design",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_design/comparison.json"
+        ],
+        "workflow": "/design"
+      },
+      {
+        "id": "http_attribution_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_attribution/prepared.json"
+        ],
+        "workflow": "/attribution"
+      },
+      {
+        "id": "http_attribution",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_attribution/comparison.json"
+        ],
+        "workflow": "/attribution"
+      },
+      {
+        "id": "http_mutagenesis_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_mutagenesis/prepared.json"
+        ],
+        "workflow": "/mutagenesis"
+      },
+      {
+        "id": "http_mutagenesis",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_mutagenesis/comparison.json"
+        ],
+        "workflow": "/mutagenesis"
+      },
+      {
+        "id": "http_variant_csv_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_variant_csv/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "http_variant_csv",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_variant_csv/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "http_variant_csv_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_variant_csv_remaining_0/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "http_variant_csv_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_variant_csv_remaining_0/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/variant_position_1/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/variant_position_1/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/variant_position_1_remaining_0/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/variant_position_1_remaining_0/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1057_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/variant_position_1057/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1057",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/variant_position_1057/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1057_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/variant_position_1057_remaining_0/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_1057_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/variant_position_1057_remaining_0/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_2114_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/variant_position_2114/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_2114",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/variant_position_2114/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_2114_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/variant_position_2114_remaining_0/prepared.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "variant_position_2114_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/variant_position_2114_remaining_0/comparison.json"
+        ],
+        "workflow": "/batch-variants"
+      },
+      {
+        "id": "http_motif_simulation_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_motif_simulation/prepared.json"
+        ],
+        "workflow": "/motif-simulation"
+      },
+      {
+        "id": "http_motif_simulation",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_motif_simulation/comparison.json"
+        ],
+        "workflow": "/motif-simulation"
+      },
+      {
+        "id": "http_motif_simulation_remaining_0_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_motif_simulation_remaining_0/prepared.json"
+        ],
+        "workflow": "/motif-simulation"
+      },
+      {
+        "id": "http_motif_simulation_remaining_0",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_motif_simulation_remaining_0/comparison.json"
+        ],
+        "workflow": "/motif-simulation"
+      },
+      {
+        "id": "http_curated_actb_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_curated_actb/prepared.json"
+        ],
+        "workflow": "/saturation"
+      },
+      {
+        "id": "http_curated_actb",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_curated_actb/comparison.json"
+        ],
+        "workflow": "/saturation"
+      },
+      {
+        "id": "http_curated_gapdh_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_curated_gapdh/prepared.json"
+        ],
+        "workflow": "/saturation"
+      },
+      {
+        "id": "http_curated_gapdh",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_curated_gapdh/comparison.json"
+        ],
+        "workflow": "/saturation"
+      },
+      {
+        "id": "http_reject_invalid",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Real Flask/validation path must reject before tensor/model boundary.",
+        "evidence": [
+          "invalid-rejection.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_reject_duplicate",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Real Flask/validation path must reject before tensor/model boundary.",
+        "evidence": [
+          "duplicate-rejection.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "explicit_transform_offsets_1",
+        "status": "PASS",
+        "kind": "transformation record",
+        "explanation": "Recorded original/final lengths, transformation descriptions and signed crop/padding offsets equal independent rules.",
+        "evidence": [
+          "comparison-prepared-1.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_1_2114_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_1_2114/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_1_2114",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_1_2114/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_1_200_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_1_200/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_1_200",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_1_200/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "explicit_transform_offsets_2113",
+        "status": "PASS",
+        "kind": "transformation record",
+        "explanation": "Recorded original/final lengths, transformation descriptions and signed crop/padding offsets equal independent rules.",
+        "evidence": [
+          "comparison-prepared-2113.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2113_2114_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2113_2114/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2113_2114",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2113_2114/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2113_200_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2113_200/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2113_200",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2113_200/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "explicit_transform_offsets_2114",
+        "status": "PASS",
+        "kind": "transformation record",
+        "explanation": "Recorded original/final lengths, transformation descriptions and signed crop/padding offsets equal independent rules.",
+        "evidence": [
+          "comparison-prepared-2114.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2114_2114_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2114_2114/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2114_2114",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2114_2114/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2114_200_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2114_200/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2114_200",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2114_200/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "explicit_transform_offsets_2115",
+        "status": "PASS",
+        "kind": "transformation record",
+        "explanation": "Recorded original/final lengths, transformation descriptions and signed crop/padding offsets equal independent rules.",
+        "evidence": [
+          "comparison-prepared-2115.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2115_2114_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2115_2114/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2115_2114",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2115_2114/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2115_200_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2115_200/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2115_200",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2115_200/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "explicit_transform_offsets_2117",
+        "status": "PASS",
+        "kind": "transformation record",
+        "explanation": "Recorded original/final lengths, transformation descriptions and signed crop/padding offsets equal independent rules.",
+        "evidence": [
+          "comparison-prepared-2117.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2117_2114_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2117_2114/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2117_2114",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2117_2114/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2117_200_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/comparison_2117_200/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "comparison_2117_200",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/comparison_2117_200/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "strict_window_2113",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Strict policy accepts the verified workflow window and rejects shorter/longer inputs before encoding.",
+        "evidence": [
+          "strict-2113.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "strict_window_2114",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Strict policy accepts the verified workflow window and rejects shorter/longer inputs before encoding.",
+        "evidence": [
+          "strict-2114.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "strict_window_2115",
+        "status": "PASS",
+        "kind": "negative guard",
+        "explanation": "Strict policy accepts the verified workflow window and rejects shorter/longer inputs before encoding.",
+        "evidence": [
+          "strict-2115.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "http_duplicate_dna_id_mapping",
+        "status": "PASS",
+        "kind": "record mapping",
+        "explanation": "IDs and DNA order from actual workflow reader map exactly onto captured tensor rows.",
+        "evidence": [
+          "captures/http_duplicate_dna/record-mapping.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_duplicate_dna_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_duplicate_dna/prepared.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_duplicate_dna",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_duplicate_dna/comparison.json"
+        ],
+        "workflow": "/predict"
+      },
+      {
+        "id": "http_comparison_first_handoff_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_comparison_first_handoff/prepared.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "http_comparison_first_handoff",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_comparison_first_handoff/comparison.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "http_demo_odd_padding_prepared",
+        "status": "PASS",
+        "kind": "preparation",
+        "explanation": "Full actual adapter input strings and order equal independent expected DNA before batching.",
+        "evidence": [
+          "captures/http_demo_odd_padding/prepared.json"
+        ],
+        "workflow": "demo comparison"
+      },
+      {
+        "id": "http_demo_odd_padding",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual forward-input tensor equals independent oracle at every channel/position; see captured arrays and explicit mismatch list.",
+        "evidence": [
+          "captures/http_demo_odd_padding/comparison.json"
+        ],
+        "workflow": "demo comparison"
+      },
+      {
+        "id": "helper_resize_7_5",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual helper center crop/N-padding compared at every base/channel, including odd differences.",
+        "evidence": [
+          "captures/helper_resize_7_5/comparison.json"
+        ],
+        "workflow": "resize helper"
+      },
+      {
+        "id": "helper_resize_4_7",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual helper center crop/N-padding compared at every base/channel, including odd differences.",
+        "evidence": [
+          "captures/helper_resize_4_7/comparison.json"
+        ],
+        "workflow": "resize helper"
+      },
+      {
+        "id": "helper_resize_8_7",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Actual helper center crop/N-padding compared at every base/channel, including odd differences.",
+        "evidence": [
+          "captures/helper_resize_8_7/comparison.json"
+        ],
+        "workflow": "resize helper"
+      },
+      {
+        "id": "no_weighted_model_execution",
+        "status": "PASS",
+        "kind": "safety",
+        "explanation": "Architecture hooks stopped before all convolution/linear bodies.",
+        "evidence": [
+          "safety.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "weights_unchanged",
+        "status": "PASS",
+        "kind": "preservation",
+        "explanation": "Loaded GM12878 tensor bytes and pinned checkpoint SHA-256 unchanged.",
+        "evidence": [
+          "safety.json"
+        ],
+        "workflow": "adapter"
+      },
+      {
+        "id": "sequence_shift",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "No website deterministic inference shift policy exists; training metadata is not an active inference transformation.",
+        "evidence": [
+          "sequence_shift-scope.json"
+        ],
+        "workflow": "augmentation"
+      },
+      {
+        "id": "left_right_crop",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "Website supports center resize, not independent left/right crop policies. No behavior added.",
+        "evidence": [
+          "left_right_crop-scope.json"
+        ],
+        "workflow": "resize"
+      },
+      {
+        "id": "curated_mutant_tensors",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "Mutation generation follows a baseline numerical prediction. Only preset/reference tensor captured; mutation tensors remain PARTIAL.",
+        "evidence": [
+          "curated_mutant_tensors-scope.json"
+        ],
+        "workflow": "/saturation"
+      },
+      {
+        "id": "post_reference_mutagenesis",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "Later scan mutants require the reference score. No fake prediction is returned to advance this branch.",
+        "evidence": [
+          "post_reference_mutagenesis-scope.json"
+        ],
+        "workflow": "/mutagenesis"
+      },
+      {
+        "id": "full_comparison_request",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "Both model-specific prepared paths captured independently; continuous second HTTP handoff requires first prediction, so remains PARTIAL.",
+        "evidence": [
+          "full_comparison_request-scope.json"
+        ],
+        "workflow": "/model-comparison"
+      },
+      {
+        "id": "training_job",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "Jobs and optimizers are not executed. Shared encoding is checked but no full trainer path is certified.",
+        "evidence": [
+          "training_job-scope.json"
+        ],
+        "workflow": "training/fine-tuning"
+      },
+      {
+        "id": "gpu_device",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "Website tested CPU path; CUDA/MPS transfers not run.",
+        "evidence": [
+          "gpu_device-scope.json"
+        ],
+        "workflow": "device"
+      },
+      {
+        "id": "unused_dataset_classes",
+        "status": "SKIP",
+        "kind": "scope",
+        "explanation": "SeqDataset/VariantDataset are not used by these website predict_on_seqs paths; no artificial dataset coverage is claimed.",
+        "evidence": [
+          "unused_dataset_classes-scope.json"
+        ],
+        "workflow": "library datasets"
+      },
+      {
+        "id": "earlier_evidence_preserved",
+        "status": "PASS",
+        "kind": "preservation",
+        "workflow": "preservation",
+        "explanation": "All pre-existing Phase 1/Gate 1/Gate 2 evidence hashes unchanged; new run files are permitted.",
+        "evidence": [
+          "protected-before.json",
+          "protected-after.json"
+        ]
+      }
+    ]
+  },
+  "original_optional_compatibility": {
+    "counts": {
+      "PASS": 2,
+      "FAIL": 5,
+      "SKIP": 0,
+      "BLOCKED": 0
+    },
+    "checks": [
+      {
+        "id": "short_A_roundtrip",
+        "status": "FAIL",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_A.json"
+        ],
+        "workflow": "native optional inverse"
+      },
+      {
+        "id": "short_C_roundtrip",
+        "status": "FAIL",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_C.json"
+        ],
+        "workflow": "native optional inverse"
+      },
+      {
+        "id": "short_G_roundtrip",
+        "status": "FAIL",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_G.json"
+        ],
+        "workflow": "native optional inverse"
+      },
+      {
+        "id": "short_T_roundtrip",
+        "status": "FAIL",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_T.json"
+        ],
+        "workflow": "native optional inverse"
+      },
+      {
+        "id": "short_N_roundtrip",
+        "status": "FAIL",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_N.json"
+        ],
+        "workflow": "native optional inverse"
+      },
+      {
+        "id": "short_ACGTN_roundtrip",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_ACGTN.json"
+        ],
+        "workflow": "native optional inverse"
+      },
+      {
+        "id": "short_GANTCTNNAG_roundtrip",
+        "status": "PASS",
+        "kind": "tensor",
+        "explanation": "Optional installed gReLU inverse conversion checked literally; errors or changed bases are failures. This inverse is not used by website prediction.",
+        "evidence": [
+          "integer-roundtrip/short_GANTCTNNAG.json"
+        ],
+        "workflow": "native optional inverse"
+      }
+    ]
+  },
+  "new_optional_dependency_test": {
+    "path": "standalone-direct/results.json",
+    "sha256": "aff8ea842f6776a3f9c9c05e08f17b3a353e12e723b4dcf07f323636138e24de",
+    "status": "FAIL",
+    "counts": {
+      "PASS": 2,
+      "FAIL": 5,
+      "SKIP": 0,
+      "BLOCKED": 0
+    },
+    "original_statuses_reproduced": true,
+    "all_inputs_supported_and_equal_native_encoder": true
+  },
+  "known_external_dependency_limitation": true,
+  "impact_audit": "USAGE_AUDIT.md",
+  "audit_evidence": "usage-audit.json",
+  "preservation_evidence": "preservation.json",
+  "original_failures_remain_failures": true,
+  "tests_or_production_code_relabelled": false,
+  "no_model_loaded_or_run_in_investigation": true
+}

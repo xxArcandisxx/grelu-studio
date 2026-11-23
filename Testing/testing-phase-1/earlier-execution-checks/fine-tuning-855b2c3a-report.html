@@ -1,0 +1,102 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sequence prediction · gReLU Studio report</title><style>
+:root{font-family:system-ui,sans-serif;color:#243c36;line-height:1.6;background:#f6f8f2}*{box-sizing:border-box}body{max-width:1050px;margin:32px auto;background:white;padding:42px;border:1px solid #dfe5d8;border-radius:12px}h1{font-size:30px;letter-spacing:-1px;margin:12px 0}h2,h3{font-size:16px;margin:25px 0 12px}p{font-size:12px}.eyebrow{font-size:10px;letter-spacing:2px;color:#567649}.report-meta,.report-legend{display:flex;flex-wrap:wrap;gap:20px;font-size:11px;color:#708068}.notice{background:#edf4e4;padding:12px;border:1px solid #dce7d0;border-radius:6px}.report-section{break-inside:avoid;margin:28px 0}.table-scroll{overflow:auto}table{width:100%;border-collapse:collapse;font-size:11px}th,td{padding:9px;text-align:left;border-bottom:1px solid #e4eadf}th{background:#f2f6eb}.model-help{font-size:11px;color:#6a7d61}svg{display:block;width:100%;max-height:300px;margin:14px 0}.metrics{display:flex;gap:15px;flex-wrap:wrap}.metrics>div{background:#f2f6eb;border:1px solid #e0e9d6;border-radius:6px;padding:12px;font-size:11px;min-width:140px}.metrics strong{display:block;font-size:22px}.settings-list{display:grid;grid-template-columns:180px 1fr;font-size:12px;gap:7px}.settings-list dt{color:#667a5d}.settings-list dd{margin:0;overflow-wrap:anywhere}ul{font-size:12px}.sequence-output{white-space:pre-wrap;overflow-wrap:anywhere;font-size:10px;max-height:500px;overflow:auto;background:#f6f8f2;padding:15px}summary{font-size:12px;cursor:pointer}footer{font-size:10px;border-top:1px solid #dfe5d8;padding-top:18px;margin-top:30px;color:#7d8b76}@media print{body{border:0;margin:0;padding:10px;background:white}.print-tip,.record-details{display:none}table{font-size:9px}.report-section{break-inside:avoid}details[open]{display:block}}@media(max-width:650px){body{padding:20px;margin:0}.settings-list{grid-template-columns:1fr}.settings-list dd{margin-bottom:10px}}
+</style></head><body><div class="eyebrow">gReLU STUDIO / ANALYSIS REPORT</div><h1>Sequence prediction</h1><p class="model-help print-tip">Standalone report. Use your browser’s Print command to print or save as PDF.</p><div class="report-meta"><span>RUN 855b2c3a</span><time datetime="2026-11-17T18:27:18+00:00">17 Nov 2026 · 11:57 PM IST</time><span>Predict</span></div>
+<p class="notice">Model: Local trained model · bc852f58</p>
+<details><summary>Model and execution notes</summary><p class="notice">Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions.</p></details>
+
+
+<section class="report-section"><h3>Predicted output bins · ENCFF093VXI</h3><svg viewBox="0 0 600 220" role="img" aria-label="Predicted output bins · ENCFF093VXI"><line x1="70" x2="570" y1="180" y2="180" stroke="#dfe5d8"/><line x1="70" x2="570" y1="25" y2="25" stroke="#dfe5d8"/><text x="2" y="29" font-size="11" fill="#66765c">1.2626</text><text x="2" y="184" font-size="11" fill="#66765c">1.2626</text><polyline points="70.000,100.000" fill="none" stroke="#286c52" stroke-width="2"/><circle cx="70.0" cy="100" r="4" fill="#286c52"/><text x="320" y="212" font-size="11" text-anchor="middle" fill="#66765c">Ordered observations / output bins</text></svg><div class="report-legend"><span style="color:#286c52">● sequence_1</span></div></section>
+<section class="report-section"><h3>Analysis results</h3><div class="table-scroll"><table><thead><tr><th scope="col">Record</th><th scope="col">Track</th><th scope="col">Score</th><th scope="col">Reverse-complement score</th><th scope="col">GC content</th></tr></thead><tbody><tr><td>sequence_1</td><td>ENCFF093VXI</td><td>1.26264</td><td>1.22308</td><td>55.7%</td></tr></tbody></table></div></section><section class="report-section"><h3>Model provenance</h3><div class="table-scroll"><table><thead><tr><th scope="col">Model</th><th scope="col">Checkpoint SHA-256</th><th scope="col">Torch version</th></tr></thead><tbody><tr><td>Local trained model · bc852f58</td><td>21c3aeaa246dd95ec54765ad0deef5ae1b8466f4599cbfd973265a81f077306b</td><td>2.15.0</td></tr></tbody></table></div></section>
+<section class="report-section"><h3>Analysis settings</h3><dl class="settings-list"><dt>N Shuffles</dt><dd>0</dd><dt>Track Bins</dt><dd>100</dd><dt>Seed</dt><dd>0</dd></dl></section>
+<section class="report-section"><h3>Interpretation notes</h3><ul><li>1 sequences, lengths 2114-2114 bp (model expects 2114), mean GC 0.56.</li><li>Needs at least 3 sequences with varying scores.</li><li>These are checks, not proof. Passing them does not show the biology is right.</li></ul></section>
+<details class="record-details"><summary>Complete inputs, provenance, and numerical record</summary><pre class="sequence-output">{
+  "inputs_and_settings": {
+    "fasta": "ACAATCCAGGTCATCCTTCAATATTTGCAGAAAACATCACAAAGAAAACTTGATACTTATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGACATAGGTGGATTTTGCTTTTAAGTAGTAAAGACTTAATTGGTGACTTACTGGGGCTA",
+    "model": "local-bc852f5840fc"
+  },
+  "numerical_result": {
+    "actual_model": "Local trained model \u00b7 bc852f58",
+    "device": "cpu",
+    "evidence": [
+      {
+        "message": "1 sequences, lengths 2114-2114 bp (model expects 2114), mean GC 0.56.",
+        "name": "Input QC",
+        "status": "pass"
+      },
+      {
+        "message": "Needs at least 3 sequences with varying scores.",
+        "name": "Reverse-complement consistency",
+        "status": "info"
+      },
+      {
+        "message": "These are checks, not proof. Passing them does not show the biology is right.",
+        "name": "Scope",
+        "status": "info"
+      }
+    ],
+    "inputs": [
+      {
+        "id": "sequence_1",
+        "sequence": "ACAATCCAGGTCATCCTTCAATATTTGCAGAAAACATCACAAAGAAAACTTGATACTTATACTTAGTTGGAAACTTTATGCCACAGCCATTAAATACAGAGATCATACAAAGGAATAGAGGAAGCTGTTGAATACTAAACTAACTCAAATCATCAATATCCTTACGGAGTGCACACTGAATTAATGTAAAAAGCATTTAGTAAACAAAAAGTATTTTCAATATACAATTAAGACTGAAAAGTATTGAGGCCTCATAAGCTGAACCTGACACAATAAATTTAAAAGGGAAACTAATTTGGAAATCAGAAAACCACTAAGGAATTTGGGAATTAGGCTTCTGCTGCCCTCTCTGCTACTGACGGTCAAGGCCTCCTCATTGTATTCTGTCCTCCATATCTCTGCTGATTCCCATTTTGTCTATTTCCATTTACCCCACTACTGCTTGCTCAGGTCACTCTCCTTCACTGTCGGTGTTTGTTCAAATTCCTCAGACCCATCCACTTCCCATCTAAACTTCCCTCCCCTTTTCTCGCTCGTTGGCTCTACCTCCCTCCTCTCTGTTTTCTCCTCACTCTCCTGCCCCACCTCGACATCCACAGCGAGGCAATGAAGAAGCCCCTGCCAAGGAGGAGCCCGCTTCTCAGTGGGACACCGGGAAGGTAGACACCCAACAGTCACCGCTAGTGGGAGGCGATTGTGCAGAAGCACGAGGGTTGTTACAGGATCGGGCAGGTCCCCTACCCCAGTCTCGGACTCAGGGTCCTGTCTGAGGCGGCCACCCCGAAGCGTGGGGTTTGCGGAGACGTAGGGCCTGGCGGAGGGAAGGACGGGGAAGCATCTCAGGGAGGACTGGCGTCTGCCGAATCCCAGGGCTGCCCTGAGGGGCCAAGAGGGGCGAGGGTGGGGACGATGGAAGACAAGCCACATGCCGAATGGGGACCTGAGGCCGCGCGCGATAGGATGGGCGGACGGTGAAGAGAACTAGGGTGGAAGGGCCGGACAGGGGCGACCTCAGTGACGGAACCGGACACAGACGCAGATCTGGCAGCTGAGCGACAGGCTTCGGAGCATTTCCGGGCGTCGCGGGACTCCCCGCCGACAGGAGGGCGGTTGCCGAGCCTGTGACATCCGCGGAGACCAGCAGACCCCGGGTGTGGAGGACGCCGCAGGGAGGGGACTGCGTGGCTGGGTTTGGCCACAAAAAGCGGAGGGCACTCACCCGAGCGGACCTTGGCTCCGGATAATCCGTTTCCGGGTCAACAAAAAACGTCGCGCGAGGGGCGGGGCGCGTACGTGCAGGGAGGGGAGGCAGAGAAAAAGGCGGGGCCGGGCCGGGCCGGGGCGGGGTCTCGGGCAGGGGCGGGGAGCTTACCGACCTCCCGCCCCCGCTGCGCGCGTTTCTGGCCCTGCCAGTGTCTCCGCCGGTTGAAAGCGCGTGTCTGCGTCGGGTTCTGTTGGAGTGCGTTCGGTGCGCCGTGGGTCCGCGCTGCTTCCACCCAACTTCCTGTTAGGTAAGAGGCGCGTGAGGCTCCTGTGCCGGGGGCGGTGCTGCTCCCGAGTCGGCGCGCGGCGGGGACGCGAGTCCGTAGGTGCTGGCGGGAGCGAGAGTCGGGTGGGGACCCTCGCGAGCCCGCACTCCGCCTCTGGGTAGCAGCCTCTTCGGCCCCACACGGCGTGACGCGCGCTCGGGCTCCGCGTTCGCGTCGAGGCAGAGGCGTAGTAGGGGTCGGGCCCAGGGCTGGAGGGGCCGGGACCGGGCGGGGTGCCGCCCTGGACACCGCGCCGGCAGCTGTTCCGCGCGGGTTCATGTCATTCCTATTTTCAACCTGTCCTGCTCCGCACCTGAGATGATTTATAAATTCGGTACCTTTGGGACAGGCGTGGATGACATCCCATAATTTACTTCGTTATTAATTTCTAAATGTAATACATACCACTCTCTAAAAGTATTTTTTAATTTGAAATATATTTGTATATATGTACATATATATTTATTTATTTCTGAATTTTGTCTCCAGTACATATAATGAGGCTTGTAAAGTGGATAGTGTTCAGGACATAGGTGGATTTTGCTTTTAAGTAGTAAAGACTTAATTGGTGACTTACTGGGGCTA"
+      }
+    ],
+    "model": {
+      "backend": "builtin",
+      "seq_len": 2114,
+      "source": "studio_trained",
+      "tasks": [
+        "ENCFF093VXI"
+      ]
+    },
+    "ok": true,
+    "provenance": {
+      "checkpoint_sha256": "21c3aeaa246dd95ec54765ad0deef5ae1b8466f4599cbfd973265a81f077306b",
+      "model_id": "Local trained model \u00b7 bc852f58",
+      "origin": "training",
+      "torch_version": "2.15.0"
+    },
+    "results": {
+      "predictions": [
+        {
+          "gc_content": 0.5567644276253548,
+          "id": "sequence_1",
+          "length": 2114,
+          "reverse_complement_scores": {
+            "ENCFF093VXI": 1.2230807542800903
+          },
+          "scores": {
+            "ENCFF093VXI": 1.262637972831726
+          },
+          "tracks": {
+            "ENCFF093VXI": [
+              1.2626399993896484
+            ]
+          }
+        }
+      ],
+      "qc": {
+        "length_max": 2114,
+        "length_median": 2114.0,
+        "length_min": 2114,
+        "mean_gc": 0.5567644276253548,
+        "model_input_length": 2114,
+        "n_cropped": 0,
+        "n_invalid_chars": 0,
+        "n_padded": 0,
+        "n_sequences": 1,
+        "n_with_N": 0
+      }
+    },
+    "runtime_s": 3.66,
+    "selected_model": "local-bc852f5840fc",
+    "settings": {
+      "n_shuffles": 0,
+      "seed": 0,
+      "track_bins": 100
+    },
+    "warnings": [
+      "Locally trained checkpoint. Evaluate on independent data before drawing biological conclusions."
+    ],
+    "workflow": "predict"
+  }
+}</pre></details><footer>Generated from a saved numerical run. Model predictions and exploratory analyses require independent biological validation.</footer></body></html>

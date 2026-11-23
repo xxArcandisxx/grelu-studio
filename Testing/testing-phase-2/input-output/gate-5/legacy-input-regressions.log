@@ -1,0 +1,15 @@
+test_hand_calculated_gc_duplicates_lengths_and_unknowns (tests.test_dataset_overview.DatasetOverviewTests.test_hand_calculated_gc_duplicates_lengths_and_unknowns) ... ok
+test_labels_balance_conflicts_and_constant_targets (tests.test_dataset_overview.DatasetOverviewTests.test_labels_balance_conflicts_and_constant_targets) ... ok
+test_invalid_inputs_and_workload_limits (tests.test_dataset_overview.DatasetOverviewTests.test_invalid_inputs_and_workload_limits) ... ok
+test_histograms_preserve_counts_and_degenerate_values_are_json_safe (tests.test_dataset_overview.DatasetOverviewTests.test_histograms_preserve_counts_and_degenerate_values_are_json_safe) ... ok
+test_every_tool_has_non_submitting_load_control_without_download_option (tests.test_example_loading.ExampleLoadingTests.test_every_tool_has_non_submitting_load_control_without_download_option) ... ok
+test_fasta_examples_fit_selected_model_and_pairs_validate (tests.test_example_loading.ExampleLoadingTests.test_fasta_examples_fit_selected_model_and_pairs_validate) ... ok
+test_invalid_model_and_lengths_return_actionable_errors (tests.test_example_loading.ExampleLoadingTests.test_invalid_model_and_lengths_return_actionable_errors) ... ok
+test_loading_all_examples_never_loads_models_or_starts_jobs (tests.test_example_loading.ExampleLoadingTests.test_loading_all_examples_never_loads_models_or_starts_jobs) ... ok
+test_model_comparison_prepares_explicit_length_handling (tests.test_example_loading.ExampleLoadingTests.test_model_comparison_prepares_explicit_length_handling) ... ok
+test_training_and_finetuning_csv_have_correct_lengths_and_real_gc_labels (tests.test_example_loading.ExampleLoadingTests.test_training_and_finetuning_csv_have_correct_lengths_and_real_gc_labels) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.249s
+
+OK

@@ -9,10 +9,17 @@ from flask import Blueprint, abort, current_app, jsonify, redirect, render_templ
 
 from advanced_views import example_sequence, integer
 from lab_compute import motif_analysis, train, training_example, training_rows
-from lab_jobs import job_path, owner, read_job, submit_job, update_job
+from lab_jobs import JobStateError, job_path, owner, read_job, submit_job, update_job
 from model_registry import registrations, remove_registration, save_registration, sync_models
+from core.model_lengths import required_length
 
 lab = Blueprint('lab', __name__)
+
+
+@lab.app_errorhandler(JobStateError)
+def invalid_job_state(error):
+    current_app.logger.exception('Invalid stored job state')
+    return 'Stored job state is unavailable or invalid; no completed result is confirmed. Original data was retained.',500
 
 
 def check_csrf():
@@ -121,7 +128,7 @@ def page(mode):
                         if selected is None:
                             raise ValueError('Choose an installed model.')
                         spec = dict(MODELS[selected])
-                        length = spec['seq_len']
+                        length = required_length(spec)
                         if length > 4096:
                             raise ValueError('CPU fine-tuning accepts model windows up to 4,096 bases.')
                     if 'example' in request.form:
@@ -145,6 +152,8 @@ def page(mode):
 def owned_job(job_id):
     try:
         state = read_job(job_id)
+    except JobStateError:
+        raise
     except ValueError:
         abort(404)
     if not state or state['owner'] != owner():
@@ -172,4 +181,6 @@ def checkpoint(job_id):
     state = owned_job(job_id)
     if state['state'] != 'complete' or not state['result'].get('checkpoint'):
         abort(404)
-    return send_file(job_path(job_id)/'model.pt',as_attachment=True,download_name='grelu-trained-model.pt')
+    path=job_path(job_id)/'model.pt'
+    if not path.is_file():abort(404)
+    return send_file(path,as_attachment=True,download_name='grelu-trained-model.pt')

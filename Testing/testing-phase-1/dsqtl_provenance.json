@@ -1,0 +1,5 @@
+{
+  "checkpoint_sha256": "f266b296f49b4e97e3ac52e94594da0aaae1d467778ea58b421e1ee7c4482bea",
+  "input_sha256": "0fe9dfa789c76965281c5d3b66ba0c0ef4765504d30a6e2f3bfe4234e7eceddb",
+  "protocol": "allele2-minus-allele1; forward/RC mean; absolute effect for ranking"
+}

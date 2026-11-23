@@ -28,6 +28,7 @@ instance/
 *.2bit
 *.bw
 *.bigwig
+*.bigWig
 *.bam
 *.vcf.gz
 
@@ -46,3 +47,9 @@ test-results/
 
 # Optional isolated browser-test tooling (not application dependencies).
 .test-tools/
+
+# Downloaded biological benchmark sources and sequence-containing tables.
+datasets/gm12878/biological/source/
+datasets/gm12878/biological/dnase.csv
+datasets/gm12878/biological/dsqtl.csv
+datasets/gm12878/biological/website-inputs/

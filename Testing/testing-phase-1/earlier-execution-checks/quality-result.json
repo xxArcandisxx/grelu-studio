@@ -1,0 +1,299 @@
+{
+  "case": "quality",
+  "mode": "isolated Flask request integration; no browser",
+  "reference_data": "UCSC hg38 first 10 supplied BED intervals",
+  "source_fasta": "/home/akshadha/Desktop/GRELU-Studio/datasets/gm12878/test_10.fasta",
+  "status": "passed",
+  "limitations": [],
+  "summary": {
+    "all_unknown_records": 0,
+    "duplicate_groups": 0,
+    "duplicate_records": 0,
+    "length_max": 2114,
+    "length_mean": 2114,
+    "length_median": 2114.0,
+    "length_min": 2114,
+    "mean_record_gc_percent": 52.49763481551561,
+    "pooled_gc_percent": 52.49763481551561,
+    "records": 10,
+    "records_with_unknowns": 0,
+    "repeated_identifiers": 0,
+    "total_bases": 21140,
+    "unique_sequences": 10,
+    "unknown_bases": 0
+  },
+  "bed_validation": "Removed from website; source coordinates/lengths were checked by the conversion helper.",
+  "results": [
+    {
+      "actual_model": "Genentech GM12878 DNase",
+      "model": {
+        "checkpoint_sha256": "f266b296f49b4e97e3ac52e94594da0aaae1d467778ea58b421e1ee7c4482bea",
+        "grelu_version": "1.1.0",
+        "model_id": "Genentech GM12878 DNase",
+        "torch_version": "2.15.0"
+      },
+      "records": [
+        {
+          "gc_content": 0.5567644276253548,
+          "id": "chr1:826264-828378",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.5354777672658467,
+          "id": "chr1:864773-866887",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.4621570482497635,
+          "id": "chr1:868853-870967",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.6002838221381268,
+          "id": "chr1:874703-876817",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.4148533585619678,
+          "id": "chr1:889680-891794",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.5165562913907285,
+          "id": "chr1:897608-899722",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.5421002838221382,
+          "id": "chr1:898453-900567",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.5241248817407758,
+          "id": "chr1:899053-901167",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.5264900662251656,
+          "id": "chr1:900820-902934",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        },
+        {
+          "gc_content": 0.5709555345316935,
+          "id": "chr1:901991-904105",
+          "length": 2114,
+          "matches_model_length": true,
+          "unknown": 0
+        }
+      ],
+      "saved_run_id": "7c155b17641b37356da2cd1aeafc63a7",
+      "selected_model": "human"
+    },
+    {
+      "analysis": "dataset",
+      "base_counts": {
+        "A": 5078,
+        "C": 5771,
+        "G": 5327,
+        "N": 0,
+        "T": 4964
+      },
+      "distributions": [
+        {
+          "bins": [
+            {
+              "count": 10,
+              "label": "2114",
+              "width": 100.0
+            }
+          ],
+          "title": "Sequence lengths (bases)"
+        },
+        {
+          "bins": [
+            {
+              "count": 0,
+              "label": "0\u2013<10%",
+              "width": 0.0
+            },
+            {
+              "count": 0,
+              "label": "10\u2013<20%",
+              "width": 0.0
+            },
+            {
+              "count": 0,
+              "label": "20\u2013<30%",
+              "width": 0.0
+            },
+            {
+              "count": 0,
+              "label": "30\u2013<40%",
+              "width": 0.0
+            },
+            {
+              "count": 2,
+              "label": "40\u2013<50%",
+              "width": 28.571428571428573
+            },
+            {
+              "count": 7,
+              "label": "50\u2013<60%",
+              "width": 100.0
+            },
+            {
+              "count": 1,
+              "label": "60\u2013<70%",
+              "width": 14.285714285714286
+            },
+            {
+              "count": 0,
+              "label": "70\u2013<80%",
+              "width": 0.0
+            },
+            {
+              "count": 0,
+              "label": "80\u2013<90%",
+              "width": 0.0
+            },
+            {
+              "count": 0,
+              "label": "90\u2013100%",
+              "width": 0.0
+            }
+          ],
+          "title": "GC content per sequence"
+        }
+      ],
+      "format": "fasta",
+      "labels": null,
+      "method": "Descriptive dataset statistics; no model inference or training. GC excludes unknown N bases.",
+      "metrics": {
+        "Duplicate records": 0,
+        "Sequences": 10,
+        "Total bases": 21140,
+        "Unique sequences": 10
+      },
+      "records": [
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 55.67644276253548,
+          "id": "chr1:826264-828378",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 53.54777672658467,
+          "id": "chr1:864773-866887",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 46.21570482497635,
+          "id": "chr1:868853-870967",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 60.02838221381268,
+          "id": "chr1:874703-876817",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 41.485335856196784,
+          "id": "chr1:889680-891794",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 51.65562913907285,
+          "id": "chr1:897608-899722",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 54.210028382213814,
+          "id": "chr1:898453-900567",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 52.41248817407758,
+          "id": "chr1:899053-901167",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 52.64900662251656,
+          "id": "chr1:900820-902934",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        },
+        {
+          "duplicate_sequence": false,
+          "gc_percent": 57.095553453169344,
+          "id": "chr1:901991-904105",
+          "label": null,
+          "length": 2114,
+          "unknown_bases": 0
+        }
+      ],
+      "saved_run_id": "b689f8f71475c43aa3b5144bceb891c9",
+      "summary": {
+        "all_unknown_records": 0,
+        "duplicate_groups": 0,
+        "duplicate_records": 0,
+        "length_max": 2114,
+        "length_mean": 2114,
+        "length_median": 2114.0,
+        "length_min": 2114,
+        "mean_record_gc_percent": 52.49763481551561,
+        "pooled_gc_percent": 52.49763481551561,
+        "records": 10,
+        "records_with_unknowns": 0,
+        "repeated_identifiers": 0,
+        "total_bases": 21140,
+        "unique_sequences": 10,
+        "unknown_bases": 0
+      },
+      "warnings": []
+    }
+  ],
+  "seconds": 0.53
+}

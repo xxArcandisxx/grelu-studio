@@ -1,19 +1,23 @@
 import numpy as np
+import operator
 
 from core.sequences import fit_with_offset, one_hot
 from core.utils import log, to_py
+from core.model_lengths import length_contract, validate_length, numpy_metadata
 
 
 def _norm3(y, n):
     """Normalize a prediction array to (N, T, L)."""
-    y = np.asarray(y, dtype=np.float32)
-    if y.ndim == 3:
-        return y
+    if isinstance(n, bool) or not isinstance(n, (int, np.integer)) or n <= 0:
+        raise ValueError('Prediction batch count must be a positive integer.')
+    with np.errstate(over='ignore', invalid='ignore'):
+        y = np.asarray(y, dtype=np.float32)
     if y.ndim == 2:
-        return y[:, :, None] if y.shape[0] == n else y[None]
-    if y.ndim == 1:
-        return y[:, None, None]
-    raise ValueError(f"Unexpected prediction shape {y.shape}")
+        y = y[:, :, None] if y.shape[0] == n else y[None]
+    elif y.ndim == 1:
+        y = y[:, None, None]
+    from core.output_processing import prediction_tensor
+    return prediction_tensor(y, n)
 
 
 class ModelAdapter:
@@ -30,7 +34,14 @@ class ModelAdapter:
         self.seq_len = seq_len
         self.task_names = task_names
         self.meta = meta
-        self.batch_size = batch_size or (16 if device != "cpu" else 4)
+        if batch_size is None:
+            batch_size = 16 if device != "cpu" else 4
+        try:
+            if isinstance(batch_size, bool) or operator.index(batch_size) <= 0:
+                raise ValueError
+        except (TypeError, ValueError):
+            raise ValueError('batch_size must be a positive integer.') from None
+        self.batch_size = operator.index(batch_size)
         self.backend = backend
         self.is_grelu = hasattr(module, "predict_on_seqs") and hasattr(module, "data_params")
         self._use_grelu_predict = self.is_grelu and backend == "grelu"
@@ -61,8 +72,8 @@ class ModelAdapter:
 
     def _predict_grelu(self, seqs):
         outs = []
-        for i in range(0, len(seqs), self.batch_size):
-            chunk = [fit_with_offset(s, self.seq_len)[0] for s in seqs[i:i + self.batch_size]]
+        for batch in self.iter_sequence_batches(seqs):
+            chunk = [fit_with_offset(s, self.seq_len)[0] for s in batch]
             y = self.module.predict_on_seqs(chunk, device=self.grelu_device)
             outs.append(_norm3(y, len(chunk)))
         return np.concatenate(outs, axis=0)
@@ -72,13 +83,18 @@ class ModelAdapter:
 
         outs = []
         with torch.inference_mode():
-            for i in range(0, len(seqs), self.batch_size):
-                x = torch.from_numpy(one_hot(seqs[i:i + self.batch_size], self.seq_len)).to(self.device)
+            for batch in self.iter_sequence_batches(seqs):
+                x = torch.from_numpy(one_hot(batch, self.seq_len)).to(self.device)
                 y = self.module(x)
                 if isinstance(y, (tuple, list)):
                     y = y[0]
                 outs.append(_norm3(y.detach().float().cpu().numpy(), x.shape[0]))
         return np.concatenate(outs, axis=0)
+
+    def iter_sequence_batches(self, seqs):
+        """Actual adapter chunking, independently iterable without model outputs."""
+        for start in range(0, len(seqs), self.batch_size):
+            yield seqs[start:start + self.batch_size]
 
     def grad_attribution(self, seqs, tasks, center_bins):
         """Gradient x input (with gradient correction). Returns (N, 4, seq_len);
@@ -86,8 +102,8 @@ class ModelAdapter:
         import torch
 
         outs = []
-        for i in range(0, len(seqs), self.batch_size):
-            x = torch.from_numpy(one_hot(seqs[i:i + self.batch_size], self.seq_len)).to(self.device)
+        for batch in self.iter_sequence_batches(seqs):
+            x = torch.from_numpy(one_hot(batch, self.seq_len)).to(self.device)
             x.requires_grad_(True)
             with torch.enable_grad():
                 y = self.module(x)
@@ -118,7 +134,10 @@ class ModelAdapter:
                 std = float(prm.std()) if prm.numel() > 1 else 1.0
                 noise = torch.randn(prm.shape, generator=gen) * max(std, 1e-3)
                 prm.copy_(noise.to(prm.device))
-        return ModelAdapter(m, self.device, self.seq_len, self.task_names, self.meta, self.batch_size, self.backend)
+        result = ModelAdapter(m, self.device, self.seq_len, self.task_names, self.meta, self.batch_size, self.backend)
+        if hasattr(self, 'length_contract'):
+            result.length_contract = dict(self.length_contract)
+        return result
 
 
 def _build_demo_model(n_tasks, seed):
@@ -139,30 +158,8 @@ def _load_lightning_ckpt(path):
     import torch
 
     # Older gReLU checkpoints include NumPy arrays in their model metadata.
-    numpy_metadata = [
-        np.dtype,
-        np.ndarray,
-        (np._core.multiarray._reconstruct, "numpy.core.multiarray._reconstruct"),
-        np.dtypes.BoolDType,
-        np.dtypes.Float32DType,
-        np.dtypes.Float64DType,
-        np.dtypes.Int32DType,
-        np.dtypes.Int64DType,
-        np.dtypes.ObjectDType,
-        np.dtypes.StrDType,
-    ]
-    with torch.serialization.safe_globals(numpy_metadata):
+    with torch.serialization.safe_globals(numpy_metadata()):
         return LightningModel.load_from_checkpoint(path, map_location="cpu", weights_only=True)
-
-
-def _infer_seq_len(module):
-    dp = getattr(module, "data_params", None)
-    for getter in (lambda d: d["train"]["seq_len"], lambda d: d["train_seq_len"]):
-        try:
-            return int(getter(dp))
-        except Exception:  # noqa: BLE001
-            continue
-    return None
 
 
 def _task_names(module):
@@ -192,6 +189,7 @@ def load_model(spec: dict, device: str, batch_size=None, backend: str = "auto"):
         import torch
         payload = torch.load(spec["path"], map_location="cpu", weights_only=True)
         adapter, _ = load_model(payload["base_model"], device, batch_size, backend="builtin")
+        validate_length(adapter.length_contract, spec.get('seq_len'))
         adapter.module.load_state_dict(payload["state_dict"])
         adapter.module.eval()
         adapter.meta = {**spec, "backend": "builtin"}
@@ -234,11 +232,13 @@ def load_model(spec: dict, device: str, batch_size=None, backend: str = "auto"):
         device = "cpu"
         warnings.append("gReLU functions support only CPU and CUDA GPUs, so the Apple GPU (mps) is not used.")
 
-    seq_len = spec.get("seq_len") or _infer_seq_len(module)
-    if not seq_len:
-        raise ValueError("Could not infer the model input length; pass model.seq_len in params.")
+    contract = validate_length(length_contract(getattr(module, 'data_params', None),
+        getattr(module, 'model_params', None), demo_window=spec.get('seq_len', 200) if source == 'demo' else None),
+        spec.get('seq_len'))
+    seq_len = contract['seq_len']
     names = _task_names(module)
     adapter = ModelAdapter(module, device, int(seq_len), names or [], {**spec, "backend": use}, batch_size, use)
+    adapter.length_contract = contract
     if not names:
         n_tasks = adapter._predict_torch(["N" * int(seq_len)]).shape[1]
         adapter.task_names = [f"task_{i}" for i in range(n_tasks)]
@@ -250,6 +250,8 @@ def model_card(adapter) -> dict:
     card = {"backend": adapter.backend, "device": adapter.device, "seq_len": adapter.seq_len,
             "n_tasks": len(adapter.task_names), "tasks": adapter.task_names[:500],
             "tasks_truncated": len(adapter.task_names) > 500}
+    card['input_length_contract'] = getattr(adapter, 'length_contract', {
+        'status': 'unknown', 'seq_len': None, 'verified_compatibility': False})
     dp = getattr(adapter.module, "data_params", None)
     if isinstance(dp, dict) and isinstance(dp.get("train"), dict):
         for k in ("genome", "bin_size", "label_len", "rc", "max_seq_shift", "n_seqs"):

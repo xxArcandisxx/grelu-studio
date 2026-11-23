@@ -1,0 +1,10 @@
+{
+  "source_run": "Testing/testing-phase-2/input-output/gate-5/runs/20261122T172930585367Z",
+  "status": "RESOLVED_RECORDING_PROVENANCE_ISSUE",
+  "scope": "Raw-file provenance, not calculation mismatch",
+  "raw_00_actual": 5.364211082458496,
+  "design_oracle_baseline": 5.364211082458496,
+  "cause": "Resetting per-workflow call list reused raw-00.npy for attribution, overwriting design raw-00. JSON design-oracle baseline and calculation comparisons remained intact. Fix: separate design/attribution capture namespaces.",
+  "numeric_mismatch_observed": false,
+  "note": "The two baseline values happened to be identical in this fixture. Phase-specific filenames still eliminate an ambiguous overwrite; no prediction value was corrected."
+}

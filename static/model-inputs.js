@@ -15,12 +15,12 @@
     (form.querySelector('.actions') || form.lastElementChild).before(feedback);
   }
   function records(text) {
-    const lines = text.split(/\r?\n/).map(line => line.trim()).filter(Boolean);
+    const lines = text.replace(/\r\n?/g, '\n').split('\n').map(line => line.replace(/^[ \t\v\f]+|[ \t\v\f]+$/g, '')).filter(Boolean);
     if (!lines.length) return [];
     if (!lines[0].startsWith('>')) return [{ name: 'sequence', sequence: lines.join('') }];
     const result = [];
     for (const line of lines) {
-      if (line.startsWith('>')) result.push({ name: line.slice(1).split(/\s/)[0] || `record_${result.length + 1}`, sequence: '' });
+      if (line.startsWith('>')) result.push({ name: line.slice(1).trim().split(/\s/)[0], sequence: '' });
       else result[result.length - 1].sequence += line;
     }
     return result;
@@ -28,8 +28,16 @@
   function update() {
     const option = model.selectedOptions[0];
     const expected = Number(option?.dataset.length);
-    if (!expected) return;
-    help.textContent = `${option.dataset.label} · requires ${expected.toLocaleString()} bases per record.`;
+    if (!expected) {
+      const message = option?.dataset.lengthError || 'Required input length is unknown. Verified compatibility is unavailable.';
+      help.textContent = message;
+      areas.forEach(area => area.setCustomValidity(message));
+      if (feedback) { feedback.textContent = message; feedback.classList.add('has-error'); }
+      return;
+    }
+    help.textContent = form.id === 'compare' && model.value === 'demo'
+      ? `${option.dataset.label} · up to ${expected.toLocaleString()} bases; shorter inputs are center N-padded under the configured demo policy and effective inputs are recorded.`
+      : `${option.dataset.label} · requires ${expected.toLocaleString()} bases per record.`;
     const notices = [];
     let invalid = false;
     for (const area of areas) {
@@ -40,9 +48,15 @@
       const allowShort = form.id === 'compare' && model.value === 'demo';
       const mismatches = parsed.filter(row => allowShort ? row.sequence.length > expected : row.sequence.length !== expected);
       const invalidBases = parsed.some(row => !/^[ACGTN]+$/i.test(row.sequence));
+      const invalidIdentifiers = parsed.some(row => !row.name) || new Set(parsed.map(row => row.name)).size !== parsed.length;
       const summary = parsed.slice(0, 4).map(row => `${row.name}: ${row.sequence.length.toLocaleString()} bp`).join(' · ');
       const isQc = location.pathname === '/qc';
-      if (mismatches.length) {
+      if (invalidIdentifiers) {
+        invalid = true;
+        const message = 'Every FASTA record needs a nonempty, distinct identifier.';
+        notices.push(message);
+        if (!isQc) area.setCustomValidity(message);
+      } else if (mismatches.length) {
         invalid = true;
         const correction = 'Select Load example for matching inputs, or choose a model that accepts your sequence length.';
         const message = `${summary}. Expected ${allowShort ? 'up to ' : ''}${expected.toLocaleString()} bp per record. ${correction}`;

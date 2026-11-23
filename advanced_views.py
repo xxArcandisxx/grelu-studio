@@ -9,6 +9,7 @@ from tempfile import TemporaryDirectory
 from flask import Blueprint, current_app, jsonify, make_response, render_template, request
 
 from studio_services import length_error, model_metadata
+from core.model_lengths import ModelLengthError, required_length
 
 advanced = Blueprint('advanced', __name__)
 PAGES = {
@@ -106,6 +107,9 @@ def model_info():
     try:
         card, warnings = model_metadata(model)
         return jsonify(**card, model_id=PROVENANCE[model]['model_id'], demo=model == 'demo', warnings=warnings)
+    except ModelLengthError as exc:
+        return jsonify(error=str(exc), seq_len=None, input_length_contract=exc.contract,
+                       verified_compatibility=False), 400
     except Exception:
         current_app.logger.exception('Could not inspect model %s', model)
         return jsonify(error='Could not load model metadata. Check the server installation.'), 503
@@ -120,7 +124,7 @@ def workflow_example(mode):
     model = resolve_model(request.args.get('model', 'demo'))
     if model is None:
         return jsonify(error='Choose an installed local model.'), 400
-    length = MODELS[model]['seq_len']
+    length = required_length(MODELS[model])
     if mode == 'batch-variants':
         return jsonify(text=variant_example(length))
     start = max(1, length // 2 - 49) if mode == 'attribution' else length // 2 + 1
@@ -152,7 +156,7 @@ def run(mode):
     try:
         if model is None:
             raise ValueError('Choose an installed local model.')
-        length = MODELS[model]['seq_len']
+        length = required_length(MODELS[model])
         if request.method == 'POST':
             upload = request.files.get('file')
             if upload and upload.filename:

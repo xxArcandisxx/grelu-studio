@@ -1,0 +1,5 @@
+{
+  "url": "https://genentech.github.io/gReLU/autoapi/grelu/sequence/format/index.html",
+  "review_date": "2026-11-22",
+  "findings": "Official format documentation defines float32 tensors in (4,length) or (N,4,length) representation, and specifies no minimum sequence length for inverse conversion. L=1 meets this general contract. Installed check_one_hot accepts every tested tensor and native strings_to_one_hot produces exactly the same values/shape. No explicit single-base example was found or claimed. Installed module docstring and source are saved in standalone-direct/installed-source.json. Web documentation is current, not a version-pinned source; installed gReLU 1.1.0 source is authoritative for this environment."
+}

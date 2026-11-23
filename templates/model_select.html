@@ -1,12 +1,12 @@
 <label for="model">Model</label>
 <select id="model" name="model" aria-describedby="model-help">
 <optgroup label="Installed models · local inference">
-{% for key, label in choices.local.items() %}<option value="{{ key }}" data-length="{{ choices.lengths[key] }}" data-label="{{ label }}"{% if key == selected %} selected{% endif %}>{{ label }}</option>{% endfor %}
+{% for key, label in choices.local.items() %}<option value="{{ key }}" data-length="{{ choices.lengths[key] if choices.lengths[key] is not none else '' }}" data-length-error="{{ choices.length_errors.get(key, '') }}" data-label="{{ label }}"{% if key == selected %} selected{% endif %}>{{ label }}</option>{% endfor %}
 </optgroup>
 <optgroup label="Model Zoo references · not installed">
 {% for key in choices.zoo %}<option disabled>{{ key }}</option>{% endfor %}
 </optgroup>
 </select>
 {% set current = selected if selected in choices.local else 'demo' %}
-<p class="model-help" id="model-help">{{ choices.local[current] }} · requires {{ "{:,}".format(choices.lengths[current]) }} bases per record.</p>
+<p class="model-help" id="model-help">{{ choices.local[current] }} · {% if choices.lengths[current] is none %}Input length unknown or incompatible. {{ choices.length_errors.get(current, 'Verified compatibility is unavailable.') }}{% else %}requires {{ "{:,}".format(choices.lengths[current]) }} bases per record.{% endif %}</p>
 <a class="catalog-link" href="https://huggingface.co/collections/Genentech/grelu-model-zoo" target="_blank" rel="noopener noreferrer">Browse the gReLU Model Zoo ↗</a>

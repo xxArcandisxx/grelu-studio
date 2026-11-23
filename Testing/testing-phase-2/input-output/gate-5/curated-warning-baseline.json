@@ -1,0 +1,9 @@
+{
+  "mode": "SAVED_REAL_RAW_REPLAY_WITH_ACTUAL_GATE4_WARNING_METADATA",
+  "status": "FAIL",
+  "expected_warnings": [
+    "gReLU predict_on_seqs failed (Gate4 explicit model fault injection); fell back to the built-in forward pass."
+  ],
+  "actual_warnings": null,
+  "cause": "Curated scan discarded loader warnings and adapter.notes before building its view."
+}

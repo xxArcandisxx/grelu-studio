@@ -2,7 +2,10 @@ const element = (id) => document.getElementById(id);
 const form = element("compare");
 let result;
 let generation = 0;
-const format = (number) => Number(number).toPrecision(5);
+const format = (number) => {
+  if (typeof number !== 'number' || !Number.isFinite(number)) throw new Error('Missing or invalid model prediction score.');
+  return number.toPrecision(5);
+};
 
 function clearResult() {
   result = undefined;
@@ -42,18 +45,25 @@ form.addEventListener("input", () => {
 function renderPlot(reference, alternate) {
   const plot = element("plot");
   plot.replaceChildren();
+  if (!Array.isArray(reference) || !Array.isArray(alternate) || !reference.length || reference.length !== alternate.length ||
+      [...reference, ...alternate].some(value => typeof value !== 'number' || !Number.isFinite(value)))
+    throw new Error('Invalid model output values; a chart cannot be displayed.');
+  const single = reference.length === 1;
+  element('plot-title').textContent = single ? 'Model prediction scores · one output per sequence' : 'Model output positions';
   const values = [...reference, ...alternate];
   const min = Math.min(...values);
   const max = Math.max(...values);
-  const span = max - min || 1;
-  const y = (value) => max === min ? 95 : 177 - 160 * (value - min) / span;
+  const factor = Math.max(1, Math.abs(min), Math.abs(max));
+  const low = min / factor, high = max / factor;
+  const span = high - low || 1;
+  const y = (value) => max === min ? 95 : 177 - 160 * (value / factor - low) / span;
   const add = (type, attributes, text) => {
     const node = document.createElementNS("http://www.w3.org/2000/svg", type);
     Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
     if (text !== undefined) node.textContent = text;
     plot.append(node);
   };
-  for (const value of new Set([min, (min + max) / 2, max])) {
+  for (const value of new Set([min, min / 2 + max / 2, max])) {
     add("line", { x1: 90, y1: y(value), x2: 590, y2: y(value), stroke: "#dce4ec" });
     add("text", { x: 5, y: y(value) + 4, fill: "#526176", "font-size": 12 }, format(value));
   }
@@ -68,7 +78,7 @@ function renderPlot(reference, alternate) {
       "stroke-width": 2, "stroke-dasharray": index ? "5 4" : "none" });
   });
   add("text", { x: 340, y: 202, "text-anchor": "middle", fill: "#526176", "font-size": 12 },
-    reference.length + " displayed output bins");
+    single ? "One model score per sequence · no positional profile" : reference.length + " displayed model output positions");
 }
 
 function showTrack() {

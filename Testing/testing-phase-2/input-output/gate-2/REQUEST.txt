@@ -1,0 +1,191 @@
+# gReLU Studio — Gate 2: DNA Input Integrity Verification
+
+Gate 1 has completed with 39 PASS, 0 FAIL, 2 SKIP. Preserve all existing Gate 1 fixes and evidence.
+
+## Objective
+
+Verify that every supported DNA input format is correctly validated, parsed, normalized, and passed through the website's input-handling layer without unintended changes.
+
+This is an engineering correctness test, NOT a biological model benchmark.
+
+**Do not begin Gate 3, 4, 5, 6, or biological output analysis. Stop after Gate 2 and report the findings.**
+
+## 1. Inspect the actual implementation
+
+Identify all relevant user-facing input paths, including:
+
+- Direct DNA sequence entry
+- FASTA upload and parsing
+- BED genomic interval upload
+- Variant input, where supported
+- Batch sequence inputs
+- Model-specific input length handling
+
+Map each input type to its frontend component, Flask route, validation function, preprocessing function, and final sequence representation.
+
+Do not assume a feature works merely because a route or page exists.
+
+## 2. Test DNA validation
+
+Test the following cases:
+
+- Valid uppercase A/C/G/T sequences
+- Lowercase DNA
+- Mixed-case DNA
+- Empty input
+- Whitespace and line breaks
+- Invalid characters such as X, numbers, and punctuation
+- Ambiguous nucleotide N
+- Unicode and non-ASCII characters
+- Extremely long input
+- Missing or malformed input fields
+
+Determine the actual supported policy for ambiguous bases, rather than assuming N must always be rejected.
+
+For every case, record whether the input is accepted, normalized, or rejected, and why.
+
+Ensure invalid input does not silently become a different valid DNA sequence.
+
+## 3. Test sequence-length handling
+
+Use the verified GM12878 workflow requirement of 2,114 bases.
+
+Test lengths:
+
+- 0
+- 1
+- 200
+- 2,113
+- 2,114
+- 2,115
+- 5,000
+
+Verify the behavior for each supported workflow.
+
+If trimming, padding, or resizing is supported, verify that it is explicitly configured and that the exact operation and resulting sequence are recorded.
+
+Do not assume every model requires a fixed input length. Respect the model-specific constraints established in Gate 1.
+
+## 4. Test FASTA parsing
+
+Create small deterministic FASTA fixtures.
+
+Verify:
+
+- Single-record FASTA
+- Multi-record FASTA
+- Wrapped sequences across multiple lines
+- Record order preservation
+- Sequence identifier preservation
+- Duplicate identifiers
+- Missing headers
+- Empty records
+- Invalid characters
+- Mixed sequence lengths
+- Windows and Unix line endings
+
+For duplicate identifiers, verify whether the website rejects them or preserves them with unique internal record identities. Never silently overwrite records.
+
+## 5. Test BED and genome-coordinate handling
+
+Test:
+
+- Valid BED3 records
+- Multiple BED intervals
+- Zero-based, half-open coordinate conventions
+- Off-by-one boundaries
+- Invalid chromosome names
+- Negative start coordinates
+- End less than or equal to start
+- Incorrect interval lengths
+- Missing reference genome
+- Explicit hg19 versus hg38 mismatches
+- Strand handling where supported
+
+Compare extracted sequences against an independently verified reference genome extraction method.
+
+Do not silently substitute genome assemblies or adjust genomic coordinates.
+
+Record the exact genome assembly and reference source used.
+
+## 6. Test variant input handling
+
+For supported variant workflows, verify:
+
+- Reference allele
+- Alternate allele
+- Variant position
+- Reference sequence context
+- Coordinate convention
+- Genome assembly
+- SNP substitution
+- Multi-allelic variants
+- Invalid alleles
+- Reference allele mismatch
+- Indels, only where explicitly supported
+
+Check that the requested mutation is applied at the correct base and that all unaffected bases remain unchanged.
+
+Unsupported variant types must produce clear errors rather than silently incorrect results.
+
+## 7. Verify input preservation
+
+For each accepted test input, record:
+
+- Original submitted input
+- Normalized DNA sequence
+- Sequence length before and after processing
+- Record identifier
+- Genome assembly, if applicable
+- Applied transformations
+- Final sequence passed to the next processing stage
+- SHA-256 hashes of the original and final sequence representations
+
+Hashes should use a documented canonical representation. They are evidence of byte-level equality, not a substitute for inspecting the transformations.
+
+Check that records are not unexpectedly reordered, duplicated, dropped, or altered.
+
+Gate 2 ends at the boundary before tensor encoding/model inference. Do not claim Gate 3 or Gate 4 verification.
+
+## 8. Test actual website input paths
+
+Use the real Flask handlers, request validation, and parsing code.
+
+Do not rely exclusively on isolated helper-function tests.
+
+Where feasible, test the frontend form payload structure against the backend request schema.
+
+Mocking downstream model inference is allowed for Gate 2 only, provided that the actual input-processing code is exercised and the mock does not conceal changes to the input.
+
+## 9. Regression and resource constraints
+
+- Preserve the 39 passing Gate 1 checks.
+- Preserve pretrained weights, existing Phase 1 results, and website design.
+- Use small deterministic fixtures.
+- Avoid large downloads, training, and unnecessary model inference.
+- Keep memory usage suitable for an 8 GB RAM laptop.
+- Add regression tests for every discovered input-handling bug.
+- Do not silently change existing input behavior without documenting the change.
+
+## 10. Deliverables
+
+Save the work under:
+
+Testing/testing-phase-2/input-output/
+
+Provide:
+
+1. Gate 2 automated verification script.
+2. Input fixtures and expected outcomes.
+3. Machine-readable test results.
+4. Detailed Markdown report.
+5. Input-path coverage matrix.
+6. List of bugs found and fixes made, if any.
+7. Commands to reproduce the tests.
+8. Final PASS, FAIL, SKIP, and BLOCKED counts.
+
+Classify each supported input path as VERIFIED, FAILED, PARTIAL, or NOT TESTED.
+
+**Stop after Gate 2. Do not automatically fix unrelated features or proceed to Gate 3.**
+
+Return the report for review before continuing.

@@ -1,6 +1,8 @@
+from core.output_processing import predict_checked
 """Live model interpretation on the bundled human reference loci."""
 import json
 import math
+from core.sequences import aggregate
 from pathlib import Path
 from time import monotonic
 
@@ -17,20 +19,21 @@ def scan_locus(locus, spec):
     from core.models import load_model
 
     started = monotonic()
-    adapter, _ = load_model(spec, "cpu", batch_size=1)
+    adapter, warnings = load_model(spec, "cpu", batch_size=1)
     reference = locus["dna"]
-    reference_score = float(adapter.predict([reference])[0, 0].mean())
+    reference_score = float(aggregate(predict_checked(adapter, [reference]), 0)[0, 0])
     grid = []
     for position in POSITIONS:
         base = reference[position]
         substitutions = [alt for alt in BASES if alt != base]
         sequences = [reference[:position] + alt + reference[position + 1:] for alt in substitutions]
-        values = adapter.predict(sequences).mean(axis=-1)
+        values = aggregate(predict_checked(adapter, sequences), 0)
         changes = {alt: float(delta) - reference_score for alt, (delta,) in zip(substitutions, values, strict=True)}
         if not math.isfinite(reference_score) or not all(map(math.isfinite, changes.values())):
             raise ValueError("The model returned a non-finite score.")
         grid.append({"position": locus["start"] + position + 1, "reference": base, "deltas": changes})
     return {
+        "warnings": warnings + adapter.notes,
         "assembly": "hg38", "chromosome": locus["chrom"], "track": adapter.task_names[0],
         "reference_score": reference_score, "positions": grid,
         "runtime_s": round(monotonic() - started, 2),

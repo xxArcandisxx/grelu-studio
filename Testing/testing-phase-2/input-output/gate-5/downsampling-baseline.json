@@ -1,0 +1,8 @@
+{
+  "mode": "SYNTHETIC_PROCESSING_ONLY",
+  "status": "FAIL",
+  "actual": "array([inf], dtype=float32)",
+  "expected": "Finite mean of eight equal finite float32 values",
+  "source": "workflows.predict._downsample",
+  "scope": "Multi-position synthetic profile only; GM12878 still has one output position."
+}

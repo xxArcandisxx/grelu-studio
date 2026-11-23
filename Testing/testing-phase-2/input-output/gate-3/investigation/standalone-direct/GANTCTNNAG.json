@@ -1,0 +1,26 @@
+{
+  "id": "short_GANTCTNNAG_roundtrip",
+  "status": "PASS",
+  "scope": "optional dependency compatibility",
+  "dna": "GANTCTNNAG",
+  "expected": [
+    "GANTCTNNAG"
+  ],
+  "actual": {
+    "value": [
+      "GANTCTNNAG"
+    ],
+    "error": null,
+    "warnings": []
+  },
+  "shape": [
+    1,
+    4,
+    10
+  ],
+  "dtype": "torch.float32",
+  "device": "cpu",
+  "accepted_by_library_check": true,
+  "detected_format": "one_hot",
+  "equals_native_encoder": true
+}

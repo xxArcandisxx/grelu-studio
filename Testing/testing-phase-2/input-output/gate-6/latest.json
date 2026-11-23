@@ -1,0 +1,10 @@
+{
+  "run": "runs/20261123T110400114845Z",
+  "status": "PASS",
+  "counts": {
+    "PASS": 586,
+    "FAIL": 0,
+    "SKIP": 5,
+    "BLOCKED": 0
+  }
+}

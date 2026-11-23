@@ -1,0 +1,202 @@
+{
+  "retrieved_utc": "2026-11-22T10:01:54.067755+00:00",
+  "seed": 42,
+  "sources": {
+    "intervals.bed": {
+      "url": "https://huggingface.co/datasets/Genentech/GM12878_dnase-data/resolve/5b0d0f4527d067e3f50d8f56020b119db8070a4e/intervals.bed",
+      "file": "datasets/gm12878/biological/source/intervals.bed",
+      "bytes": 10387097,
+      "sha256": "09254abd2dab033de3cd3b5e02cd8c3a80d85409c66679c4a94cce2f075435d3",
+      "md5": "6914e64fa4f34e928b6b29407736ce77"
+    },
+    "hg38.2bit": {
+      "url": "https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.2bit",
+      "file": "datasets/gm12878/biological/source/hg38.2bit",
+      "bytes": 835393456,
+      "sha256": "1f67aaa17a77b327738fe750ab37430a85dddf73c7d9189385ad1839259acec0",
+      "md5": "dcc3ea27079aa6dc3f9deccd7275e0f8"
+    },
+    "hg19.2bit": {
+      "url": "https://hgdownload.soe.ucsc.edu/goldenPath/hg19/bigZips/hg19.2bit",
+      "file": "datasets/gm12878/biological/source/hg19.2bit",
+      "bytes": 816241703,
+      "sha256": "797bdb4391cbe23bd30268d41d0d86676fd7b36b7f8e76797b1882d585766fa3",
+      "md5": "bcdbfbe9da62f19bee88b74dabef8cd3"
+    },
+    "ENCFF093VXI.bigWig": {
+      "url": "https://www.encodeproject.org/files/ENCFF093VXI/@@download/ENCFF093VXI.bigWig",
+      "file": "datasets/gm12878/biological/source/ENCFF093VXI.bigWig",
+      "bytes": 779819333,
+      "sha256": "924d3bedbaf4c7dd766065dd7bb63b3061f5194a9256dce5e38e6b1583eff0a0",
+      "md5": "96d6a8647e744d96738531401108bfe2"
+    },
+    "dsqtl.xlsx": {
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fng.3331/MediaObjects/41588_2015_BFng3331_MOESM26_ESM.xlsx",
+      "file": "datasets/gm12878/biological/source/dsqtl.xlsx",
+      "bytes": 3850045,
+      "sha256": "68c5e8b74aff7ad3205096b97d16a28ed521b0fabcd3e464a369d5ef5f2e8b6c",
+      "md5": "ca709b9bbe28a145d2bb2f9dd0b52693"
+    }
+  },
+  "protocol_notebooks": "https://github.com/Genentech/gReLU-applications/blob/d98346a34e74a88cc7ad47b5596925e8858c211a/VEP_benchmark/",
+  "dnase_test_population": 22595,
+  "dnase_sample": 500,
+  "dsqtl_population": 28273,
+  "dsqtl_sample": 1000,
+  "dsqtl_positives": 16,
+  "dsqtl_excluded": [
+    {
+      "id": "rs9562202",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs116485853",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs11845680",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs74003618",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs2541694",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs74003626",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs148525551",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs62056992",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs78900514",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs11658619",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs4890185",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs78677977",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs10153238",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs55683653",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs12451407",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs75343449",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs7235782",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs9952365",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs2509444",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs2078192",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs76930768",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs80295253",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs61012884",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs10411093",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs114888422",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs2839368",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs115055839",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs7380066",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs7734346",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs6949983",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs4644190",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs6958643",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs11185555",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs74463401",
+      "reason": "chromosome edge"
+    },
+    {
+      "id": "rs11768030",
+      "reason": "chromosome edge"
+    }
+  ],
+  "dsqtl_reference_mismatches": [
+    {
+      "id": "rs7338868",
+      "reason": "neither allele matches hg19 reference"
+    }
+  ],
+  "dsqtl_allele_convention": "Original allele1 vs allele2; both inserted into hg19 background. Not signed reference-genome effects.",
+  "sample_files": {
+    "dnase.csv": "abb580c426bb51dbe7bd421cf61f7b6d00fe4eff9f4895c5a06e054b7adc476e",
+    "dnase.fasta": "75329c8bae29a462a0f92aed3e5328a84922dfa378096330488668d2ea85d4c5",
+    "dsqtl.csv": "0fe9dfa789c76965281c5d3b66ba0c0ef4765504d30a6e2f3bfe4234e7eceddb",
+    "dsqtl_population.csv": "c49a84d917cb1286c0703d551c926b9d0b593152c46eeea25062a437a1c814e2"
+  }
+}

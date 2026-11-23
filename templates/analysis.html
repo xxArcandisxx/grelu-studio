@@ -17,7 +17,7 @@
 {% if error %}<p id="status" role="alert">{{ error }}</p>{% endif %}
 </form></aside>
 <section class="panel results"><h2>Results</h2>
-{% if result %}
+{% if result %}<p class="model-help">Model prediction scores use the native model scale. Units and probability interpretation are not established; score changes are not proven biological effects.</p>
 {% include "saved_run_link.html" %}
 <p class="notice">{% if selected in choices.zoo %}Selected {{ selected }} · {% endif %}{{ 'Checked against' if mode == 'qc' else 'Model used' }} {{ result.actual_model }}</p>
 {% if mode == 'prioritize' %}<p>Ranked by absolute predicted score change within each output track.</p>{% endif %}

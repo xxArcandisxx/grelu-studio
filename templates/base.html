@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='studio.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='workspace-theme.css') }}">
 <script defer src="/static/workspace.js"></script>
-<script defer src="/static/model-inputs.js"></script>
-<script defer src="/static/examples.js"></script>
+<script defer src="{{ url_for('static', filename='model-inputs.js') }}"></script>
+<script defer src="{{ url_for('static', filename='examples.js') }}"></script>
 {% block head %}{% endblock %}
 </head>
 <body data-workflow="{{ mode|default('variants', true) }}">

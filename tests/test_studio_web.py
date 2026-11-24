@@ -105,6 +105,29 @@ class StudioTests(unittest.TestCase):
         self.assertEqual(len(response.json['results']['predictions']), 2)
         self.assertEqual(self.client.post('/api/compare', json={'model':'demo', 'reference':'AAAA', 'alternate':'AAAA'}).status_code, 400)
 
+    def test_qc_reports_current_input_lengths(self):
+        from workbench import quality_report
+        from core.dna_inputs import parse_records
+
+        example = self.client.get('/api/examples/qc?model=demo').json['fields']['fasta']
+        self.assertTrue(all(row['matches_model_length'] for row in quality_report(parse_records(example), 200)))
+        self.assertNotIn('short_window', example)
+
+        response = self.client.post('/qc', data={'model': 'demo', 'fasta': '>short_window\n' + 'A' * 190})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Expected 200 bp', response.text)
+        self.assertIn('<td>190</td>', response.text)
+
+        response = self.client.post('/qc', data={'model': 'demo', 'fasta': '>short_window\n' + 'A' * 200})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('Exact match', response.text)
+        self.assertNotIn('Expected 200 bp', response.text)
+        self.assertNotIn('<td>190</td>', response.text)
+
+        response = self.client.post('/qc', data={'model': 'demo', 'fasta': '>invalid\nACGX'})
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('role="alert"', response.text)
+
 
 if __name__ == '__main__':
     unittest.main()

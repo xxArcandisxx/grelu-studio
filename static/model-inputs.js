@@ -3,6 +3,7 @@
   const model = document.getElementById('model');
   if (!model) return;
   const form = model.form;
+  const isQc = document.body.dataset.workflow === 'qc';
   const areas = [...form.querySelectorAll('textarea')];
   const help = document.getElementById('model-help');
   let feedback = document.getElementById('input-validation');
@@ -32,14 +33,17 @@
       const message = option?.dataset.lengthError || 'Required input length is unknown. Verified compatibility is unavailable.';
       help.textContent = message;
       areas.forEach(area => area.setCustomValidity(message));
-      if (feedback) { feedback.textContent = message; feedback.classList.add('has-error'); }
+      if (feedback) { feedback.textContent = message; feedback.classList.add('has-error'); feedback.classList.remove('has-warning'); }
       return;
     }
     help.textContent = form.id === 'compare' && model.value === 'demo'
       ? `${option.dataset.label} · up to ${expected.toLocaleString()} bases; shorter inputs are center N-padded under the configured demo policy and effective inputs are recorded.`
-      : `${option.dataset.label} · requires ${expected.toLocaleString()} bases per record.`;
+      : isQc
+        ? `${option.dataset.label} · checks compatibility against ${expected.toLocaleString()} bases per record. QC accepts other lengths.`
+        : `${option.dataset.label} · requires ${expected.toLocaleString()} bases per record.`;
     const notices = [];
     let invalid = false;
+    let warning = false;
     for (const area of areas) {
       area.setCustomValidity('');
       if (area.dataset.sequenceInput === 'csv') continue;
@@ -50,21 +54,24 @@
       const invalidBases = parsed.some(row => !/^[ACGTN]+$/i.test(row.sequence));
       const invalidIdentifiers = parsed.some(row => !row.name) || new Set(parsed.map(row => row.name)).size !== parsed.length;
       const summary = parsed.slice(0, 4).map(row => `${row.name}: ${row.sequence.length.toLocaleString()} bp`).join(' · ');
-      const isQc = location.pathname === '/qc';
       if (invalidIdentifiers) {
         invalid = true;
         const message = 'Every FASTA record needs a nonempty, distinct identifier.';
         notices.push(message);
-        if (!isQc) area.setCustomValidity(message);
-      } else if (mismatches.length) {
-        invalid = true;
-        const correction = 'Select Load example for matching inputs, or choose a model that accepts your sequence length.';
-        const message = `${summary}. Expected ${allowShort ? 'up to ' : ''}${expected.toLocaleString()} bp per record. ${correction}`;
-        notices.push(message);
-        if (!isQc) area.setCustomValidity(message);
+        area.setCustomValidity(message);
       } else if (invalidBases) {
         invalid = true;
         const message = 'DNA must contain only A, C, G, T or N, with optional FASTA headers.';
+        notices.push(message);
+        area.setCustomValidity(message);
+      } else if (mismatches.length) {
+        invalid = !isQc;
+        warning = isQc;
+        const correction = isQc
+          ? 'QC can still run; length mismatches will be included in the results.'
+          : 'Select Load example for matching inputs, or choose a model that accepts your sequence length.';
+        const mismatchedSummary = mismatches.slice(0, 4).map(row => `${row.name}: ${row.sequence.length.toLocaleString()} bp`).join(' · ');
+        const message = `${isQc ? 'Model compatibility warning: ' : ''}${mismatchedSummary}. Expected ${allowShort ? 'up to ' : ''}${expected.toLocaleString()} bp per record. ${correction}`;
         notices.push(message);
         if (!isQc) area.setCustomValidity(message);
       } else notices.push(`${summary} · ${isQc ? 'Length matches selected model' : 'Input length matches'}.`);
@@ -72,6 +79,7 @@
     if (feedback) {
       feedback.textContent = notices.join(' ');
       feedback.classList.toggle('has-error', invalid);
+      feedback.classList.toggle('has-warning', warning && !invalid);
     }
   }
   model.addEventListener('change', update);
@@ -94,7 +102,7 @@
         loaded.textContent = `Loaded ${file.name} into the editor. You can edit it before running.`;
       } catch (error) {
         upload.value = '';
-        if (feedback) { feedback.textContent = error.message; feedback.classList.add('has-error'); }
+        if (feedback) { feedback.textContent = error.message; feedback.classList.add('has-error'); feedback.classList.remove('has-warning'); }
       }
     });
   }

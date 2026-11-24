@@ -92,11 +92,11 @@ class ExampleLoadingTests(unittest.TestCase):
         with patch.dict(MODELS,{'fixture-human':{'source':'demo','seq_len':2114,'n_tasks':1}}), \
              patch.dict(PROVENANCE,{'fixture-human':{'model_id':'Fixture model'}}):
             for selection,length in [('demo',200),('fixture-human',2114)]:
-                for workflow in ('predict','allele-specific','prioritize','multi-allelic'):
+                for workflow in ('predict','qc','allele-specific','prioritize','multi-allelic'):
                     data=self.example(workflow,model=selection)
                     rows=parse_batch(data['fields']['fasta'],parse_sequence)
                     self.assertTrue(all(len(row['sequence'])==length for row in rows))
-                    if workflow!='predict':validate_pairs(workflow,rows)
+                    if workflow not in ('predict','qc'):validate_pairs(workflow,rows)
                 pair=self.example('variants',model=selection)['fields']
                 ref=parse_sequence(pair['reference'],'reference');alt=parse_sequence(pair['alternate'],'alternate')
                 self.assertEqual(len(ref),length)

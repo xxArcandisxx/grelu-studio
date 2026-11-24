@@ -32,7 +32,7 @@
       };
       try {
         const url = `/api/examples/${encodeURIComponent(workflow)}${download?'/download':''}?${query(form)}`;
-        const response = await fetch(url);
+        const response = await fetch(url, { cache: 'no-store' });
         if (!response.ok) {
           const error = await response.json().catch(()=>({}));
           throw new Error(error.error || 'Could not load the example. Please try again.');

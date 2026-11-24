@@ -195,7 +195,7 @@ main{padding:20px 16px 30px}
 .form-grid label{font-size:10px}
 .input-validation{font-size:10px;color:#4a7848;margin-top:16px;line-height:1.8;overflow-wrap:anywhere}
 .input-validation:empty{display:none}
-.input-validation.has-error,.form-error{color:#945133;background:#fff5e9;border:1px solid #efdfc9;border-radius:6px;padding:10px;margin-top:14px;font-size:11px}
+.input-validation.has-error,.input-validation.has-warning,.form-error{color:#945133;background:#fff5e9;border:1px solid #efdfc9;border-radius:6px;padding:10px;margin-top:14px;font-size:11px}
 button.compact{font-size:9px;padding:5px 8px}
 .result-badge{font-size:9px;background:#edf4e5;color:#4d7338;border-radius:20px;padding:4px 8px;white-space:nowrap}
 .sequence-output{white-space:pre-wrap;word-break:break-all;font-size:11px;line-height:1.9;background:#f6f8f2;padding:14px;border-radius:6px;max-height:220px;overflow:auto}

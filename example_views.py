@@ -154,7 +154,7 @@ def build_example(workflow, query):
             fields = {'reference':ref,'alternate':alt}
             files = [_file(f'reference-{length}bp.fasta',ref),_file(f'alternate-{length}bp.fasta',alt)]
         elif workflow in {'predict','qc','allele-specific','prioritize','multi-allelic'}:
-            names = {'predict':'06_Sequence_Prediction_three_records.fasta','qc':'07_Sequence_QC_exact_short_and_unknown.fasta',
+            names = {'predict':'06_Sequence_Prediction_three_records.fasta',
                      'allele-specific':'02_Allele_Specific_Regulation_two_haplotypes.fasta',
                      'prioritize':'03_Variant_Prioritization_reference_and_two_SNVs.fasta',
                      'multi-allelic':'04_Multi_Allelic_reference_and_three_alternates.fasta'}
@@ -166,7 +166,8 @@ def build_example(workflow, query):
                 if workflow=='predict':
                     return _fasta([(f'sequence_{i+1}',_sequence(length,31+i)) for i in range(min(3,max(1,500000//length)))])
                 if workflow=='qc':
-                    return _fasta([('short',seed[:max(1,length//2)]),('full',seed),('unknown','N'*min(4,length)+seed[min(4,length):])])
+                    return _fasta([('sequence_1',seed),('sequence_2',_sequence(length,20)),
+                                   ('unknown','N'*min(4,length)+seed[min(4,length):])])
                 rows=[('reference',seed),('alternate_1',mutate(length//2))]
                 if workflow=='allele-specific' and length>1:
                     value=rows[1][1];offset=(length//2+1)%length
@@ -177,9 +178,9 @@ def build_example(workflow, query):
                         combined=rows[1][1];offset=(length//2+1)%length
                         rows.append(('combined',combined[:offset]+('A' if combined[offset]!='A' else 'C')+combined[offset+1:]))
                 return _fasta(rows)
-            content = _fixture(folder+'/'+names[workflow],fallback) if folder else fallback()
+            content = _fixture(folder+'/'+names[workflow],fallback) if folder and workflow!='qc' else fallback()
             fields = {'fasta':content}
-            if workflow=='qc':message='QC example loaded with a deliberately short record and unknown bases. Select Run analysis to inspect them.'
+            if workflow=='qc':message='QC example loaded with model-length records, including one with unknown bases. Select Run analysis to inspect them.'
             files = [_file(f'{workflow}-{length}bp.fasta',content)]
         elif workflow=='batch-variants':
             from advanced_views import variant_example
